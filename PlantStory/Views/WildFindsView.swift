@@ -285,7 +285,11 @@ private struct AnimatedWildFindHero: View {
                     value: isAnimating
                 )
 
-            MirroredWildFlower(color: botanical)
+            Image(systemName: "camera.macro")
+                .font(.system(size: 72, weight: .medium))
+                .foregroundStyle(botanical)
+                .symbolRenderingMode(.hierarchical)
+                .frame(width: 110, height: 110)
         }
         .frame(height: 270)
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
@@ -301,71 +305,6 @@ private struct AnimatedWildFindHero: View {
         .onChange(of: reduceMotion) { _, shouldReduceMotion in
             isAnimating = !shouldReduceMotion
         }
-    }
-}
-
-private struct MirroredWildFlower: View {
-    let color: Color
-
-    var body: some View {
-        ZStack {
-            // Keep the bloom, stalk, and the symbol's naturally attached right leaf.
-            flowerSymbol
-                .mask {
-                    GeometryReader { geometry in
-                        let width = geometry.size.width
-                        let height = geometry.size.height
-
-                        Path { path in
-                            path.addRect(CGRect(x: 0, y: 0, width: width, height: height * 0.54))
-                            path.addRect(
-                                CGRect(
-                                    x: width * 0.47,
-                                    y: height * 0.42,
-                                    width: width * 0.53,
-                                    height: height * 0.58
-                                )
-                            )
-                            path.addRect(
-                                CGRect(
-                                    x: width * 0.46,
-                                    y: height * 0.40,
-                                    width: width * 0.08,
-                                    height: height * 0.60
-                                )
-                            )
-                        }
-                        .fill(.white)
-                    }
-                }
-
-            // Mirror that exact right leaf so both leaves share its natural attachment.
-            flowerSymbol
-                .mask {
-                    GeometryReader { geometry in
-                        Rectangle()
-                            .fill(.white)
-                            .frame(
-                                width: geometry.size.width * 0.53,
-                                height: geometry.size.height * 0.58
-                            )
-                            .position(
-                                x: geometry.size.width * 0.735,
-                                y: geometry.size.height * 0.71
-                            )
-                    }
-                }
-                .scaleEffect(x: -1, y: 1)
-        }
-        .frame(width: 110, height: 110)
-    }
-
-    private var flowerSymbol: some View {
-        Image(systemName: "camera.macro")
-            .font(.system(size: 72, weight: .medium))
-            .foregroundStyle(color)
-            .symbolRenderingMode(.hierarchical)
-            .frame(width: 110, height: 110)
     }
 }
 

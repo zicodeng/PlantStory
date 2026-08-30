@@ -29,10 +29,32 @@ struct PlantListView: View {
             filteredPlants = store.plants.filter {
                 $0.name.localizedCaseInsensitiveContains(query) ||
                 ($0.otherName?.localizedCaseInsensitiveContains(query) ?? false) ||
-                $0.species.localizedCaseInsensitiveContains(query)
+                $0.species.localizedCaseInsensitiveContains(query) ||
+                ($0.location?.localizedCaseInsensitiveContains(query) ?? false)
             }
         }
         return filteredPlants.sorted { sortOption.precedes($0, $1, direction: sortDirection) }
+    }
+
+    private var locationSections: [PlantLocationSection] {
+        let grouped = Dictionary(grouping: visiblePlants) { plant in
+            normalizedLocationKey(for: plant.location)
+        }
+
+        return grouped.map { key, plants in
+            PlantLocationSection(
+                id: key.map { "location:\($0)" } ?? "unassigned",
+                title: displayLocation(from: plants.first?.location) ?? "No location",
+                plants: plants,
+                isUnassigned: key == nil
+            )
+        }
+        .sorted { left, right in
+            if left.isUnassigned != right.isUnassigned {
+                return !left.isUnassigned
+            }
+            return left.title.localizedStandardCompare(right.title) == .orderedAscending
+        }
     }
 
     var body: some View {
@@ -130,15 +152,23 @@ struct PlantListView: View {
                             if visiblePlants.isEmpty {
                                 noSearchResults
                             } else {
-                                LazyVGrid(columns: columns, alignment: .leading, spacing: 18) {
-                                    ForEach(visiblePlants) { plant in
-                                        NavigationLink(value: plant.id) {
-                                            GardenPlantCard(plant: plant, panel: panel, lime: lime)
-                                        }
-                                        .buttonStyle(.plain)
-                                        .contextMenu {
-                                            Button("Delete", systemImage: "trash", role: .destructive) {
-                                                plantToDelete = plant
+                                LazyVStack(alignment: .leading, spacing: 26) {
+                                    ForEach(locationSections) { section in
+                                        VStack(alignment: .leading, spacing: 12) {
+                                            locationHeader(section)
+
+                                            LazyVGrid(columns: columns, alignment: .leading, spacing: 18) {
+                                                ForEach(section.plants) { plant in
+                                                    NavigationLink(value: plant.id) {
+                                                        GardenPlantCard(plant: plant, panel: panel, lime: lime)
+                                                    }
+                                                    .buttonStyle(.plain)
+                                                    .contextMenu {
+                                                        Button("Delete", systemImage: "trash", role: .destructive) {
+                                                            plantToDelete = plant
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -195,6 +225,42 @@ struct PlantListView: View {
     private var collectionSubtitle: String {
         let count = store.plants.count
         return count == 1 ? "You’re raising 1 plant" : "You’re raising \(count) plants"
+    }
+
+    private func locationHeader(_ section: PlantLocationSection) -> some View {
+        HStack(spacing: 8) {
+            Image(systemName: section.isUnassigned ? "mappin.slash" : "mappin.and.ellipse")
+                .foregroundStyle(lime)
+
+            Text(section.title)
+                .font(.system(.headline, design: .serif, weight: .semibold))
+                .foregroundStyle(.white)
+
+            Spacer()
+
+            Text("\(section.plants.count)")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.white.opacity(0.7))
+                .padding(.horizontal, 9)
+                .padding(.vertical, 4)
+                .background(.white.opacity(0.08), in: Capsule())
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(section.title), \(section.plants.count) \(section.plants.count == 1 ? "plant" : "plants")")
+    }
+
+    private func normalizedLocationKey(for location: String?) -> String? {
+        guard let displayLocation = displayLocation(from: location) else { return nil }
+        return displayLocation.folding(
+            options: [.caseInsensitive, .diacriticInsensitive],
+            locale: .current
+        )
+    }
+
+    private func displayLocation(from location: String?) -> String? {
+        guard let location else { return nil }
+        let value = location.trimmingCharacters(in: .whitespacesAndNewlines)
+        return value.isEmpty ? nil : value
     }
 
     private var searchField: some View {
@@ -278,7 +344,7 @@ struct PlantListView: View {
             Text("No matching plants")
                 .font(.system(.headline, design: .serif, weight: .semibold))
                 .foregroundStyle(.white)
-            Text("Try another name or species.")
+            Text("Try another name, species, or location.")
                 .font(.subheadline)
                 .foregroundStyle(.white.opacity(0.6))
         }
@@ -349,6 +415,13 @@ struct PlantListView: View {
             warmCard: warmCard
         )
     }
+}
+
+private struct PlantLocationSection: Identifiable {
+    let id: String
+    let title: String
+    let plants: [Plant]
+    let isUnassigned: Bool
 }
 
 private struct AnimatedGardenEmblem: View {
@@ -865,13 +938,34 @@ private struct GardenPlantCard: View {
                 .overlay {
                     PlantPhoto(data: cardPhoto, cornerRadius: 0)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .saturation(plant.isDeceased ? 0 : 1)
+                        .contrast(plant.isDeceased ? 0.88 : 1)
+
+                    if plant.isDeceased {
+                        LinearGradient(
+                            colors: [.black.opacity(0.08), .black.opacity(0.48)],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    }
+                }
+                .overlay(alignment: .topLeading) {
+                    if plant.isDeceased {
+                        Label("In memory", systemImage: "moon.stars.fill")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(.white.opacity(0.92))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 5)
+                            .background(.black.opacity(0.56), in: Capsule())
+                            .padding(10)
+                    }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
 
             VStack(alignment: .leading, spacing: 7) {
                 Text(plant.name)
                     .font(.system(.headline, design: .serif, weight: .semibold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.white.opacity(plant.isDeceased ? 0.78 : 1))
                     .lineLimit(1)
 
                 HStack(spacing: 6) {
@@ -879,7 +973,7 @@ private struct GardenPlantCard: View {
                     Text("Day \(plant.daysRaised)")
                 }
                 .font(.caption.weight(.semibold))
-                .foregroundStyle(lime)
+                .foregroundStyle(plant.isDeceased ? .white.opacity(0.52) : lime)
 
             }
             .padding(.horizontal, 12)
@@ -893,12 +987,19 @@ private struct GardenPlantCard: View {
             cardPhoto = photos.randomElement()
         }
         .padding(7)
-        .background(panel, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .background(
+            plant.isDeceased ? Color(red: 0.19, green: 0.25, blue: 0.21) : panel,
+            in: RoundedRectangle(cornerRadius: 22, style: .continuous)
+        )
         .overlay {
             RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .stroke(.white.opacity(0.07), lineWidth: 1)
+                .stroke(
+                    .white.opacity(plant.isDeceased ? 0.18 : 0.07),
+                    style: StrokeStyle(lineWidth: 1, dash: plant.isDeceased ? [5, 4] : [])
+                )
         }
         .accessibilityElement(children: .combine)
+        .accessibilityValue(plant.isDeceased ? "In memory" : "Growing")
         .accessibilityHint("Opens plant details")
     }
 }

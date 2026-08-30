@@ -55,7 +55,12 @@ struct PlantDetailView: View {
             PlantTimelineEvent(
                 id: "photo-\(index)",
                 date: currentPlant.dateForPhoto(at: index),
-                kind: .photo(currentPlant.photos[index], note: currentPlant.noteForPhoto(at: index))
+                kind: .photo(
+                    currentPlant.photos[index],
+                    note: currentPlant.noteForPhoto(at: index),
+                    eventTag: currentPlant.eventTagForPhoto(at: index),
+                    customEventTitle: currentPlant.customEventTitleForPhoto(at: index)
+                )
             )
         }
         return result.sorted { $0.date > $1.date }
@@ -301,7 +306,7 @@ struct PlantDetailView: View {
                         .foregroundStyle(.white.opacity(0.58))
                 }
 
-                if case let .photo(data, note) = event.kind {
+                if case let .photo(data, note, _, _) = event.kind {
                     if !note.isEmpty {
                         Text(note)
                             .font(.subheadline)
@@ -542,7 +547,12 @@ struct PlantDetailView: View {
 
 private struct PlantTimelineEvent: Identifiable {
     enum Kind {
-        case photo(Data, note: String)
+        case photo(
+            Data,
+            note: String,
+            eventTag: PlantPhotoEventTag?,
+            customEventTitle: String
+        )
         case acquired
     }
 
@@ -556,28 +566,49 @@ private struct PlantTimelineEvent: Identifiable {
     }
 
     var hasPhotoNote: Bool {
-        if case let .photo(_, note) = kind { return !note.isEmpty }
+        if case let .photo(_, note, _, _) = kind { return !note.isEmpty }
         return false
     }
 
     var title: String {
         switch kind {
-        case .photo: return "A new moment"
+        case let .photo(_, _, eventTag, customEventTitle):
+            if eventTag == .customEvent {
+                let title = customEventTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+                return title.isEmpty ? "Custom event" : title
+            }
+            return eventTag?.title ?? "A new moment"
         case .acquired: return "Came home"
         }
     }
 
     var icon: String {
         switch kind {
-        case .photo: return "camera.fill"
+        case let .photo(_, _, eventTag, _): return eventTag?.icon ?? "camera.fill"
         case .acquired: return "house.fill"
         }
     }
 
     var color: Color {
         switch kind {
-        case .photo: return Color(red: 0.36, green: 0.82, blue: 0.12)
+        case let .photo(_, _, eventTag, _): return photoColor(for: eventTag)
         case .acquired: return Color(red: 0.95, green: 0.62, blue: 0.25)
+        }
+    }
+
+    private func photoColor(for eventTag: PlantPhotoEventTag?) -> Color {
+        switch eventTag {
+        case .repotted: Color(red: 0.68, green: 0.45, blue: 0.26)
+        case .pruned: Color(red: 0.40, green: 0.72, blue: 0.28)
+        case .fertilized: Color(red: 0.92, green: 0.56, blue: 0.16)
+        case .bloomed: Color(red: 0.92, green: 0.30, blue: 0.52)
+        case .newGrowth: Color(red: 0.36, green: 0.82, blue: 0.12)
+        case .pestDiscovered: Color(red: 0.86, green: 0.28, blue: 0.20)
+        case .treatmentApplied: Color(red: 0.22, green: 0.64, blue: 0.88)
+        case .cameHome: Color(red: 0.95, green: 0.62, blue: 0.25)
+        case .customEvent: Color(red: 0.56, green: 0.38, blue: 0.82)
+        case .death: Color(red: 0.43, green: 0.47, blue: 0.45)
+        case nil: Color(red: 0.36, green: 0.82, blue: 0.12)
         }
     }
 }

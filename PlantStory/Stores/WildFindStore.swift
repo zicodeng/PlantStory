@@ -48,6 +48,12 @@ final class WildFindStore: ObservableObject {
         save()
     }
 
+    func replaceAll(with restoredFinds: [WildFind]) throws {
+        let data = try encoder.encode(restoredFinds)
+        try data.write(to: fileURL, options: .atomic)
+        finds = restoredFinds
+    }
+
     private func load() {
         guard let data = try? Data(contentsOf: fileURL),
               let savedFinds = try? decoder.decode([WildFind].self, from: data) else { return }

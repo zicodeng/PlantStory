@@ -26,6 +26,7 @@ struct PlantFormView: View {
     @State private var name: String
     @State private var otherName: String
     @State private var species: String
+    @State private var location: String
     @State private var acquisitionDate: Date
     @State private var fertilizingMonths: Set<Int>
     @State private var pruningMonths: Set<Int>
@@ -33,6 +34,8 @@ struct PlantFormView: View {
     @State private var photos: [Data]
     @State private var photoDates: [Date]
     @State private var photoNotes: [String]
+    @State private var photoEventTags: [PlantPhotoEventTag?]
+    @State private var photoCustomEventTitles: [String]
     @State private var selectedItems: [PhotosPickerItem] = []
     @State private var isLoadingPhotos = false
     @State private var isRequestingAISuggestion = false
@@ -53,10 +56,19 @@ struct PlantFormView: View {
         let normalizedNotes = existingPhotos.indices.map { index in
             savedNotes.indices.contains(index) ? savedNotes[index] : ""
         }
+        let savedEventTags = plant?.photoEventTags ?? []
+        let normalizedEventTags = existingPhotos.indices.map { index in
+            savedEventTags.indices.contains(index) ? savedEventTags[index] : nil
+        }
+        let savedCustomEventTitles = plant?.photoCustomEventTitles ?? []
+        let normalizedCustomEventTitles = existingPhotos.indices.map { index in
+            savedCustomEventTitles.indices.contains(index) ? savedCustomEventTitles[index] : ""
+        }
 
         _name = State(initialValue: plant?.name ?? "")
         _otherName = State(initialValue: plant?.otherName ?? "")
         _species = State(initialValue: plant?.species ?? "")
+        _location = State(initialValue: plant?.location ?? "")
         _acquisitionDate = State(initialValue: plant?.acquisitionDate ?? .now)
         _fertilizingMonths = State(initialValue: Set(plant?.fertilizingMonths ?? []))
         _pruningMonths = State(initialValue: Set(plant?.pruningMonths ?? []))
@@ -68,6 +80,8 @@ struct PlantFormView: View {
         _photos = State(initialValue: existingPhotos)
         _photoDates = State(initialValue: normalizedDates)
         _photoNotes = State(initialValue: normalizedNotes)
+        _photoEventTags = State(initialValue: normalizedEventTags)
+        _photoCustomEventTitles = State(initialValue: normalizedCustomEventTitles)
     }
 
     var body: some View {
@@ -79,6 +93,40 @@ struct PlantFormView: View {
                     .textInputAutocapitalization(.words)
                 TextField("Species (optional)", text: $species)
                     .textInputAutocapitalization(.words)
+                HStack(spacing: 10) {
+                    TextField("Location (optional)", text: $location)
+                        .textInputAutocapitalization(.words)
+
+                    if !existingLocationOptions.isEmpty {
+                        Menu {
+                            ForEach(existingLocationOptions, id: \.self) { option in
+                                Button {
+                                    location = option
+                                } label: {
+                                    if locationMatches(option) {
+                                        Label(option, systemImage: "checkmark")
+                                    } else {
+                                        Text(option)
+                                    }
+                                }
+                            }
+
+                            if normalizedLocation != nil {
+                                Divider()
+                                Button("Clear location", systemImage: "xmark") {
+                                    location = ""
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "chevron.down.circle.fill")
+                                .font(.title3)
+                                .frame(width: 32, height: 32)
+                                .contentShape(Rectangle())
+                        }
+                        .accessibilityLabel("Choose an existing location")
+                        .accessibilityHint("Shows locations already used by your plants")
+                    }
+                }
                 DatePicker(
                     "Acquired",
                     selection: $acquisitionDate,
@@ -175,6 +223,22 @@ struct PlantFormView: View {
                             .accessibilityLabel("Remove photo \(index + 1)")
                         }
 
+                        TimelineEventMenu(selection: $photoEventTags[index])
+
+                        if photoEventTags[index] == .customEvent {
+                            TextField(
+                                "Custom event name",
+                                text: $photoCustomEventTitles[index]
+                            )
+                            .textInputAutocapitalization(.sentences)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 10)
+                            .background(
+                                .secondary.opacity(0.08),
+                                in: RoundedRectangle(cornerRadius: 10)
+                            )
+                        }
+
                         TextField("Add a note about this photo…", text: $photoNotes[index], axis: .vertical)
                             .lineLimit(1...3)
                             .padding(.horizontal, 12)
@@ -200,7 +264,7 @@ struct PlantFormView: View {
             } header: {
                 Text("Photos")
             } footer: {
-                Text("Photo dates are filled from image metadata when available. You can still adjust them and add a note.")
+                Text("Photo dates are filled from image metadata when available. You can adjust them, choose a timeline event, and add a note.")
             }
 
             Section("Notes") {
@@ -274,6 +338,12 @@ struct PlantFormView: View {
         if photoNotes.indices.contains(index) {
             photoNotes.remove(at: index)
         }
+        if photoEventTags.indices.contains(index) {
+            photoEventTags.remove(at: index)
+        }
+        if photoCustomEventTitles.indices.contains(index) {
+            photoCustomEventTitles.remove(at: index)
+        }
     }
 
     private func save() {
@@ -281,6 +351,7 @@ struct PlantFormView: View {
             plant.name = trimmedName
             plant.otherName = normalizedOtherName
             plant.species = species.trimmingCharacters(in: .whitespacesAndNewlines)
+            plant.location = normalizedLocation
             plant.acquisitionDate = acquisitionDate
             plant.fertilizingMonths = normalizedFertilizingMonths
             plant.pruningMonths = normalizedPruningMonths
@@ -289,12 +360,15 @@ struct PlantFormView: View {
             plant.photos = photos
             plant.photoDates = photoDates
             plant.photoNotes = normalizedPhotoNotes
+            plant.photoEventTags = photoEventTags
+            plant.photoCustomEventTitles = normalizedPhotoCustomEventTitles
             store.update(plant)
         } else {
             store.add(Plant(
                 name: trimmedName,
                 otherName: normalizedOtherName,
                 species: species.trimmingCharacters(in: .whitespacesAndNewlines),
+                location: normalizedLocation,
                 acquisitionDate: acquisitionDate,
                 fertilizingMonths: normalizedFertilizingMonths,
                 pruningMonths: normalizedPruningMonths,
@@ -302,7 +376,9 @@ struct PlantFormView: View {
                 notes: notes.trimmingCharacters(in: .whitespacesAndNewlines),
                 photos: photos,
                 photoDates: photoDates,
-                photoNotes: normalizedPhotoNotes
+                photoNotes: normalizedPhotoNotes,
+                photoEventTags: photoEventTags,
+                photoCustomEventTitles: normalizedPhotoCustomEventTitles
             ))
         }
         dismiss()
@@ -378,11 +454,19 @@ struct PlantFormView: View {
             photos.append(resized)
             photoDates.append(min(creationDate, .now))
             photoNotes.append("")
+            photoEventTags.append(nil)
+            photoCustomEventTitles.append("")
         }
     }
 
     private var normalizedPhotoNotes: [String] {
         photoNotes.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+    }
+
+    private var normalizedPhotoCustomEventTitles: [String] {
+        photoCustomEventTitles.map {
+            $0.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
     }
 
     private var normalizedFertilizingMonths: [Int]? {
@@ -401,6 +485,101 @@ struct PlantFormView: View {
     private var normalizedOtherName: String? {
         let value = otherName.trimmingCharacters(in: .whitespacesAndNewlines)
         return value.isEmpty ? nil : value
+    }
+
+    private var normalizedLocation: String? {
+        cleanedLocation(location)
+    }
+
+    private var existingLocationOptions: [String] {
+        var locationsByKey: [String: String] = [:]
+
+        for plant in store.plants {
+            guard let location = cleanedLocation(plant.location) else { continue }
+            let key = locationKey(location)
+            if locationsByKey[key] == nil {
+                locationsByKey[key] = location
+            }
+        }
+
+        return locationsByKey.values.sorted {
+            $0.localizedStandardCompare($1) == .orderedAscending
+        }
+    }
+
+    private func locationMatches(_ option: String) -> Bool {
+        guard let normalizedLocation else { return false }
+        return locationKey(normalizedLocation) == locationKey(option)
+    }
+
+    private func cleanedLocation(_ location: String?) -> String? {
+        guard let location else { return nil }
+        let value = location.trimmingCharacters(in: .whitespacesAndNewlines)
+        return value.isEmpty ? nil : value
+    }
+
+    private func locationKey(_ location: String) -> String {
+        location.folding(
+            options: [.caseInsensitive, .diacriticInsensitive],
+            locale: .current
+        )
+    }
+}
+
+private struct TimelineEventMenu: View {
+    @Binding var selection: PlantPhotoEventTag?
+
+    private var selectedTitle: String {
+        selection?.title ?? "A new moment"
+    }
+
+    private var selectedIcon: String {
+        selection?.icon ?? "camera.fill"
+    }
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Text("Timeline event")
+
+            Spacer(minLength: 12)
+
+            Menu {
+                Button {
+                    selection = nil
+                } label: {
+                    Label(
+                        "A new moment",
+                        systemImage: selection == nil ? "checkmark" : "camera.fill"
+                    )
+                }
+
+                ForEach(PlantPhotoEventTag.allCases) { eventTag in
+                    Button {
+                        selection = eventTag
+                    } label: {
+                        Label(
+                            eventTag.title,
+                            systemImage: selection == eventTag ? "checkmark" : eventTag.icon
+                        )
+                    }
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: selectedIcon)
+                        .font(.system(size: 11, weight: .semibold))
+                        .symbolRenderingMode(.monochrome)
+                        .frame(width: 11, height: 14)
+
+                    Text(selectedTitle)
+
+                    Image(systemName: "chevron.up.chevron.down")
+                        .font(.caption2.weight(.semibold))
+                }
+                .foregroundStyle(.tint)
+            }
+            .accessibilityLabel("Timeline event")
+            .accessibilityValue(selectedTitle)
+        }
     }
 }
 

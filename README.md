@@ -16,11 +16,13 @@ PlantStory helps you remember the life of each plant—not just its care schedul
 
 - Add and edit plants with a name, alternate name, species, acquisition date, notes, and photos.
 - See how many days you have raised each plant.
-- Build a chronological life timeline with dated photos and a note for every photo.
+- Build a chronological life timeline with dated photos, notes, and optional event tags for repotting, pruning, fertilizing, blooming, new growth, pests, treatment, coming home, death, or a custom event. Untagged photos remain “A new moment.”
+- Mark a plant’s death from its timeline to give its garden card a muted “In memory” treatment while preserving its days-raised count.
 - Automatically use a photo's creation date when that metadata is available.
 - Record watering and fertilizing events, review recent history, and remove accidental entries.
 - Choose the best fertilizing and pruning months for each plant.
 - View seasonal care tasks in a garden calendar.
+- Assign plants to locations such as rooms, balconies, or gardens, reuse existing location choices, and browse the home collection grouped by location.
 - Search your collection and sort it by name, acquisition date, last watered, or last fertilized in ascending or descending order.
 
 ### Wild Finds
@@ -46,9 +48,30 @@ PlantStory helps you remember the life of each plant—not just its care schedul
 - Plant data is stored in `Library/Application Support/PlantStory/plants.json`.
 - Wild Finds are stored in `Library/Application Support/PlantStory/wild-finds.json`.
 - Photos and their dates and notes are encoded in those private files.
+- Export a versioned JSON backup from **Settings → Storage & Data** and restore it on another iPhone. The backup includes both collections and their photos but excludes the OpenAI API key and StoreKit purchase history.
 - When AI is requested, limited text is sent directly to OpenAI; photos and care history are not sent.
 
-Deleting PlantStory deletes its local data from that iPhone. To move to another iPhone, transfer or restore the device with Apple Quick Start, iCloud Backup, or a Finder/Apple Devices backup before deleting the original copy. The OpenAI API key may need to be entered again.
+Deleting PlantStory deletes its local data from that iPhone. Before deleting it, export a manual backup or transfer the device with Apple Quick Start, iCloud Backup, or a Finder/Apple Devices backup. The OpenAI API key may need to be entered again.
+
+## Manual backup and restore
+
+Open **Settings → Storage & Data** to manage portable backups.
+
+### Create a backup
+
+1. Tap **Export Backup**.
+2. Save the generated JSON file to Files, iCloud Drive, or another location you control.
+3. Keep the file until you have confirmed the data is available on the destination device.
+
+The backup contains My Garden, Wild Finds, photos, notes, timeline events, locations, and care histories. Because photos are embedded in the JSON file, backups with many photos can be large. OpenAI API keys and StoreKit purchase history are not included.
+
+### Restore a backup
+
+1. Tap **Restore from Backup** and select a PlantStory JSON backup.
+2. Review the backup date and the number of plants and Wild Finds shown in the confirmation.
+3. Confirm **Restore**.
+
+Restore replaces the current My Garden and Wild Finds collections; it does not merge them. Export the current collection first if you may need it later.
 
 ## Download and install
 
@@ -112,7 +135,9 @@ Please keep pull requests focused, preserve the local-first privacy model, and n
 
 ## Support the project
 
-PlantStory includes optional StoreKit tips for people who would like to help the garden grow. Tip products require configuration in App Store Connect for a distributed build; the included StoreKit configuration supports local development and testing.
+If PlantStory is useful to you, [star the project on GitHub](https://github.com/zicodeng/PlantStory) to help other plant lovers discover it.
+
+PlantStory also includes optional StoreKit tips for people who would like to help the garden grow. Tip products require configuration in App Store Connect for a distributed build; the included StoreKit configuration supports local development and testing.
 
 ## Credits
 

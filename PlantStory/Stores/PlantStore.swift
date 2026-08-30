@@ -94,6 +94,13 @@ final class PlantStore: ObservableObject {
         save()
     }
 
+    func replaceAll(with restoredPlants: [Plant]) throws {
+        let restoredPlants = restoredPlants.map(normalized)
+        let data = try encoder.encode(restoredPlants)
+        try data.write(to: fileURL, options: .atomic)
+        plants = restoredPlants
+    }
+
     private func load() {
         guard let data = try? Data(contentsOf: fileURL),
               let savedPlants = try? decoder.decode([Plant].self, from: data) else { return }

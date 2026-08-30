@@ -1,5 +1,6 @@
 import SwiftUI
 import StoreKit
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @EnvironmentObject private var openAIKeyStore: OpenAIKeyStore
@@ -12,7 +13,7 @@ struct SettingsView: View {
     private let storageTeal = Color(red: 0.06, green: 0.56, blue: 0.48)
     private let reviewOrange = Color(red: 0.88, green: 0.42, blue: 0.08)
     private let feedbackBlue = Color(red: 0.16, green: 0.48, blue: 0.86)
-    private let githubFeedbackURL = URL(string: "https://github.com/zicodeng/PlantStory/issues/new")!
+    private let githubFeedbackURL = URL(string: "https://github.com/zicodeng/PlantStory/issues")!
 
     var body: some View {
         NavigationStack {
@@ -159,7 +160,7 @@ struct SettingsView: View {
                                     )
                                 }
                                 .buttonStyle(.plain)
-                                .accessibilityHint("Opens a new GitHub issue in your browser")
+                                .accessibilityHint("Opens the PlantStory GitHub issues page in your browser")
                             }
                             .background(panel, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
                             .overlay {
@@ -263,7 +264,91 @@ struct SettingsView: View {
     }
 }
 
+private struct PlantStoryBackupArchive: Codable {
+    static let currentFormatVersion = 1
+
+    let formatVersion: Int
+    let createdAt: Date
+    let plants: [Plant]
+    let wildFinds: [WildFind]
+
+    init(createdAt: Date = .now, plants: [Plant], wildFinds: [WildFind]) {
+        formatVersion = Self.currentFormatVersion
+        self.createdAt = createdAt
+        self.plants = plants
+        self.wildFinds = wildFinds
+    }
+
+    func encoded() throws -> Data {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        return try encoder.encode(self)
+    }
+
+    static func decode(from data: Data) throws -> Self {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let archive = try decoder.decode(Self.self, from: data)
+        guard archive.formatVersion == currentFormatVersion else {
+            throw PlantStoryBackupError.unsupportedVersion(archive.formatVersion)
+        }
+        return archive
+    }
+}
+
+private struct PlantStoryBackupDocument: FileDocument {
+    static var readableContentTypes: [UTType] { [.json] }
+
+    var archive: PlantStoryBackupArchive
+
+    init(archive: PlantStoryBackupArchive = PlantStoryBackupArchive(plants: [], wildFinds: [])) {
+        self.archive = archive
+    }
+
+    init(configuration: ReadConfiguration) throws {
+        guard let data = configuration.file.regularFileContents else {
+            throw PlantStoryBackupError.unreadableFile
+        }
+        archive = try PlantStoryBackupArchive.decode(from: data)
+    }
+
+    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+        FileWrapper(regularFileWithContents: try archive.encoded())
+    }
+}
+
+private enum PlantStoryBackupError: LocalizedError {
+    case unreadableFile
+    case unsupportedVersion(Int)
+
+    var errorDescription: String? {
+        switch self {
+        case .unreadableFile:
+            "The selected file could not be read."
+        case let .unsupportedVersion(version):
+            "This backup uses unsupported format version \(version). Update PlantStory and try again."
+        }
+    }
+}
+
+private struct BackupNotice: Identifiable {
+    let id = UUID()
+    let title: String
+    let message: String
+}
+
 private struct StorageInfoView: View {
+    @EnvironmentObject private var plantStore: PlantStore
+    @EnvironmentObject private var wildFindStore: WildFindStore
+
+    @State private var exportDocument = PlantStoryBackupDocument()
+    @State private var isExportingBackup = false
+    @State private var isImportingBackup = false
+    @State private var pendingBackup: PlantStoryBackupArchive?
+    @State private var isConfirmingRestore = false
+    @State private var backupNotice: BackupNotice?
+
     private let transferGuideURL = URL(string: "https://support.apple.com/119967")!
 
     var body: some View {
@@ -328,16 +413,39 @@ private struct StorageInfoView: View {
             }
 
             Section {
+                Button {
+                    prepareBackup()
+                } label: {
+                    Label("Export Backup", systemImage: "square.and.arrow.up")
+                }
+
+                Button {
+                    isImportingBackup = true
+                } label: {
+                    Label("Restore from Backup", systemImage: "square.and.arrow.down")
+                }
+
+                LabeledContent("Current collection") {
+                    Text(collectionSummary)
+                        .foregroundStyle(.secondary)
+                }
+            } header: {
+                Text("Manual backup & restore")
+            } footer: {
+                Text("The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection.")
+            }
+
+            Section {
                 migrationStep(
                     number: 1,
-                    title: "Back up or transfer the old iPhone",
-                    detail: "Use Apple Quick Start, an iCloud device backup, or a Finder/Apple Devices backup."
+                    title: "Create a PlantStory backup",
+                    detail: "Export a manual backup above and save it somewhere you can open on the new iPhone."
                 )
 
                 migrationStep(
                     number: 2,
-                    title: "Restore during setup",
-                    detail: "Set up the new iPhone from that transfer or backup so PlantStory’s private app data is carried over."
+                    title: "Restore on the new iPhone",
+                    detail: "Install PlantStory, open Storage & Data, and choose Restore from Backup. Apple Quick Start or a full device backup also works."
                 )
 
                 migrationStep(
@@ -351,7 +459,7 @@ private struct StorageInfoView: View {
             } header: {
                 Text("Move to another iPhone")
             } footer: {
-                Text("PlantStory does not currently include manual export or import. Do not erase or delete the app from your old iPhone until you confirm your plants appear on the new one.")
+                Text("Do not erase or delete the app from your old iPhone until you confirm your plants and photos appear on the new one.")
             }
 
             Section("Deleting the app") {
@@ -361,6 +469,120 @@ private struct StorageInfoView: View {
         }
         .navigationTitle("Storage & Data")
         .navigationBarTitleDisplayMode(.inline)
+        .fileExporter(
+            isPresented: $isExportingBackup,
+            document: exportDocument,
+            contentType: .json,
+            defaultFilename: backupFilename
+        ) { result in
+            switch result {
+            case .success:
+                backupNotice = BackupNotice(
+                    title: "Backup saved",
+                    message: "Keep this file somewhere safe. You can restore it from Storage & Data on another iPhone."
+                )
+            case let .failure(error):
+                presentBackupError(error)
+            }
+        }
+        .fileImporter(
+            isPresented: $isImportingBackup,
+            allowedContentTypes: [.json]
+        ) { result in
+            do {
+                let url = try result.get()
+                let hasSecurityAccess = url.startAccessingSecurityScopedResource()
+                defer {
+                    if hasSecurityAccess {
+                        url.stopAccessingSecurityScopedResource()
+                    }
+                }
+
+                let data = try Data(contentsOf: url)
+                pendingBackup = try PlantStoryBackupArchive.decode(from: data)
+                isConfirmingRestore = true
+            } catch {
+                presentBackupError(error)
+            }
+        }
+        .alert(
+            "Replace local PlantStory data?",
+            isPresented: $isConfirmingRestore,
+            presenting: pendingBackup
+        ) { backup in
+            Button("Restore", role: .destructive) {
+                restore(backup)
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: { backup in
+            Text("Backup from \(backup.createdAt.formatted(date: .abbreviated, time: .shortened)) with \(itemSummary(for: backup)). Your current plants and Wild Finds will be replaced.")
+        }
+        .alert(item: $backupNotice) { notice in
+            Alert(
+                title: Text(notice.title),
+                message: Text(notice.message),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+    }
+
+    private var collectionSummary: String {
+        "\(plantStore.plants.count) plants · \(wildFindStore.finds.count) wild finds"
+    }
+
+    private var backupFilename: String {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd"
+        return "PlantStory Backup \(formatter.string(from: .now))"
+    }
+
+    private func prepareBackup() {
+        exportDocument = PlantStoryBackupDocument(
+            archive: PlantStoryBackupArchive(
+                plants: plantStore.plants,
+                wildFinds: wildFindStore.finds
+            )
+        )
+        isExportingBackup = true
+    }
+
+    private func restore(_ backup: PlantStoryBackupArchive) {
+        let previousPlants = plantStore.plants
+
+        do {
+            try plantStore.replaceAll(with: backup.plants)
+            do {
+                try wildFindStore.replaceAll(with: backup.wildFinds)
+            } catch {
+                try? plantStore.replaceAll(with: previousPlants)
+                throw error
+            }
+
+            pendingBackup = nil
+            backupNotice = BackupNotice(
+                title: "Backup restored",
+                message: "Restored \(itemSummary(for: backup))."
+            )
+        } catch {
+            presentBackupError(error)
+        }
+    }
+
+    private func itemSummary(for backup: PlantStoryBackupArchive) -> String {
+        let plantLabel = backup.plants.count == 1 ? "1 plant" : "\(backup.plants.count) plants"
+        let findLabel = backup.wildFinds.count == 1 ? "1 wild find" : "\(backup.wildFinds.count) wild finds"
+        return "\(plantLabel) and \(findLabel)"
+    }
+
+    private func presentBackupError(_ error: Error) {
+        let error = error as NSError
+        guard error.code != NSUserCancelledError else { return }
+        backupNotice = BackupNotice(
+            title: "Backup couldn’t be completed",
+            message: error.localizedDescription
+        )
     }
 
     private func storageRow(icon: String, title: String, detail: String) -> some View {
@@ -414,8 +636,25 @@ private struct CreditsView: View {
     private let seedlingGreen = Color(red: 0.76, green: 0.92, blue: 0.64)
     private let sproutGreen = Color(red: 0.43, green: 0.85, blue: 0.20)
     private let gardenGreen = Color(red: 0.12, green: 0.67, blue: 0.30)
+    private let cardIconSize: CGFloat = 42
     // Replace this placeholder with the final public repository URL when it is ready.
     private let sourceCodeURL = URL(string: "https://github.com/zicodeng/PlantStory")!
+
+    private var cardIconFont: Font {
+        .headline.weight(.semibold)
+    }
+
+    private var cardIconForeground: Color {
+        forest
+    }
+
+    private var cardTitleFont: Font {
+        .system(.headline, design: .serif, weight: .semibold)
+    }
+
+    private var cardSubtitleFont: Font {
+        .subheadline
+    }
 
     var body: some View {
         ZStack {
@@ -476,6 +715,8 @@ private struct CreditsView: View {
                             .stroke(.white.opacity(0.08), lineWidth: 1)
                     }
 
+                    githubStarCard
+
                     supportCard
 
                     Text("Thank you for helping this little garden grow.")
@@ -508,22 +749,59 @@ private struct CreditsView: View {
         }
     }
 
+    private var githubStarCard: some View {
+        Link(destination: sourceCodeURL) {
+            HStack(spacing: 14) {
+                Image(systemName: "star.fill")
+                    .font(cardIconFont)
+                    .foregroundStyle(cardIconForeground)
+                    .frame(width: cardIconSize, height: cardIconSize)
+                    .background(lime, in: Circle())
+
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Star PlantStory on GitHub")
+                        .font(cardTitleFont)
+                        .foregroundStyle(.white)
+
+                    Text("Enjoying the app? A star helps more plant lovers discover the project.")
+                        .font(cardSubtitleFont)
+                        .foregroundStyle(.white.opacity(0.66))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                Image(systemName: "arrow.up.right")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.white.opacity(0.42))
+            }
+            .padding(20)
+            .contentShape(Rectangle())
+            .background(panel, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(.white.opacity(0.08), lineWidth: 1)
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("Opens the PlantStory repository where you can star the project")
+    }
+
     private var supportCard: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 14) {
                 Image(systemName: "sun.max.fill")
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(forest)
-                    .frame(width: 46, height: 46)
+                    .font(cardIconFont)
+                    .foregroundStyle(cardIconForeground)
+                    .frame(width: cardIconSize, height: cardIconSize)
                     .background(lime, in: Circle())
 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text("Help this garden grow")
-                        .font(.system(.title3, design: .serif, weight: .semibold))
+                        .font(cardTitleFont)
                         .foregroundStyle(.white)
 
                     Text("Choose a little boost for future PlantStory ideas.")
-                        .font(.subheadline)
+                        .font(cardSubtitleFont)
                         .foregroundStyle(.white.opacity(0.66))
                 }
             }
@@ -620,18 +898,18 @@ private struct CreditsView: View {
     ) -> some View {
         HStack(alignment: .top, spacing: 14) {
             Image(systemName: icon)
-                .font(.headline.weight(.semibold))
-                .foregroundStyle(forest)
-                .frame(width: 42, height: 42)
+                .font(cardIconFont)
+                .foregroundStyle(cardIconForeground)
+                .frame(width: cardIconSize, height: cardIconSize)
                 .background(lime, in: Circle())
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(title)
-                    .font(.system(.headline, design: .serif, weight: .semibold))
+                    .font(cardTitleFont)
                     .foregroundStyle(.white)
 
                 Text(description)
-                    .font(.subheadline)
+                    .font(cardSubtitleFont)
                     .foregroundStyle(.white.opacity(0.66))
                     .fixedSize(horizontal: false, vertical: true)
 
