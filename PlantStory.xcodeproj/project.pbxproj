@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* PlantStoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* PlantStoryApp.swift */; };
+		A10000000000000000000002 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* Plant.swift */; };
+		A10000000000000000000003 /* PlantStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* PlantStore.swift */; };
+		A10000000000000000000004 /* PlantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* PlantListView.swift */; };
+		A10000000000000000000005 /* PlantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000005 /* PlantDetailView.swift */; };
+		A10000000000000000000006 /* PlantFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000006 /* PlantFormView.swift */; };
+		A10000000000000000000007 /* PlantPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000007 /* PlantPhoto.swift */; };
+		A10000000000000000000008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000008 /* Assets.xcassets */; };
+		A10000000000000000000009 /* WildFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* WildFind.swift */; };
+		A1000000000000000000000A /* WildFindStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* WildFindStore.swift */; };
+		A1000000000000000000000B /* WildFindsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* WildFindsView.swift */; };
+		A1000000000000000000000C /* WildFindFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* WildFindFormView.swift */; };
+		A1000000000000000000000D /* WildFindDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000E /* WildFindDetailView.swift */; };
+		A1000000000000000000000E /* OpenAIKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000F /* OpenAIKeyStore.swift */; };
+		A1000000000000000000000F /* PlantAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000010 /* PlantAIService.swift */; };
+		A10000000000000000000010 /* OpenAIKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* OpenAIKeyView.swift */; };
+		A10000000000000000000011 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* SettingsView.swift */; };
+		A10000000000000000000012 /* TipJarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* TipJarStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B10000000000000000000001 /* PlantStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStoryApp.swift; sourceTree = "<group>"; };
+		B10000000000000000000002 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		B10000000000000000000003 /* PlantStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStore.swift; sourceTree = "<group>"; };
+		B10000000000000000000004 /* PlantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantListView.swift; sourceTree = "<group>"; };
+		B10000000000000000000005 /* PlantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailView.swift; sourceTree = "<group>"; };
+		B10000000000000000000006 /* PlantFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFormView.swift; sourceTree = "<group>"; };
+		B10000000000000000000007 /* PlantPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPhoto.swift; sourceTree = "<group>"; };
+		B10000000000000000000008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B10000000000000000000009 /* PlantStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000000000000000000000A /* WildFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildFind.swift; sourceTree = "<group>"; };
+		B1000000000000000000000B /* WildFindStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildFindStore.swift; sourceTree = "<group>"; };
+		B1000000000000000000000C /* WildFindsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildFindsView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000D /* WildFindFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildFindFormView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000E /* WildFindDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildFindDetailView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000F /* OpenAIKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIKeyStore.swift; sourceTree = "<group>"; };
+		B10000000000000000000010 /* PlantAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantAIService.swift; sourceTree = "<group>"; };
+		B10000000000000000000011 /* OpenAIKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIKeyView.swift; sourceTree = "<group>"; };
+		B10000000000000000000012 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B10000000000000000000013 /* TipJarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarStore.swift; sourceTree = "<group>"; };
+		B10000000000000000000014 /* PlantStoryTips.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlantStoryTips.storekit; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C10000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D10000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				D10000000000000000000002 /* PlantStory */,
+				D10000000000000000000006 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D10000000000000000000002 /* PlantStory */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000001 /* PlantStoryApp.swift */,
+				D10000000000000000000003 /* Models */,
+				D10000000000000000000004 /* Stores */,
+				D10000000000000000000007 /* Services */,
+				D10000000000000000000005 /* Views */,
+				B10000000000000000000014 /* PlantStoryTips.storekit */,
+				B10000000000000000000008 /* Assets.xcassets */,
+			);
+			path = PlantStory;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000003 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000002 /* Plant.swift */,
+				B1000000000000000000000A /* WildFind.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000004 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000003 /* PlantStore.swift */,
+				B1000000000000000000000B /* WildFindStore.swift */,
+				B1000000000000000000000F /* OpenAIKeyStore.swift */,
+				B10000000000000000000013 /* TipJarStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000007 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000010 /* PlantAIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000004 /* PlantListView.swift */,
+				B10000000000000000000005 /* PlantDetailView.swift */,
+				B10000000000000000000006 /* PlantFormView.swift */,
+				B10000000000000000000007 /* PlantPhoto.swift */,
+				B1000000000000000000000C /* WildFindsView.swift */,
+				B1000000000000000000000D /* WildFindFormView.swift */,
+				B1000000000000000000000E /* WildFindDetailView.swift */,
+				B10000000000000000000011 /* OpenAIKeyView.swift */,
+				B10000000000000000000012 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000006 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000009 /* PlantStory.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E10000000000000000000001 /* PlantStory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F10000000000000000000002 /* Build configuration list for PBXNativeTarget "PlantStory" */;
+			buildPhases = (
+				C10000000000000000000002 /* Sources */,
+				C10000000000000000000001 /* Frameworks */,
+				C10000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlantStory;
+			productName = PlantStory;
+			productReference = B10000000000000000000009 /* PlantStory.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E10000000000000000000002 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					E10000000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = F10000000000000000000001 /* Build configuration list for PBXProject "PlantStory" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D10000000000000000000001;
+			productRefGroup = D10000000000000000000006 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E10000000000000000000001 /* PlantStory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C10000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000008 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C10000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* PlantStoryApp.swift in Sources */,
+				A10000000000000000000002 /* Plant.swift in Sources */,
+				A10000000000000000000003 /* PlantStore.swift in Sources */,
+				A10000000000000000000004 /* PlantListView.swift in Sources */,
+				A10000000000000000000005 /* PlantDetailView.swift in Sources */,
+				A10000000000000000000006 /* PlantFormView.swift in Sources */,
+				A10000000000000000000007 /* PlantPhoto.swift in Sources */,
+				A10000000000000000000009 /* WildFind.swift in Sources */,
+				A1000000000000000000000A /* WildFindStore.swift in Sources */,
+				A1000000000000000000000B /* WildFindsView.swift in Sources */,
+				A1000000000000000000000C /* WildFindFormView.swift in Sources */,
+				A1000000000000000000000D /* WildFindDetailView.swift in Sources */,
+				A1000000000000000000000E /* OpenAIKeyStore.swift in Sources */,
+				A1000000000000000000000F /* PlantAIService.swift in Sources */,
+				A10000000000000000000010 /* OpenAIKeyView.swift in Sources */,
+				A10000000000000000000011 /* SettingsView.swift in Sources */,
+				A10000000000000000000012 /* TipJarStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F20000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F20000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F20000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 2FBMHS2S3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PlantStory;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zicodeng.PlantStory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F20000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 2FBMHS2S3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PlantStory;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zicodeng.PlantStory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F10000000000000000000001 /* Build configuration list for PBXProject "PlantStory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F20000000000000000000001 /* Debug */,
+				F20000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F10000000000000000000002 /* Build configuration list for PBXNativeTarget "PlantStory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F20000000000000000000003 /* Debug */,
+				F20000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E10000000000000000000002 /* Project object */;
+}

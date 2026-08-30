@@ -1,0 +1,122 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "A7F3C821",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "A7F3C822",
+      "localizations" : [
+        {
+          "description" : "An optional tip that plants a seed for future PlantStory ideas.",
+          "displayName" : "Plant a seed",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.zicodeng.PlantStory.tip.small",
+      "referenceName" : "Plant a seed",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "A7F3C823",
+      "localizations" : [
+        {
+          "description" : "An optional tip that nurtures the next PlantStory idea.",
+          "displayName" : "Nurture a sprout",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.zicodeng.PlantStory.tip.regular",
+      "referenceName" : "Nurture a sprout",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "A7F3C824",
+      "localizations" : [
+        {
+          "description" : "A generous optional tip that helps the PlantStory garden grow.",
+          "displayName" : "Grow the garden",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.zicodeng.PlantStory.tip.generous",
+      "referenceName" : "Grow the garden",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
