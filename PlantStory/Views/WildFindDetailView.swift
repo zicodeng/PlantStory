@@ -33,7 +33,11 @@ struct WildFindDetailView: View {
             WildFindTimelineEvent(
                 id: "photo-\(index)",
                 date: currentFind.dateForPhoto(at: index),
-                kind: .photo(currentFind.photos[index], note: currentFind.noteForPhoto(at: index))
+                kind: .photo(
+                    currentFind.photos[index],
+                    note: currentFind.noteForPhoto(at: index),
+                    location: currentFind.locationForPhoto(at: index)
+                )
             )
         }
         return result.sorted { $0.date > $1.date }
@@ -137,6 +141,7 @@ struct WildFindDetailView: View {
                         .font(.subheadline)
                         .foregroundStyle(.white.opacity(0.68))
                 }
+
             }
             .padding(22)
         }
@@ -221,12 +226,12 @@ struct WildFindDetailView: View {
                     Text(event.title)
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(ink)
-                    Text(event.date.formatted(date: .abbreviated, time: .omitted))
+                    Text(event.dateAndLocation)
                         .font(.caption)
                         .foregroundStyle(ink.opacity(0.56))
                 }
 
-                if case let .photo(data, note) = event.kind {
+                if case let .photo(data, note, _) = event.kind {
                     if !note.isEmpty {
                         Text(note)
                             .font(.subheadline)
@@ -248,7 +253,7 @@ struct WildFindDetailView: View {
 
 private struct WildFindTimelineEvent: Identifiable {
     enum Kind {
-        case photo(Data, note: String)
+        case photo(Data, note: String, location: String)
         case discovered
     }
 
@@ -262,8 +267,18 @@ private struct WildFindTimelineEvent: Identifiable {
     }
 
     var hasPhotoNote: Bool {
-        if case let .photo(_, note) = kind { return !note.isEmpty }
+        if case let .photo(_, note, _) = kind {
+            return !note.isEmpty
+        }
         return false
+    }
+
+    var dateAndLocation: String {
+        let formattedDate = date.formatted(date: .abbreviated, time: .omitted)
+        guard case let .photo(_, _, location) = kind, !location.isEmpty else {
+            return formattedDate
+        }
+        return "\(formattedDate) | \(location)"
     }
 
     var title: String {

@@ -31,6 +31,7 @@ struct WildFindFormView: View {
     @State private var photos: [Data]
     @State private var photoDates: [Date]
     @State private var photoNotes: [String]
+    @State private var photoLocations: [String]
     @State private var selectedItems: [PhotosPickerItem] = []
     @State private var isLoadingPhotos = false
     @State private var isRequestingAISuggestion = false
@@ -51,6 +52,13 @@ struct WildFindFormView: View {
         let normalizedNotes = existingPhotos.indices.map { index in
             savedNotes.indices.contains(index) ? savedNotes[index] : ""
         }
+        let savedLocations = find?.photoLocations ?? []
+        let normalizedLocations = existingPhotos.indices.map { index in
+            if savedLocations.indices.contains(index) {
+                return savedLocations[index]
+            }
+            return index == 0 ? (find?.location ?? "") : ""
+        }
 
         _name = State(initialValue: find?.name ?? "")
         _otherName = State(initialValue: find?.otherName ?? "")
@@ -61,6 +69,7 @@ struct WildFindFormView: View {
         _photos = State(initialValue: existingPhotos)
         _photoDates = State(initialValue: normalizedDates)
         _photoNotes = State(initialValue: normalizedNotes)
+        _photoLocations = State(initialValue: normalizedLocations)
     }
 
     var body: some View {
@@ -118,7 +127,7 @@ struct WildFindFormView: View {
             }
 
             Section("Notes") {
-                TextField("Appearance, habitat, location, or observations…", text: $notes, axis: .vertical)
+                TextField("Appearance, habitat, or observations…", text: $notes, axis: .vertical)
                     .lineLimit(4...9)
             }
 
@@ -157,6 +166,17 @@ struct WildFindFormView: View {
                             .accessibilityLabel("Remove photo \(index + 1)")
                         }
 
+                        HStack(spacing: 9) {
+                            Image(systemName: "mappin.and.ellipse")
+                                .foregroundStyle(.secondary)
+
+                            TextField("Location for this sighting…", text: $photoLocations[index])
+                                .textInputAutocapitalization(.words)
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 10)
+                        .background(.secondary.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
+
                         TextField("Add a note about this photo…", text: $photoNotes[index], axis: .vertical)
                             .lineLimit(1...3)
                             .padding(.horizontal, 12)
@@ -182,7 +202,7 @@ struct WildFindFormView: View {
             } header: {
                 Text("Photos")
             } footer: {
-                Text("Photo dates are filled from image metadata when available. You can still adjust them and add a note.")
+                Text("Photo dates are filled from image metadata when available. Add a location and note for each separate sighting.")
             }
         }
         .navigationTitle(existingFind == nil ? "New wild find" : "Edit wild find")
@@ -236,6 +256,10 @@ struct WildFindFormView: View {
         photoNotes.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
     }
 
+    private var normalizedPhotoLocations: [String] {
+        photoLocations.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+    }
+
     private func openAISettings() {
         dismiss()
         DispatchQueue.main.async {
@@ -256,6 +280,7 @@ struct WildFindFormView: View {
         photos.remove(at: index)
         if photoDates.indices.contains(index) { photoDates.remove(at: index) }
         if photoNotes.indices.contains(index) { photoNotes.remove(at: index) }
+        if photoLocations.indices.contains(index) { photoLocations.remove(at: index) }
     }
 
     private func save() {
@@ -264,11 +289,13 @@ struct WildFindFormView: View {
             find.otherName = normalizedOtherName
             find.species = species.trimmingCharacters(in: .whitespacesAndNewlines)
             find.notes = normalizedNotes
+            find.location = nil
             find.hasGeneratedAISuggestion = hasGeneratedAISuggestion
             find.discoveredDate = discoveredDate
             find.photos = photos
             find.photoDates = photoDates
             find.photoNotes = normalizedPhotoNotes
+            find.photoLocations = normalizedPhotoLocations
             store.update(find)
         } else {
             store.add(WildFind(
@@ -280,7 +307,8 @@ struct WildFindFormView: View {
                 discoveredDate: discoveredDate,
                 photos: photos,
                 photoDates: photoDates,
-                photoNotes: normalizedPhotoNotes
+                photoNotes: normalizedPhotoNotes,
+                photoLocations: normalizedPhotoLocations
             ))
         }
         dismiss()
@@ -340,6 +368,7 @@ struct WildFindFormView: View {
             photos.append(resized)
             photoDates.append(min(creationDate, .now))
             photoNotes.append("")
+            photoLocations.append("")
         }
     }
 
@@ -347,6 +376,7 @@ struct WildFindFormView: View {
         let value = notes.trimmingCharacters(in: .whitespacesAndNewlines)
         return value.isEmpty ? nil : value
     }
+
 }
 
 private struct WildFindAISuggestionReviewView: View {

@@ -21,6 +21,8 @@ struct WildFindsView: View {
             $0.name.localizedCaseInsensitiveContains(query) ||
             ($0.otherName?.localizedCaseInsensitiveContains(query) ?? false) ||
             $0.species.localizedCaseInsensitiveContains(query) ||
+            ($0.photoLocations?.contains { $0.localizedCaseInsensitiveContains(query) } ?? false) ||
+            ($0.location?.localizedCaseInsensitiveContains(query) ?? false) ||
             ($0.notes?.localizedCaseInsensitiveContains(query) ?? false)
         }
     }
