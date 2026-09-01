@@ -630,6 +630,7 @@ private struct StorageInfoView: View {
 private struct CreditsView: View {
     @StateObject private var tipJar = TipJarStore()
 
+    private let tippingEnabled = false
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
     private let panel = Color(red: 0.105, green: 0.31, blue: 0.19)
     private let lime = Color(red: 0.36, green: 0.82, blue: 0.12)
@@ -876,6 +877,51 @@ private struct CreditsView: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(.white.opacity(0.08), lineWidth: 1)
         }
+        .allowsHitTesting(tippingEnabled)
+        .accessibilityHidden(!tippingEnabled)
+        .saturation(tippingEnabled ? 1 : 0.55)
+        .blur(radius: tippingEnabled ? 0 : 0.8)
+        .overlay {
+            if !tippingEnabled {
+                tippingDisabledOverlay
+            }
+        }
+    }
+
+    private var tippingDisabledOverlay: some View {
+        VStack(spacing: 12) {
+            ZStack {
+                Circle()
+                    .fill(lime)
+
+                Image(systemName: "heart.fill")
+                    .font(cardIconFont)
+                    .foregroundStyle(cardIconForeground)
+            }
+            .frame(width: cardIconSize, height: cardIconSize)
+
+            Text("The tip jar is taking root")
+                .font(cardTitleFont)
+                .foregroundStyle(.white)
+
+            Text("No tip needed right now. A GitHub star and a little extra love for your plants are more than enough.")
+                .font(cardSubtitleFont)
+                .foregroundStyle(.white.opacity(0.72))
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(22)
+        .background(
+            LinearGradient(
+                colors: [panel.opacity(0.74), forest.opacity(0.68)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: 24, style: .continuous)
+        )
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("No tip needed right now. A GitHub star and caring for your plants are more than enough.")
     }
 
     private func supportTierColor(for product: Product) -> Color {
