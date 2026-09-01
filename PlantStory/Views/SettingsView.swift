@@ -739,6 +739,7 @@ private struct CreditsView: View {
         .toolbarColorScheme(.dark, for: .navigationBar)
         .tint(lime)
         .task {
+            guard tippingEnabled else { return }
             await tipJar.loadProducts()
         }
         .alert(item: $tipJar.notice) { notice in
@@ -807,7 +808,9 @@ private struct CreditsView: View {
                 }
             }
 
-            if tipJar.isLoading {
+            if !tippingEnabled {
+                staticSupportOptions
+            } else if tipJar.isLoading {
                 HStack(spacing: 10) {
                     ProgressView()
                         .tint(lime)
@@ -886,6 +889,42 @@ private struct CreditsView: View {
                 tippingDisabledOverlay
             }
         }
+    }
+
+    private var staticSupportOptions: some View {
+        VStack(spacing: 10) {
+            staticSupportOption(
+                name: "Plant a seed",
+                price: "$1.99",
+                color: seedlingGreen
+            )
+            staticSupportOption(
+                name: "Nurture a sprout",
+                price: "$4.99",
+                color: sproutGreen
+            )
+            staticSupportOption(
+                name: "Grow the garden",
+                price: "$9.99",
+                color: gardenGreen
+            )
+        }
+    }
+
+    private func staticSupportOption(name: String, price: String, color: Color) -> some View {
+        HStack(spacing: 12) {
+            Text(name)
+                .font(.subheadline.weight(.semibold))
+
+            Spacer()
+
+            Text(price)
+                .font(.subheadline.weight(.bold))
+        }
+        .foregroundStyle(forest)
+        .padding(.horizontal, 16)
+        .frame(height: 48)
+        .background(color, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 
     private var tippingDisabledOverlay: some View {
