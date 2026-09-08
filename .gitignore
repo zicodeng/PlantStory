@@ -3,3 +3,7 @@
 # Xcode per-user workspace and UI state
 xcuserdata/
 *.xcuserstate
+
+# Generated build products and archives
+build/
+*.xcarchive
