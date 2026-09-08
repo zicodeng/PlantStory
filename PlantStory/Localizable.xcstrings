@@ -1252,6 +1252,16 @@
         }
       }
     },
+    "Feature unavailable" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "功能暂不可用"
+          }
+        }
+      }
+    },
     "Found %@" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2857,6 +2867,16 @@
         }
       }
     },
+    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. Restoring replaces the current local collection." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史。恢复备份会替换本机现有数据。"
+          }
+        }
+      }
+    },
     "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection." : {
       "localizations" : {
         "zh-Hans" : {
@@ -2926,6 +2946,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这个备份的格式版本（%lld）暂不支持。请更新 PlantStory 后再试。"
+          }
+        }
+      }
+    },
+    "This feature is not available in your App Store region." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此功能暂不适用于你所在的 App Store 地区。"
           }
         }
       }

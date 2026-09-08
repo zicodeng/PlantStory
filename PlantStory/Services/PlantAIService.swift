@@ -47,6 +47,10 @@ actor PlantAIService {
         existingSpecies: String,
         apiKey: String
     ) async throws -> PlantAISuggestion {
+        guard await AIRegionalAvailability.isAvailableForCurrentStorefront() else {
+            throw PlantAIServiceError.unavailableInRegion
+        }
+
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
@@ -97,6 +101,10 @@ actor PlantAIService {
         existingSpecies: String,
         apiKey: String
     ) async throws -> WildFindAISuggestion {
+        guard await AIRegionalAvailability.isAvailableForCurrentStorefront() else {
+            throw PlantAIServiceError.unavailableInRegion
+        }
+
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
@@ -279,6 +287,7 @@ actor PlantAIService {
 }
 
 enum PlantAIServiceError: LocalizedError {
+    case unavailableInRegion
     case invalidResponse
     case invalidAPIKey
     case rateLimited
@@ -288,6 +297,10 @@ enum PlantAIServiceError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
+        case .unavailableInRegion:
+            return AppLocalization.string(
+                "This feature is not available in your App Store region."
+            )
         case .invalidResponse:
             return AppLocalization.string("PlantStory couldn’t read the OpenAI response.")
         case .invalidAPIKey:

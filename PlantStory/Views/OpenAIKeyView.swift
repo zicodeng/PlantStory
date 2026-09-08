@@ -2,6 +2,7 @@ import SwiftUI
 
 struct OpenAIKeyView: View {
     @EnvironmentObject private var keyStore: OpenAIKeyStore
+    @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
     @Environment(\.dismiss) private var dismiss
 
     @State private var apiKey = ""
@@ -12,6 +13,47 @@ struct OpenAIKeyView: View {
     private let modelDetailsURL = URL(string: "https://developers.openai.com/api/docs/models/gpt-5.4-nano")!
 
     var body: some View {
+        Group {
+            if aiFeaturesAvailable {
+                aiSettingsForm
+            } else {
+                ContentUnavailableView(
+                    "Feature unavailable",
+                    systemImage: "globe.asia.australia.fill",
+                    description: Text("This feature is not available in your App Store region.")
+                )
+            }
+        }
+        .navigationTitle(navigationTitle)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Done") { dismiss() }
+            }
+        }
+        .alert("Couldn’t update API key", isPresented: Binding(
+            get: { errorMessage != nil },
+            set: { if !$0 { errorMessage = nil } }
+        )) {
+            Button("OK", role: .cancel) { errorMessage = nil }
+        } message: {
+            Text(
+                errorMessage ?? AppLocalization.string("Please try again.")
+            )
+        }
+        .confirmationDialog(
+            "Remove your API key?",
+            isPresented: $showingDeleteConfirmation,
+            titleVisibility: .visible
+        ) {
+            Button("Remove API key", role: .destructive) { deleteKey() }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("AI suggestions will be turned off on this device.")
+        }
+    }
+
+    private var aiSettingsForm: some View {
         Form {
             Section {
                 Label {
@@ -99,33 +141,10 @@ struct OpenAIKeyView: View {
                 }
             }
         }
-        .navigationTitle("AI Suggestions")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                Button("Done") { dismiss() }
-            }
-        }
-        .alert("Couldn’t update API key", isPresented: Binding(
-            get: { errorMessage != nil },
-            set: { if !$0 { errorMessage = nil } }
-        )) {
-            Button("OK", role: .cancel) { errorMessage = nil }
-        } message: {
-            Text(
-                errorMessage ?? AppLocalization.string("Please try again.")
-            )
-        }
-        .confirmationDialog(
-            "Remove your API key?",
-            isPresented: $showingDeleteConfirmation,
-            titleVisibility: .visible
-        ) {
-            Button("Remove API key", role: .destructive) { deleteKey() }
-            Button("Cancel", role: .cancel) {}
-        } message: {
-            Text("AI suggestions will be turned off on this device.")
-        }
+    }
+
+    private var navigationTitle: LocalizedStringKey {
+        aiFeaturesAvailable ? "AI Suggestions" : "Settings"
     }
 
     private func saveKey() {

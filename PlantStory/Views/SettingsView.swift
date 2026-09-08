@@ -5,6 +5,7 @@ import UniformTypeIdentifiers
 struct SettingsView: View {
     @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
     @EnvironmentObject private var openAIKeyStore: OpenAIKeyStore
+    @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
     @Environment(\.requestReview) private var requestReview
 
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
@@ -75,54 +76,55 @@ struct SettingsView: View {
                             }
                         }
 
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("FEATURES")
-                                .font(.caption.weight(.bold))
-                                .tracking(1.8)
-                                .foregroundStyle(lime)
+                        if aiFeaturesAvailable {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("FEATURES")
+                                    .font(.caption.weight(.bold))
+                                    .tracking(1.8)
+                                    .foregroundStyle(lime)
 
-                            NavigationLink {
-                                OpenAIKeyView()
-                                    .toolbar(.visible, for: .navigationBar)
-                            } label: {
-                                HStack(spacing: 14) {
-                                    Image(systemName: "sparkles")
-                                        .font(.title3.weight(.semibold))
-                                        .foregroundStyle(.white)
-                                        .frame(width: 46, height: 46)
-                                        .background(aiViolet, in: Circle())
-
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text("AI Assistant")
-                                            .font(.system(.headline, design: .serif, weight: .semibold))
+                                NavigationLink {
+                                    OpenAIKeyView()
+                                        .toolbar(.visible, for: .navigationBar)
+                                } label: {
+                                    HStack(spacing: 14) {
+                                        Image(systemName: "sparkles")
+                                            .font(.title3.weight(.semibold))
                                             .foregroundStyle(.white)
-                                        Text(aiStatus)
-                                            .font(.subheadline)
-                                            .foregroundStyle(.white.opacity(0.65))
+                                            .frame(width: 46, height: 46)
+                                            .background(aiViolet, in: Circle())
+
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text("AI Assistant")
+                                                .font(.system(.headline, design: .serif, weight: .semibold))
+                                                .foregroundStyle(.white)
+                                            Text(aiStatus)
+                                                .font(.subheadline)
+                                                .foregroundStyle(.white.opacity(0.65))
+                                        }
+
+                                        Spacer()
+
+                                        Image(systemName: "chevron.right")
+                                            .font(.subheadline.weight(.semibold))
+                                            .foregroundStyle(.white.opacity(0.42))
                                     }
-
-                                    Spacer()
-
-                                    Image(systemName: "chevron.right")
-                                        .font(.subheadline.weight(.semibold))
-                                        .foregroundStyle(.white.opacity(0.42))
+                                    .padding(16)
+                                    .contentShape(Rectangle())
+                                    .background(panel, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                            .stroke(.white.opacity(0.08), lineWidth: 1)
+                                    }
                                 }
-                                .padding(16)
-                                .contentShape(Rectangle())
-                                .background(panel, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                        .stroke(.white.opacity(0.08), lineWidth: 1)
-                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Configure your OpenAI API key")
+
+                                Text("AI suggestions are optional and use your own OpenAI API account. Plant tracking works normally when this feature is off.")
+                                    .font(.footnote)
+                                    .foregroundStyle(.white.opacity(0.55))
+                                    .padding(.horizontal, 4)
                             }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Configure your OpenAI API key")
-
-                            Text("AI suggestions are optional and use your own OpenAI API account. Plant tracking works normally when this feature is off.")
-                                .font(.footnote)
-                                .foregroundStyle(.white.opacity(0.55))
-                                .padding(.horizontal, 4)
-
                         }
 
                         VStack(alignment: .leading, spacing: 12) {
@@ -388,6 +390,7 @@ private struct BackupNotice: Identifiable {
 private struct StorageInfoView: View {
     @EnvironmentObject private var plantStore: PlantStore
     @EnvironmentObject private var wildFindStore: WildFindStore
+    @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
 
     @State private var exportDocument = PlantStoryBackupDocument()
     @State private var isExportingBackup = false
@@ -436,11 +439,13 @@ private struct StorageInfoView: View {
                     detail: "Photo data, dates, and notes are included inside those two private files."
                 )
 
-                storageRow(
-                    icon: "key.fill",
-                    title: "OpenAI API key",
-                    detail: "Stored separately in the iOS Keychain and restricted to this device."
-                )
+                if aiFeaturesAvailable {
+                    storageRow(
+                        icon: "key.fill",
+                        title: "OpenAI API key",
+                        detail: "Stored separately in the iOS Keychain and restricted to this device."
+                    )
+                }
             } header: {
                 Text("Where your data is stored")
             } footer: {
@@ -454,11 +459,13 @@ private struct StorageInfoView: View {
                     detail: "Your plants, wild finds, photos, notes, watering history, and fertilizing history are not uploaded to iCloud, CloudKit, or a PlantStory server."
                 )
 
-                storageRow(
-                    icon: "sparkles",
-                    title: "Optional AI exception",
-                    detail: "Only when you tap Suggest with AI, limited text such as the plant name, existing species, and region when relevant is sent directly to OpenAI. Photos and plant history are not sent."
-                )
+                if aiFeaturesAvailable {
+                    storageRow(
+                        icon: "sparkles",
+                        title: "Optional AI exception",
+                        detail: "Only when you tap Suggest with AI, limited text such as the plant name, existing species, and region when relevant is sent directly to OpenAI. Photos and plant history are not sent."
+                    )
+                }
             }
 
             Section {
@@ -481,7 +488,11 @@ private struct StorageInfoView: View {
             } header: {
                 Text("Manual backup & restore")
             } footer: {
-                Text("The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection.")
+                if aiFeaturesAvailable {
+                    Text("The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection.")
+                } else {
+                    Text("The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. Restoring replaces the current local collection.")
+                }
             }
 
             Section {
@@ -497,11 +508,13 @@ private struct StorageInfoView: View {
                     detail: "Install PlantStory, open Storage & Data, and choose Restore from Backup. Apple Quick Start or a full device backup also works."
                 )
 
-                migrationStep(
-                    number: 3,
-                    title: "Re-enter your API key",
-                    detail: "The device-only Keychain item intentionally does not migrate. Add the key again under AI Suggestions if you still want that feature."
-                )
+                if aiFeaturesAvailable {
+                    migrationStep(
+                        number: 3,
+                        title: "Re-enter your API key",
+                        detail: "The device-only Keychain item intentionally does not migrate. Add the key again under AI Suggestions if you still want that feature."
+                    )
+                }
 
                 Link("View Apple’s transfer instructions", destination: transferGuideURL)
                     .font(.subheadline.weight(.medium))
@@ -794,7 +807,9 @@ private struct CreditsView: View {
 
                     githubStarCard
 
-                    supportCard
+                    if tippingEnabled {
+                        supportCard
+                    }
 
                     Text("Thank you for helping this little garden grow.")
                         .font(.footnote)

@@ -20,6 +20,7 @@ struct WildFindFormView: View {
     @EnvironmentObject private var store: WildFindStore
     @EnvironmentObject private var openAIKeyStore: OpenAIKeyStore
     @EnvironmentObject private var appNavigation: AppNavigationStore
+    @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
     @Environment(\.dismiss) private var dismiss
 
     private let existingFind: WildFind?
@@ -89,40 +90,42 @@ struct WildFindFormView: View {
                 )
             }
 
-            Section {
-                if openAIKeyStore.hasAPIKey {
-                    Button {
-                        requestAISuggestionTapped()
-                    } label: {
-                        HStack {
-                            Label(
-                                aiSuggestionButtonTitle,
-                                systemImage: "sparkles"
-                            )
-                            Spacer()
-                            if isRequestingAISuggestion {
-                                ProgressView()
+            if aiFeaturesAvailable {
+                Section {
+                    if openAIKeyStore.hasAPIKey {
+                        Button {
+                            requestAISuggestionTapped()
+                        } label: {
+                            HStack {
+                                Label(
+                                    aiSuggestionButtonTitle,
+                                    systemImage: "sparkles"
+                                )
+                                Spacer()
+                                if isRequestingAISuggestion {
+                                    ProgressView()
+                                }
                             }
                         }
-                    }
-                    .disabled(trimmedName.isEmpty || isRequestingAISuggestion)
-                } else {
-                    Label("AI suggestions are off", systemImage: "lock.fill")
-                        .foregroundStyle(.secondary)
+                        .disabled(trimmedName.isEmpty || isRequestingAISuggestion)
+                    } else {
+                        Label("AI suggestions are off", systemImage: "lock.fill")
+                            .foregroundStyle(.secondary)
 
-                    Button {
-                        openAISettings()
-                    } label: {
-                        Label("Add API key in Settings", systemImage: "gearshape.fill")
+                        Button {
+                            openAISettings()
+                        } label: {
+                            Label("Add API key in Settings", systemImage: "gearshape.fill")
+                        }
                     }
-                }
-            } header: {
-                Text("AI assistant")
-            } footer: {
-                if openAIKeyStore.hasAPIKey {
-                    Text("AI can suggest a species and short botanical description—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it.")
-                } else {
-                    Text("AI is optional. Add your own OpenAI API key in Settings to unlock Wild Find suggestions.")
+                } header: {
+                    Text("AI assistant")
+                } footer: {
+                    if openAIKeyStore.hasAPIKey {
+                        Text("AI can suggest a species and short botanical description—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it.")
+                    } else {
+                        Text("AI is optional. Add your own OpenAI API key in Settings to unlock Wild Find suggestions.")
+                    }
                 }
             }
 

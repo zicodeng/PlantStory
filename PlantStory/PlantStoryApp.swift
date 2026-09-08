@@ -1,3 +1,4 @@
+import StoreKit
 import SwiftUI
 import UIKit
 
@@ -7,6 +8,7 @@ struct PlantStoryApp: App {
     @StateObject private var store = PlantStore()
     @StateObject private var wildFindStore = WildFindStore()
     @StateObject private var openAIKeyStore = OpenAIKeyStore()
+    @StateObject private var aiAvailabilityStore = AIAvailabilityStore()
 
     init() {
         let navigation = UINavigationBarAppearance()
@@ -37,13 +39,81 @@ struct PlantStoryApp: App {
                 .environmentObject(store)
                 .environmentObject(wildFindStore)
                 .environmentObject(openAIKeyStore)
+                .environment(\.aiFeaturesAvailable, aiAvailabilityStore.isAvailable)
                 .environment(\.locale, selectedLanguage.locale)
                 .tint(Color("LeafGreen"))
+                .task {
+                    await aiAvailabilityStore.monitorStorefront()
+                }
         }
     }
 
     private var selectedLanguage: AppLanguage {
         AppLanguage(rawValue: appLanguageCode) ?? .english
+    }
+}
+
+enum AIRegionalAvailability {
+    static let restrictedStorefrontCountryCodes: Set<String> = ["CHN"]
+
+    static func isAvailableForCurrentStorefront() async -> Bool {
+        let storefront = await Storefront.current
+        return isAvailable(storefrontCountryCode: storefront?.countryCode)
+    }
+
+    static func isAvailable(storefrontCountryCode: String?) -> Bool {
+        let countryCode = effectiveCountryCode(storefrontCountryCode)
+        guard let countryCode else {
+            // App Store builds fail closed until StoreKit resolves the storefront.
+            return false
+        }
+        return !restrictedStorefrontCountryCodes.contains(countryCode)
+    }
+
+    private static func effectiveCountryCode(_ storefrontCountryCode: String?) -> String? {
+#if DEBUG
+        // Set PLANTSTORY_STOREFRONT_OVERRIDE to CHN or USA in the Xcode scheme
+        // to verify both regional experiences without changing Apple Accounts.
+        if let override = ProcessInfo.processInfo.environment["PLANTSTORY_STOREFRONT_OVERRIDE"]?
+            .trimmingCharacters(in: .whitespacesAndNewlines),
+           !override.isEmpty {
+            return override.uppercased()
+        }
+
+        // Storefront.current can be nil for an app installed directly from Xcode.
+        // This fallback is compiled out of App Store builds.
+        if storefrontCountryCode == nil {
+            return Locale.current.region?.identifier == "CN" ? "CHN" : "USA"
+        }
+#endif
+        return storefrontCountryCode?.uppercased()
+    }
+}
+
+@MainActor
+final class AIAvailabilityStore: ObservableObject {
+    @Published private(set) var isAvailable = false
+
+    func monitorStorefront() async {
+        isAvailable = await AIRegionalAvailability.isAvailableForCurrentStorefront()
+
+        for await storefront in Storefront.updates {
+            guard !Task.isCancelled else { return }
+            isAvailable = AIRegionalAvailability.isAvailable(
+                storefrontCountryCode: storefront.countryCode
+            )
+        }
+    }
+}
+
+private struct AIFeaturesAvailableKey: EnvironmentKey {
+    static let defaultValue = false
+}
+
+extension EnvironmentValues {
+    var aiFeaturesAvailable: Bool {
+        get { self[AIFeaturesAvailableKey.self] }
+        set { self[AIFeaturesAvailableKey.self] = newValue }
     }
 }
 
