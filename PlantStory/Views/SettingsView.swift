@@ -3,6 +3,7 @@ import StoreKit
 import UniformTypeIdentifiers
 
 struct SettingsView: View {
+    @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
     @EnvironmentObject private var openAIKeyStore: OpenAIKeyStore
     @Environment(\.requestReview) private var requestReview
 
@@ -29,6 +30,49 @@ struct SettingsView: View {
                             Text("Manage optional features and privacy.")
                                 .font(.subheadline)
                                 .foregroundStyle(.white.opacity(0.68))
+                        }
+
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("LANGUAGE")
+                                .font(.caption.weight(.bold))
+                                .tracking(1.8)
+                                .foregroundStyle(lime)
+
+                            HStack(spacing: 14) {
+                                Image(systemName: "globe")
+                                    .font(.title3.weight(.semibold))
+                                    .foregroundStyle(.white)
+                                    .frame(width: 46, height: 46)
+                                    .background(Color.indigo, in: Circle())
+
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("App Language")
+                                        .font(.system(.headline, design: .serif, weight: .semibold))
+                                        .foregroundStyle(.white)
+                                    Text("Changes apply immediately across PlantStory.")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.white.opacity(0.65))
+                                }
+
+                                Spacer(minLength: 8)
+
+                                Picker("App Language", selection: $appLanguageCode) {
+                                    ForEach(AppLanguage.allCases) { language in
+                                        Text(language.nativeName)
+                                            .tag(language.rawValue)
+                                    }
+                                }
+                                .labelsHidden()
+                                .pickerStyle(.menu)
+                                .tint(lime)
+                                .accessibilityLabel("App Language")
+                            }
+                            .padding(16)
+                            .background(panel, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                    .stroke(.white.opacity(0.08), lineWidth: 1)
+                            }
                         }
 
                         VStack(alignment: .leading, spacing: 12) {
@@ -224,16 +268,16 @@ struct SettingsView: View {
 
     private var aiStatus: String {
         if let keyPreview = openAIKeyStore.keyPreview {
-            return "On · Key \(keyPreview)"
+            return AppLocalization.string("On · Key %@", keyPreview)
         }
-        return "Off · Add your own API key"
+        return AppLocalization.string("Off · Add your own API key")
     }
 
     private func feedbackRow(
         icon: String,
         iconColor: Color,
-        title: String,
-        description: String,
+        title: LocalizedStringKey,
+        description: LocalizedStringKey,
         trailingIcon: String
     ) -> some View {
         HStack(spacing: 14) {
@@ -325,9 +369,12 @@ private enum PlantStoryBackupError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .unreadableFile:
-            "The selected file could not be read."
+            AppLocalization.string("The selected file could not be read.")
         case let .unsupportedVersion(version):
-            "This backup uses unsupported format version \(version). Update PlantStory and try again."
+            AppLocalization.string(
+                "This backup uses unsupported format version %lld. Update PlantStory and try again.",
+                Int64(version)
+            )
         }
     }
 }
@@ -372,13 +419,15 @@ private struct StorageInfoView: View {
                 storageRow(
                     icon: "leaf.fill",
                     title: "My Garden",
-                    detail: "Library/Application Support/PlantStory/plants.json"
+                    detail: "Library/Application Support/PlantStory/plants.json",
+                    usesMonospacedDetail: true
                 )
 
                 storageRow(
                     icon: "camera.macro",
                     title: "Wild Finds",
-                    detail: "Library/Application Support/PlantStory/wild-finds.json"
+                    detail: "Library/Application Support/PlantStory/wild-finds.json",
+                    usesMonospacedDetail: true
                 )
 
                 storageRow(
@@ -478,8 +527,10 @@ private struct StorageInfoView: View {
             switch result {
             case .success:
                 backupNotice = BackupNotice(
-                    title: "Backup saved",
-                    message: "Keep this file somewhere safe. You can restore it from Storage & Data on another iPhone."
+                    title: AppLocalization.string("Backup saved"),
+                    message: AppLocalization.string(
+                        "Keep this file somewhere safe. You can restore it from Storage & Data on another iPhone."
+                    )
                 )
             case let .failure(error):
                 presentBackupError(error)
@@ -515,7 +566,9 @@ private struct StorageInfoView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: { backup in
-            Text("Backup from \(backup.createdAt.formatted(date: .abbreviated, time: .shortened)) with \(itemSummary(for: backup)). Your current plants and Wild Finds will be replaced.")
+            Text(
+                "Backup from \(AppLocalization.dateString(backup.createdAt, dateStyle: .medium, timeStyle: .short)) with \(itemSummary(for: backup)). Your current plants and Wild Finds will be replaced."
+            )
         }
         .alert(item: $backupNotice) { notice in
             Alert(
@@ -527,7 +580,11 @@ private struct StorageInfoView: View {
     }
 
     private var collectionSummary: String {
-        "\(plantStore.plants.count) plants · \(wildFindStore.finds.count) wild finds"
+        AppLocalization.string(
+            "%lld plants · %lld wild finds",
+            Int64(plantStore.plants.count),
+            Int64(wildFindStore.finds.count)
+        )
     }
 
     private var backupFilename: String {
@@ -535,7 +592,10 @@ private struct StorageInfoView: View {
         formatter.calendar = Calendar(identifier: .gregorian)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd"
-        return "PlantStory Backup \(formatter.string(from: .now))"
+        return AppLocalization.string(
+            "PlantStory Backup %@",
+            formatter.string(from: .now)
+        )
     }
 
     private func prepareBackup() {
@@ -562,8 +622,11 @@ private struct StorageInfoView: View {
 
             pendingBackup = nil
             backupNotice = BackupNotice(
-                title: "Backup restored",
-                message: "Restored \(itemSummary(for: backup))."
+                title: AppLocalization.string("Backup restored"),
+                message: AppLocalization.string(
+                    "Restored %@.",
+                    itemSummary(for: backup)
+                )
             )
         } catch {
             presentBackupError(error)
@@ -571,21 +634,30 @@ private struct StorageInfoView: View {
     }
 
     private func itemSummary(for backup: PlantStoryBackupArchive) -> String {
-        let plantLabel = backup.plants.count == 1 ? "1 plant" : "\(backup.plants.count) plants"
-        let findLabel = backup.wildFinds.count == 1 ? "1 wild find" : "\(backup.wildFinds.count) wild finds"
-        return "\(plantLabel) and \(findLabel)"
+        let plantLabel = backup.plants.count == 1
+            ? AppLocalization.string("1 plant")
+            : AppLocalization.string("%lld plants", Int64(backup.plants.count))
+        let findLabel = backup.wildFinds.count == 1
+            ? AppLocalization.string("1 wild find")
+            : AppLocalization.string("%lld wild finds", Int64(backup.wildFinds.count))
+        return AppLocalization.string("%@ and %@", plantLabel, findLabel)
     }
 
     private func presentBackupError(_ error: Error) {
         let error = error as NSError
         guard error.code != NSUserCancelledError else { return }
         backupNotice = BackupNotice(
-            title: "Backup couldn’t be completed",
+            title: AppLocalization.string("Backup couldn’t be completed"),
             message: error.localizedDescription
         )
     }
 
-    private func storageRow(icon: String, title: String, detail: String) -> some View {
+    private func storageRow(
+        icon: String,
+        title: LocalizedStringKey,
+        detail: LocalizedStringKey,
+        usesMonospacedDetail: Bool = false
+    ) -> some View {
         HStack(alignment: .top, spacing: 12) {
             Image(systemName: icon)
                 .font(.subheadline.weight(.semibold))
@@ -597,7 +669,7 @@ private struct StorageInfoView: View {
                     .font(.subheadline.weight(.semibold))
 
                 Text(detail)
-                    .font(detail.contains("Library/Application Support") ? .caption.monospaced() : .footnote)
+                    .font(usesMonospacedDetail ? .caption.monospaced() : .footnote)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -605,7 +677,11 @@ private struct StorageInfoView: View {
         .accessibilityElement(children: .combine)
     }
 
-    private func migrationStep(number: Int, title: String, detail: String) -> some View {
+    private func migrationStep(
+        number: Int,
+        title: LocalizedStringKey,
+        detail: LocalizedStringKey
+    ) -> some View {
         HStack(alignment: .top, spacing: 12) {
             Text("\(number)")
                 .font(.caption.weight(.bold))
@@ -822,7 +898,10 @@ private struct CreditsView: View {
                 .padding(.vertical, 16)
             } else if tipJar.products.isEmpty {
                 VStack(spacing: 10) {
-                    Text(tipJar.loadingError ?? "Support options are not available yet.")
+                    Text(
+                        tipJar.loadingError
+                            ?? AppLocalization.string("Support options are not available yet.")
+                    )
                         .font(.subheadline)
                         .foregroundStyle(.white.opacity(0.66))
                         .multilineTextAlignment(.center)
@@ -911,7 +990,11 @@ private struct CreditsView: View {
         }
     }
 
-    private func staticSupportOption(name: String, price: String, color: Color) -> some View {
+    private func staticSupportOption(
+        name: LocalizedStringKey,
+        price: String,
+        color: Color
+    ) -> some View {
         HStack(spacing: 12) {
             Text(name)
                 .font(.subheadline.weight(.semibold))
@@ -976,8 +1059,8 @@ private struct CreditsView: View {
 
     private func creditRow(
         icon: String,
-        title: String,
-        description: String,
+        title: LocalizedStringKey,
+        description: LocalizedStringKey,
         linkText: String? = nil,
         trailingIcon: String? = nil
     ) -> some View {

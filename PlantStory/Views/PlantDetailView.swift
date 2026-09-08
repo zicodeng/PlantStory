@@ -6,8 +6,8 @@ private enum CareHistoryKind: String {
 
     var entryTitle: String {
         switch self {
-        case .watering: "watering entry"
-        case .fertilizing: "fertilizing entry"
+        case .watering: AppLocalization.string("watering entry")
+        case .fertilizing: AppLocalization.string("fertilizing entry")
         }
     }
 }
@@ -131,7 +131,7 @@ struct PlantDetailView: View {
         .alert(item: $careEntryToDelete) { deletion in
             Alert(
                 title: Text("Delete this \(deletion.kind.entryTitle)?"),
-                message: Text("This removes the entry from \(currentPlant.name)’s history:\n\(deletion.date.formatted(date: .abbreviated, time: .shortened))"),
+                message: Text("This removes the entry from \(currentPlant.name)’s history:\n\(AppLocalization.dateString(deletion.date, dateStyle: .medium, timeStyle: .short))"),
                 primaryButton: .destructive(Text("Delete")) {
                     deleteCareHistoryEntry(deletion)
                 },
@@ -225,7 +225,12 @@ struct PlantDetailView: View {
         .accessibilityLabel("Plant statistics")
     }
 
-    private func metricCard(value: String, label: String, icon: String, accent: Color) -> some View {
+    private func metricCard(
+        value: String,
+        label: LocalizedStringKey,
+        icon: String,
+        accent: Color
+    ) -> some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
                 .font(.title3)
@@ -298,10 +303,16 @@ struct PlantDetailView: View {
 
             VStack(alignment: .leading, spacing: 9) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(event.title)
+                    event.titleText
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.white)
-                    Text(event.date.formatted(date: .abbreviated, time: event.isPhoto ? .omitted : .shortened))
+                    Text(
+                        AppLocalization.dateString(
+                            event.date,
+                            dateStyle: .medium,
+                            timeStyle: event.isPhoto ? .none : .short
+                        )
+                    )
                         .font(.caption)
                         .foregroundStyle(.white.opacity(0.58))
                 }
@@ -358,10 +369,10 @@ struct PlantDetailView: View {
     }
 
     private func careHistorySection(
-        title: String,
+        title: LocalizedStringKey,
         status: String,
-        emptyMessage: String,
-        actionTitle: String,
+        emptyMessage: LocalizedStringKey,
+        actionTitle: LocalizedStringKey,
         actionIcon: String,
         rowIcon: String,
         accent: Color,
@@ -410,7 +421,7 @@ struct PlantDetailView: View {
                             Image(systemName: rowIcon)
                                 .symbolRenderingMode(.palette)
                                 .foregroundStyle(.white, accent)
-                            Text(date.formatted(date: .abbreviated, time: .shortened))
+                            Text(AppLocalization.dateString(date, dateStyle: .medium, timeStyle: .short))
                                 .font(.subheadline)
                                 .foregroundStyle(.white)
                             Spacer()
@@ -427,7 +438,9 @@ struct PlantDetailView: View {
                             }
                             .buttonStyle(.plain)
                             .foregroundStyle(.red.opacity(0.9))
-                            .accessibilityLabel("Delete \(historyKind.entryTitle) from \(date.formatted(date: .abbreviated, time: .shortened))")
+                            .accessibilityLabel(
+                                "Delete \(historyKind.entryTitle) from \(AppLocalization.dateString(date, dateStyle: .medium, timeStyle: .short))"
+                            )
                         }
                         .padding(.vertical, 13)
                         if index < visibleHistory.count - 1 {
@@ -504,7 +517,11 @@ struct PlantDetailView: View {
         .gardenCardStyle(panel: panel)
     }
 
-    private func seasonalCareRow(title: String, icon: String, months: [String]) -> some View {
+    private func seasonalCareRow(
+        title: LocalizedStringKey,
+        icon: String,
+        months: [String]
+    ) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Label(title, systemImage: icon)
                 .font(.subheadline.weight(.semibold))
@@ -531,13 +548,23 @@ struct PlantDetailView: View {
     }
 
     private var lastWateredText: String {
-        guard let date = currentPlant.lastWatered else { return "Not watered yet" }
-        return "Last watered \(date.formatted(.relative(presentation: .named)))"
+        guard let date = currentPlant.lastWatered else {
+            return AppLocalization.string("Not watered yet")
+        }
+        return AppLocalization.string(
+            "Last watered %@",
+            AppLocalization.relativeDateString(date)
+        )
     }
 
     private var lastFertilizedText: String {
-        guard let date = currentPlant.lastFertilized else { return "Not fertilized yet" }
-        return "Last fertilized \(date.formatted(.relative(presentation: .named)))"
+        guard let date = currentPlant.lastFertilized else {
+            return AppLocalization.string("Not fertilized yet")
+        }
+        return AppLocalization.string(
+            "Last fertilized %@",
+            AppLocalization.relativeDateString(date)
+        )
     }
 
     private var hasSeasonalCareSchedule: Bool {
@@ -570,15 +597,19 @@ private struct PlantTimelineEvent: Identifiable {
         return false
     }
 
-    var title: String {
+    var titleText: Text {
         switch kind {
         case let .photo(_, _, eventTag, customEventTitle):
             if eventTag == .customEvent {
                 let title = customEventTitle.trimmingCharacters(in: .whitespacesAndNewlines)
-                return title.isEmpty ? "Custom event" : title
+                return title.isEmpty ? Text("Custom event") : Text(verbatim: title)
             }
-            return eventTag?.title ?? "A new moment"
-        case .acquired: return "Came home"
+            if let eventTag {
+                return Text(eventTag.title)
+            }
+            return Text("A new moment")
+        case .acquired:
+            return Text("Came home")
         }
     }
 

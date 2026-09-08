@@ -142,7 +142,7 @@ struct PlantFormView: View {
                     } label: {
                         HStack {
                             Label(
-                                hasGeneratedAISuggestion ? "Suggest again with AI" : "Suggest details with AI",
+                                aiSuggestionButtonTitle,
                                 systemImage: "sparkles"
                             )
                             Spacer()
@@ -255,7 +255,7 @@ struct PlantFormView: View {
                     matching: .images,
                     preferredItemEncoding: .current
                 ) {
-                    Label(isLoadingPhotos ? "Adding photos…" : "Add photos", systemImage: "photo.badge.plus")
+                    Label(photoPickerTitle, systemImage: "photo.badge.plus")
                 }
                 .disabled(isLoadingPhotos)
                 .onChange(of: selectedItems) { _, items in
@@ -272,7 +272,7 @@ struct PlantFormView: View {
                     .lineLimit(4...9)
             }
         }
-        .navigationTitle(existingPlant == nil ? "New plant" : "Edit plant")
+        .navigationTitle(formTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
@@ -312,6 +312,18 @@ struct PlantFormView: View {
 
     private var trimmedName: String {
         name.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private var formTitle: LocalizedStringKey {
+        existingPlant == nil ? "New plant" : "Edit plant"
+    }
+
+    private var aiSuggestionButtonTitle: LocalizedStringKey {
+        hasGeneratedAISuggestion ? "Suggest again with AI" : "Suggest details with AI"
+    }
+
+    private var photoPickerTitle: LocalizedStringKey {
+        isLoadingPhotos ? "Adding photos…" : "Add photos"
     }
 
     private func openAISettings() {
@@ -388,7 +400,11 @@ struct PlantFormView: View {
     private func requestAISuggestion() async {
         guard !trimmedName.isEmpty else { return }
         guard let apiKey = openAIKeyStore.apiKey() else {
-            aiAlert = .error("Your API key is no longer available. Add it again from the Settings tab.")
+            aiAlert = .error(
+                AppLocalization.string(
+                    "Your API key is no longer available. Add it again from the Settings tab."
+                )
+            )
             return
         }
 
@@ -433,7 +449,11 @@ struct PlantFormView: View {
         let careSummary = suggestion.careSummary.trimmingCharacters(in: .whitespacesAndNewlines)
         if !careSummary.isEmpty, !notes.localizedCaseInsensitiveContains(careSummary) {
             let prefix = notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "" : "\n\n"
-            notes += "\(prefix)AI care suggestion: \(careSummary)"
+            let localizedSuggestion = AppLocalization.string(
+                "AI care suggestion: %@",
+                careSummary
+            )
+            notes += "\(prefix)\(localizedSuggestion)"
         }
     }
 
@@ -529,7 +549,7 @@ struct PlantFormView: View {
 private struct TimelineEventMenu: View {
     @Binding var selection: PlantPhotoEventTag?
 
-    private var selectedTitle: String {
+    private var selectedTitle: LocalizedStringKey {
         selection?.title ?? "A new moment"
     }
 
@@ -620,7 +640,9 @@ private struct MonthSelectionGrid: View {
     }
 
     private func monthName(for month: Int) -> String {
-        Calendar.current.monthSymbols[month - 1]
+        var calendar = Calendar.current
+        calendar.locale = AppLocalization.currentLocale
+        return calendar.monthSymbols[month - 1]
     }
 }
 

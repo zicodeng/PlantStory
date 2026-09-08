@@ -16,7 +16,7 @@ struct OpenAIKeyView: View {
             Section {
                 Label {
                     VStack(alignment: .leading, spacing: 3) {
-                        Text(keyStore.hasAPIKey ? "AI suggestions are on" : "AI suggestions are off")
+                        Text(aiStatusTitle)
                             .font(.headline)
                         if let keyPreview = keyStore.keyPreview {
                             Text("Saved key \(keyPreview)")
@@ -74,7 +74,7 @@ struct OpenAIKeyView: View {
                         .font(.subheadline)
                 }
 
-                Button(keyStore.hasAPIKey ? "Replace API key" : "Save API key") {
+                Button(apiKeyActionTitle) {
                     saveKey()
                 }
                 .disabled(apiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !acknowledgesBilling)
@@ -84,7 +84,7 @@ struct OpenAIKeyView: View {
                     destination: URL(string: "https://platform.openai.com/api-keys")!
                 )
             } header: {
-                Text(keyStore.hasAPIKey ? "Use a different key" : "Your API key")
+                Text(apiKeySectionTitle)
             } footer: {
                 Text("The key is stored in this device’s Keychain and is never saved with your plants. PlantStory sends a plant name to OpenAI only after you tap Suggest with AI.")
             }
@@ -112,7 +112,9 @@ struct OpenAIKeyView: View {
         )) {
             Button("OK", role: .cancel) { errorMessage = nil }
         } message: {
-            Text(errorMessage ?? "Please try again.")
+            Text(
+                errorMessage ?? AppLocalization.string("Please try again.")
+            )
         }
         .confirmationDialog(
             "Remove your API key?",
@@ -147,7 +149,23 @@ struct OpenAIKeyView: View {
         }
     }
 
-    private func aiUsageRow(icon: String, title: String, detail: String) -> some View {
+    private var aiStatusTitle: LocalizedStringKey {
+        keyStore.hasAPIKey ? "AI suggestions are on" : "AI suggestions are off"
+    }
+
+    private var apiKeyActionTitle: LocalizedStringKey {
+        keyStore.hasAPIKey ? "Replace API key" : "Save API key"
+    }
+
+    private var apiKeySectionTitle: LocalizedStringKey {
+        keyStore.hasAPIKey ? "Use a different key" : "Your API key"
+    }
+
+    private func aiUsageRow(
+        icon: String,
+        title: LocalizedStringKey,
+        detail: LocalizedStringKey
+    ) -> some View {
         HStack(alignment: .top, spacing: 12) {
             Image(systemName: icon)
                 .font(.subheadline.weight(.semibold))
@@ -227,22 +245,32 @@ struct PlantAISuggestionReviewView: View {
     }
 
     @ViewBuilder
-    private func suggestionRow(_ title: String, value: String) -> some View {
+    private func suggestionRow(_ title: LocalizedStringKey, value: String) -> some View {
         HStack(alignment: .firstTextBaseline) {
             Text(title)
             Spacer(minLength: 16)
-            Text(value.isEmpty ? "Not suggested" : value)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.trailing)
+            Group {
+                if value.isEmpty {
+                    Text("Not suggested")
+                } else {
+                    Text(value)
+                }
+            }
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.trailing)
         }
     }
 
     private func monthNames(_ months: [Int]) -> String {
-        let names = Calendar.current.shortMonthSymbols
+        var calendar = Calendar.current
+        calendar.locale = AppLocalization.currentLocale
+        let names = calendar.shortMonthSymbols
         let values = Array(Set(months))
             .filter { (1...12).contains($0) }
             .sorted()
             .map { names[$0 - 1] }
-        return values.isEmpty ? "Not suggested" : values.joined(separator: ", ")
+        return values.isEmpty
+            ? AppLocalization.string("Not suggested")
+            : values.joined(separator: ", ")
     }
 }

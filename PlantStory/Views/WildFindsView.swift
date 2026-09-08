@@ -174,7 +174,9 @@ struct WildFindsView: View {
 
     private var collectionSubtitle: String {
         let count = store.finds.count
-        return count == 1 ? "You’ve saved 1 discovery" : "You’ve saved \(count) discoveries"
+        return count == 1
+            ? AppLocalization.string("You’ve saved 1 discovery")
+            : AppLocalization.string("You’ve saved %lld discoveries", Int64(count))
     }
 
     private var searchField: some View {
@@ -340,7 +342,9 @@ private struct WildFindCard: View {
                     .font(.system(.headline, design: .serif, weight: .semibold))
                     .foregroundStyle(ink)
                     .lineLimit(1)
-                Text("Found \(find.discoveredDate.formatted(date: .abbreviated, time: .omitted))")
+                Text(
+                    "Found \(AppLocalization.dateString(find.discoveredDate, dateStyle: .medium))"
+                )
                     .font(.caption.weight(.medium))
                     .foregroundStyle(botanical)
                     .lineLimit(1)

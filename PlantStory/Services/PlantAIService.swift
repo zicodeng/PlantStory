@@ -70,7 +70,9 @@ actor PlantAIService {
             case 429:
                 throw PlantAIServiceError.rateLimited
             default:
-                throw PlantAIServiceError.api(apiMessage ?? "OpenAI returned an error.")
+                throw PlantAIServiceError.api(
+                    apiMessage ?? AppLocalization.string("OpenAI returned an error.")
+                )
             }
         }
 
@@ -118,7 +120,9 @@ actor PlantAIService {
             case 429:
                 throw PlantAIServiceError.rateLimited
             default:
-                throw PlantAIServiceError.api(apiMessage ?? "OpenAI returned an error.")
+                throw PlantAIServiceError.api(
+                    apiMessage ?? AppLocalization.string("OpenAI returned an error.")
+                )
             }
         }
 
@@ -140,12 +144,13 @@ actor PlantAIService {
 
     private func requestBody(plantName: String, existingSpecies: String) -> [String: Any] {
         let region = Locale.current.region?.identifier ?? Locale.current.identifier
+        let outputLanguage = localizedOutputLanguageInstruction
         let prompt = """
         The user entered the plant name “\(plantName)”.
         Existing species text, if any: “\(existingSpecies)”.
         The device region is “\(region)”.
 
-        Suggest the most likely plant identity and general fertilizing and pruning months for ordinary home growing in that region. Month values must be integers from 1 through 12. Common plant names can be ambiguous: if the identity is uncertain, leave uncertain text empty, return empty month arrays, lower confidence, and explain what the user should verify. Keep the care summary to two short sentences. Do not present the result as guaranteed professional advice.
+        Suggest the most likely plant identity and general fertilizing and pruning months for ordinary home growing in that region. Month values must be integers from 1 through 12. Common plant names can be ambiguous: if the identity is uncertain, leave uncertain text empty, return empty month arrays, lower confidence, and explain what the user should verify. Keep the care summary to two short sentences. Do not present the result as guaranteed professional advice. \(outputLanguage)
         """
 
         return [
@@ -209,11 +214,12 @@ actor PlantAIService {
     }
 
     private func wildFindRequestBody(plantName: String, existingSpecies: String) -> [String: Any] {
+        let outputLanguage = localizedOutputLanguageInstruction
         let prompt = """
         The user saved a wild plant under the name “\(plantName)”.
         Existing species text, if any: “\(existingSpecies)”.
 
-        Suggest the most likely scientific species and a concise field-guide description. The description should be two to four short sentences focused on the likely plant’s appearance, notable botanical traits, and typical habitat or native range when reliable. The user has not provided an image to analyze, so do not claim to have observed specific features in their individual plant. Do not include watering, fertilizing, pruning, propagation, or other care instructions. Common names can be ambiguous: if identity is uncertain, leave the scientific name empty, lower confidence, and explain what identifying details the user should verify.
+        Suggest the most likely scientific species and a concise field-guide description. The description should be two to four short sentences focused on the likely plant’s appearance, notable botanical traits, and typical habitat or native range when reliable. The user has not provided an image to analyze, so do not claim to have observed specific features in their individual plant. Do not include watering, fertilizing, pruning, propagation, or other care instructions. Common names can be ambiguous: if identity is uncertain, leave the scientific name empty, lower confidence, and explain what identifying details the user should verify. \(outputLanguage)
         """
 
         return [
@@ -261,6 +267,15 @@ actor PlantAIService {
             ]
         ]
     }
+
+    private var localizedOutputLanguageInstruction: String {
+        switch AppLocalization.currentLanguage {
+        case .simplifiedChinese:
+            return "Write all user-facing text fields in Simplified Chinese. Keep scientific names in their standard Latin form."
+        case .english:
+            return "Write all user-facing text fields in English. Keep scientific names in their standard Latin form."
+        }
+    }
 }
 
 enum PlantAIServiceError: LocalizedError {
@@ -274,15 +289,19 @@ enum PlantAIServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidResponse:
-            return "PlantStory couldn’t read the OpenAI response."
+            return AppLocalization.string("PlantStory couldn’t read the OpenAI response.")
         case .invalidAPIKey:
-            return "This API key was rejected. Check or replace it and try again."
+            return AppLocalization.string("This API key was rejected. Check or replace it and try again.")
         case .rateLimited:
-            return "This OpenAI account is temporarily rate limited or needs billing credits."
+            return AppLocalization.string(
+                "This OpenAI account is temporarily rate limited or needs billing credits."
+            )
         case .api(let message):
             return message
         case .missingSuggestion, .malformedSuggestion:
-            return "OpenAI didn’t return a usable plant suggestion. Please try again."
+            return AppLocalization.string(
+                "OpenAI didn’t return a usable plant suggestion. Please try again."
+            )
         }
     }
 }

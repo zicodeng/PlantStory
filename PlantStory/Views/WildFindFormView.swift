@@ -96,7 +96,7 @@ struct WildFindFormView: View {
                     } label: {
                         HStack {
                             Label(
-                                hasGeneratedAISuggestion ? "Suggest again with AI" : "Suggest details with AI",
+                                aiSuggestionButtonTitle,
                                 systemImage: "sparkles"
                             )
                             Spacer()
@@ -193,7 +193,7 @@ struct WildFindFormView: View {
                     matching: .images,
                     preferredItemEncoding: .current
                 ) {
-                    Label(isLoadingPhotos ? "Adding photos…" : "Add photos", systemImage: "photo.badge.plus")
+                    Label(photoPickerTitle, systemImage: "photo.badge.plus")
                 }
                 .disabled(isLoadingPhotos)
                 .onChange(of: selectedItems) { _, items in
@@ -205,7 +205,7 @@ struct WildFindFormView: View {
                 Text("Photo dates are filled from image metadata when available. Add a location and note for each separate sighting.")
             }
         }
-        .navigationTitle(existingFind == nil ? "New wild find" : "Edit wild find")
+        .navigationTitle(formTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
@@ -245,6 +245,18 @@ struct WildFindFormView: View {
 
     private var trimmedName: String {
         name.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private var formTitle: LocalizedStringKey {
+        existingFind == nil ? "New wild find" : "Edit wild find"
+    }
+
+    private var aiSuggestionButtonTitle: LocalizedStringKey {
+        hasGeneratedAISuggestion ? "Suggest again with AI" : "Suggest details with AI"
+    }
+
+    private var photoPickerTitle: LocalizedStringKey {
+        isLoadingPhotos ? "Adding photos…" : "Add photos"
     }
 
     private var normalizedOtherName: String? {
@@ -318,7 +330,11 @@ struct WildFindFormView: View {
     private func requestAISuggestion() async {
         guard !trimmedName.isEmpty else { return }
         guard let apiKey = openAIKeyStore.apiKey() else {
-            aiAlert = .error("Your API key is no longer available. Add it again from the Settings tab.")
+            aiAlert = .error(
+                AppLocalization.string(
+                    "Your API key is no longer available. Add it again from the Settings tab."
+                )
+            )
             return
         }
 
@@ -431,13 +447,19 @@ private struct WildFindAISuggestionReviewView: View {
     }
 
     @ViewBuilder
-    private func suggestionRow(_ title: String, value: String) -> some View {
+    private func suggestionRow(_ title: LocalizedStringKey, value: String) -> some View {
         HStack(alignment: .firstTextBaseline) {
             Text(title)
             Spacer(minLength: 16)
-            Text(value.isEmpty ? "Not suggested" : value)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.trailing)
+            Group {
+                if value.isEmpty {
+                    Text("Not suggested")
+                } else {
+                    Text(value)
+                }
+            }
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.trailing)
         }
     }
 }

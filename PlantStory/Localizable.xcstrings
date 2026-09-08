@@ -1,0 +1,3330 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@ and %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ and %2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 和 %2$@"
+          }
+        }
+      }
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@，%2$@"
+          }
+        }
+      }
+    },
+    "%@, %lld plants" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$lld plants"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@，共 %2$lld 株植物"
+          }
+        }
+      }
+    },
+    "%@, 1 plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@，共 1 株植物"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "%lld photos" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 张照片"
+          }
+        }
+      }
+    },
+    "%lld plants" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 株植物"
+          }
+        }
+      }
+    },
+    "%lld plants · %lld wild finds" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld plants · %2$lld wild finds"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld 株植物 · %2$lld 条野外记录"
+          }
+        }
+      }
+    },
+    "%lld wild finds" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 条野外记录"
+          }
+        }
+      }
+    },
+    "1 plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 株植物"
+          }
+        }
+      }
+    },
+    "1 wild find" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 条野外记录"
+          }
+        }
+      }
+    },
+    "A new moment" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录新瞬间"
+          }
+        }
+      }
+    },
+    "A new sighting" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "又一次相遇"
+          }
+        }
+      }
+    },
+    "A request is sent only after you tap Suggest with AI. Tapping it again sends another request and may create another charge." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只有你轻点“让 AI 帮我补全”后，PlantStory 才会发送请求。再次轻点会重新请求，并可能产生额外费用。"
+          }
+        }
+      }
+    },
+    "ABOUT" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
+          }
+        }
+      }
+    },
+    "About $0.001 per suggestion, often less. Actual cost depends on token usage and OpenAI’s current pricing, and is billed to your API account." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每次生成大约花费 0.001 美元，通常还会更低。实际费用取决于 Token 用量和 OpenAI 的最新定价，并从你的 API 账户扣除。"
+          }
+        }
+      }
+    },
+    "Acquired" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "入手日期"
+          }
+        }
+      }
+    },
+    "Acquired date" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "入手日期"
+          }
+        }
+      }
+    },
+    "Add a note about this photo…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写下这张照片背后的故事…"
+          }
+        }
+      }
+    },
+    "Add a plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加植物"
+          }
+        }
+      }
+    },
+    "Add a wild find" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加野外记录"
+          }
+        }
+      }
+    },
+    "Add API key in Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往设置添加 API 密钥"
+          }
+        }
+      }
+    },
+    "Add photos" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加照片"
+          }
+        }
+      }
+    },
+    "Add plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加植物"
+          }
+        }
+      }
+    },
+    "Add your first plant and keep its story growing through photos, notes, and care." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加第一株植物，用照片、笔记和养护记录，慢慢写下它的故事。"
+          }
+        }
+      }
+    },
+    "Adding photos…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在添加照片…"
+          }
+        }
+      }
+    },
+    "AI assistant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 助手"
+          }
+        }
+      }
+    },
+    "AI Assistant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 助手"
+          }
+        }
+      }
+    },
+    "AI can confuse plants with similar common names. No photo was analyzed, so review the species and description before applying them." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅凭名称，AI 可能会认错同名或相似的植物。这里不会分析照片，请在采用前核对物种和描述。"
+          }
+        }
+      }
+    },
+    "AI can suggest a species and short botanical description—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 可以帮你推测物种并生成简短的植物介绍，但不会提供养护指南。每次生成都会消耗你自己的 OpenAI API 额度，采用前可以先查看内容。"
+          }
+        }
+      }
+    },
+    "AI care suggestion: %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议：%@"
+          }
+        }
+      }
+    },
+    "AI is optional. Add your own OpenAI API key in Settings to unlock plant suggestions." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 是可选功能。你可以在“设置”中添加自己的 OpenAI API 密钥，让 AI 帮忙补全植物信息。"
+          }
+        }
+      }
+    },
+    "AI is optional. Add your own OpenAI API key in Settings to unlock Wild Find suggestions." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 是可选功能。你可以在“设置”中添加自己的 OpenAI API 密钥，让 AI 帮忙识别野外植物。"
+          }
+        }
+      }
+    },
+    "AI suggestion unavailable" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时无法获取 AI 建议"
+          }
+        }
+      }
+    },
+    "AI Suggestions" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议"
+          }
+        }
+      }
+    },
+    "AI suggestions are off" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议已关闭"
+          }
+        }
+      }
+    },
+    "AI suggestions are on" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议已开启"
+          }
+        }
+      }
+    },
+    "AI suggestions are optional and use your own OpenAI API account. Plant tracking works normally when this feature is off." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议完全可选，并使用你自己的 OpenAI API 账户。不开启也不会影响植物记录。"
+          }
+        }
+      }
+    },
+    "AI suggestions can be wrong, especially when a common name refers to several species. Review these values before applying them." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "俗名可能对应多个物种，AI 也可能判断出错。采用前请仔细核对。"
+          }
+        }
+      }
+    },
+    "AI suggestions will be turned off on this device." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这台设备上的 AI 建议将被关闭。"
+          }
+        }
+      }
+    },
+    "Animated illustration of a growing potted plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一株盆栽慢慢长大的动画"
+          }
+        }
+      }
+    },
+    "Animated illustration of discovering a plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在野外遇见植物的动画"
+          }
+        }
+      }
+    },
+    "App Language" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语言"
+          }
+        }
+      }
+    },
+    "Appearance, habitat, or observations…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录外形、生境或你的观察…"
+          }
+        }
+      }
+    },
+    "Apple could not verify this purchase. You have not been credited for it." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple 无法验证这笔购买，因此本次支持未能完成。"
+          }
+        }
+      }
+    },
+    "Apple is still processing this purchase." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple 正在处理这笔购买。"
+          }
+        }
+      }
+    },
+    "Apply" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "采用"
+          }
+        }
+      }
+    },
+    "Ascending" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "升序"
+          }
+        }
+      }
+    },
+    "Backup couldn’t be completed" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份失败"
+          }
+        }
+      }
+    },
+    "Backup from %@ with %@. Your current plants and Wild Finds will be replaced." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Backup from %1$@ with %2$@. Your current plants and Wild Finds will be replaced."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这份备份创建于 %1$@，包含 %2$@。恢复后，现有的植物和野外记录会被替换。"
+          }
+        }
+      }
+    },
+    "Backup restored" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份已恢复"
+          }
+        }
+      }
+    },
+    "Backup saved" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份已保存"
+          }
+        }
+      }
+    },
+    "Best fertilizing months" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "适合施肥的月份"
+          }
+        }
+      }
+    },
+    "Best pruning months" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "适合修剪的月份"
+          }
+        }
+      }
+    },
+    "Bloomed" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开花啦"
+          }
+        }
+      }
+    },
+    "Calendar" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日历"
+          }
+        }
+      }
+    },
+    "Came home" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来到家中"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
+    "Care calendar" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养护日历"
+          }
+        }
+      }
+    },
+    "Care note" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养护建议"
+          }
+        }
+      }
+    },
+    "Changes apply immediately across PlantStory." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换后立即生效。"
+          }
+        }
+      }
+    },
+    "Choose a little boost for future PlantStory ideas." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果你愿意，可以为 PlantStory 的下一个点子浇点水。"
+          }
+        }
+      }
+    },
+    "Choose a month to see the plants that need seasonal care." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择月份，看看哪些植物需要养护。"
+          }
+        }
+      }
+    },
+    "Choose an existing location" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择已有位置"
+          }
+        }
+      }
+    },
+    "Choose the months when pruning is best for this plant." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择适合修剪这株植物的月份。"
+          }
+        }
+      }
+    },
+    "Choose the months when this plant benefits most from fertilizer." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择适合给这株植物施肥的月份。"
+          }
+        }
+      }
+    },
+    "Clear location" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清空位置"
+          }
+        }
+      }
+    },
+    "Clear search" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清除搜索"
+          }
+        }
+      }
+    },
+    "Cloud & network use" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "云端与网络"
+          }
+        }
+      }
+    },
+    "Collapses history to three entries" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收起，只显示最近 3 条"
+          }
+        }
+      }
+    },
+    "Comment on GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "去 GitHub 留言"
+          }
+        }
+      }
+    },
+    "Common name" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常见名称"
+          }
+        }
+      }
+    },
+    "Completely optional. Tips do not unlock features or change how PlantStory works." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完全自愿。支持不会解锁额外功能，也不会改变 PlantStory 的使用方式。"
+          }
+        }
+      }
+    },
+    "Confidence" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可信度"
+          }
+        }
+      }
+    },
+    "Configure your OpenAI API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理 OpenAI API 密钥"
+          }
+        }
+      }
+    },
+    "Couldn’t update API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法更新 API 密钥"
+          }
+        }
+      }
+    },
+    "Create a PlantStory backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建 PlantStory 备份"
+          }
+        }
+      }
+    },
+    "Create an OpenAI API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建 OpenAI API 密钥"
+          }
+        }
+      }
+    },
+    "Credits & Contributors" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "致谢与贡献者"
+          }
+        }
+      }
+    },
+    "Current collection" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "现有数据"
+          }
+        }
+      }
+    },
+    "Custom event" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义事件"
+          }
+        }
+      }
+    },
+    "Custom event name" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义事件名称"
+          }
+        }
+      }
+    },
+    "DATA & PRIVACY" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据与隐私"
+          }
+        }
+      }
+    },
+    "Day %lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "陪伴第 %lld 天"
+          }
+        }
+      }
+    },
+    "days raised" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "陪伴天数"
+          }
+        }
+      }
+    },
+    "Death" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "枯萎"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除"
+          }
+        }
+      }
+    },
+    "Delete %@ from %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete %1$@ from %2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除 %2$@ 的%1$@"
+          }
+        }
+      }
+    },
+    "Delete %@?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要删除%@吗？"
+          }
+        }
+      }
+    },
+    "Delete plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除植物"
+          }
+        }
+      }
+    },
+    "Delete this %@?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要删除这条%@吗？"
+          }
+        }
+      }
+    },
+    "Delete this plant?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要删除这株植物吗？"
+          }
+        }
+      }
+    },
+    "Delete wild find" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除野外记录"
+          }
+        }
+      }
+    },
+    "Deleting PlantStory removes its local plant files from that iPhone. Reinstalling the app by itself does not restore them; restore from a suitable device backup when available." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除 PlantStory 会同时删除这台 iPhone 上保存的植物数据。重新安装 App 不会自动找回数据；如有设备备份，可以尝试从备份恢复。"
+          }
+        }
+      }
+    },
+    "Deleting the app" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除 App"
+          }
+        }
+      }
+    },
+    "Descending" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "降序"
+          }
+        }
+      }
+    },
+    "Discovered" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发现日期"
+          }
+        }
+      }
+    },
+    "Discovered outside" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在野外初次遇见"
+          }
+        }
+      }
+    },
+    "Do not erase or delete the app from your old iPhone until you confirm your plants and photos appear on the new one." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认植物和照片都已出现在新 iPhone 上之后，再抹掉旧 iPhone 或删除旧设备上的 App。"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑"
+          }
+        }
+      }
+    },
+    "Edit a plant to add fertilizing or pruning months." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑植物，即可设置适合施肥和修剪的月份。"
+          }
+        }
+      }
+    },
+    "Edit plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑植物"
+          }
+        }
+      }
+    },
+    "Edit wild find" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑野外记录"
+          }
+        }
+      }
+    },
+    "Enjoying the app? A star helps more plant lovers discover the project." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "喜欢 PlantStory？点亮一个 Star，让更多植物爱好者发现它。"
+          }
+        }
+      }
+    },
+    "Enter a valid OpenAI API key." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入有效的 OpenAI API 密钥。"
+          }
+        }
+      }
+    },
+    "Explains local storage, privacy, and moving PlantStory to another iPhone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解数据存在哪里、如何保护隐私，以及怎样换到新 iPhone"
+          }
+        }
+      }
+    },
+    "Export a manual backup above and save it somewhere you can open on the new iPhone." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先导出备份，再把文件存到新 iPhone 可以打开的位置。"
+          }
+        }
+      }
+    },
+    "Export Backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出备份"
+          }
+        }
+      }
+    },
+    "FEATURES" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "功能"
+          }
+        }
+      }
+    },
+    "FEEDBACK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反馈"
+          }
+        }
+      }
+    },
+    "fertilizations" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "施肥次数"
+          }
+        }
+      }
+    },
+    "Fertilize" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "施肥"
+          }
+        }
+      }
+    },
+    "Fertilize now" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录施肥"
+          }
+        }
+      }
+    },
+    "Fertilized" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "施肥"
+          }
+        }
+      }
+    },
+    "Fertilizing" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "施肥"
+          }
+        }
+      }
+    },
+    "Fertilizing and pruning scheduled" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月需施肥和修剪"
+          }
+        }
+      }
+    },
+    "fertilizing entry" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "施肥记录"
+          }
+        }
+      }
+    },
+    "Fertilizing scheduled" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月需施肥"
+          }
+        }
+      }
+    },
+    "Found %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发现于 %@"
+          }
+        }
+      }
+    },
+    "Fully customizable" : {
+      "comment" : "A description of the customization options available in PlantStory.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "随心定制"
+          }
+        }
+      }
+    },
+    "Fully vibe-coded" : {
+      "comment" : "A description of the open-source nature of PlantStory.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全程由 Vibe Coding 打造"
+          }
+        }
+      }
+    },
+    "Garden view" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换花园视图"
+          }
+        }
+      }
+    },
+    "Generate Again" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新生成"
+          }
+        }
+      }
+    },
+    "Generate another suggestion?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要重新生成吗？"
+          }
+        }
+      }
+    },
+    "Grow the garden" : {
+      "comment" : "A name for a premium subscription option.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "让花园长大"
+          }
+        }
+      }
+    },
+    "Growing" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生长中"
+          }
+        }
+      }
+    },
+    "Help this garden grow" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "陪这个小花园一起长大"
+          }
+        }
+      }
+    },
+    "How AI suggestions work" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议说明"
+          }
+        }
+      }
+    },
+    "I understand API requests are billed to my OpenAI API account." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我了解：API 请求产生的费用将由我的 OpenAI API 账户支付。"
+          }
+        }
+      }
+    },
+    "In memory" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "纪念"
+          }
+        }
+      }
+    },
+    "Install PlantStory, open Storage & Data, and choose Restore from Backup. Apple Quick Start or a full device backup also works." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装 PlantStory 后，打开“存储与数据”，选择“从备份恢复”。也可以使用 Apple 快速开始或完整的设备备份。"
+          }
+        }
+      }
+    },
+    "Its notes, photos, and timeline will also be removed." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它的笔记、照片和成长记录也会一并删除。"
+          }
+        }
+      }
+    },
+    "Its notes, photos, watering history, and fertilizing history will also be removed." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它的笔记、照片、浇水和施肥记录也会一并删除。"
+          }
+        }
+      }
+    },
+    "Its photos and timeline will also be removed." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相关照片和发现记录也会一并删除。"
+          }
+        }
+      }
+    },
+    "Keep this file somewhere safe. You can restore it from Storage & Data on another iPhone." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请妥善保存备份文件。换到新 iPhone 后，可在“存储与数据”中恢复。"
+          }
+        }
+      }
+    },
+    "LANGUAGE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语言"
+          }
+        }
+      }
+    },
+    "Last fertilized" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次施肥"
+          }
+        }
+      }
+    },
+    "Last fertilized %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次施肥：%@"
+          }
+        }
+      }
+    },
+    "Last watered" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次浇水"
+          }
+        }
+      }
+    },
+    "Last watered %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次浇水：%@"
+          }
+        }
+      }
+    },
+    "Library/Application Support/PlantStory/plants.json" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Library/Application Support/PlantStory/plants.json"
+          }
+        }
+      }
+    },
+    "Library/Application Support/PlantStory/wild-finds.json" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Library/Application Support/PlantStory/wild-finds.json"
+          }
+        }
+      }
+    },
+    "Life timeline" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成长足迹"
+          }
+        }
+      }
+    },
+    "Light, location, milestones…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照、摆放位置、成长变化…"
+          }
+        }
+      }
+    },
+    "Loading support options…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在加载支持选项…"
+          }
+        }
+      }
+    },
+    "Local-only storage · No cloud sync" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只存本机 · 不上云"
+          }
+        }
+      }
+    },
+    "Location (optional)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "摆放位置（可选）"
+          }
+        }
+      }
+    },
+    "Location for this sighting…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这次是在哪里发现的？"
+          }
+        }
+      }
+    },
+    "Make it yours. Change the colors, add new ideas, and start vibe coding your own version." : {
+      "comment" : "A description of the customization feature of PlantStory.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换配色、加功能，把它改造成你自己的版本，继续 Vibe Coding。"
+          }
+        }
+      }
+    },
+    "Makes an optional in-app purchase to support the developer" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过可选的 App 内购买支持开发者"
+          }
+        }
+      }
+    },
+    "Manage optional features and privacy." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理功能、数据与隐私。"
+          }
+        }
+      }
+    },
+    "Manual backup & restore" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动备份和恢复"
+          }
+        }
+      }
+    },
+    "Model" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "模型"
+          }
+        }
+      }
+    },
+    "Move to another iPhone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换到另一台 iPhone"
+          }
+        }
+      }
+    },
+    "My Garden" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的花园"
+          }
+        }
+      }
+    },
+    "MY GARDEN" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的花园"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名称"
+          }
+        }
+      }
+    },
+    "New growth" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长出新芽"
+          }
+        }
+      }
+    },
+    "New plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新植物"
+          }
+        }
+      }
+    },
+    "New wild find" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新的野外记录"
+          }
+        }
+      }
+    },
+    "No care scheduled" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无养护安排"
+          }
+        }
+      }
+    },
+    "No cloud storage" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无云端存储"
+          }
+        }
+      }
+    },
+    "No fertilizing recorded yet." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无施肥记录。"
+          }
+        }
+      }
+    },
+    "No location" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未设置位置"
+          }
+        }
+      }
+    },
+    "No matching plants" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到相关植物"
+          }
+        }
+      }
+    },
+    "No matching wild finds" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到相关记录"
+          }
+        }
+      }
+    },
+    "No seasonal care scheduled" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个月没有养护安排"
+          }
+        }
+      }
+    },
+    "No tip needed right now. A GitHub star and a little extra love for your plants are more than enough." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时不用打赏。去 GitHub 点个 Star，再多爱你的植物一点，就很开心了。"
+          }
+        }
+      }
+    },
+    "No tip needed right now. A GitHub star and caring for your plants are more than enough." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时不用打赏。去 GitHub 点个 Star，再好好照顾你的植物，就已经足够。"
+          }
+        }
+      }
+    },
+    "No waterings recorded yet." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无浇水记录。"
+          }
+        }
+      }
+    },
+    "Not fertilized yet" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没施过肥"
+          }
+        }
+      }
+    },
+    "Not selected" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未选择"
+          }
+        }
+      }
+    },
+    "Not suggested" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无建议"
+          }
+        }
+      }
+    },
+    "Not watered yet" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没浇过水"
+          }
+        }
+      }
+    },
+    "Notes" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "笔记"
+          }
+        }
+      }
+    },
+    "Nurture a sprout" : {
+      "comment" : "A description of a premium feature.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "呵护一株新芽"
+          }
+        }
+      }
+    },
+    "Off · Add your own API key" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已关闭 · 添加自己的 API 密钥"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
+          }
+        }
+      }
+    },
+    "On · Key %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已开启 · 密钥 %@"
+          }
+        }
+      }
+    },
+    "Only when you tap Suggest with AI, limited text such as the plant name, existing species, and region when relevant is sent directly to OpenAI. Photos and plant history are not sent." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只有你主动使用 AI 建议时，PlantStory 才会把植物名称、已填写的物种，以及必要时的地区信息发送给 OpenAI。照片和植物记录不会发送。"
+          }
+        }
+      }
+    },
+    "Open source" : {
+      "comment" : "A label for a link that opens the PlantStory source code on GitHub.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开源"
+          }
+        }
+      }
+    },
+    "OpenAI API billing is separate from a ChatGPT subscription. Your API key stays in this device’s Keychain and is used only to authenticate requests to OpenAI." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OpenAI API 与 ChatGPT 订阅分开计费。你的 API 密钥只保存在这台设备的钥匙串中，仅用于向 OpenAI 验证请求。"
+          }
+        }
+      }
+    },
+    "OpenAI API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OpenAI API 密钥"
+          }
+        }
+      }
+    },
+    "OpenAI didn’t return a usable plant suggestion. Please try again." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OpenAI 没有返回可用的植物建议，请再试一次。"
+          }
+        }
+      }
+    },
+    "OpenAI returned an error." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OpenAI 请求出错。"
+          }
+        }
+      }
+    },
+    "Opens Apple's in-app review prompt when available" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 Apple 的 App 内评分窗口（如可用）"
+          }
+        }
+      }
+    },
+    "Opens plant details" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开植物详情"
+          }
+        }
+      }
+    },
+    "Opens the PlantStory GitHub issues page in your browser" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在浏览器中打开 PlantStory 的 GitHub Issues 页面"
+          }
+        }
+      }
+    },
+    "Opens the PlantStory repository where you can star the project" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 PlantStory 的 GitHub 仓库并点亮 Star"
+          }
+        }
+      }
+    },
+    "Opens the PlantStory source code on GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 GitHub 上打开 PlantStory 源代码"
+          }
+        }
+      }
+    },
+    "Opens wild find details" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开野外记录详情"
+          }
+        }
+      }
+    },
+    "Optional AI exception" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 AI 时的例外"
+          }
+        }
+      }
+    },
+    "Other name" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "别名"
+          }
+        }
+      }
+    },
+    "Other name (optional)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "别名（可选）"
+          }
+        }
+      }
+    },
+    "Paste your OpenAI API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "粘贴你的 OpenAI API 密钥"
+          }
+        }
+      }
+    },
+    "Pest discovered" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发现病虫害"
+          }
+        }
+      }
+    },
+    "Photo %lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片 %lld"
+          }
+        }
+      }
+    },
+    "Photo data, dates, and notes are included inside those two private files." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片、日期和笔记都保存在这两个私有文件中。"
+          }
+        }
+      }
+    },
+    "Photo dates are filled from image metadata when available. Add a location and note for each separate sighting." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果照片带有拍摄日期，PlantStory 会自动填写。每次遇见同一种植物时，都可以记录地点和笔记。"
+          }
+        }
+      }
+    },
+    "Photo dates are filled from image metadata when available. You can adjust them, choose a timeline event, and add a note." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果照片带有拍摄日期，PlantStory 会自动填写。你也可以修改日期、选择事件标签并写下笔记。"
+          }
+        }
+      }
+    },
+    "Photos" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片"
+          }
+        }
+      }
+    },
+    "Plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物"
+          }
+        }
+      }
+    },
+    "Plant a seed" : {
+      "comment" : "A name for a static support option.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "种下一颗种子"
+          }
+        }
+      }
+    },
+    "Plant description" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物描述"
+          }
+        }
+      }
+    },
+    "Plant name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物名称"
+          }
+        }
+      }
+    },
+    "PLANT PROFILE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物资料"
+          }
+        }
+      }
+    },
+    "Plant statistics" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养护统计"
+          }
+        }
+      }
+    },
+    "Plants" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物"
+          }
+        }
+      }
+    },
+    "PlantStory" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory"
+          }
+        }
+      }
+    },
+    "PlantStory Backup %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 备份 %@"
+          }
+        }
+      }
+    },
+    "PlantStory couldn’t read the OpenAI response." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取 OpenAI 返回的内容。"
+          }
+        }
+      }
+    },
+    "PlantStory couldn’t securely update the API key." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法将 API 密钥安全地保存到钥匙串。"
+          }
+        }
+      }
+    },
+    "PlantStory sends the plant name to OpenAI only after you request a suggestion. Each request uses your OpenAI API credits, and you’ll review the result before applying it." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只有你主动生成建议时，PlantStory 才会把植物名称发送给 OpenAI。每次生成都会消耗你的 OpenAI API 额度，采用前可以先查看内容。"
+          }
+        }
+      }
+    },
+    "PlantStory sends the plant name, any species text you entered, and your device region when relevant. Photos, notes, and plant history are not sent." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 只会发送植物名称、你填写的物种，以及必要时的设备地区。照片、笔记和植物记录不会发送。"
+          }
+        }
+      }
+    },
+    "PlantStory uses no account, cloud database, or live cloud sync." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 无需账户，也不会使用云端数据库或实时同步。"
+          }
+        }
+      }
+    },
+    "PlantStory was brought to life through ideas, conversation, and joyful experimentation with AI." : {
+      "comment" : "A description of the open-source nature of PlantStory.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 诞生于一个个想法、一次次对话，以及和 AI 一起进行的快乐实验。"
+          }
+        }
+      }
+    },
+    "Please try again." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请再试一次。"
+          }
+        }
+      }
+    },
+    "Prune" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修剪"
+          }
+        }
+      }
+    },
+    "Pruned" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修剪"
+          }
+        }
+      }
+    },
+    "Pruning scheduled" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月需修剪"
+          }
+        }
+      }
+    },
+    "Purchase not verified" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "购买验证失败"
+          }
+        }
+      }
+    },
+    "Purchase pending" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "购买处理中"
+          }
+        }
+      }
+    },
+    "Purchase unavailable" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时无法购买"
+          }
+        }
+      }
+    },
+    "Re-enter your API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新添加 API 密钥"
+          }
+        }
+      }
+    },
+    "Remember the plants\nyou meet outside." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记住每一株\n在野外遇见的植物。"
+          }
+        }
+      }
+    },
+    "Remove API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除 API 密钥"
+          }
+        }
+      }
+    },
+    "Remove photo %lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除照片 %lld"
+          }
+        }
+      }
+    },
+    "Remove your API key?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要移除 API 密钥吗？"
+          }
+        }
+      }
+    },
+    "Removing the key immediately turns off AI suggestions. Everything else in PlantStory keeps working." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除密钥后，AI 建议会立即关闭，PlantStory 的其他功能不受影响。"
+          }
+        }
+      }
+    },
+    "Replace API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "替换 API 密钥"
+          }
+        }
+      }
+    },
+    "Replace local PlantStory data?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要替换本机上的 PlantStory 数据吗？"
+          }
+        }
+      }
+    },
+    "Report a bug, suggest an idea, or join the discussion." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "报告问题、分享想法，或一起聊聊。"
+          }
+        }
+      }
+    },
+    "Repotted" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换盆"
+          }
+        }
+      }
+    },
+    "Restore" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复"
+          }
+        }
+      }
+    },
+    "Restore from Backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从备份恢复"
+          }
+        }
+      }
+    },
+    "Restore on the new iPhone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在新 iPhone 上恢复数据"
+          }
+        }
+      }
+    },
+    "Restored %@." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已恢复：%@。"
+          }
+        }
+      }
+    },
+    "Review PlantStory" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为 PlantStory 评分"
+          }
+        }
+      }
+    },
+    "Review suggestion" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看 AI 建议"
+          }
+        }
+      }
+    },
+    "Rough cost" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "费用参考"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "Save API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存 API 密钥"
+          }
+        }
+      }
+    },
+    "Save the plants you discover in parks, on trails, and while traveling." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "把你在公园、步道和旅途中遇见的植物记下来。"
+          }
+        }
+      }
+    },
+    "Saved key %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保存密钥 %@"
+          }
+        }
+      }
+    },
+    "Search wild finds" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索野外记录"
+          }
+        }
+      }
+    },
+    "Search your plants" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索你的植物"
+          }
+        }
+      }
+    },
+    "Seasonal care" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "季节养护"
+          }
+        }
+      }
+    },
+    "Selected" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已选择"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
+          }
+        }
+      }
+    },
+    "Share a rating or a short App Store review." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 App Store 评分或写几句话。"
+          }
+        }
+      }
+    },
+    "Show less" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收起"
+          }
+        }
+      }
+    },
+    "Show more (%lld)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看更多（%lld）"
+          }
+        }
+      }
+    },
+    "Shows locations already used by your plants" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示已记录过的摆放位置"
+          }
+        }
+      }
+    },
+    "Shows up to ten history entries" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最多查看 10 条历史记录"
+          }
+        }
+      }
+    },
+    "Sort" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排序"
+          }
+        }
+      }
+    },
+    "Sort direction" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排列顺序"
+          }
+        }
+      }
+    },
+    "Sort plants" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物排序"
+          }
+        }
+      }
+    },
+    "Species" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "物种"
+          }
+        }
+      }
+    },
+    "Species (optional)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "物种（可选）"
+          }
+        }
+      }
+    },
+    "Star PlantStory on GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 GitHub 上为 PlantStory 点个 Star"
+          }
+        }
+      }
+    },
+    "Start a garden\nof your own." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打造一座\n属于自己的花园。"
+          }
+        }
+      }
+    },
+    "Storage & Data" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "存储与数据"
+          }
+        }
+      }
+    },
+    "Stored separately in the iOS Keychain and restricted to this device." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单独保存在 iOS 钥匙串中，仅限这台设备使用。"
+          }
+        }
+      }
+    },
+    "Suggest again with AI" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "让 AI 重新生成"
+          }
+        }
+      }
+    },
+    "Suggest details with AI" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "让 AI 帮我补全"
+          }
+        }
+      }
+    },
+    "Suggested identity" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 推测结果"
+          }
+        }
+      }
+    },
+    "Suggestions use OpenAI’s GPT-5.4 nano model through the Responses API. Responses are requested with storage turned off." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 通过 Responses API 使用 OpenAI 的 GPT-5.4 nano 模型，并在请求中关闭响应存储。"
+          }
+        }
+      }
+    },
+    "Support options are not available yet." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时无法使用赞助选项。"
+          }
+        }
+      }
+    },
+    "Support options could not be loaded. Please try again." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "赞助选项加载失败，请再试一次。"
+          }
+        }
+      }
+    },
+    "Taken" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拍摄日期"
+          }
+        }
+      }
+    },
+    "Thank you for helping this little garden grow." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谢谢你陪这个小花园一起成长。"
+          }
+        }
+      }
+    },
+    "Thank you!" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谢谢你！"
+          }
+        }
+      }
+    },
+    "The complete source code is open for you to download, explore, and build upon." : {
+      "comment" : "A description of the open-source aspect of PlantStory.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完整源代码已经开源，欢迎下载、研究，或在此基础上继续创作。"
+          }
+        }
+      }
+    },
+    "The device-only Keychain item intentionally does not migrate. Add the key again under AI Suggestions if you still want that feature." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出于安全考虑，API 密钥不会随备份迁移。如果还想使用 AI 建议，请在新 iPhone 上重新添加。"
+          }
+        }
+      }
+    },
+    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史，但不包含 OpenAI API 密钥或 StoreKit 购买记录。恢复备份会替换本机现有数据。"
+          }
+        }
+      }
+    },
+    "The key is stored in this device’s Keychain and is never saved with your plants. PlantStory sends a plant name to OpenAI only after you tap Suggest with AI." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API 密钥只保存在这台设备的钥匙串中，不会写入植物数据。只有你轻点“让 AI 帮我补全”后，PlantStory 才会把植物名称发送给 OpenAI。"
+          }
+        }
+      }
+    },
+    "The selected file could not be read." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取这个文件。"
+          }
+        }
+      }
+    },
+    "The tip jar is taking root" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小小支持，暂时收好"
+          }
+        }
+      }
+    },
+    "These locations are inside PlantStory’s private app container and are not visible in the Files app." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这些文件位于 PlantStory 的私有 App 空间中，因此不会显示在“文件”App 里。"
+          }
+        }
+      }
+    },
+    "This API key was rejected. Check or replace it and try again." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个 API 密钥无法使用。请检查密钥，或更换后重试。"
+          }
+        }
+      }
+    },
+    "This backup uses unsupported format version %lld. Update PlantStory and try again." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个备份的格式版本（%lld）暂不支持。请更新 PlantStory 后再试。"
+          }
+        }
+      }
+    },
+    "This OpenAI account is temporarily rate limited or needs billing credits." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个 OpenAI 账户暂时受到调用频率限制，或 API 余额不足。"
+          }
+        }
+      }
+    },
+    "This purchase could not be completed. Please try again later." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "购买未能完成，请稍后再试。"
+          }
+        }
+      }
+    },
+    "This removes the entry from %@’s history:\n%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This removes the entry from %1$@’s history:\n%2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将从 %1$@ 的记录中删除：\n%2$@"
+          }
+        }
+      }
+    },
+    "This sends another request and uses additional OpenAI API credits. If the name and species have not changed, the new description will likely be similar." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新生成会再次发送请求，并消耗额外的 OpenAI API 额度。如果名称和物种没有变化，新描述通常也会很相似。"
+          }
+        }
+      }
+    },
+    "This sends another request and uses additional OpenAI API credits. If the plant name and species have not changed, the new suggestion will likely be similar." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新生成会再次发送请求，并消耗额外的 OpenAI API 额度。如果植物名称和物种没有变化，新建议通常也会很相似。"
+          }
+        }
+      }
+    },
+    "Three heart balloons floating over botanical leaves" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "三只爱心气球飘在绿叶上方"
+          }
+        }
+      }
+    },
+    "Timeline event" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "事件标签"
+          }
+        }
+      }
+    },
+    "Treatment applied" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已处理"
+          }
+        }
+      }
+    },
+    "Try again" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再试一次"
+          }
+        }
+      }
+    },
+    "Try another name or species." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换个名称或物种试试。"
+          }
+        }
+      }
+    },
+    "Try another name, species, or location." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换个名称、物种或地点试试。"
+          }
+        }
+      }
+    },
+    "Use a different key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更换密钥"
+          }
+        }
+      }
+    },
+    "Vibe-coded with love by Zico" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由 Zico 用爱 Vibe Coding 打造"
+          }
+        }
+      }
+    },
+    "View app credits and open-source information" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看致谢、贡献者和开源信息"
+          }
+        }
+      }
+    },
+    "View Apple’s transfer instructions" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看 Apple 的换机说明"
+          }
+        }
+      }
+    },
+    "View GPT-5.4 nano pricing" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看 GPT-5.4 nano 的价格"
+          }
+        }
+      }
+    },
+    "Water now" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录浇水"
+          }
+        }
+      }
+    },
+    "Watering" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水"
+          }
+        }
+      }
+    },
+    "watering entry" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水记录"
+          }
+        }
+      }
+    },
+    "waterings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水次数"
+          }
+        }
+      }
+    },
+    "What is shared" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "会发送哪些信息"
+          }
+        }
+      }
+    },
+    "Where your data is stored" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据存在哪里"
+          }
+        }
+      }
+    },
+    "WILD DISCOVERY" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野外记录"
+          }
+        }
+      }
+    },
+    "Wild Finds" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野外拾趣"
+          }
+        }
+      }
+    },
+    "WILD FINDS" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野外拾趣"
+          }
+        }
+      }
+    },
+    "Wild plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野外植物"
+          }
+        }
+      }
+    },
+    "You helped the PlantStory garden grow." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谢谢你陪 PlantStory 的小花园一起成长。"
+          }
+        }
+      }
+    },
+    "You stay in control" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是否使用，由你决定"
+          }
+        }
+      }
+    },
+    "You’re raising %lld plants" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在照顾 %lld 株植物"
+          }
+        }
+      }
+    },
+    "You’re raising 1 plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在照顾 1 株植物"
+          }
+        }
+      }
+    },
+    "You’ve saved %lld discoveries" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已记录 %lld 次发现"
+          }
+        }
+      }
+    },
+    "You’ve saved 1 discovery" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已记录 1 次发现"
+          }
+        }
+      }
+    },
+    "Your API key" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的 API 密钥"
+          }
+        }
+      }
+    },
+    "Your API key is no longer available. Add it again from the Settings tab." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找不到已保存的 API 密钥，请前往“设置”重新添加。"
+          }
+        }
+      }
+    },
+    "Your collection" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的植物"
+          }
+        }
+      }
+    },
+    "Your discoveries" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的野外记录"
+          }
+        }
+      }
+    },
+    "Your garden stays on this iPhone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的花园，只留在这台 iPhone 上"
+          }
+        }
+      }
+    },
+    "Your plants, wild finds, photos, notes, watering history, and fertilizing history are not uploaded to iCloud, CloudKit, or a PlantStory server." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物、野外记录、照片、笔记，以及浇水和施肥历史都不会上传到 iCloud、CloudKit 或 PlantStory 服务器。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

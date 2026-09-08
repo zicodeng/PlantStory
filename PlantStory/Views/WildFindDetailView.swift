@@ -223,7 +223,7 @@ struct WildFindDetailView: View {
 
             VStack(alignment: .leading, spacing: 9) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(event.title)
+                    event.titleText
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(ink)
                     Text(event.dateAndLocation)
@@ -274,17 +274,19 @@ private struct WildFindTimelineEvent: Identifiable {
     }
 
     var dateAndLocation: String {
-        let formattedDate = date.formatted(date: .abbreviated, time: .omitted)
+        let formattedDate = AppLocalization.dateString(date, dateStyle: .medium)
         guard case let .photo(_, _, location) = kind, !location.isEmpty else {
             return formattedDate
         }
         return "\(formattedDate) | \(location)"
     }
 
-    var title: String {
+    var titleText: Text {
         switch kind {
-        case .photo: return "A new sighting"
-        case .discovered: return "Discovered outside"
+        case .photo:
+            return Text("A new sighting")
+        case .discovered:
+            return Text("Discovered outside")
         }
     }
 

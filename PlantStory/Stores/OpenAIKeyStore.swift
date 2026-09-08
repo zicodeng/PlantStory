@@ -46,9 +46,9 @@ enum OpenAIKeyStoreError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidKey:
-            return "Enter a valid OpenAI API key."
+            return AppLocalization.string("Enter a valid OpenAI API key.")
         case .keychain:
-            return "PlantStory couldn’t securely update the API key."
+            return AppLocalization.string("PlantStory couldn’t securely update the API key.")
         }
     }
 }

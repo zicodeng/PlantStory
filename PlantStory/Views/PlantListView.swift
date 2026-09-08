@@ -44,7 +44,8 @@ struct PlantListView: View {
         return grouped.map { key, plants in
             PlantLocationSection(
                 id: key.map { "location:\($0)" } ?? "unassigned",
-                title: displayLocation(from: plants.first?.location) ?? "No location",
+                title: displayLocation(from: plants.first?.location)
+                    ?? AppLocalization.string("No location"),
                 plants: plants,
                 isUnassigned: key == nil
             )
@@ -224,7 +225,9 @@ struct PlantListView: View {
 
     private var collectionSubtitle: String {
         let count = store.plants.count
-        return count == 1 ? "You’re raising 1 plant" : "You’re raising \(count) plants"
+        return count == 1
+            ? AppLocalization.string("You’re raising 1 plant")
+            : AppLocalization.string("You’re raising %lld plants", Int64(count))
     }
 
     private func locationHeader(_ section: PlantLocationSection) -> some View {
@@ -246,14 +249,25 @@ struct PlantListView: View {
                 .background(.white.opacity(0.08), in: Capsule())
         }
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(section.title), \(section.plants.count) \(section.plants.count == 1 ? "plant" : "plants")")
+        .accessibilityLabel(locationSectionAccessibilityLabel(section))
+    }
+
+    private func locationSectionAccessibilityLabel(_ section: PlantLocationSection) -> String {
+        if section.plants.count == 1 {
+            return AppLocalization.string("%@, 1 plant", section.title)
+        }
+        return AppLocalization.string(
+            "%@, %lld plants",
+            section.title,
+            Int64(section.plants.count)
+        )
     }
 
     private func normalizedLocationKey(for location: String?) -> String? {
         guard let displayLocation = displayLocation(from: location) else { return nil }
         return displayLocation.folding(
             options: [.caseInsensitive, .diacriticInsensitive],
-            locale: .current
+            locale: AppLocalization.currentLocale
         )
     }
 
@@ -530,8 +544,8 @@ private enum PlantSortDirection: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .ascending: "Ascending"
-        case .descending: "Descending"
+        case .ascending: AppLocalization.string("Ascending")
+        case .descending: AppLocalization.string("Descending")
         }
     }
 
@@ -553,10 +567,10 @@ private enum PlantSortOption: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .name: "Plant name"
-        case .acquiredDate: "Acquired date"
-        case .lastWatered: "Last watered"
-        case .lastFertilized: "Last fertilized"
+        case .name: AppLocalization.string("Plant name")
+        case .acquiredDate: AppLocalization.string("Acquired date")
+        case .lastWatered: AppLocalization.string("Last watered")
+        case .lastFertilized: AppLocalization.string("Last fertilized")
         }
     }
 
@@ -643,8 +657,8 @@ private enum GardenViewMode: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .plants: "Plants"
-        case .calendar: "Calendar"
+        case .plants: AppLocalization.string("Plants")
+        case .calendar: AppLocalization.string("Calendar")
         }
     }
 
@@ -796,7 +810,7 @@ private struct GardenCareCalendar: View {
         .accessibilityValue(accessibilityValue(hasFertilizing: hasFertilizing, hasPruning: hasPruning))
     }
 
-    private func calendarLegend(title: String, color: Color) -> some View {
+    private func calendarLegend(title: LocalizedStringKey, color: Color) -> some View {
         HStack(spacing: 7) {
             Circle().fill(color).frame(width: 8, height: 8)
             Text(title)
@@ -807,23 +821,35 @@ private struct GardenCareCalendar: View {
 
     private var careCountText: String {
         let count = scheduledPlants.count
-        return count == 1 ? "1 plant" : "\(count) plants"
+        return count == 1
+            ? AppLocalization.string("1 plant")
+            : AppLocalization.string("%lld plants", Int64(count))
     }
 
     private func monthName(_ month: Int) -> String {
-        Calendar.current.monthSymbols[month - 1]
+        localizedCalendar.monthSymbols[month - 1]
     }
 
     private func shortMonthName(_ month: Int) -> String {
-        Calendar.current.shortMonthSymbols[month - 1]
+        localizedCalendar.shortMonthSymbols[month - 1]
+    }
+
+    private var localizedCalendar: Calendar {
+        var calendar = Calendar.current
+        calendar.locale = AppLocalization.currentLocale
+        return calendar
     }
 
     private func accessibilityValue(hasFertilizing: Bool, hasPruning: Bool) -> String {
         switch (hasFertilizing, hasPruning) {
-        case (true, true): return "Fertilizing and pruning scheduled"
-        case (true, false): return "Fertilizing scheduled"
-        case (false, true): return "Pruning scheduled"
-        case (false, false): return "No care scheduled"
+        case (true, true):
+            return AppLocalization.string("Fertilizing and pruning scheduled")
+        case (true, false):
+            return AppLocalization.string("Fertilizing scheduled")
+        case (false, true):
+            return AppLocalization.string("Pruning scheduled")
+        case (false, false):
+            return AppLocalization.string("No care scheduled")
         }
     }
 }
@@ -893,7 +919,7 @@ private struct GardenCarePlantRow: View {
         .accessibilityHint("Opens plant details")
     }
 
-    private func careChip(_ title: String, icon: String, color: Color) -> some View {
+    private func careChip(_ title: LocalizedStringKey, icon: String, color: Color) -> some View {
         Label(title, systemImage: icon)
             .font(.caption2.weight(.bold))
             .foregroundStyle(color)

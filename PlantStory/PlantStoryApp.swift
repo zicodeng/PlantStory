@@ -3,6 +3,7 @@ import UIKit
 
 @main
 struct PlantStoryApp: App {
+    @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
     @StateObject private var store = PlantStore()
     @StateObject private var wildFindStore = WildFindStore()
     @StateObject private var openAIKeyStore = OpenAIKeyStore()
@@ -36,8 +37,88 @@ struct PlantStoryApp: App {
                 .environmentObject(store)
                 .environmentObject(wildFindStore)
                 .environmentObject(openAIKeyStore)
+                .environment(\.locale, selectedLanguage.locale)
                 .tint(Color("LeafGreen"))
         }
+    }
+
+    private var selectedLanguage: AppLanguage {
+        AppLanguage(rawValue: appLanguageCode) ?? .english
+    }
+}
+
+enum AppLanguage: String, CaseIterable, Identifiable {
+    static let storageKey = "appLanguage"
+
+    case english = "en"
+    case simplifiedChinese = "zh-Hans"
+
+    var id: String { rawValue }
+
+    var nativeName: String {
+        switch self {
+        case .english: "English"
+        case .simplifiedChinese: "简体中文"
+        }
+    }
+
+    var locale: Locale {
+        Locale(identifier: rawValue)
+    }
+}
+
+enum AppLocalization {
+    static var currentLanguage: AppLanguage {
+        let code = UserDefaults.standard.string(forKey: AppLanguage.storageKey)
+        return code.flatMap(AppLanguage.init(rawValue:)) ?? .english
+    }
+
+    static var currentLocale: Locale {
+        currentLanguage.locale
+    }
+
+    /// Resolves dynamic strings from the in-app language instead of the device language.
+    /// SwiftUI handles literal localization keys through the locale environment, while
+    /// strings assembled before rendering need an explicitly selected bundle.
+    static func string(_ key: String, _ arguments: CVarArg...) -> String {
+        let format: String
+
+        if currentLanguage == .english {
+            format = key
+        } else if let path = Bundle.main.path(
+            forResource: currentLanguage.rawValue,
+            ofType: "lproj"
+        ), let languageBundle = Bundle(path: path) {
+            format = languageBundle.localizedString(
+                forKey: key,
+                value: key,
+                table: "Localizable"
+            )
+        } else {
+            format = key
+        }
+
+        guard !arguments.isEmpty else { return format }
+        return String(format: format, locale: currentLocale, arguments: arguments)
+    }
+
+    static func dateString(
+        _ date: Date,
+        dateStyle: DateFormatter.Style,
+        timeStyle: DateFormatter.Style = .none
+    ) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = currentLocale
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        return formatter.string(from: date)
+    }
+
+    static func relativeDateString(_ date: Date) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.locale = currentLocale
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: date, relativeTo: .now)
     }
 }
 

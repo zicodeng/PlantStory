@@ -35,10 +35,12 @@ final class TipJarStore: ObservableObject {
             hasLoaded = true
 
             if products.isEmpty {
-                loadingError = "Support options are not available yet."
+                loadingError = AppLocalization.string("Support options are not available yet.")
             }
         } catch {
-            loadingError = "Support options could not be loaded. Please try again."
+            loadingError = AppLocalization.string(
+                "Support options could not be loaded. Please try again."
+            )
         }
     }
 
@@ -55,32 +57,38 @@ final class TipJarStore: ObservableObject {
                 case .verified(let transaction):
                     await transaction.finish()
                     notice = TipJarNotice(
-                        title: "Thank you!",
-                        message: "You helped the PlantStory garden grow."
+                        title: AppLocalization.string("Thank you!"),
+                        message: AppLocalization.string("You helped the PlantStory garden grow.")
                     )
                 case .unverified:
                     notice = TipJarNotice(
-                        title: "Purchase not verified",
-                        message: "Apple could not verify this purchase. You have not been credited for it."
+                        title: AppLocalization.string("Purchase not verified"),
+                        message: AppLocalization.string(
+                            "Apple could not verify this purchase. You have not been credited for it."
+                        )
                     )
                 }
             case .pending:
                 notice = TipJarNotice(
-                    title: "Purchase pending",
-                    message: "Apple is still processing this purchase."
+                    title: AppLocalization.string("Purchase pending"),
+                    message: AppLocalization.string("Apple is still processing this purchase.")
                 )
             case .userCancelled:
                 break
             @unknown default:
                 notice = TipJarNotice(
-                    title: "Purchase unavailable",
-                    message: "This purchase could not be completed. Please try again later."
+                    title: AppLocalization.string("Purchase unavailable"),
+                    message: AppLocalization.string(
+                        "This purchase could not be completed. Please try again later."
+                    )
                 )
             }
         } catch {
             notice = TipJarNotice(
-                title: "Purchase unavailable",
-                message: "This purchase could not be completed. Please try again later."
+                title: AppLocalization.string("Purchase unavailable"),
+                message: AppLocalization.string(
+                    "This purchase could not be completed. Please try again later."
+                )
             )
         }
     }

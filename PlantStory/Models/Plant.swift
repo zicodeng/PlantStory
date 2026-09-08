@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum PlantPhotoEventTag: String, Codable, CaseIterable, Identifiable {
     case repotted
@@ -14,7 +15,7 @@ enum PlantPhotoEventTag: String, Codable, CaseIterable, Identifiable {
 
     var id: Self { self }
 
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .repotted: "Repotted"
         case .pruned: "Pruned"
@@ -156,7 +157,9 @@ struct Plant: Identifiable, Codable, Equatable {
     }
 
     private func monthNames(for months: [Int]?) -> [String] {
-        let names = Calendar.current.monthSymbols
+        var calendar = Calendar.current
+        calendar.locale = AppLocalization.currentLocale
+        let names = calendar.monthSymbols
         return Array(Set(months ?? []))
             .filter { (1...12).contains($0) }
             .sorted()
