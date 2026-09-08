@@ -16,6 +16,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 - Created **Wild Finds**, a separate collection for recording plants discovered outdoors, including names, species, dates, locations, notes, photos, search, and timelines.
 - Added optional AI suggestions for plant identity, alternate names, seasonal care months, care notes, and Wild Find descriptions.
 - Added review-before-apply controls for every AI suggestion.
+- Added complete English and Simplified Chinese localization with an in-app language selector.
 - Added manual JSON backup and restore for plants, Wild Finds, photos, notes, timelines, locations, and care history.
 - Added optional consumable tips to support development without locking any app features.
 - Added links to project information, source code, support, credits, and privacy details.
@@ -26,3 +27,4 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Removed the alpha channel from the app icon for App Store compatibility.
 - Prevented unavailable tip products from appearing actionable and added an informative fallback display for support tiers.
+- Disabled AI-assisted features and removed OpenAI references when the app is downloaded from the China mainland storefront.
