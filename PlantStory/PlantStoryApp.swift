@@ -4,8 +4,9 @@ import UIKit
 
 @main
 struct PlantStoryApp: App {
+    @UIApplicationDelegateAdaptor(PlantStoryAppDelegate.self) private var appDelegate
     @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
-    @StateObject private var store = PlantStore()
+    @StateObject private var store = PlantStore.shared
     @StateObject private var wildFindStore = WildFindStore()
     @StateObject private var openAIKeyStore = OpenAIKeyStore()
     @StateObject private var aiAvailabilityStore = AIAvailabilityStore()
@@ -44,6 +45,15 @@ struct PlantStoryApp: App {
                 .tint(Color("LeafGreen"))
                 .task {
                     await aiAvailabilityStore.monitorStorefront()
+                }
+                .task(id: appLanguageCode) {
+                    WateringReminderService.shared.configureNotificationCategories()
+                    await WateringReminderService.shared.reconcile(plants: store.plants)
+                }
+                .onReceive(store.$plants) { plants in
+                    Task { @MainActor in
+                        await WateringReminderService.shared.reconcile(plants: plants)
+                    }
                 }
         }
     }
@@ -198,16 +208,27 @@ enum AppTab: Hashable {
     case settings
 }
 
+@MainActor
 final class AppNavigationStore: ObservableObject {
+    static let shared = AppNavigationStore()
+
     @Published var selectedTab: AppTab = .garden
+    @Published var gardenPath: [UUID] = []
 
     func showSettings() {
         selectedTab = .settings
     }
+
+    func showPlant(id: UUID) {
+        selectedTab = .garden
+        gardenPath = [id]
+    }
 }
 
 private struct AppRootView: View {
-    @StateObject private var navigation = AppNavigationStore()
+    @StateObject private var navigation = AppNavigationStore.shared
+    @EnvironmentObject private var store: PlantStore
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         TabView(selection: $navigation.selectedTab) {
@@ -232,5 +253,11 @@ private struct AppRootView: View {
         .tint(Color(red: 0.36, green: 0.82, blue: 0.12))
         .fontDesign(.rounded)
         .environmentObject(navigation)
+        .onChange(of: scenePhase) { _, phase in
+            guard phase == .active else { return }
+            Task { @MainActor in
+                await WateringReminderService.shared.reconcile(plants: store.plants)
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PlantListView: View {
     @EnvironmentObject private var store: PlantStore
+    @EnvironmentObject private var appNavigation: AppNavigationStore
     @State private var showingAddPlant = false
     @State private var plantToDelete: Plant?
     @State private var searchText = ""
@@ -59,7 +60,7 @@ struct PlantListView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $appNavigation.gardenPath) {
             Group {
                 if store.plants.isEmpty {
                     emptyLanding
@@ -949,6 +950,7 @@ private struct GardenPlantCard: View {
     let panel: Color
     let lime: Color
     @State private var cardPhoto: Data?
+    private let waterBlue = Color(red: 0.22, green: 0.64, blue: 0.88)
 
     init(plant: Plant, panel: Color, lime: Color) {
         self.plant = plant
@@ -1001,6 +1003,24 @@ private struct GardenPlantCard: View {
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(plant.isDeceased ? .white.opacity(0.52) : lime)
 
+                Group {
+                    if let reminderStatus = WateringReminderText.cardStatus(for: plant) {
+                        reminderBadge(
+                            reminderStatus,
+                            icon: "bell.fill",
+                            foreground: waterBlue,
+                            background: waterBlue.opacity(0.13)
+                        )
+                    } else {
+                        reminderBadge(
+                            "No reminder set",
+                            icon: "bell.slash",
+                            foreground: .white.opacity(0.48),
+                            background: .white.opacity(0.07)
+                        )
+                    }
+                }
+
             }
             .padding(.horizontal, 12)
             .padding(.top, 11)
@@ -1027,5 +1047,21 @@ private struct GardenPlantCard: View {
         .accessibilityElement(children: .combine)
         .accessibilityValue(plant.isDeceased ? "In memory" : "Growing")
         .accessibilityHint("Opens plant details")
+    }
+
+    private func reminderBadge(
+        _ title: LocalizedStringKey,
+        icon: String,
+        foreground: Color,
+        background: Color
+    ) -> some View {
+        Label(title, systemImage: icon)
+            .font(.caption2.weight(.semibold))
+            .foregroundStyle(foreground)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 5)
+            .background(background, in: Capsule())
+            .lineLimit(1)
+            .minimumScaleFactor(0.8)
     }
 }

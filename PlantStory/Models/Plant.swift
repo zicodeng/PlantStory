@@ -1,6 +1,28 @@
 import Foundation
 import SwiftUI
 
+struct WateringReminder: Codable, Equatable {
+    var intervalDays: Int
+    var hour: Int
+    var minute: Int
+    var startDate: Date
+    var snoozedUntil: Date?
+
+    init(
+        intervalDays: Int = 7,
+        hour: Int = 9,
+        minute: Int = 0,
+        startDate: Date = .now,
+        snoozedUntil: Date? = nil
+    ) {
+        self.intervalDays = intervalDays
+        self.hour = hour
+        self.minute = minute
+        self.startDate = startDate
+        self.snoozedUntil = snoozedUntil
+    }
+}
+
 enum PlantPhotoEventTag: String, Codable, CaseIterable, Identifiable {
     case repotted
     case pruned
@@ -63,6 +85,8 @@ struct Plant: Identifiable, Codable, Equatable {
     var hasGeneratedAISuggestion: Bool?
     var notes: String
     var wateringHistory: [Date]
+    /// Optional so plants saved before watering reminders were added still decode correctly.
+    var wateringReminder: WateringReminder?
     /// Optional so plants saved before fertilizing history was added still decode correctly.
     var fertilizingHistory: [Date]?
     var photos: [Data]
@@ -88,6 +112,7 @@ struct Plant: Identifiable, Codable, Equatable {
         hasGeneratedAISuggestion: Bool? = nil,
         notes: String = "",
         wateringHistory: [Date] = [],
+        wateringReminder: WateringReminder? = nil,
         fertilizingHistory: [Date]? = [],
         photos: [Data] = [],
         photoDates: [Date]? = nil,
@@ -107,6 +132,7 @@ struct Plant: Identifiable, Codable, Equatable {
         self.hasGeneratedAISuggestion = hasGeneratedAISuggestion
         self.notes = notes
         self.wateringHistory = wateringHistory
+        self.wateringReminder = wateringReminder
         self.fertilizingHistory = fertilizingHistory
         self.photos = photos
         self.photoDates = photoDates
@@ -138,6 +164,31 @@ struct Plant: Identifiable, Codable, Equatable {
 
     var lastWatered: Date? {
         wateringHistory.max()
+    }
+
+    func nextWateringReminderDate(
+        now: Date = .now,
+        calendar: Calendar = .current
+    ) -> Date? {
+        guard let reminder = wateringReminder, !isDeceased else { return nil }
+
+        if let snoozedUntil = reminder.snoozedUntil, snoozedUntil > now {
+            return snoozedUntil
+        }
+
+        let anchor = lastWatered ?? reminder.startDate
+        guard let dueDay = calendar.date(
+            byAdding: .day,
+            value: reminder.intervalDays,
+            to: calendar.startOfDay(for: anchor)
+        ) else { return nil }
+
+        return calendar.date(
+            bySettingHour: reminder.hour,
+            minute: reminder.minute,
+            second: 0,
+            of: dueDay
+        )
     }
 
     var fertilizingEvents: [Date] {

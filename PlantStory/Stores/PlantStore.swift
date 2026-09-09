@@ -3,6 +3,8 @@ import Foundation
 
 @MainActor
 final class PlantStore: ObservableObject {
+    static let shared = PlantStore()
+
     @Published private(set) var plants: [Plant] = []
 
     private let fileURL: URL
@@ -46,19 +48,39 @@ final class PlantStore: ObservableObject {
 
     func delete(at offsets: IndexSet) {
         for index in offsets.sorted(by: >) {
+            WateringReminderService.shared.cancel(plantID: plants[index].id)
             plants.remove(at: index)
         }
         save()
     }
 
     func delete(_ plant: Plant) {
+        WateringReminderService.shared.cancel(plantID: plant.id)
         plants.removeAll { $0.id == plant.id }
         save()
     }
 
     func water(_ plant: Plant, on date: Date = .now) {
-        guard let index = plants.firstIndex(where: { $0.id == plant.id }) else { return }
+        water(plantID: plant.id, on: date)
+    }
+
+    func water(plantID: UUID, on date: Date = .now) {
+        guard let index = plants.firstIndex(where: { $0.id == plantID }) else { return }
         plants[index].wateringHistory = cappedHistory(plants[index].wateringHistory + [date])
+        plants[index].wateringReminder?.snoozedUntil = nil
+        save()
+    }
+
+    func setWateringReminder(_ reminder: WateringReminder?, for plantID: UUID) {
+        guard let index = plants.firstIndex(where: { $0.id == plantID }) else { return }
+        plants[index].wateringReminder = reminder
+        save()
+    }
+
+    func snoozeWateringReminder(for plantID: UUID, until date: Date) {
+        guard let index = plants.firstIndex(where: { $0.id == plantID }),
+              plants[index].wateringReminder != nil else { return }
+        plants[index].wateringReminder?.snoozedUntil = date
         save()
     }
 
@@ -115,6 +137,12 @@ final class PlantStore: ObservableObject {
         var plant = plant
         plant.wateringHistory = cappedHistory(plant.wateringHistory)
         plant.fertilizingHistory = cappedHistory(plant.fertilizingEvents)
+        if var reminder = plant.wateringReminder {
+            reminder.intervalDays = min(max(reminder.intervalDays, 1), 90)
+            reminder.hour = min(max(reminder.hour, 0), 23)
+            reminder.minute = min(max(reminder.minute, 0), 59)
+            plant.wateringReminder = reminder
+        }
         return plant
     }
 

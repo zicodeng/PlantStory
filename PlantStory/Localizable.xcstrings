@@ -75,6 +75,28 @@
         }
       }
     },
+    "%lld active reminders" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 个提醒已开启"
+          }
+        }
+      }
+    },
+    "%lld days" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 天"
+          }
+        }
+      }
+    },
     "%lld photos" : {
       "localizations" : {
         "zh-Hans" : {
@@ -124,6 +146,17 @@
         }
       }
     },
+    "1 active reminder" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已开启 1 个提醒"
+          }
+        }
+      }
+    },
     "1 plant" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -142,6 +175,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1 条野外记录"
+          }
+        }
+      }
+    },
+    "A gentle reminder to see whether it needs water." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看看土壤是否需要浇水。"
           }
         }
       }
@@ -409,6 +453,7 @@
       }
     },
     "AI suggestions are optional and use your own OpenAI API account. Plant tracking works normally when this feature is off." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -434,6 +479,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这台设备上的 AI 建议将被关闭。"
+          }
+        }
+      }
+    },
+    "Allow" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许"
+          }
+        }
+      }
+    },
+    "Allow Notifications" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许通知"
+          }
+        }
+      }
+    },
+    "Allowed" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已允许"
           }
         }
       }
@@ -661,6 +738,27 @@
         }
       }
     },
+    "Check %@’s soil" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看看%@的土壤"
+          }
+        }
+      }
+    },
+    "Check-in schedule" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提醒周期"
+          }
+        }
+      }
+    },
     "Choose a little boost for future PlantStory ideas." : {
       "localizations" : {
         "zh-Hans" : {
@@ -871,6 +969,16 @@
         }
       }
     },
+    "Custom interval" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义间隔"
+          }
+        }
+      }
+    },
     "DATA & PRIVACY" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1058,6 +1166,27 @@
         }
       }
     },
+    "Due now" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该检查了"
+          }
+        }
+      }
+    },
+    "Due today" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天检查"
+          }
+        }
+      }
+    },
     "Edit" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1119,6 +1248,50 @@
         }
       }
     },
+    "Every %lld days" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 %lld 天"
+          }
+        }
+      }
+    },
+    "Every %lld days at %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 %1$lld 天，%2$@"
+          }
+        }
+      }
+    },
+    "Every day" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每天"
+          }
+        }
+      }
+    },
+    "Every day at %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每天 %@"
+          }
+        }
+      }
+    },
     "Explains local storage, privacy, and moving PlantStory to another iPhone" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1145,6 +1318,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导出备份"
+          }
+        }
+      }
+    },
+    "Feature unavailable" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "功能暂不可用"
           }
         }
       }
@@ -1252,16 +1435,6 @@
         }
       }
     },
-    "Feature unavailable" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "功能暂不可用"
-          }
-        }
-      }
-    },
     "Found %@" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1326,6 +1499,16 @@
         }
       }
     },
+    "Get a gentle reminder to check the soil." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按时提醒你查看土壤状态。"
+          }
+        }
+      }
+    },
     "Grow the garden" : {
       "comment" : "A name for a premium subscription option.",
       "isCommentAutoGenerated" : true,
@@ -1378,6 +1561,16 @@
         }
       }
     },
+    "In %lld days" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 天后"
+          }
+        }
+      }
+    },
     "In memory" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1394,6 +1587,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安装 PlantStory 后，打开“存储与数据”，选择“从备份恢复”。也可以使用 Apple 快速开始或完整的设备备份。"
+          }
+        }
+      }
+    },
+    "It’s been %lld days since the last watering." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距离上次浇水已经 %lld 天了。"
+          }
+        }
+      }
+    },
+    "It’s been a day since the last watering." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距离上次浇水已经一天了。"
           }
         }
       }
@@ -1605,6 +1820,16 @@
         }
       }
     },
+    "Manage watering reminder notifications" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理浇水提醒通知"
+          }
+        }
+      }
+    },
     "Manual backup & restore" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1691,6 +1916,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "新的野外记录"
+          }
+        }
+      }
+    },
+    "Next check: %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下次检查：%@"
+          }
+        }
+      }
+    },
+    "No active reminders" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无提醒"
           }
         }
       }
@@ -1787,6 +2034,26 @@
         }
       }
     },
+    "No reminder set" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未设置提醒"
+          }
+        }
+      }
+    },
+    "No watering reminders" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有浇水提醒"
+          }
+        }
+      }
+    },
     "No waterings recorded yet." : {
       "localizations" : {
         "zh-Hans" : {
@@ -1804,6 +2071,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "还没施过肥"
+          }
+        }
+      }
+    },
+    "Not Now" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时不要"
+          }
+        }
+      }
+    },
+    "Not requested" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未请求"
           }
         }
       }
@@ -1849,6 +2137,37 @@
         }
       }
     },
+    "Notifications" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知"
+          }
+        }
+      }
+    },
+    "Notifications are turned off" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知已关闭"
+          }
+        }
+      }
+    },
+    "Notifications disabled" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知已关闭"
+          }
+        }
+      }
+    },
     "Nurture a sprout" : {
       "comment" : "A description of a premium feature.",
       "isCommentAutoGenerated" : true,
@@ -1868,6 +2187,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已关闭 · 添加自己的 API 密钥"
+          }
+        }
+      }
+    },
+    "Off in iPhone Settings" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已在 iPhone 设置中关闭"
           }
         }
       }
@@ -1899,6 +2229,37 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "只有你主动使用 AI 建议时，PlantStory 才会把植物名称、已填写的物种，以及必要时的地区信息发送给 OpenAI。照片和植物记录不会发送。"
+          }
+        }
+      }
+    },
+    "Open a plant and choose Set a watering reminder in its Watering section." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开一株植物，在“浇水”中选择“设置浇水提醒”。"
+          }
+        }
+      }
+    },
+    "Open iPhone Settings" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 iPhone 设置"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开设置"
           }
         }
       }
@@ -2007,6 +2368,16 @@
         }
       }
     },
+    "Opens watering reminder settings for this plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开这株植物的浇水提醒设置"
+          }
+        }
+      }
+    },
     "Opens wild find details" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2043,6 +2414,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "别名（可选）"
+          }
+        }
+      }
+    },
+    "Overdue %lld days" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已过 %lld 天"
           }
         }
       }
@@ -2170,6 +2551,16 @@
         }
       }
     },
+    "Plant reminders" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物提醒"
+          }
+        }
+      }
+    },
     "Plant statistics" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2287,6 +2678,16 @@
         }
       }
     },
+    "Preview" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预览"
+          }
+        }
+      }
+    },
     "Prune" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2367,6 +2768,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "记住每一株\n在野外遇见的植物。"
+          }
+        }
+      }
+    },
+    "Remind Tomorrow" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "明天再提醒"
+          }
+        }
+      }
+    },
+    "Reminders are scheduled on this iPhone. PlantStory does not use a server or upload reminder data." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提醒只在这台 iPhone 上安排。PlantStory 不使用服务器，也不会上传提醒数据。"
           }
         }
       }
@@ -2602,6 +3024,16 @@
         }
       }
     },
+    "Set a watering reminder" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置浇水提醒"
+          }
+        }
+      }
+    },
     "Settings" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2728,6 +3160,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打造一座\n属于自己的花园。"
+          }
+        }
+      }
+    },
+    "Status" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "状态"
           }
         }
       }
@@ -2867,16 +3309,6 @@
         }
       }
     },
-    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. Restoring replaces the current local collection." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史。恢复备份会替换本机现有数据。"
-          }
-        }
-      }
-    },
     "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection." : {
       "localizations" : {
         "zh-Hans" : {
@@ -2887,12 +3319,32 @@
         }
       }
     },
+    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. Restoring replaces the current local collection." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史。恢复备份会替换本机现有数据。"
+          }
+        }
+      }
+    },
     "The key is stored in this device’s Keychain and is never saved with your plants. PlantStory sends a plant name to OpenAI only after you tap Suggest with AI." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "API 密钥只保存在这台设备的钥匙串中，不会写入植物数据。只有你轻点“让 AI 帮我补全”后，PlantStory 才会把植物名称发送给 OpenAI。"
+          }
+        }
+      }
+    },
+    "The reminder was saved, but PlantStory cannot alert you until notifications are enabled in iPhone Settings." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提醒已保存，但需要先在 iPhone 设置中允许通知，PlantStory 才能提醒你。"
           }
         }
       }
@@ -3028,12 +3480,32 @@
         }
       }
     },
+    "Time" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "时间"
+          }
+        }
+      }
+    },
     "Timeline event" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "事件标签"
+          }
+        }
+      }
+    },
+    "Tomorrow" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "明天"
           }
         }
       }
@@ -3078,12 +3550,44 @@
         }
       }
     },
+    "Turn off reminder for %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭%@的提醒"
+          }
+        }
+      }
+    },
+    "Unavailable" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不可用"
+          }
+        }
+      }
+    },
     "Use a different key" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "更换密钥"
+          }
+        }
+      }
+    },
+    "Use reminders as a cue to check the soil—not as an instruction to water." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提醒只是请你查看土壤状态，并不代表一定要浇水。"
           }
         }
       }
@@ -3138,6 +3642,17 @@
         }
       }
     },
+    "Watered" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已浇水"
+          }
+        }
+      }
+    },
     "Watering" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3155,6 +3670,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "浇水记录"
+          }
+        }
+      }
+    },
+    "Watering Reminder" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水提醒"
+          }
+        }
+      }
+    },
+    "Watering reminders" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水提醒"
+          }
+        }
+      }
+    },
+    "Watering Reminders" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水提醒"
+          }
+        }
+      }
+    },
+    "Watering reminders are optional and scheduled only on this iPhone." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水提醒可以随时关闭，所有提醒只保存在这台 iPhone 上。"
           }
         }
       }

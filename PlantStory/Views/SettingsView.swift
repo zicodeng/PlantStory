@@ -1,17 +1,22 @@
 import SwiftUI
 import StoreKit
 import UniformTypeIdentifiers
+import UserNotifications
 
 struct SettingsView: View {
     @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
     @EnvironmentObject private var openAIKeyStore: OpenAIKeyStore
+    @EnvironmentObject private var plantStore: PlantStore
     @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
     @Environment(\.requestReview) private var requestReview
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var notificationAuthorizationStatus: UNAuthorizationStatus = .notDetermined
 
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
     private let panel = Color(red: 0.105, green: 0.31, blue: 0.19)
     private let lime = Color(red: 0.36, green: 0.82, blue: 0.12)
     private let aiViolet = Color(red: 0.49, green: 0.31, blue: 0.86)
+    private let waterBlue = Color(red: 0.22, green: 0.64, blue: 0.88)
     private let storageTeal = Color(red: 0.06, green: 0.56, blue: 0.48)
     private let reviewOrange = Color(red: 0.88, green: 0.42, blue: 0.08)
     private let feedbackBlue = Color(red: 0.16, green: 0.48, blue: 0.86)
@@ -76,55 +81,57 @@ struct SettingsView: View {
                             }
                         }
 
-                        if aiFeaturesAvailable {
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text("FEATURES")
-                                    .font(.caption.weight(.bold))
-                                    .tracking(1.8)
-                                    .foregroundStyle(lime)
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("FEATURES")
+                                .font(.caption.weight(.bold))
+                                .tracking(1.8)
+                                .foregroundStyle(lime)
+
+                            VStack(spacing: 0) {
+                                if aiFeaturesAvailable {
+                                    NavigationLink {
+                                        OpenAIKeyView()
+                                            .toolbar(.visible, for: .navigationBar)
+                                    } label: {
+                                        settingsFeatureRow(
+                                            icon: "sparkles",
+                                            iconColor: aiViolet,
+                                            title: "AI Assistant",
+                                            description: aiStatus
+                                        )
+                                    }
+                                    .buttonStyle(.plain)
+                                    .accessibilityHint("Configure your OpenAI API key")
+
+                                    Divider()
+                                        .overlay(.white.opacity(0.1))
+                                        .padding(.leading, 76)
+                                }
 
                                 NavigationLink {
-                                    OpenAIKeyView()
+                                    WateringRemindersSettingsView()
                                         .toolbar(.visible, for: .navigationBar)
                                 } label: {
-                                    HStack(spacing: 14) {
-                                        Image(systemName: "sparkles")
-                                            .font(.title3.weight(.semibold))
-                                            .foregroundStyle(.white)
-                                            .frame(width: 46, height: 46)
-                                            .background(aiViolet, in: Circle())
-
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text("AI Assistant")
-                                                .font(.system(.headline, design: .serif, weight: .semibold))
-                                                .foregroundStyle(.white)
-                                            Text(aiStatus)
-                                                .font(.subheadline)
-                                                .foregroundStyle(.white.opacity(0.65))
-                                        }
-
-                                        Spacer()
-
-                                        Image(systemName: "chevron.right")
-                                            .font(.subheadline.weight(.semibold))
-                                            .foregroundStyle(.white.opacity(0.42))
-                                    }
-                                    .padding(16)
-                                    .contentShape(Rectangle())
-                                    .background(panel, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                            .stroke(.white.opacity(0.08), lineWidth: 1)
-                                    }
+                                    settingsFeatureRow(
+                                        icon: "bell.fill",
+                                        iconColor: waterBlue,
+                                        title: "Watering Reminders",
+                                        description: wateringReminderStatus
+                                    )
                                 }
                                 .buttonStyle(.plain)
-                                .accessibilityHint("Configure your OpenAI API key")
-
-                                Text("AI suggestions are optional and use your own OpenAI API account. Plant tracking works normally when this feature is off.")
-                                    .font(.footnote)
-                                    .foregroundStyle(.white.opacity(0.55))
-                                    .padding(.horizontal, 4)
+                                .accessibilityHint("Manage watering reminder notifications")
                             }
+                            .background(panel, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                    .stroke(.white.opacity(0.08), lineWidth: 1)
+                            }
+
+                            Text("Watering reminders are optional and scheduled only on this iPhone.")
+                                .font(.footnote)
+                                .foregroundStyle(.white.opacity(0.55))
+                                .padding(.horizontal, 4)
                         }
 
                         VStack(alignment: .leading, spacing: 12) {
@@ -266,6 +273,11 @@ struct SettingsView: View {
             }
             .toolbar(.hidden, for: .navigationBar)
         }
+        .task { await refreshNotificationAuthorizationStatus() }
+        .onChange(of: scenePhase) { _, phase in
+            guard phase == .active else { return }
+            Task { await refreshNotificationAuthorizationStatus() }
+        }
     }
 
     private var aiStatus: String {
@@ -273,6 +285,59 @@ struct SettingsView: View {
             return AppLocalization.string("On · Key %@", keyPreview)
         }
         return AppLocalization.string("Off · Add your own API key")
+    }
+
+    private var wateringReminderStatus: String {
+        if notificationAuthorizationStatus == .denied {
+            return AppLocalization.string("Notifications disabled")
+        }
+        let count = plantStore.plants.filter {
+            $0.wateringReminder != nil && !$0.isDeceased
+        }.count
+        if count == 0 {
+            return AppLocalization.string("No active reminders")
+        }
+        if count == 1 {
+            return AppLocalization.string("1 active reminder")
+        }
+        return AppLocalization.string("%lld active reminders", Int64(count))
+    }
+
+    @MainActor
+    private func refreshNotificationAuthorizationStatus() async {
+        notificationAuthorizationStatus = await WateringReminderService.shared.authorizationStatus()
+    }
+
+    private func settingsFeatureRow(
+        icon: String,
+        iconColor: Color,
+        title: LocalizedStringKey,
+        description: String
+    ) -> some View {
+        HStack(spacing: 14) {
+            Image(systemName: icon)
+                .font(.title3.weight(.semibold))
+                .foregroundStyle(.white)
+                .frame(width: 46, height: 46)
+                .background(iconColor, in: Circle())
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.system(.headline, design: .serif, weight: .semibold))
+                    .foregroundStyle(.white)
+                Text(description)
+                    .font(.subheadline)
+                    .foregroundStyle(.white.opacity(0.65))
+            }
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.white.opacity(0.42))
+        }
+        .padding(16)
+        .contentShape(Rectangle())
     }
 
     private func feedbackRow(

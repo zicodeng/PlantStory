@@ -26,6 +26,8 @@
 		A10000000000000000000011 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* SettingsView.swift */; };
 		A10000000000000000000012 /* TipJarStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* TipJarStore.swift */; };
 		A10000000000000000000013 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000015 /* Localizable.xcstrings */; };
+		A10000000000000000000014 /* WateringReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000016 /* WateringReminderService.swift */; };
+		A10000000000000000000015 /* WateringReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000017 /* WateringReminderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		B10000000000000000000013 /* TipJarStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarStore.swift; sourceTree = "<group>"; };
 		B10000000000000000000014 /* PlantStoryTips.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlantStoryTips.storekit; sourceTree = "<group>"; };
 		B10000000000000000000015 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B10000000000000000000016 /* WateringReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReminderService.swift; sourceTree = "<group>"; };
+		B10000000000000000000017 /* WateringReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReminderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 				B1000000000000000000000E /* WildFindDetailView.swift */,
 				B10000000000000000000011 /* OpenAIKeyView.swift */,
 				B10000000000000000000012 /* SettingsView.swift */,
+				B10000000000000000000017 /* WateringReminderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000010 /* PlantAIService.swift */,
+				B10000000000000000000016 /* WateringReminderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -231,6 +237,8 @@
 				A10000000000000000000010 /* OpenAIKeyView.swift in Sources */,
 				A10000000000000000000011 /* SettingsView.swift in Sources */,
 				A10000000000000000000012 /* TipJarStore.swift in Sources */,
+				A10000000000000000000014 /* WateringReminderService.swift in Sources */,
+				A10000000000000000000015 /* WateringReminderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

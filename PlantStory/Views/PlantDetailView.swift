@@ -29,6 +29,7 @@ struct PlantDetailView: View {
     @State private var showingAllWateringHistory = false
     @State private var showingAllFertilizingHistory = false
     @State private var heroPhoto: Data?
+    @State private var reminderPlant: Plant?
 
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
     private let panel = Color(red: 0.105, green: 0.31, blue: 0.19)
@@ -114,6 +115,11 @@ struct PlantDetailView: View {
         .sheet(isPresented: $showingEdit) {
             NavigationStack {
                 PlantFormView(plant: currentPlant)
+            }
+        }
+        .sheet(item: $reminderPlant) { plant in
+            NavigationStack {
+                WateringReminderEditorView(plant: plant)
             }
         }
         .confirmationDialog(
@@ -408,6 +414,10 @@ struct PlantDetailView: View {
                 .fixedSize(horizontal: true, vertical: false)
             }
 
+            if historyKind == .watering, !currentPlant.isDeceased {
+                wateringReminderRow
+            }
+
             if visibleHistory.isEmpty {
                 Text(emptyMessage)
                     .font(.subheadline)
@@ -474,6 +484,49 @@ struct PlantDetailView: View {
             }
         }
         .gardenCardStyle(panel: panel)
+    }
+
+    private var wateringReminderRow: some View {
+        Button {
+            reminderPlant = currentPlant
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: currentPlant.wateringReminder == nil ? "bell" : "bell.fill")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(waterBlue)
+                    .frame(width: 34, height: 34)
+                    .background(waterBlue.opacity(0.14), in: Circle())
+
+                VStack(alignment: .leading, spacing: 3) {
+                    if let reminder = currentPlant.wateringReminder {
+                        Text(WateringReminderText.schedule(reminder))
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.white)
+                        if let nextCheck = WateringReminderText.nextCheck(for: currentPlant) {
+                            Text(nextCheck)
+                                .font(.caption)
+                                .foregroundStyle(.white.opacity(0.58))
+                        }
+                    } else {
+                        Text("Set a watering reminder")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.white)
+                        Text("Get a gentle reminder to check the soil.")
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.58))
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(.white.opacity(0.4))
+            }
+            .padding(12)
+            .background(.white.opacity(0.06), in: RoundedRectangle(cornerRadius: 15, style: .continuous))
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("Opens watering reminder settings for this plant")
     }
 
     private func deleteCareHistoryEntry(_ deletion: CareHistoryDeletion) {
