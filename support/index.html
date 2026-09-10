@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get help with PlantStory, report an issue, or contact the developer.">
+    <meta name="theme-color" content="#1f6b45">
+    <title>PlantStory Support</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --forest: #123c2b;
+        --leaf: #1f6b45;
+        --sprout: #55c92f;
+        --pale-leaf: #ddefbe;
+        --cream: #fff9ee;
+        --card: #ffffff;
+        --muted: #5f6f66;
+        --line: #dce8df;
+        --warning: #fff2d3;
+        --warning-border: #e5ba55;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 12% 4%, rgba(221, 239, 190, 0.78), transparent 30rem),
+          var(--cream);
+        color: var(--forest);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.55;
+      }
+
+      main {
+        width: min(760px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 64px 0 72px;
+      }
+
+      header {
+        margin-bottom: 32px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 14px;
+        color: var(--leaf);
+        font-size: 0.86rem;
+        font-weight: 750;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 12px;
+        height: 12px;
+        border-radius: 70% 30% 70% 30%;
+        background: var(--sprout);
+        content: "";
+        transform: rotate(-28deg);
+      }
+
+      h1,
+      h2 {
+        line-height: 1.15;
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin: 0;
+        font-size: clamp(2.5rem, 8vw, 4.6rem);
+        letter-spacing: -0.055em;
+      }
+
+      header p {
+        max-width: 610px;
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 1.12rem;
+      }
+
+      .card {
+        margin-top: 20px;
+        padding: clamp(24px, 5vw, 36px);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--card);
+        box-shadow: 0 18px 48px rgba(18, 60, 43, 0.07);
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1.45rem;
+        letter-spacing: -0.025em;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      p + p,
+      p + .actions,
+      p + ul {
+        margin-top: 16px;
+      }
+
+      a {
+        color: var(--leaf);
+        font-weight: 700;
+        text-underline-offset: 3px;
+      }
+
+      a:hover {
+        color: var(--forest);
+      }
+
+      a:focus-visible {
+        border-radius: 4px;
+        outline: 3px solid rgba(85, 201, 47, 0.5);
+        outline-offset: 4px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 11px 18px;
+        border: 2px solid var(--leaf);
+        border-radius: 999px;
+        background: var(--leaf);
+        color: #ffffff;
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        background: var(--forest);
+        color: #ffffff;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--leaf);
+      }
+
+      .button.secondary:hover {
+        background: var(--pale-leaf);
+        color: var(--forest);
+      }
+
+      ul {
+        margin-bottom: 0;
+        padding-left: 1.3em;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .warning {
+        border-color: var(--warning-border);
+        background: var(--warning);
+        box-shadow: none;
+      }
+
+      .warning h2 {
+        font-size: 1.2rem;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        justify-content: space-between;
+        padding: 28px 4px 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 520px) {
+        main {
+          padding-top: 40px;
+        }
+
+        .actions,
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Help your garden grow</p>
+        <h1>PlantStory Support</h1>
+        <p>
+          Need help, found a bug, or have an idea? Contact the developer directly or
+          open an issue on GitHub.
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Ask for help</h2>
+        <p>
+          Email <a href="mailto:zicodeng@gmail.com">zicodeng@gmail.com</a> for support,
+          or use GitHub to report a reproducible bug or suggest an improvement.
+        </p>
+        <div class="actions">
+          <a class="button" href="mailto:zicodeng@gmail.com?subject=PlantStory%20Support">Email support</a>
+          <a class="button secondary" href="https://github.com/zicodeng/PlantStory/issues/new">Open a GitHub issue</a>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="details-heading">
+        <h2 id="details-heading">What to include</h2>
+        <p>These details help diagnose the problem more quickly:</p>
+        <ul>
+          <li>PlantStory app version and build number</li>
+          <li>iOS or iPadOS version</li>
+          <li>iPhone or iPad model</li>
+          <li>Steps to reproduce the issue</li>
+          <li>What you expected and what happened instead</li>
+        </ul>
+      </section>
+
+      <aside class="card warning" aria-labelledby="privacy-warning-heading">
+        <h2 id="privacy-warning-heading">Protect your private information</h2>
+        <p>
+          Never include an API key, private photo, or PlantStory backup file in an email
+          or public GitHub issue. You can remove personal details from screenshots before
+          sharing them.
+        </p>
+      </aside>
+
+      <section class="card" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Privacy</h2>
+        <p>
+          PlantStory stores your garden data locally on your device. Read the
+          <a href="https://github.com/zicodeng/PlantStory/blob/main/PRIVACY.md">PlantStory Privacy Policy</a>
+          to learn how local data, manual backups, and optional features are handled.
+        </p>
+      </section>
+
+      <footer>
+        <span>PlantStory · Vibe-coded with love by Zico</span>
+        <a href="https://github.com/zicodeng/PlantStory">View the project on GitHub</a>
+      </footer>
+    </main>
+  </body>
+</html>
