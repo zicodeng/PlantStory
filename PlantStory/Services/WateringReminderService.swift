@@ -4,16 +4,33 @@ import UserNotifications
 import UIKit
 
 enum WateringReminderText {
-    static func schedule(_ reminder: WateringReminder) -> String {
+    static func schedule(
+        _ reminder: WateringReminder,
+        season: WateringSeason = .active
+    ) -> String {
         let time = timeString(hour: reminder.hour, minute: reminder.minute)
-        if reminder.intervalDays == 1 {
-            return AppLocalization.string("Every day at %@", time)
+        let interval = reminder.effectiveIntervalDays(for: season)
+        let timing: String
+        if interval == 1 {
+            timing = AppLocalization.string("Every day at %@", time)
+        } else {
+            timing = AppLocalization.string("Every %lld days at %@", Int64(interval), time)
         }
-        return AppLocalization.string("Every %lld days at %@", Int64(reminder.intervalDays), time)
+
+        guard reminder.usesSeasonalSchedule else {
+            return timing
+        }
+        return AppLocalization.string("%@ · %@", season.localizedTitle, timing)
     }
 
-    static func nextCheck(for plant: Plant, now: Date = .now) -> String? {
-        guard let dueDate = plant.nextWateringReminderDate(now: now) else { return nil }
+    static func nextCheck(
+        for plant: Plant,
+        now: Date = .now,
+        season: WateringSeason = .active
+    ) -> String? {
+        guard let dueDate = plant.nextWateringReminderDate(now: now, season: season) else {
+            return nil
+        }
         if dueDate <= now {
             return AppLocalization.string("Due now")
         }
@@ -23,8 +40,14 @@ enum WateringReminderText {
         )
     }
 
-    static func cardStatus(for plant: Plant, now: Date = .now) -> LocalizedStringKey? {
-        guard let dueDate = plant.nextWateringReminderDate(now: now) else { return nil }
+    static func cardStatus(
+        for plant: Plant,
+        now: Date = .now,
+        season: WateringSeason = .active
+    ) -> LocalizedStringKey? {
+        guard let dueDate = plant.nextWateringReminderDate(now: now, season: season) else {
+            return nil
+        }
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: now)
         let dueDay = calendar.startOfDay(for: dueDate)
@@ -107,6 +130,7 @@ final class WateringReminderService {
 
     func reconcile(plants: [Plant]) async {
         configureNotificationCategories()
+        let activeSeason = WateringSeason.active
 
         let pending = await center.pendingNotificationRequests()
         let existingReminderIDs = pending
@@ -122,8 +146,8 @@ final class WateringReminderService {
         let scheduledPlants = Array(
             activePlants
                 .sorted {
-                    ($0.nextWateringReminderDate() ?? .distantFuture) <
-                    ($1.nextWateringReminderDate() ?? .distantFuture)
+                    ($0.nextWateringReminderDate(season: activeSeason) ?? .distantFuture) <
+                    ($1.nextWateringReminderDate(season: activeSeason) ?? .distantFuture)
                 }
                 .prefix(notificationBudget)
         )
@@ -138,7 +162,11 @@ final class WateringReminderService {
             max(1, notificationBudget / max(scheduledPlants.count, 1))
         )
         for plant in scheduledPlants {
-            try? await schedule(plant, occurrenceCount: occurrenceCount)
+            try? await schedule(
+                plant,
+                occurrenceCount: occurrenceCount,
+                season: activeSeason
+            )
         }
     }
 
@@ -148,23 +176,29 @@ final class WateringReminderService {
         center.removeDeliveredNotifications(withIdentifiers: identifiers)
     }
 
-    private func schedule(_ plant: Plant, occurrenceCount: Int) async throws {
+    private func schedule(
+        _ plant: Plant,
+        occurrenceCount: Int,
+        season: WateringSeason
+    ) async throws {
         guard let reminder = plant.wateringReminder,
-              let logicalDueDate = plant.nextWateringReminderDate() else { return }
+              let logicalDueDate = plant.nextWateringReminderDate(season: season) else { return }
 
         let calendar = Calendar.current
         let firstDeliveryDate = deliveryDate(for: logicalDueDate, reminder: reminder)
+        let intervalDays = reminder.effectiveIntervalDays(for: season)
 
         for occurrence in 0..<occurrenceCount {
             let deliveryDate = calendar.date(
                 byAdding: .day,
-                value: reminder.intervalDays * occurrence,
+                value: intervalDays * occurrence,
                 to: firstDeliveryDate
             ) ?? firstDeliveryDate
             let content = notificationContent(
                 for: plant,
                 reminder: reminder,
-                occurrence: occurrence
+                occurrence: occurrence,
+                intervalDays: intervalDays
             )
             let components = calendar.dateComponents(
                 [.calendar, .timeZone, .year, .month, .day, .hour, .minute],
@@ -183,14 +217,15 @@ final class WateringReminderService {
     private func notificationContent(
         for plant: Plant,
         reminder: WateringReminder,
-        occurrence: Int
+        occurrence: Int,
+        intervalDays: Int
     ) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = AppLocalization.string("Check %@’s soil", plant.name)
         if plant.lastWatered == nil {
             content.body = AppLocalization.string("A gentle reminder to see whether it needs water.")
         } else {
-            let elapsedDays = reminder.intervalDays * (occurrence + 1)
+            let elapsedDays = intervalDays * (occurrence + 1)
             if elapsedDays == 1 {
                 content.body = AppLocalization.string("It’s been a day since the last watering.")
             } else {

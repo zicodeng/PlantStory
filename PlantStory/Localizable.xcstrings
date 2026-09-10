@@ -4,6 +4,17 @@
     "" : {
 
     },
+    "%@ · %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
     "%@ and %@" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -257,6 +268,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "入手日期"
+          }
+        }
+      }
+    },
+    "Active season" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前季节"
           }
         }
       }
@@ -749,7 +770,18 @@
         }
       }
     },
+    "Check-in interval" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查间隔"
+          }
+        }
+      }
+    },
     "Check-in schedule" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -785,6 +817,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "选择已有位置"
+          }
+        }
+      }
+    },
+    "Choose the active season once. It applies to every plant using seasonal watering intervals." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只需选择一次当前季节，所有启用按季节浇水间隔的植物都会使用它。"
           }
         }
       }
@@ -1318,6 +1360,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导出备份"
+          }
+        }
+      }
+    },
+    "Fall" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秋季"
           }
         }
       }
@@ -2004,6 +2056,16 @@
         }
       }
     },
+    "No reminder set" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未设置提醒"
+          }
+        }
+      }
+    },
     "No seasonal care scheduled" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2030,16 +2092,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "暂时不用打赏。去 GitHub 点个 Star，再好好照顾你的植物，就已经足够。"
-          }
-        }
-      }
-    },
-    "No reminder set" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "未设置提醒"
           }
         }
       }
@@ -2783,6 +2835,16 @@
         }
       }
     },
+    "Reminder time" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提醒时间"
+          }
+        }
+      }
+    },
     "Reminders are scheduled on this iPhone. PlantStory does not use a server or upload reminder data." : {
       "localizations" : {
         "zh-Hans" : {
@@ -3014,6 +3076,16 @@
         }
       }
     },
+    "Seasonal intervals" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "各季节浇水间隔"
+          }
+        }
+      }
+    },
     "Selected" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3030,6 +3102,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置浇水提醒"
+          }
+        }
+      }
+    },
+    "Set one interval year-round, or choose a different interval for each season." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全年使用同一间隔，或为每个季节分别设置。"
           }
         }
       }
@@ -3144,6 +3226,16 @@
         }
       }
     },
+    "Spring" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "春季"
+          }
+        }
+      }
+    },
     "Star PlantStory on GitHub" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3234,6 +3326,16 @@
         }
       }
     },
+    "Summer" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "夏季"
+          }
+        }
+      }
+    },
     "Support options are not available yet." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3283,6 +3385,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "谢谢你！"
+          }
+        }
+      }
+    },
+    "The active season controls the current reminder. Change it whenever the season or your plant’s conditions change." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前季节决定正在使用的提醒间隔。季节或养护环境变化时，请手动切换。"
+          }
+        }
+      }
+    },
+    "The active season is shared by every plant. Change it in Settings under Watering Reminders." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前季节由所有植物共用。请前往“设置”中的“浇水提醒”更改。"
           }
         }
       }
@@ -3592,6 +3715,16 @@
         }
       }
     },
+    "Use seasonal intervals" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按季节设置间隔"
+          }
+        }
+      }
+    },
     "Vibe-coded with love by Zico" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3780,6 +3913,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "野外植物"
+          }
+        }
+      }
+    },
+    "Winter" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "冬季"
           }
         }
       }

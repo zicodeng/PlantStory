@@ -2,6 +2,7 @@ import SwiftUI
 import UserNotifications
 
 struct WateringReminderEditorView: View {
+    @AppStorage(WateringSeason.storageKey) private var activeSeasonCode = WateringSeason.suggested().rawValue
     @EnvironmentObject private var store: PlantStore
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
@@ -10,6 +11,8 @@ struct WateringReminderEditorView: View {
 
     @State private var isEnabled: Bool
     @State private var intervalDays: Int
+    @State private var usesSeasonalSchedule: Bool
+    @State private var seasonalIntervals: SeasonalWateringIntervals
     @State private var reminderTime: Date
     @State private var isSaving = false
     @State private var showingNotificationWarning = false
@@ -19,8 +22,14 @@ struct WateringReminderEditorView: View {
     init(plant: Plant) {
         self.plant = plant
         let reminder = plant.wateringReminder
+        let defaultInterval = reminder?.intervalDays ?? 7
         _isEnabled = State(initialValue: reminder != nil)
-        _intervalDays = State(initialValue: reminder?.intervalDays ?? 7)
+        _intervalDays = State(initialValue: defaultInterval)
+        _usesSeasonalSchedule = State(initialValue: reminder?.usesSeasonalSchedule ?? false)
+        _seasonalIntervals = State(
+            initialValue: reminder?.seasonalIntervals
+                ?? SeasonalWateringIntervals(defaultInterval: defaultInterval)
+        )
 
         var components = DateComponents()
         components.hour = reminder?.hour ?? 9
@@ -37,35 +46,69 @@ struct WateringReminderEditorView: View {
             }
 
             if isEnabled {
-                Section("Check-in schedule") {
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 8) {
-                            ForEach(presets, id: \.self) { days in
-                                Button {
-                                    intervalDays = days
-                                } label: {
-                                    Text(AppLocalization.string("%lld days", Int64(days)))
-                                        .font(.subheadline.weight(.semibold))
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 8)
-                                        .foregroundStyle(intervalDays == days ? .white : Color("LeafGreen"))
-                                        .background(
-                                            intervalDays == days ? Color("LeafGreen") : Color("LeafGreen").opacity(0.12),
-                                            in: Capsule()
+                Section {
+                    Toggle("Use seasonal intervals", isOn: $usesSeasonalSchedule)
+                } footer: {
+                    Text("Set one interval year-round, or choose a different interval for each season.")
+                }
+
+                if usesSeasonalSchedule {
+                    Section {
+                        LabeledContent("Active season") {
+                            Text(activeSeason.title)
+                                .foregroundStyle(Color("LeafGreen"))
+                        }
+
+                        ForEach(WateringSeason.allCases) { season in
+                            Stepper(value: intervalBinding(for: season), in: 1...90) {
+                                HStack {
+                                    Text(season.title)
+                                    Spacer()
+                                    Text(intervalText(seasonalIntervals[season]))
+                                        .foregroundStyle(
+                                            season == activeSeason ? Color("LeafGreen") : .secondary
                                         )
                                 }
-                                .buttonStyle(.plain)
+                            }
+                        }
+                    } header: {
+                        Text("Seasonal intervals")
+                    } footer: {
+                        Text("The active season is shared by every plant. Change it in Settings under Watering Reminders.")
+                    }
+                } else {
+                    Section("Check-in interval") {
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 8) {
+                                ForEach(presets, id: \.self) { days in
+                                    Button {
+                                        intervalDays = days
+                                    } label: {
+                                        Text(AppLocalization.string("%lld days", Int64(days)))
+                                            .font(.subheadline.weight(.semibold))
+                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 8)
+                                            .foregroundStyle(intervalDays == days ? .white : Color("LeafGreen"))
+                                            .background(
+                                                intervalDays == days ? Color("LeafGreen") : Color("LeafGreen").opacity(0.12),
+                                                in: Capsule()
+                                            )
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+                            }
+                        }
+                        .scrollIndicators(.hidden)
+
+                        Stepper(value: $intervalDays, in: 1...90) {
+                            LabeledContent("Custom interval") {
+                                Text(intervalText(intervalDays))
                             }
                         }
                     }
-                    .scrollIndicators(.hidden)
+                }
 
-                    Stepper(value: $intervalDays, in: 1...90) {
-                        LabeledContent("Custom interval") {
-                            Text(intervalText)
-                        }
-                    }
-
+                Section("Reminder time") {
                     DatePicker(
                         "Time",
                         selection: $reminderTime,
@@ -109,10 +152,17 @@ struct WateringReminderEditorView: View {
         }
     }
 
-    private var intervalText: String {
-        intervalDays == 1
+    private func intervalText(_ days: Int) -> String {
+        days == 1
             ? AppLocalization.string("Every day")
-            : AppLocalization.string("Every %lld days", Int64(intervalDays))
+            : AppLocalization.string("Every %lld days", Int64(days))
+    }
+
+    private func intervalBinding(for season: WateringSeason) -> Binding<Int> {
+        Binding(
+            get: { seasonalIntervals[season] },
+            set: { seasonalIntervals[season] = $0 }
+        )
     }
 
     private var draftReminder: WateringReminder {
@@ -123,18 +173,23 @@ struct WateringReminderEditorView: View {
             hour: components.hour ?? 9,
             minute: components.minute ?? 0,
             startDate: existing?.startDate ?? .now,
-            snoozedUntil: nil
+            snoozedUntil: nil,
+            seasonalIntervals: usesSeasonalSchedule ? seasonalIntervals : nil
         )
     }
 
+    private var activeSeason: WateringSeason {
+        WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
+    }
+
     private var scheduleText: String {
-        WateringReminderText.schedule(draftReminder)
+        WateringReminderText.schedule(draftReminder, season: activeSeason)
     }
 
     private var nextCheckText: String? {
         var draftPlant = plant
         draftPlant.wateringReminder = draftReminder
-        return WateringReminderText.nextCheck(for: draftPlant)
+        return WateringReminderText.nextCheck(for: draftPlant, season: activeSeason)
     }
 
     @MainActor
@@ -162,6 +217,7 @@ struct WateringReminderEditorView: View {
 }
 
 struct WateringRemindersSettingsView: View {
+    @AppStorage(WateringSeason.storageKey) private var activeSeasonCode = WateringSeason.suggested().rawValue
     @EnvironmentObject private var store: PlantStore
     @Environment(\.openURL) private var openURL
     @Environment(\.scenePhase) private var scenePhase
@@ -181,6 +237,29 @@ struct WateringRemindersSettingsView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 26) {
+                    VStack(alignment: .leading, spacing: 9) {
+                        sectionHeading("Active season")
+
+                        Picker("Active season", selection: $activeSeasonCode) {
+                            ForEach(WateringSeason.allCases) { season in
+                                Text(season.title)
+                                    .tag(season.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .padding(14)
+                        .background(
+                            Color(uiColor: .secondarySystemGroupedBackground),
+                            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        )
+
+                        Text("Choose the active season once. It applies to every plant using seasonal watering intervals.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.horizontal, 4)
+                    }
+
                     VStack(alignment: .leading, spacing: 9) {
                         sectionHeading("Notifications")
 
@@ -294,11 +373,14 @@ struct WateringRemindersSettingsView: View {
                 Text(plant.name)
                     .font(.headline)
                 if let reminder = plant.wateringReminder {
-                    Text(WateringReminderText.schedule(reminder))
+                    Text(WateringReminderText.schedule(reminder, season: activeSeason))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                if let nextCheck = WateringReminderText.nextCheck(for: plant) {
+                if let nextCheck = WateringReminderText.nextCheck(
+                    for: plant,
+                    season: activeSeason
+                ) {
                     Text(nextCheck)
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -338,6 +420,10 @@ struct WateringRemindersSettingsView: View {
         @unknown default:
             AppLocalization.string("Unavailable")
         }
+    }
+
+    private var activeSeason: WateringSeason {
+        WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
     }
 
     private var notificationStatusIcon: String {

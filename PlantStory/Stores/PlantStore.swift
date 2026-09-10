@@ -141,6 +141,12 @@ final class PlantStore: ObservableObject {
             reminder.intervalDays = min(max(reminder.intervalDays, 1), 90)
             reminder.hour = min(max(reminder.hour, 0), 23)
             reminder.minute = min(max(reminder.minute, 0), 59)
+            if var intervals = reminder.seasonalIntervals {
+                for season in WateringSeason.allCases {
+                    intervals[season] = min(max(intervals[season], 1), 90)
+                }
+                reminder.seasonalIntervals = intervals
+            }
             plant.wateringReminder = reminder
         }
         return plant

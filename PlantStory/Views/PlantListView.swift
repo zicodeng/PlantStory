@@ -946,6 +946,7 @@ private struct GardenPotShape: Shape {
 }
 
 private struct GardenPlantCard: View {
+    @AppStorage(WateringSeason.storageKey) private var activeSeasonCode = WateringSeason.suggested().rawValue
     let plant: Plant
     let panel: Color
     let lime: Color
@@ -1004,7 +1005,10 @@ private struct GardenPlantCard: View {
                 .foregroundStyle(plant.isDeceased ? .white.opacity(0.52) : lime)
 
                 Group {
-                    if let reminderStatus = WateringReminderText.cardStatus(for: plant) {
+                    if let reminderStatus = WateringReminderText.cardStatus(
+                        for: plant,
+                        season: activeSeason
+                    ) {
                         reminderBadge(
                             reminderStatus,
                             icon: "bell.fill",
@@ -1047,6 +1051,10 @@ private struct GardenPlantCard: View {
         .accessibilityElement(children: .combine)
         .accessibilityValue(plant.isDeceased ? "In memory" : "Growing")
         .accessibilityHint("Opens plant details")
+    }
+
+    private var activeSeason: WateringSeason {
+        WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
     }
 
     private func reminderBadge(

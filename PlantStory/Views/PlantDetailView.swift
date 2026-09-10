@@ -19,6 +19,7 @@ private struct CareHistoryDeletion: Identifiable {
 }
 
 struct PlantDetailView: View {
+    @AppStorage(WateringSeason.storageKey) private var activeSeasonCode = WateringSeason.suggested().rawValue
     @EnvironmentObject private var store: PlantStore
     @Environment(\.dismiss) private var dismiss
     let plant: Plant
@@ -499,10 +500,13 @@ struct PlantDetailView: View {
 
                 VStack(alignment: .leading, spacing: 3) {
                     if let reminder = currentPlant.wateringReminder {
-                        Text(WateringReminderText.schedule(reminder))
+                        Text(WateringReminderText.schedule(reminder, season: activeSeason))
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.white)
-                        if let nextCheck = WateringReminderText.nextCheck(for: currentPlant) {
+                        if let nextCheck = WateringReminderText.nextCheck(
+                            for: currentPlant,
+                            season: activeSeason
+                        ) {
                             Text(nextCheck)
                                 .font(.caption)
                                 .foregroundStyle(.white.opacity(0.58))
@@ -527,6 +531,10 @@ struct PlantDetailView: View {
         }
         .buttonStyle(.plain)
         .accessibilityHint("Opens watering reminder settings for this plant")
+    }
+
+    private var activeSeason: WateringSeason {
+        WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
     }
 
     private func deleteCareHistoryEntry(_ deletion: CareHistoryDeletion) {

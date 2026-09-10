@@ -6,12 +6,20 @@ import UIKit
 struct PlantStoryApp: App {
     @UIApplicationDelegateAdaptor(PlantStoryAppDelegate.self) private var appDelegate
     @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
+    @AppStorage(WateringSeason.storageKey) private var activeWateringSeasonCode = WateringSeason.suggested().rawValue
     @StateObject private var store = PlantStore.shared
     @StateObject private var wildFindStore = WildFindStore()
     @StateObject private var openAIKeyStore = OpenAIKeyStore()
     @StateObject private var aiAvailabilityStore = AIAvailabilityStore()
 
     init() {
+        if UserDefaults.standard.string(forKey: WateringSeason.storageKey) == nil {
+            UserDefaults.standard.set(
+                WateringSeason.suggested().rawValue,
+                forKey: WateringSeason.storageKey
+            )
+        }
+
         let navigation = UINavigationBarAppearance()
         navigation.configureWithOpaqueBackground()
         navigation.backgroundColor = UIColor(named: "Canvas")
@@ -48,6 +56,9 @@ struct PlantStoryApp: App {
                 }
                 .task(id: appLanguageCode) {
                     WateringReminderService.shared.configureNotificationCategories()
+                    await WateringReminderService.shared.reconcile(plants: store.plants)
+                }
+                .task(id: activeWateringSeasonCode) {
                     await WateringReminderService.shared.reconcile(plants: store.plants)
                 }
                 .onReceive(store.$plants) { plants in

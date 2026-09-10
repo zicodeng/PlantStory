@@ -1,25 +1,117 @@
 import Foundation
 import SwiftUI
 
+enum WateringSeason: String, Codable, CaseIterable, Identifiable {
+    static let storageKey = "activeWateringSeason"
+
+    case spring
+    case summer
+    case fall
+    case winter
+
+    var id: Self { self }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .spring: "Spring"
+        case .summer: "Summer"
+        case .fall: "Fall"
+        case .winter: "Winter"
+        }
+    }
+
+    var localizedTitle: String {
+        switch self {
+        case .spring: AppLocalization.string("Spring")
+        case .summer: AppLocalization.string("Summer")
+        case .fall: AppLocalization.string("Fall")
+        case .winter: AppLocalization.string("Winter")
+        }
+    }
+
+    static func suggested(for date: Date = .now, calendar: Calendar = .current) -> Self {
+        switch calendar.component(.month, from: date) {
+        case 3...5: .spring
+        case 6...8: .summer
+        case 9...11: .fall
+        default: .winter
+        }
+    }
+
+    static var active: Self {
+        guard let rawValue = UserDefaults.standard.string(forKey: storageKey),
+              let season = Self(rawValue: rawValue) else {
+            return suggested()
+        }
+        return season
+    }
+}
+
+struct SeasonalWateringIntervals: Codable, Equatable {
+    var spring: Int
+    var summer: Int
+    var fall: Int
+    var winter: Int
+
+    init(defaultInterval: Int) {
+        spring = defaultInterval
+        summer = defaultInterval
+        fall = defaultInterval
+        winter = defaultInterval
+    }
+
+    subscript(season: WateringSeason) -> Int {
+        get {
+            switch season {
+            case .spring: spring
+            case .summer: summer
+            case .fall: fall
+            case .winter: winter
+            }
+        }
+        set {
+            switch season {
+            case .spring: spring = newValue
+            case .summer: summer = newValue
+            case .fall: fall = newValue
+            case .winter: winter = newValue
+            }
+        }
+    }
+}
+
 struct WateringReminder: Codable, Equatable {
     var intervalDays: Int
     var hour: Int
     var minute: Int
     var startDate: Date
     var snoozedUntil: Date?
+    /// Optional so reminders created before seasonal schedules were added still decode.
+    var seasonalIntervals: SeasonalWateringIntervals?
 
     init(
         intervalDays: Int = 7,
         hour: Int = 9,
         minute: Int = 0,
         startDate: Date = .now,
-        snoozedUntil: Date? = nil
+        snoozedUntil: Date? = nil,
+        seasonalIntervals: SeasonalWateringIntervals? = nil
     ) {
         self.intervalDays = intervalDays
         self.hour = hour
         self.minute = minute
         self.startDate = startDate
         self.snoozedUntil = snoozedUntil
+        self.seasonalIntervals = seasonalIntervals
+    }
+
+    func effectiveIntervalDays(for season: WateringSeason = .active) -> Int {
+        guard let seasonalIntervals else { return intervalDays }
+        return seasonalIntervals[season]
+    }
+
+    var usesSeasonalSchedule: Bool {
+        seasonalIntervals != nil
     }
 }
 
@@ -168,7 +260,8 @@ struct Plant: Identifiable, Codable, Equatable {
 
     func nextWateringReminderDate(
         now: Date = .now,
-        calendar: Calendar = .current
+        calendar: Calendar = .current,
+        season: WateringSeason = .active
     ) -> Date? {
         guard let reminder = wateringReminder, !isDeceased else { return nil }
 
@@ -179,7 +272,7 @@ struct Plant: Identifiable, Codable, Equatable {
         let anchor = lastWatered ?? reminder.startDate
         guard let dueDay = calendar.date(
             byAdding: .day,
-            value: reminder.intervalDays,
+            value: reminder.effectiveIntervalDays(for: season),
             to: calendar.startOfDay(for: anchor)
         ) else { return nil }
 
