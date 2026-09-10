@@ -55,18 +55,32 @@ struct WateringReminderEditorView: View {
                 if usesSeasonalSchedule {
                     Section {
                         LabeledContent("Active season") {
-                            Text(activeSeason.title)
-                                .foregroundStyle(Color("LeafGreen"))
+                            HStack(spacing: 5) {
+                                Image(systemName: activeSeason.icon)
+                                    .font(.caption.weight(.semibold))
+                                Text(activeSeason.title)
+                            }
+                            .foregroundStyle(activeSeason.tint)
                         }
 
                         ForEach(WateringSeason.allCases) { season in
                             Stepper(value: intervalBinding(for: season), in: 1...90) {
                                 HStack {
-                                    Text(season.title)
+                                    HStack(spacing: 6) {
+                                        Image(systemName: season.icon)
+                                            .font(.caption.weight(.semibold))
+                                            .foregroundStyle(
+                                                season == activeSeason
+                                                    ? season.tint
+                                                    : Color.secondary
+                                            )
+                                            .frame(width: 16)
+                                        Text(season.title)
+                                    }
                                     Spacer()
                                     Text(intervalText(seasonalIntervals[season]))
                                         .foregroundStyle(
-                                            season == activeSeason ? Color("LeafGreen") : .secondary
+                                            season == activeSeason ? season.tint : Color.secondary
                                         )
                                 }
                             }
@@ -238,29 +252,6 @@ struct WateringRemindersSettingsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 26) {
                     VStack(alignment: .leading, spacing: 9) {
-                        sectionHeading("Active season")
-
-                        Picker("Active season", selection: $activeSeasonCode) {
-                            ForEach(WateringSeason.allCases) { season in
-                                Text(season.title)
-                                    .tag(season.rawValue)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                        .padding(14)
-                        .background(
-                            Color(uiColor: .secondarySystemGroupedBackground),
-                            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        )
-
-                        Text("Choose the active season once. It applies to every plant using seasonal watering intervals.")
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.horizontal, 4)
-                    }
-
-                    VStack(alignment: .leading, spacing: 9) {
                         sectionHeading("Notifications")
 
                         HStack(spacing: 14) {
@@ -296,6 +287,18 @@ struct WateringRemindersSettingsView: View {
                         )
 
                         Text("Reminders are scheduled on this iPhone. PlantStory does not use a server or upload reminder data.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.horizontal, 4)
+                    }
+
+                    VStack(alignment: .leading, spacing: 9) {
+                        sectionHeading("Active season")
+
+                        seasonSelector
+
+                        Text("Choose the active season once. It applies to every plant using seasonal watering intervals.")
                             .font(.footnote)
                             .foregroundStyle(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -359,6 +362,60 @@ struct WateringRemindersSettingsView: View {
             .font(.headline)
             .foregroundStyle(.secondary)
             .padding(.leading, 4)
+    }
+
+    private var seasonSelector: some View {
+        HStack(spacing: 4) {
+            ForEach(WateringSeason.allCases) { season in
+                Button {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        activeSeasonCode = season.rawValue
+                    }
+                } label: {
+                    HStack(spacing: seasonIconSpacing(for: season)) {
+                        Image(systemName: season.icon)
+                            .font(.caption.weight(.semibold))
+                            .frame(width: 14)
+                            .foregroundStyle(
+                                season == activeSeason ? season.tint : Color.secondary
+                            )
+                        Text(season.title)
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(
+                                season == activeSeason ? Color.primary : Color.secondary
+                            )
+                    }
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+                    .frame(maxWidth: .infinity, minHeight: 38)
+                    .contentShape(Rectangle())
+                    .background(
+                        season == activeSeason
+                            ? season.tint.opacity(0.2)
+                            : Color.clear,
+                        in: RoundedRectangle(cornerRadius: 13, style: .continuous)
+                    )
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(season.title)
+                .accessibilityAddTraits(season == activeSeason ? .isSelected : [])
+            }
+        }
+        .padding(4)
+        .background(
+            Color(uiColor: .tertiarySystemFill),
+            in: RoundedRectangle(cornerRadius: 17, style: .continuous)
+        )
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Active season")
+    }
+
+    private func seasonIconSpacing(for season: WateringSeason) -> CGFloat {
+        switch season {
+        case .spring: 4
+        case .winter: 2
+        default: 3
+        }
     }
 
     private func plantReminderRow(_ plant: Plant) -> some View {

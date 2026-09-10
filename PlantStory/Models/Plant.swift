@@ -29,6 +29,24 @@ enum WateringSeason: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    var icon: String {
+        switch self {
+        case .spring: "camera.macro"
+        case .summer: "sun.max.fill"
+        case .fall: "leaf.fill"
+        case .winter: "snowflake"
+        }
+    }
+
+    var tint: Color {
+        switch self {
+        case .spring: .green
+        case .summer: .orange
+        case .fall: .brown
+        case .winter: .blue
+        }
+    }
+
     static func suggested(for date: Date = .now, calendar: Calendar = .current) -> Self {
         switch calendar.component(.month, from: date) {
         case 3...5: .spring
