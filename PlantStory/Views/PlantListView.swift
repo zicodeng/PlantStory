@@ -1012,8 +1012,8 @@ private struct GardenPlantCard: View {
                         reminderBadge(
                             reminderStatus,
                             icon: "bell.fill",
-                            foreground: waterBlue,
-                            background: waterBlue.opacity(0.13)
+                            foreground: reminderAccent,
+                            background: reminderAccent.opacity(0.16)
                         )
                     } else {
                         reminderBadge(
@@ -1055,6 +1055,18 @@ private struct GardenPlantCard: View {
 
     private var activeSeason: WateringSeason {
         WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
+    }
+
+    private var reminderAccent: Color {
+        isWateringOverdue ? .orange : waterBlue
+    }
+
+    private var isWateringOverdue: Bool {
+        guard let dueDate = plant.nextWateringReminderDate(season: activeSeason) else {
+            return false
+        }
+        let calendar = Calendar.current
+        return calendar.startOfDay(for: dueDate) < calendar.startOfDay(for: .now)
     }
 
     private func reminderBadge(
