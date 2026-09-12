@@ -207,9 +207,10 @@ struct OpenAIKeyView: View {
 
 struct PlantAISuggestionReviewView: View {
     let suggestion: PlantAISuggestion
-    let onApply: () -> Void
+    let onApply: (Bool) -> Void
 
     @Environment(\.dismiss) private var dismiss
+    @State private var setUpWateringReminder = false
 
     var body: some View {
         NavigationStack {
@@ -225,9 +226,38 @@ struct PlantAISuggestionReviewView: View {
                     suggestionRow("Prune", value: monthNames(suggestion.pruningMonths))
                 }
 
-                if !suggestion.careSummary.isEmpty {
-                    Section("Care note") {
-                        Text(suggestion.careSummary)
+                if suggestion.wateringIntervals.hasContent {
+                    Section {
+                        ForEach(WateringSeason.allCases) { season in
+                            wateringIntervalRow(
+                                season,
+                                days: suggestion.wateringIntervals[season]
+                            )
+                        }
+
+                        Toggle(
+                            "Set up watering reminder",
+                            isOn: $setUpWateringReminder
+                        )
+                    } header: {
+                        Text("Seasonal watering intervals")
+                    } footer: {
+                        Text("Uses the AI-recommended seasonal intervals. Existing reminder times are kept, and you can adjust the schedule later.")
+                    }
+                }
+
+                if suggestion.careNotes.hasContent {
+                    Section("Caring guide") {
+                        careNoteRow("Light", value: suggestion.careNotes.light)
+                        careNoteRow("Water", value: suggestion.careNotes.watering)
+                        careNoteRow("Soil", value: suggestion.careNotes.soil)
+                        careNoteRow("Humidity", value: suggestion.careNotes.humidity)
+                        careNoteRow("Temperature", value: suggestion.careNotes.temperature)
+                        careNoteRow("Fertilizing", value: suggestion.careNotes.fertilizing)
+                        careNoteRow("Pruning", value: suggestion.careNotes.pruning)
+                        careNoteRow("Repotting", value: suggestion.careNotes.repotting)
+                        careNoteRow("Toxicity", value: suggestion.careNotes.toxicity)
+                        careNoteRow("Watch for", value: suggestion.careNotes.warningSigns)
                     }
                 }
 
@@ -254,11 +284,30 @@ struct PlantAISuggestionReviewView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Apply") {
-                        onApply()
+                        onApply(setUpWateringReminder)
                         dismiss()
                     }
                     .fontWeight(.semibold)
                 }
+            }
+        }
+    }
+
+    private func wateringIntervalRow(_ season: WateringSeason, days: Int?) -> some View {
+        HStack(spacing: 10) {
+            Label {
+                Text(season.title)
+            } icon: {
+                Image(systemName: season.icon)
+                    .foregroundStyle(season.tint)
+            }
+            Spacer(minLength: 16)
+            if let days {
+                Text(wateringIntervalText(days))
+                    .foregroundStyle(.secondary)
+            } else {
+                Text("Not suggested")
+                    .foregroundStyle(.secondary)
             }
         }
     }
@@ -280,6 +329,22 @@ struct PlantAISuggestionReviewView: View {
         }
     }
 
+    @ViewBuilder
+    private func careNoteRow(_ title: LocalizedStringKey, value: String) -> some View {
+        let trimmedValue = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmedValue.isEmpty {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.subheadline.weight(.semibold))
+                Text(trimmedValue)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(.vertical, 2)
+        }
+    }
+
     private func monthNames(_ months: [Int]) -> String {
         var calendar = Calendar.current
         calendar.locale = AppLocalization.currentLocale
@@ -291,5 +356,11 @@ struct PlantAISuggestionReviewView: View {
         return values.isEmpty
             ? AppLocalization.string("Not suggested")
             : values.joined(separator: ", ")
+    }
+
+    private func wateringIntervalText(_ days: Int) -> String {
+        days == 1
+            ? AppLocalization.string("Every day")
+            : AppLocalization.string("Every %lld days", Int64(days))
     }
 }

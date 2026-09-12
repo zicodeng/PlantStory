@@ -7,7 +7,8 @@ struct PlantAISuggestion: Identifiable, Decodable {
     let otherName: String
     let fertilizingMonths: [Int]
     let pruningMonths: [Int]
-    let careSummary: String
+    let wateringIntervals: PlantAIWateringIntervals
+    let careNotes: PlantAICareNotes
     let confidence: Double
     let caveat: String
 
@@ -17,9 +18,71 @@ struct PlantAISuggestion: Identifiable, Decodable {
         case otherName = "other_name"
         case fertilizingMonths = "fertilizing_months"
         case pruningMonths = "pruning_months"
-        case careSummary = "care_summary"
+        case wateringIntervals = "watering_intervals"
+        case careNotes = "care_notes"
         case confidence
         case caveat
+    }
+}
+
+struct PlantAIWateringIntervals: Decodable {
+    let spring: Int?
+    let summer: Int?
+    let fall: Int?
+    let winter: Int?
+
+    subscript(season: WateringSeason) -> Int? {
+        switch season {
+        case .spring: spring
+        case .summer: summer
+        case .fall: fall
+        case .winter: winter
+        }
+    }
+
+    var hasContent: Bool {
+        WateringSeason.allCases.contains { self[$0] != nil }
+    }
+}
+
+struct PlantAICareNotes: Decodable {
+    let light: String
+    let watering: String
+    let soil: String
+    let humidity: String
+    let temperature: String
+    let fertilizing: String
+    let pruning: String
+    let repotting: String
+    let toxicity: String
+    let warningSigns: String
+
+    private enum CodingKeys: String, CodingKey {
+        case light
+        case watering
+        case soil
+        case humidity
+        case temperature
+        case fertilizing
+        case pruning
+        case repotting
+        case toxicity
+        case warningSigns = "warning_signs"
+    }
+
+    var hasContent: Bool {
+        [
+            light,
+            watering,
+            soil,
+            humidity,
+            temperature,
+            fertilizing,
+            pruning,
+            repotting,
+            toxicity,
+            warningSigns
+        ].contains { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     }
 }
 
@@ -158,7 +221,13 @@ actor PlantAIService {
         Existing species text, if any: “\(existingSpecies)”.
         The device region is “\(region)”.
 
-        Suggest the most likely plant identity and general fertilizing and pruning months for ordinary home growing in that region. Month values must be integers from 1 through 12. Common plant names can be ambiguous: if the identity is uncertain, leave uncertain text empty, return empty month arrays, lower confidence, and explain what the user should verify. Keep the care summary to two short sentences. Do not present the result as guaranteed professional advice. \(outputLanguage)
+        Suggest the most likely plant identity, general fertilizing and pruning months, seasonal watering intervals, and practical care notes for ordinary home growing in that region. Month values must be integers from 1 through 12.
+
+        Suggest a watering interval in whole days from 1 through 90 for spring, summer, fall, and winter. Base the intervals on the plant's likely indoor needs, typical seasonal growth, and the user's region. Treat these as starting points that the user should adjust for light, temperature, humidity, pot size, and soil. Use null for every seasonal interval when the plant identity is too uncertain to make a responsible recommendation.
+
+        Fill each care-notes field with one concise, plant-specific sentence, ideally under 20 words. Cover light, watering cues, soil, humidity, temperature, fertilizing, pruning, repotting, toxicity to people or pets, and visible warning signs. Keep the watering note focused on soil and plant cues rather than repeating the seasonal day intervals. Do not repeat the same advice across fields. Do not put labels, bullets, markdown, or line breaks inside field values because the app formats them. If a detail is not reliably known, say so briefly instead of inventing it.
+
+        Common plant names can be ambiguous: if the identity is uncertain, leave uncertain identity and care-note text empty, return empty month arrays, lower confidence, and explain what identifying details the user should verify. Do not present the result as guaranteed professional advice. \(outputLanguage)
         """
 
         return [
@@ -170,7 +239,7 @@ actor PlantAIService {
                     "role": "developer",
                     "content": [[
                         "type": "input_text",
-                        "text": "You are a cautious horticultural assistant. Return only the requested structured plant-care suggestion."
+                        "text": "You are a practical, cautious horticultural assistant. Return only the requested structured plant identity, care calendar, seasonal watering intervals, and concise care notes."
                     ]]
                 ],
                 [
@@ -200,7 +269,45 @@ actor PlantAIService {
                                 "type": "array",
                                 "items": ["type": "integer", "minimum": 1, "maximum": 12]
                             ],
-                            "care_summary": ["type": "string"],
+                            "watering_intervals": [
+                                "type": "object",
+                                "properties": [
+                                    "spring": ["type": ["integer", "null"], "minimum": 1, "maximum": 90],
+                                    "summer": ["type": ["integer", "null"], "minimum": 1, "maximum": 90],
+                                    "fall": ["type": ["integer", "null"], "minimum": 1, "maximum": 90],
+                                    "winter": ["type": ["integer", "null"], "minimum": 1, "maximum": 90]
+                                ],
+                                "required": ["spring", "summer", "fall", "winter"],
+                                "additionalProperties": false
+                            ],
+                            "care_notes": [
+                                "type": "object",
+                                "properties": [
+                                    "light": ["type": "string"],
+                                    "watering": ["type": "string"],
+                                    "soil": ["type": "string"],
+                                    "humidity": ["type": "string"],
+                                    "temperature": ["type": "string"],
+                                    "fertilizing": ["type": "string"],
+                                    "pruning": ["type": "string"],
+                                    "repotting": ["type": "string"],
+                                    "toxicity": ["type": "string"],
+                                    "warning_signs": ["type": "string"]
+                                ],
+                                "required": [
+                                    "light",
+                                    "watering",
+                                    "soil",
+                                    "humidity",
+                                    "temperature",
+                                    "fertilizing",
+                                    "pruning",
+                                    "repotting",
+                                    "toxicity",
+                                    "warning_signs"
+                                ],
+                                "additionalProperties": false
+                            ],
                             "confidence": ["type": "number", "minimum": 0, "maximum": 1],
                             "caveat": ["type": "string"]
                         ],
@@ -210,7 +317,8 @@ actor PlantAIService {
                             "other_name",
                             "fertilizing_months",
                             "pruning_months",
-                            "care_summary",
+                            "watering_intervals",
+                            "care_notes",
                             "confidence",
                             "caveat"
                         ],

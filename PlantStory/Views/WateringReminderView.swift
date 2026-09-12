@@ -86,7 +86,7 @@ struct WateringReminderEditorView: View {
                             }
                         }
                     } header: {
-                        Text("Seasonal intervals")
+                        Text("Seasonal watering intervals")
                     } footer: {
                         Text("The active season is shared by every plant. Change it in Settings under Watering Reminders.")
                     }

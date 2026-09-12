@@ -413,6 +413,17 @@
         }
       }
     },
+    "AI generated notes below" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以下内容由 AI 生成"
+          }
+        }
+      }
+    },
     "AI is optional. Add your own OpenAI API key in Settings to unlock plant suggestions." : {
       "localizations" : {
         "zh-Hans" : {
@@ -500,6 +511,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这台设备上的 AI 建议将被关闭。"
+          }
+        }
+      }
+    },
+    "Uses the AI-recommended seasonal intervals. Existing reminder times are kept, and you can adjust the schedule later." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 AI 建议的各季节间隔。已有提醒会保留原来的时间，之后也可以随时调整。"
           }
         }
       }
@@ -740,11 +761,33 @@
       }
     },
     "Care note" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "养护建议"
+          }
+        }
+      }
+    },
+    "Care notes" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养护要点"
+          }
+        }
+      }
+    },
+    "Caring guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养护指南"
           }
         }
       }
@@ -1603,6 +1646,16 @@
         }
       }
     },
+    "Humidity" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "湿度"
+          }
+        }
+      }
+    },
     "I understand API requests are billed to my OpenAI API account." : {
       "localizations" : {
         "zh-Hans" : {
@@ -1786,6 +1839,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "成长足迹"
+          }
+        }
+      }
+    },
+    "Light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照"
           }
         }
       }
@@ -2760,6 +2823,16 @@
         }
       }
     },
+    "Pruning" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修剪"
+          }
+        }
+      }
+    },
     "Pruning scheduled" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2935,6 +3008,16 @@
         }
       }
     },
+    "Repotting" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换盆"
+          }
+        }
+      }
+    },
     "Restore" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3076,7 +3159,7 @@
         }
       }
     },
-    "Seasonal intervals" : {
+    "Seasonal watering intervals" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3102,6 +3185,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置浇水提醒"
+          }
+        }
+      }
+    },
+    "Set up watering reminder" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用建议设置浇水提醒"
           }
         }
       }
@@ -3172,6 +3265,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最多查看 10 条历史记录"
+          }
+        }
+      }
+    },
+    "Soil" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤"
           }
         }
       }
@@ -3364,6 +3467,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "拍摄日期"
+          }
+        }
+      }
+    },
+    "Temperature" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "温度"
           }
         }
       }
@@ -3633,6 +3746,16 @@
         }
       }
     },
+    "Toxicity" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "毒性"
+          }
+        }
+      }
+    },
     "Treatment applied" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3761,6 +3884,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "查看 GPT-5.4 nano 的价格"
+          }
+        }
+      }
+    },
+    "Watch for" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留意事项"
+          }
+        }
+      }
+    },
+    "Water" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水"
           }
         }
       }

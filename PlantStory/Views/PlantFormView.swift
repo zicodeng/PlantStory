@@ -32,6 +32,7 @@ struct PlantFormView: View {
     @State private var fertilizingMonths: Set<Int>
     @State private var pruningMonths: Set<Int>
     @State private var notes: String
+    @State private var wateringReminder: WateringReminder?
     @State private var photos: [Data]
     @State private var photoDates: [Date]
     @State private var photoNotes: [String]
@@ -43,6 +44,8 @@ struct PlantFormView: View {
     @State private var hasGeneratedAISuggestion = false
     @State private var aiSuggestion: PlantAISuggestion?
     @State private var aiAlert: PlantFormAIAlert?
+    @State private var shouldRequestWateringReminderAuthorization = false
+    @State private var isSaving = false
 
     private let aiService = PlantAIService()
 
@@ -74,6 +77,7 @@ struct PlantFormView: View {
         _fertilizingMonths = State(initialValue: Set(plant?.fertilizingMonths ?? []))
         _pruningMonths = State(initialValue: Set(plant?.pruningMonths ?? []))
         _notes = State(initialValue: plant?.notes ?? "")
+        _wateringReminder = State(initialValue: plant?.wateringReminder)
         let hasLegacyAISuggestion = plant?.notes.localizedCaseInsensitiveContains("AI care suggestion:") ?? false
         _hasGeneratedAISuggestion = State(
             initialValue: plant?.hasGeneratedAISuggestion ?? hasLegacyAISuggestion
@@ -282,14 +286,24 @@ struct PlantFormView: View {
                 Button("Cancel") { dismiss() }
             }
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save") { save() }
+                Button("Save") {
+                    Task { await save() }
+                }
                     .fontWeight(.semibold)
-                    .disabled(trimmedName.isEmpty || isLoadingPhotos || isRequestingAISuggestion)
+                    .disabled(
+                        trimmedName.isEmpty
+                            || isLoadingPhotos
+                            || isRequestingAISuggestion
+                            || isSaving
+                    )
             }
         }
         .sheet(item: $aiSuggestion) { suggestion in
-            PlantAISuggestionReviewView(suggestion: suggestion) {
-                apply(suggestion)
+            PlantAISuggestionReviewView(suggestion: suggestion) { setUpWateringReminder in
+                apply(
+                    suggestion,
+                    setUpWateringReminder: setUpWateringReminder
+                )
             }
         }
         .alert(item: $aiAlert) { alert in
@@ -361,7 +375,11 @@ struct PlantFormView: View {
         }
     }
 
-    private func save() {
+    @MainActor
+    private func save() async {
+        isSaving = true
+        defer { isSaving = false }
+
         if var plant = existingPlant {
             plant.name = trimmedName
             plant.otherName = normalizedOtherName
@@ -372,6 +390,7 @@ struct PlantFormView: View {
             plant.pruningMonths = normalizedPruningMonths
             plant.hasGeneratedAISuggestion = hasGeneratedAISuggestion
             plant.notes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
+            plant.wateringReminder = wateringReminder
             plant.photos = photos
             plant.photoDates = photoDates
             plant.photoNotes = normalizedPhotoNotes
@@ -389,12 +408,18 @@ struct PlantFormView: View {
                 pruningMonths: normalizedPruningMonths,
                 hasGeneratedAISuggestion: hasGeneratedAISuggestion,
                 notes: notes.trimmingCharacters(in: .whitespacesAndNewlines),
+                wateringReminder: wateringReminder,
                 photos: photos,
                 photoDates: photoDates,
                 photoNotes: normalizedPhotoNotes,
                 photoEventTags: photoEventTags,
                 photoCustomEventTitles: normalizedPhotoCustomEventTitles
             ))
+        }
+
+        if shouldRequestWateringReminderAuthorization {
+            _ = await WateringReminderService.shared.requestAuthorizationIfNeeded()
+            await WateringReminderService.shared.reconcile(plants: store.plants)
         }
         dismiss()
     }
@@ -427,7 +452,10 @@ struct PlantFormView: View {
         }
     }
 
-    private func apply(_ suggestion: PlantAISuggestion) {
+    private func apply(
+        _ suggestion: PlantAISuggestion,
+        setUpWateringReminder: Bool
+    ) {
         let suggestedSpecies = suggestion.scientificName.trimmingCharacters(in: .whitespacesAndNewlines)
         if !suggestedSpecies.isEmpty {
             species = suggestedSpecies
@@ -449,15 +477,89 @@ struct PlantFormView: View {
             pruningMonths = suggestedPruningMonths
         }
 
-        let careSummary = suggestion.careSummary.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !careSummary.isEmpty, !notes.localizedCaseInsensitiveContains(careSummary) {
-            let prefix = notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "" : "\n\n"
-            let localizedSuggestion = AppLocalization.string(
-                "AI care suggestion: %@",
-                careSummary
-            )
-            notes += "\(prefix)\(localizedSuggestion)"
+        if setUpWateringReminder {
+            applySuggestedWateringReminder(suggestion.wateringIntervals)
         }
+
+        let careNotes = formattedCareNotes(
+            suggestion.careNotes,
+            wateringIntervals: suggestion.wateringIntervals
+        )
+        if !careNotes.isEmpty, !notes.localizedCaseInsensitiveContains(careNotes) {
+            let hasExistingNotes = !notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            let prefix = hasExistingNotes ? "\n\n────────────\n" : ""
+            let sectionHeading = AppLocalization.string("AI generated notes below")
+            let guideHeading = AppLocalization.string("Caring guide")
+            notes += "\(prefix)\(sectionHeading)\n\n\(guideHeading)\n\(careNotes)"
+        }
+    }
+
+    private func applySuggestedWateringReminder(_ suggestedIntervals: PlantAIWateringIntervals) {
+        let defaultInterval = wateringReminder?.intervalDays ?? 7
+        var intervals = wateringReminder?.seasonalIntervals
+            ?? SeasonalWateringIntervals(defaultInterval: defaultInterval)
+
+        for season in WateringSeason.allCases {
+            guard let days = suggestedIntervals[season], (1...90).contains(days) else { continue }
+            intervals[season] = days
+        }
+
+        if var reminder = wateringReminder {
+            reminder.intervalDays = intervals[.active]
+            reminder.seasonalIntervals = intervals
+            wateringReminder = reminder
+        } else {
+            wateringReminder = WateringReminder(
+                intervalDays: intervals[.active],
+                hour: 9,
+                minute: 0,
+                startDate: .now,
+                seasonalIntervals: intervals
+            )
+        }
+        shouldRequestWateringReminderAuthorization = true
+    }
+
+    private func formattedCareNotes(
+        _ careNotes: PlantAICareNotes,
+        wateringIntervals: PlantAIWateringIntervals
+    ) -> String {
+        let fields = [
+            (AppLocalization.string("Light"), careNotes.light),
+            (AppLocalization.string("Water"), careNotes.watering),
+            (AppLocalization.string("Soil"), careNotes.soil),
+            (AppLocalization.string("Humidity"), careNotes.humidity),
+            (AppLocalization.string("Temperature"), careNotes.temperature),
+            (AppLocalization.string("Fertilizing"), careNotes.fertilizing),
+            (AppLocalization.string("Pruning"), careNotes.pruning),
+            (AppLocalization.string("Repotting"), careNotes.repotting),
+            (AppLocalization.string("Toxicity"), careNotes.toxicity),
+            (AppLocalization.string("Watch for"), careNotes.warningSigns)
+        ]
+
+        var sections = [fields.compactMap { label, value in
+            let trimmedValue = value.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmedValue.isEmpty ? nil : "• \(label): \(trimmedValue)"
+        }
+        .joined(separator: "\n")]
+
+        if wateringIntervals.hasContent {
+            let intervalLines: [String] = WateringSeason.allCases.compactMap { season -> String? in
+                guard let days = wateringIntervals[season] else { return nil }
+                return "• \(season.localizedTitle): \(wateringIntervalText(days))"
+            }
+            sections.append(
+                "\(AppLocalization.string("Seasonal watering intervals"))\n\(intervalLines.joined(separator: "\n"))"
+            )
+        }
+
+        return sections.filter { !$0.isEmpty }.joined(separator: "\n\n")
+    }
+
+    private func wateringIntervalText(_ days: Int) -> String {
+        days == 1
+            ? AppLocalization.string("Every day")
+            : AppLocalization.string("Every %lld days", Int64(days))
     }
 
     @MainActor
