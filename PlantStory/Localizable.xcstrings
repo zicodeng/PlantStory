@@ -9648,6 +9648,555 @@
     },
     "Separate it with a clean cut only when ready, preserve its roots, and place it in a small container with an appropriate fresh mix." : {
       "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "等小苗准备好后再整齐切离母株，保留根系，并栽进装有合适新基质的小容器。" } } }
+    },
+    "Plant Families & Taxonomy" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "植物家族与分类" } } }
+    },
+    "Explore major plant groups and learn how scientific names fit together." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "认识植物的主要类群，读懂科学名称是怎样组成的。" } } }
+    },
+    "Opens the plant families and taxonomy guide" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开植物家族与分类指南" } } }
+    },
+    "MEET THE PLANT FAMILY TREE" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "认识植物家族树" } } }
+    },
+    "See where a plant fits." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "看看一株植物属于哪里。" } } }
+    },
+    "Explore the big branches of land plants, then learn how family, genus, species, and cultivar narrow down one name." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "先认识陆生植物的几条主要分支，再了解科、属、种和栽培品种如何一步步锁定一株植物。" } } }
+    },
+    "Meet four major plant groups" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "认识四大植物类群" } } }
+    },
+    "Tap a numbered group to see what sets it apart." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "点击编号类群，看看它有什么不同。" } } }
+    },
+    "Opens plant group details" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开植物类群详情" } } }
+    },
+    "This is a beginner map of land plants—not every branch of the scientific tree." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "这是一张面向新手的陆生植物简图，并未列出科学分类树上的每条分支。" } } }
+    },
+    "Mosses and liverworts" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "苔藓与地钱" } } }
+    },
+    "Ferns and relatives" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "蕨类及近缘植物" } } }
+    },
+    "Gymnosperms" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "裸子植物" } } }
+    },
+    "Flowering plants" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "开花植物" } } }
+    },
+    "Small land plants that reproduce with spores" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "体型小巧，以孢子繁殖的陆生植物" } } }
+    },
+    "Vascular plants with spores instead of seeds" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "具有维管组织，用孢子而非种子繁殖" } } }
+    },
+    "Seed plants whose seeds are not enclosed in fruit" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "种子没有被果实包裹的种子植物" } } }
+    },
+    "Plants that make flowers and seeds within fruits" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "会开花，种子包在果实里的植物" } } }
+    },
+    "MAJOR PLANT GROUP" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主要植物类群" } } }
+    },
+    "Familiar examples" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "常见例子" } } }
+    },
+    "Mosses and liverworts belong to early branches of the land-plant family tree. They stay small and reproduce with spores rather than flowers, fruits, or seeds." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "苔藓和地钱位于陆生植物家族树较早分出的支系。它们体型小巧，通过孢子繁殖，不会开花、结果或产生种子。" } } }
+    },
+    "Ferns and their relatives have vascular tissue that moves water through the plant, but they reproduce with spores rather than seeds." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "蕨类及近缘植物具有在体内输送水分的维管组织，但它们通过孢子而不是种子繁殖。" } } }
+    },
+    "Gymnosperms are seed plants, but their seeds are not enclosed inside fruits. Many familiar gymnosperms produce cones." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "裸子植物会产生种子，但种子并不包在果实里面。许多常见裸子植物会长出球果。" } } }
+    },
+    "Flowering plants, also called angiosperms, form flowers and enclose their seeds within an ovary that develops into a fruit." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "开花植物也叫被子植物。它们会形成花，种子包在子房中，而子房之后会发育成果实。" } } }
+    },
+    "Look for low mats or small leafy forms in moist places. Fine stalks with capsules may rise above a moss when it is producing spores." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "它们常在湿润处形成贴地的绒毯或小片叶状体。苔藓产生孢子时，细长的柄顶端可能会长出孢蒴。" } } }
+    },
+    "Many have divided fronds. Mature fronds may carry clusters of spore-producing structures, often visible as dots or lines on the underside." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "许多蕨类有分裂的叶片。成熟叶片背面常能看到点状或线状的孢子囊群。" } } }
+    },
+    "Cones are a strong clue. Needle-like leaves are common among conifers, while cycads and ginkgo show that the group has other leaf shapes too." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "球果是一个明显线索。针叶在松柏类中很常见，但苏铁和银杏也说明裸子植物并不只有这一种叶形。" } } }
+    },
+    "A visible flower or fruit is the clearest clue, but either may be absent outside the plant’s reproductive season." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "看见花或果实是最直观的线索，但不在繁殖季节时，两者都可能暂时看不到。" } } }
+    },
+    "Cushion mosses, sheet mosses, and liverworts." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "垫状苔藓、片状苔藓和地钱。" } } }
+    },
+    "Boston fern, bird’s-nest fern, maidenhair fern, and horsetails." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "波士顿蕨、鸟巢蕨、铁线蕨和木贼。" } } }
+    },
+    "Pines, cycads such as the sago palm, ginkgo, and firs." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "松树、苏铁类植物（如铁树）、银杏和冷杉。" } } }
+    },
+    "Monstera, pothos, orchids, palms, grasses, and cacti." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "龟背竹、绿萝、兰花、棕榈、禾草和仙人掌。" } } }
+    },
+    "They do not have the same vascular plumbing or true roots found in ferns and seed plants." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "它们没有蕨类和种子植物那样的维管输送系统，也没有真正的根。" } } }
+    },
+    "The brown dots beneath a healthy fern frond may be sori that produce spores—not necessarily pests or disease." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "健康蕨叶背面的褐色小点可能是产生孢子的孢子囊群，不一定是害虫或病斑。" } } }
+    },
+    "A plant can have palm-like leaves without being a flowering palm. Sago palm is a cycad." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶子像棕榈，并不代表它就是开花植物中的棕榈。铁树其实属于苏铁。" } } }
+    },
+    "Flowers can be tiny, seasonal, or easy to overlook. A plant does not need to be blooming now to belong to this group." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "花朵可能很小、只在特定季节出现，或很容易被忽略。植物现在没有开花，也依然可能属于这个类群。" } } }
+    },
+    "Follow one plant’s address" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "顺着一株植物的分类地址往下走" } } }
+    },
+    "Taxonomy works like an address: broad groups narrow toward one particular plant." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "植物分类就像地址：从大范围出发，一步步缩小到某一种植物。" } } }
+    },
+    "Explains this taxonomy level" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解释这个分类层级" } } }
+    },
+    "Broad group" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "大类" } } }
+    },
+    "Major branch" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主要分支" } } }
+    },
+    "Family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "科" } } }
+    },
+    "Genus" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "属" } } }
+    },
+    "Cultivar" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "栽培品种" } } }
+    },
+    "Araceae" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "天南星科（Araceae）" } } }
+    },
+    "Monstera" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "龟背竹属（Monstera）" } } }
+    },
+    "Monstera deliciosa" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "龟背竹（Monstera deliciosa）" } } }
+    },
+    "‘Thai Constellation’" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "‘Thai Constellation’" } } }
+    },
+    "The broad starting point in this simplified address. Many additional scientific ranks exist below it." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "这是简化分类地址的起点。往下其实还有许多更细的科学分类层级。" } } }
+    },
+    "Monstera sits on the flowering-plant branch—the largest major group in this beginner map." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "龟背竹属于开花植物分支，也是这张新手地图中最大的主要类群。" } } }
+    },
+    "A family contains related genera. Araceae includes Monstera, Epipremnum, Philodendron, and many other aroids." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "一个科包含多个相互关联的属。天南星科中有龟背竹属、麒麟叶属、喜林芋属等许多植物。" } } }
+    },
+    "A genus brings together closely related species. It is the first word in a scientific species name." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "一个属汇集了亲缘关系较近的多个物种。属名是科学名称中的第一个词。" } } }
+    },
+    "The genus and specific epithet together identify the species: Monstera deliciosa." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "属名与种加词合在一起，才构成完整的物种名称：Monstera deliciosa。" } } }
+    },
+    "A cultivar is a named selection maintained through cultivation. It sits below the species in this practical plant address." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "栽培品种是经过人工选择并持续繁育、拥有专属名称的类型。在这份实用分类地址中，它位于物种之下。" } } }
+    },
+    "Decode a scientific name" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "拆解一个科学名称" } } }
+    },
+    "One name, three useful pieces" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "一个名称，三个实用部分" } } }
+    },
+    "Starts with a capital letter and is italicized." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "首字母大写，并使用斜体。" } } }
+    },
+    "Uses lowercase and is italicized with the genus." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "使用小写字母，并与属名一起用斜体书写。" } } }
+    },
+    "A named cultivated selection. It uses quotes and is not italicized." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "经过人工选择并命名的栽培类型。名称要加引号，但不用斜体。" } } }
+    },
+    "Hybrid sign" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "杂交符号" } } }
+    },
+    "This multiplication sign shows that a plant has a hybrid origin." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "这个乘号表示植物具有杂交来源。" } } }
+    },
+    "Common-name surprises" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "俗名里的意外答案" } } }
+    },
+    "Sago palm" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "铁树（Sago palm）" } } }
+    },
+    "A cycad, not a true palm" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "它是苏铁，并不是真正的棕榈" } } }
+    },
+    "Asparagus fern" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "天门冬（Asparagus fern）" } } }
+    },
+    "A flowering plant, not a true fern" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "它是开花植物，并不是真正的蕨类" } } }
+    },
+    "Peace lily" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "白掌（Peace lily）" } } }
+    },
+    "An aroid, not a true lily" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "它是天南星科植物，并不是真正的百合" } } }
+    },
+    "Swiss cheese plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "瑞士奶酪植物（Swiss cheese plant）" } } }
+    },
+    "A shared name used for more than one Monstera" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "这个俗名可能指不止一种龟背竹属植物" } } }
+    },
+    "Common names are useful, but they can vary by region or point to several different plants." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "俗名很实用，但不同地区的叫法可能不同，同一个名字也可能指多种植物。" } } }
+    },
+    "Why taxonomy helps" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "植物分类有什么用" } } }
+    },
+    "It reveals relationships" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "看见植物之间的亲缘关系" } } }
+    },
+    "A family or genus can show that two plants share an evolutionary branch even when they look different." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "即使两株植物外观不同，同一个科或属也能告诉我们，它们共享一条演化分支。" } } }
+    },
+    "It travels across languages" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "跨越语言也能对上号" } } }
+    },
+    "Scientific names help people identify the same plant when local common names differ." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "各地俗名不同时，科学名称仍能帮助大家确认说的是同一种植物。" } } }
+    },
+    "It improves your search" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "让搜索结果更准确" } } }
+    },
+    "A species name usually leads to more precise care and identification information than a broad common name." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "相比宽泛的俗名，物种名称通常能帮你找到更准确的养护和识别资料。" } } }
+    },
+    "Related plants may share traits, but they are not guaranteed to need identical care. Taxonomy is a clue, not a care schedule." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "亲缘相近的植物可能共享一些特征，但养护需求不一定完全相同。分类是线索，不是现成的养护表。" } } }
+    },
+    "Why plant names change" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "植物为什么会改名" } } }
+    },
+    "A better family tree" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "更准确的家族树" } } }
+    },
+    "Researchers compare plant structures, specimens, and DNA. New evidence can move a species to a different genus or change which name is accepted." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "研究人员会比较植物结构、标本和 DNA。新的证据可能让一个物种被移到另一个属，或改变目前接受的名称。" } } }
+    },
+    "Older names often remain searchable as synonyms, so a familiar label can still help you find the currently accepted name." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "旧名称通常会作为异名保留下来，仍可用于搜索，因此熟悉的旧标签也能帮你找到目前接受的名称。" } } }
+    },
+    "You do not need to memorize every rank. Start with family, genus, species, and cultivar—the names you are most likely to encounter as a plant owner." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "不必背下每个分类层级。先认识科、属、种和栽培品种就够了，它们是养植物时最常遇到的名称。" } } }
+    },
+    "Find a houseplant family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "查找室内植物的家族" } } }
+    },
+    "Search common names, scientific names, genera, and families." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "可以搜索俗名、学名、属或科。" } } }
+    },
+    "Opens the houseplant family finder" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开室内植物家族查询" } } }
+    },
+    "Houseplant Family Finder" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "室内植物家族查询" } } }
+    },
+    "Search common or scientific names" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "搜索俗名或学名" } } }
+    },
+    "FIND A PLANT’S FAMILY" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "找到植物的家族" } } }
+    },
+    "Search the houseplant family tree" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "搜索室内植物家族树" } } }
+    },
+    "Try a common name, scientific name, old name, genus, or family. Results stay on this device and work offline." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "输入俗名、学名、旧学名、属或科都可以。资料保存在本机，离线也能查询。" } } }
+    },
+    "Browse by family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "按科浏览" } } }
+    },
+    "Popular houseplants" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "常见室内植物" } } }
+    },
+    "%lld matches" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "找到 %lld 项" } } }
+    },
+    "No matching houseplant yet" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "暂时没有找到匹配的室内植物" } } }
+    },
+    "Try a shorter name, an old scientific name, or a family such as Araceae." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "试试更短的名称、旧学名，或输入 Araceae 这样的科名。" } } }
+    },
+    "Opens family details" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开科的详细介绍" } } }
+    },
+    "Opens the plant’s taxonomy path" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开这株植物的分类路径" } } }
+    },
+    "Its taxonomy path" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "它的分类路径" } } }
+    },
+    "You may also know it as" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "你可能还听过这些名字" } } }
+    },
+    "Meet the family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "认识这个科" } } }
+    },
+    "What often stands out" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "常见识别线索" } } }
+    },
+    "Familiar relatives" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "你可能认识的近亲" } } }
+    },
+    "Remember" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "记住这一点" } } }
+    },
+    "A family relationship offers identification clues, but related plants can still need different care." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "同科关系能提供辨认线索，但近亲植物的养护需求仍可能不同。" } } }
+    },
+    "Plants in this starter catalog" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "入门图鉴收录的本科植物" } } }
+    },
+    "Order" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "目" } } }
+    },
+    "Aroid family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "天南星科" } } }
+    },
+    "Asparagus family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "天门冬科" } } }
+    },
+    "Fig family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "桑科" } } }
+    },
+    "Prayer plant family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "竹芋科" } } }
+    },
+    "Pepper family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "胡椒科" } } }
+    },
+    "Nettle family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "荨麻科" } } }
+    },
+    "Begonia family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "秋海棠科" } } }
+    },
+    "Stonecrop family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "景天科" } } }
+    },
+    "Cactus family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "仙人掌科" } } }
+    },
+    "Palm family" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "棕榈科" } } }
+    },
+    "Aroids are a large tropical family that includes many familiar foliage plants." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "天南星科是一个庞大的热带植物家族，许多常见观叶植物都属于这一科。" } } }
+    },
+    "This broad family includes many tough, architectural houseplants once placed in separate families." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "这是一个范围很广的家族，包含许多株形利落、适应力强的室内植物；其中不少过去曾被归入其他科。" } } }
+    },
+    "The fig family includes woody tropical plants, many with milky sap and distinctive fruits." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "桑科包含许多木本热带植物，不少成员带有乳白色汁液，并结出独特的果实。" } } }
+    },
+    "Prayer plants are tropical herbs known for patterned leaves and daily leaf movement." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "竹芋科多为热带草本，以漂亮的叶片纹路和随昼夜变化的叶片运动闻名。" } } }
+    },
+    "The pepper family includes compact tropical plants with fleshy leaves and slender flower spikes." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "胡椒科包含许多株形小巧的热带植物，常有肉质叶片和细长的穗状花序。" } } }
+    },
+    "The nettle family ranges from stinging herbs to gentle tropical foliage plants such as Pilea." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "荨麻科既有会蜇人的草本，也有镜面草这类温和的热带观叶植物。" } } }
+    },
+    "The begonia family is best known for asymmetrical leaves, colorful foliage, and showy flowers." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "秋海棠科最出名的是不对称叶片、多彩叶色和醒目的花朵。" } } }
+    },
+    "Stonecrop relatives are succulents that store water in thick leaves and stems." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "景天科成员多为多肉植物，会把水分储存在肥厚的叶片和茎中。" } } }
+    },
+    "Cacti are American succulents with areoles—the small structures that produce spines, branches, or flowers." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "仙人掌科是原产美洲的多肉植物，具有刺座——这种小结构会长出刺、枝条或花。" } } }
+    },
+    "True palms are flowering plants with a single growing point and leaves commonly divided into leaflets." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "真正的棕榈是开花植物，通常只有一个生长点，叶片常分裂成许多小叶。" } } }
+    },
+    "Look for a flower structure made of a central spike called a spadix, often wrapped by a leaflike spathe." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "留意中央棒状的肉穗花序，外面常包着一片像叶子的佛焰苞。" } } }
+    },
+    "Leaf shapes vary widely, but many members grow from rhizomes or thickened roots and tolerate seasonal dryness." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶形变化很大，但许多成员从根茎或膨大的根部生长，也能适应季节性的干燥。" } } }
+    },
+    "Milky latex is common. Ficus plants often have woody stems and prominent leaf scars." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "乳白色汁液很常见。榕属植物通常有木质茎，落叶后留下明显叶痕。" } } }
+    },
+    "Leaves often unfold from sheathing stalks and may lift or fold as light changes." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片常从包裹状叶柄中展开，并会随光线变化抬起或合拢。" } } }
+    },
+    "Leaves are often fleshy, while tiny flowers gather on narrow upright spikes." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片常带肉质，细小花朵聚集在直立的细长花穗上。" } } }
+    },
+    "Leaves frequently show clear veins; Pilea species often have small, inconspicuous flowers." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶脉通常很清楚；冷水花属的花朵往往很小，不太显眼。" } } }
+    },
+    "An uneven leaf base—one side larger than the other—is a classic begonia clue." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶基左右不对称、一侧明显较大，是辨认秋海棠的经典线索。" } } }
+    },
+    "Thick leaves, compact growth, and star-shaped flowers are common family traits." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "肥厚叶片、紧凑株形和星形花朵，都是这个科常见的特征。" } } }
+    },
+    "Areoles distinguish true cacti from other spiny succulents." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "刺座是真正仙人掌与其他带刺多肉植物的重要区别。" } } }
+    },
+    "New leaves emerge as folded spears from the crown; damage to the single growing point can be serious." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新叶会从冠部以折叠的叶矛形态抽出；唯一生长点受损可能带来严重影响。" } } }
+    },
+    "Monstera, pothos, philodendron, peace lily, anthurium, ZZ plant, and Chinese evergreen." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "龟背竹、绿萝、蔓绿绒、白掌、红掌、金钱树和广东万年青。" } } }
+    },
+    "Snake plant, spider plant, corn plant, ponytail palm, asparagus fern, and yucca." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "虎尾兰、吊兰、巴西木、酒瓶兰、天门冬和丝兰。" } } }
+    },
+    "Rubber plant, fiddle-leaf fig, weeping fig, edible fig, and mulberry." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "橡皮树、琴叶榕、垂叶榕、无花果和桑树。" } } }
+    },
+    "Prayer plant, Goeppertia species often sold as calatheas, Ctenanthe, and Stromanthe." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "祈祷竹芋、商店里常以 Calathea 名称出售的肖竹芋属、栉花竹芋属和锦竹芋属。" } } }
+    },
+    "Baby rubber plant, watermelon peperomia, ripple peperomia, and black pepper." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "豆瓣绿、西瓜皮椒草、皱叶椒草和黑胡椒。" } } }
+    },
+    "Chinese money plant, aluminum plant, artillery plant, and true nettles." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "镜面草、铝叶冷水花、小叶冷水花和真正的荨麻。" } } }
+    },
+    "Polka dot begonia, rex begonias, wax begonias, and cane begonias." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "斑叶竹节秋海棠、蟆叶秋海棠、四季秋海棠和竹节型秋海棠。" } } }
+    },
+    "Jade plant, flaming Katy, Echeveria, Sedum, and Aeonium." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "玉树、长寿花、拟石莲花属、景天属和莲花掌属。" } } }
+    },
+    "Holiday cacti, ladyfinger cactus, golden barrel cactus, and prickly pears." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "蟹爪兰等节日仙人掌、金手指、金琥和仙人掌属植物。" } } }
+    },
+    "Parlor palm, kentia palm, areca palm, lady palm, and majesty palm." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "袖珍椰子、肯氏椰子、散尾葵、棕竹和马达加斯加棕榈。" } } }
+    },
+    "The family relationship does not make every aroid safe to eat; many contain irritating calcium oxalate crystals." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "同属天南星科不代表可以食用；许多成员含有会刺激口腔和皮肤的草酸钙结晶。" } } }
+    },
+    "An old label may use Sansevieria for snake plants, but accepted classifications now place them in Dracaena." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "旧标签可能把虎尾兰写成 Sansevieria，但目前接受的分类已将它们归入龙血树属 Dracaena。" } } }
+    },
+    "Milky sap can irritate skin, and plants within the family do not all share the same indoor care." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "乳白色汁液可能刺激皮肤，而且同科植物的室内养护方式并不完全相同。" } } }
+    },
+    "Many plants still carry Calathea on shop labels even when their accepted genus is Goeppertia." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "不少植物目前接受的属名已是 Goeppertia，但商店标签仍常沿用 Calathea。" } } }
+    },
+    "Baby rubber plant is a Peperomia, not a close relative of the rubber plant in the fig family." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "豆瓣绿属于椒草属，与桑科的橡皮树并不是近亲。" } } }
+    },
+    "Not every member stings. Chinese money plant is a gentle member commonly grown indoors." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "并非所有成员都会蜇人。镜面草就是常见而温和的室内成员。" } } }
+    },
+    "Begonias differ greatly in leaf texture and growth habit, so identify the type before choosing care." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "不同秋海棠的叶片质地和生长习性差别很大，先确认类型再决定养护方式。" } } }
+    },
+    "Succulent leaves reduce water loss, but they do not mean the plant can live indefinitely without water." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "肉质叶片能减少水分流失，但不代表植物可以一直不浇水。" } } }
+    },
+    "Not every succulent is a cactus. Look for areoles rather than relying on spines alone." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "并非所有多肉植物都是仙人掌。判断时要找刺座，不能只看有没有刺。" } } }
+    },
+    "Ponytail palm and sago palm are not true palms; they belong to entirely different plant groups." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "酒瓶兰和铁树都不是真正的棕榈，它们分别属于完全不同的植物家族。" } } }
+    },
+    "Golden pothos" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "绿萝" } } }
+    },
+    "Heartleaf philodendron" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "心叶蔓绿绒" } } }
+    },
+    "Flamingo flower" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "红掌" } } }
+    },
+    "ZZ plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "金钱树" } } }
+    },
+    "Chinese evergreen" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "广东万年青" } } }
+    },
+    "Snake plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "虎尾兰" } } }
+    },
+    "Spider plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "吊兰" } } }
+    },
+    "Corn plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "巴西木" } } }
+    },
+    "Ponytail palm" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "酒瓶兰" } } }
+    },
+    "Rubber plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "橡皮树" } } }
+    },
+    "Fiddle-leaf fig" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "琴叶榕" } } }
+    },
+    "Weeping fig" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "垂叶榕" } } }
+    },
+    "Prayer plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "祈祷竹芋" } } }
+    },
+    "Calathea orbifolia" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "青苹果竹芋" } } }
+    },
+    "Peacock plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "孔雀竹芋" } } }
+    },
+    "Baby rubber plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "豆瓣绿" } } }
+    },
+    "Watermelon peperomia" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "西瓜皮椒草" } } }
+    },
+    "Chinese money plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "镜面草" } } }
+    },
+    "Polka dot begonia" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "斑叶竹节秋海棠" } } }
+    },
+    "Jade plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "玉树" } } }
+    },
+    "Flaming Katy" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "长寿花" } } }
+    },
+    "Thanksgiving cactus" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "蟹爪兰" } } }
+    },
+    "Ladyfinger cactus" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "金手指仙人掌" } } }
+    },
+    "Parlor palm" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "袖珍椰子" } } }
+    },
+    "Kentia palm" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "肯氏椰子" } } }
     }
   },
   "version" : "1.1"

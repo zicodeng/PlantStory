@@ -37,6 +37,8 @@
 		A1000000000000000000001C /* LightMadeSimpleGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000024 /* LightMadeSimpleGuideView.swift */; };
 		A1000000000000000000001D /* NewGrowthLifeStagesGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000025 /* NewGrowthLifeStagesGuideView.swift */; };
 		A1000000000000000000001E /* PropagationBasicsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000026 /* PropagationBasicsGuideView.swift */; };
+		A1000000000000000000001F /* PlantTaxonomyGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000027 /* PlantTaxonomyGuideView.swift */; };
+		A10000000000000000000020 /* HouseplantFamilyFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000028 /* HouseplantFamilyFinderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		B10000000000000000000024 /* LightMadeSimpleGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightMadeSimpleGuideView.swift; sourceTree = "<group>"; };
 		B10000000000000000000025 /* NewGrowthLifeStagesGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGrowthLifeStagesGuideView.swift; sourceTree = "<group>"; };
 		B10000000000000000000026 /* PropagationBasicsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropagationBasicsGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000027 /* PlantTaxonomyGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTaxonomyGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000028 /* HouseplantFamilyFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseplantFamilyFinderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 				B10000000000000000000024 /* LightMadeSimpleGuideView.swift */,
 				B10000000000000000000025 /* NewGrowthLifeStagesGuideView.swift */,
 				B10000000000000000000026 /* PropagationBasicsGuideView.swift */,
+				B10000000000000000000027 /* PlantTaxonomyGuideView.swift */,
+				B10000000000000000000028 /* HouseplantFamilyFinderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +281,8 @@
 				A1000000000000000000001C /* LightMadeSimpleGuideView.swift in Sources */,
 				A1000000000000000000001D /* NewGrowthLifeStagesGuideView.swift in Sources */,
 				A1000000000000000000001E /* PropagationBasicsGuideView.swift in Sources */,
+				A1000000000000000000001F /* PlantTaxonomyGuideView.swift in Sources */,
+				A10000000000000000000020 /* HouseplantFamilyFinderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

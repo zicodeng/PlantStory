@@ -55,7 +55,7 @@ struct PlantWikiView: View {
                                     title: "Leaf shapes & patterns",
                                     subtitle: "Learn the clues that help describe and identify leaves.",
                                     icon: "camera.macro",
-                                    accent: Color(red: 0.28, green: 0.78, blue: 0.67)
+                                    accent: Color(red: 0.18, green: 0.76, blue: 0.78)
                                 )
                             }
                             .buttonStyle(.plain)
@@ -81,7 +81,7 @@ struct PlantWikiView: View {
                                     title: "Roots & repotting",
                                     subtitle: "Read root health, choose a pot, and repot with confidence.",
                                     icon: "arrow.triangle.2.circlepath",
-                                    accent: Color(red: 0.95, green: 0.56, blue: 0.28)
+                                    accent: Color(red: 0.78, green: 0.46, blue: 0.27)
                                 )
                             }
                             .buttonStyle(.plain)
@@ -107,7 +107,7 @@ struct PlantWikiView: View {
                                     title: "Light Made Simple",
                                     subtitle: "Understand indoor light, read plant signals, and find a better spot.",
                                     icon: "sun.max.fill",
-                                    accent: Color(red: 0.98, green: 0.68, blue: 0.18)
+                                    accent: Color(red: 1.00, green: 0.84, blue: 0.22)
                                 )
                             }
                             .buttonStyle(.plain)
@@ -120,7 +120,7 @@ struct PlantWikiView: View {
                                     title: "New Growth & Life Stages",
                                     subtitle: "Follow a leaf from growth point to maturity and learn which changes are normal.",
                                     icon: "sparkles",
-                                    accent: Color(red: 0.33, green: 0.80, blue: 0.35)
+                                    accent: Color(red: 0.93, green: 0.46, blue: 0.68)
                                 )
                             }
                             .buttonStyle(.plain)
@@ -133,11 +133,24 @@ struct PlantWikiView: View {
                                     title: "Propagation Basics",
                                     subtitle: "Choose the right method, start a healthy cutting, and care for new roots.",
                                     icon: "point.3.connected.trianglepath.dotted",
-                                    accent: Color(red: 0.30, green: 0.80, blue: 0.60)
+                                    accent: Color(red: 0.43, green: 0.55, blue: 0.94)
                                 )
                             }
                             .buttonStyle(.plain)
                             .accessibilityHint("Opens the propagation basics guide")
+
+                            NavigationLink {
+                                PlantTaxonomyGuideView()
+                            } label: {
+                                guideRow(
+                                    title: "Plant Families & Taxonomy",
+                                    subtitle: "Explore major plant groups and learn how scientific names fit together.",
+                                    icon: "tree.fill",
+                                    accent: Color(red: 0.69, green: 0.45, blue: 0.90)
+                                )
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityHint("Opens the plant families and taxonomy guide")
                         }
                     }
                     .padding(.horizontal, 18)
