@@ -2,6 +2,27 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.1.0] - Unreleased
+
+### New features
+
+- Added **Plant Wiki**, a new beginner-friendly learning tab with visual guides for plant anatomy, common problems, leaf shapes and patterns, common pests, roots and repotting, watering, light, new growth and life stages, propagation, and plant families and taxonomy.
+- Added interactive plant illustrations and visual comparisons that make unfamiliar plant parts, symptoms, light levels, pests, roots, and propagation methods easier to recognize.
+- Added an offline **Houseplant Family Finder** that can search common names, scientific names, alternate names, genera, and families without uploading search data.
+- Added local watering reminders with a customizable schedule and time for each plant, reminder status on garden cards, and a central reminder dashboard in Settings.
+- Added seasonal watering schedules with separate spring, summer, fall, and winter intervals and one shared active-season setting for the whole garden.
+- Expanded My Garden AI suggestions with structured care guides, seasonal watering recommendations, plant taxonomy, and an option to create a reminder from the suggested intervals.
+- Expanded Wild Finds AI suggestions with a taxonomy-first layout and structured field-guide details covering appearance, identifying features, growth habit, flowers and fruit, habitat, native range, and lookalikes.
+- Added complete English and Simplified Chinese localization for the new reminders, AI guidance, and Plant Wiki content.
+
+### Bug fixes
+
+- Kept garden cards the same height by showing a placeholder when a plant has no watering reminder.
+- Made overdue watering reminders easier to notice with a distinct warning color.
+- Fixed Plant Wiki titles and the Wild Finds discovery count not updating immediately after changing the app language.
+- Fixed missing Chinese Plant Wiki translations and removed English pronunciation hints from Chinese plant-part lessons.
+- Refined seasonal controls with distinct icons and colors, more consistent spacing, and no unexpected animation when switching guide tabs.
+
 ## [1.0.0] - Initial release
 
 ### New features
