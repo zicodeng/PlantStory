@@ -28,6 +28,15 @@
 		A10000000000000000000013 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000015 /* Localizable.xcstrings */; };
 		A10000000000000000000014 /* WateringReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000016 /* WateringReminderService.swift */; };
 		A10000000000000000000015 /* WateringReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000017 /* WateringReminderView.swift */; };
+		A10000000000000000000016 /* PlantWikiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000018 /* PlantWikiView.swift */; };
+		A10000000000000000000017 /* PlantProblemGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000019 /* PlantProblemGuideView.swift */; };
+		A10000000000000000000018 /* LeafShapesPatternsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000020 /* LeafShapesPatternsView.swift */; };
+		A10000000000000000000019 /* CommonPestsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000021 /* CommonPestsGuideView.swift */; };
+		A1000000000000000000001A /* RootsRepottingGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000022 /* RootsRepottingGuideView.swift */; };
+		A1000000000000000000001B /* WateringBasicsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000023 /* WateringBasicsGuideView.swift */; };
+		A1000000000000000000001C /* LightMadeSimpleGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000024 /* LightMadeSimpleGuideView.swift */; };
+		A1000000000000000000001D /* NewGrowthLifeStagesGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000025 /* NewGrowthLifeStagesGuideView.swift */; };
+		A1000000000000000000001E /* PropagationBasicsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000026 /* PropagationBasicsGuideView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +63,15 @@
 		B10000000000000000000015 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B10000000000000000000016 /* WateringReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReminderService.swift; sourceTree = "<group>"; };
 		B10000000000000000000017 /* WateringReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReminderView.swift; sourceTree = "<group>"; };
+		B10000000000000000000018 /* PlantWikiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantWikiView.swift; sourceTree = "<group>"; };
+		B10000000000000000000019 /* PlantProblemGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantProblemGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000020 /* LeafShapesPatternsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafShapesPatternsView.swift; sourceTree = "<group>"; };
+		B10000000000000000000021 /* CommonPestsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPestsGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000022 /* RootsRepottingGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootsRepottingGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000023 /* WateringBasicsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringBasicsGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000024 /* LightMadeSimpleGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightMadeSimpleGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000025 /* NewGrowthLifeStagesGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGrowthLifeStagesGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000026 /* PropagationBasicsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropagationBasicsGuideView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +141,15 @@
 				B10000000000000000000011 /* OpenAIKeyView.swift */,
 				B10000000000000000000012 /* SettingsView.swift */,
 				B10000000000000000000017 /* WateringReminderView.swift */,
+				B10000000000000000000018 /* PlantWikiView.swift */,
+				B10000000000000000000019 /* PlantProblemGuideView.swift */,
+				B10000000000000000000020 /* LeafShapesPatternsView.swift */,
+				B10000000000000000000021 /* CommonPestsGuideView.swift */,
+				B10000000000000000000022 /* RootsRepottingGuideView.swift */,
+				B10000000000000000000023 /* WateringBasicsGuideView.swift */,
+				B10000000000000000000024 /* LightMadeSimpleGuideView.swift */,
+				B10000000000000000000025 /* NewGrowthLifeStagesGuideView.swift */,
+				B10000000000000000000026 /* PropagationBasicsGuideView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +266,15 @@
 				A10000000000000000000012 /* TipJarStore.swift in Sources */,
 				A10000000000000000000014 /* WateringReminderService.swift in Sources */,
 				A10000000000000000000015 /* WateringReminderView.swift in Sources */,
+				A10000000000000000000016 /* PlantWikiView.swift in Sources */,
+				A10000000000000000000017 /* PlantProblemGuideView.swift in Sources */,
+				A10000000000000000000018 /* LeafShapesPatternsView.swift in Sources */,
+				A10000000000000000000019 /* CommonPestsGuideView.swift in Sources */,
+				A1000000000000000000001A /* RootsRepottingGuideView.swift in Sources */,
+				A1000000000000000000001B /* WateringBasicsGuideView.swift in Sources */,
+				A1000000000000000000001C /* LightMadeSimpleGuideView.swift in Sources */,
+				A1000000000000000000001D /* NewGrowthLifeStagesGuideView.swift in Sources */,
+				A1000000000000000000001E /* PropagationBasicsGuideView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -216,6 +216,7 @@ enum AppLocalization {
 enum AppTab: Hashable {
     case garden
     case wildFinds
+    case plantWiki
     case settings
 }
 
@@ -254,6 +255,12 @@ private struct AppRootView: View {
                     Label("Wild Finds", systemImage: "leaf.fill")
                 }
                 .tag(AppTab.wildFinds)
+
+            PlantWikiView()
+                .tabItem {
+                    Label("Plant Wiki", systemImage: "book.pages.fill")
+                }
+                .tag(AppTab.plantWiki)
 
             SettingsView()
                 .tabItem {

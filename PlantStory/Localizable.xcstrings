@@ -108,6 +108,17 @@
         }
       }
     },
+    "%lld of %lld" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / %lld"
+          }
+        }
+      }
+    },
     "%lld photos" : {
       "localizations" : {
         "zh-Hans" : {
@@ -190,6 +201,39 @@
         }
       }
     },
+    "A bud contains undeveloped tissue that may become a shoot, leaf, or flower." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "芽里藏着尚未发育的组织，将来可能长成新枝、叶片或花。"
+          }
+        }
+      }
+    },
+    "A damaged midrib can interrupt support and transport to a large part of the leaf." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主脉受损会影响大部分叶片的支撑和物质运输。"
+          }
+        }
+      }
+    },
+    "A flower contains structures that help the plant reproduce and form seeds." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花包含帮助植物繁殖并形成种子的结构。"
+          }
+        }
+      }
+    },
     "A gentle reminder to see whether it needs water." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -197,6 +241,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "看看土壤是否需要浇水。"
+          }
+        }
+      }
+    },
+    "A move, cold draft, heat source, or sharp light change can trigger leaf drop." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搬动位置、冷风、热源或光照骤变，都可能引起落叶。"
           }
         }
       }
@@ -221,12 +276,99 @@
         }
       }
     },
+    "A node is a growth point where a leaf, bud, branch, or root can emerge." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "节是植物的生长点，叶、芽、枝条或根都可能从这里长出。"
+          }
+        }
+      }
+    },
+    "A plant may temporarily droop when it loses water faster than its roots can replace it." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当水分流失速度超过根系吸收速度时，植物可能会暂时下垂。"
+          }
+        }
+      }
+    },
+    "A receptive stigma allows pollination to begin when compatible pollen reaches it." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "合适的花粉落到成熟的柱头上后，授粉过程便可以开始。"
+          }
+        }
+      }
+    },
     "A request is sent only after you tap Suggest with AI. Tapping it again sends another request and may create another charge." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "只有你轻点“让 AI 帮我补全”后，PlantStory 才会发送请求。再次轻点会重新请求，并可能产生额外费用。"
+          }
+        }
+      }
+    },
+    "A soft or discolored stem can point to damage, disease, or excess moisture." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎变软或变色，可能说明植物受伤、患病或水分过多。"
+          }
+        }
+      }
+    },
+    "A sudden change" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "环境突然变化"
+          }
+        }
+      }
+    },
+    "A sudden move into strong direct light can leave pale, tan, or brown damaged patches." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "突然移到强烈直射光下，叶片可能出现浅色、黄褐色或褐色的受损斑块。"
+          }
+        }
+      }
+    },
+    "A symptom is a clue, not a diagnosis. Check the soil, light, roots, and leaves before changing care." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "症状只是线索，并非确切诊断。调整养护方式前，先检查土壤、光照、根系和叶片。"
+          }
+        }
+      }
+    },
+    "A very dry root ball or damaged roots can make a plant shed leaves." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根团过于干燥或根系受损，会导致植物落叶。"
           }
         }
       }
@@ -358,6 +500,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在添加照片…"
+          }
+        }
+      }
+    },
+    "After pollination, pollen tubes can grow through the style toward the ovules." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "授粉后，花粉管会沿着花柱向胚珠生长。"
+          }
+        }
+      }
+    },
+    "After successful pollination, the ovary of many plants develops into a fruit." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功授粉后，许多植物的子房会逐渐发育成果实。"
           }
         }
       }
@@ -515,16 +679,6 @@
         }
       }
     },
-    "Uses the AI-recommended seasonal intervals. Existing reminder times are kept, and you can adjust the schedule later." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用 AI 建议的各季节间隔。已有提醒会保留原来的时间，之后也可以随时调整。"
-          }
-        }
-      }
-    },
     "Allow" : {
       "localizations" : {
         "zh-Hans" : {
@@ -557,6 +711,28 @@
         }
       }
     },
+    "An older lower leaf may yellow and fall while the rest of the plant remains healthy." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "较老的下部叶片可能自然变黄脱落，而植株其他部分仍然健康。"
+          }
+        }
+      }
+    },
+    "An ovule is a small structure inside the ovary that can develop into a seed." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胚珠是子房内的小结构，受精后可以发育成种子。"
+          }
+        }
+      }
+    },
     "Animated illustration of a growing potted plant" : {
       "localizations" : {
         "zh-Hans" : {
@@ -573,6 +749,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在野外遇见植物的动画"
+          }
+        }
+      }
+    },
+    "Anther" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花药"
           }
         }
       }
@@ -719,6 +906,50 @@
         }
       }
     },
+    "Both very dry and persistently wet soil can cause leaves to curl." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤过干或长期过湿，都可能导致叶片卷曲。"
+          }
+        }
+      }
+    },
+    "Brown tips" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶尖发褐"
+          }
+        }
+      }
+    },
+    "Brown tips often appear before the rest of the leaf shows moisture or salt stress." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水分不合适或盐分积累时，叶尖往往最先变褐。"
+          }
+        }
+      }
+    },
+    "Bud" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "芽"
+          }
+        }
+      }
+    },
     "Calendar" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -792,12 +1023,33 @@
         }
       }
     },
+    "Change one thing at a time, then give the plant time to respond. Several different problems can create the same symptom." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每次只调整一项，并留出时间观察植物的反应。不同问题可能会表现出相同症状。"
+          }
+        }
+      }
+    },
     "Changes apply immediately across PlantStory." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "切换后立即生效。"
+          }
+        }
+      }
+    },
+    "Changes in leaf color, shape, or firmness are often early signs of stress." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片颜色、形状或硬挺程度的变化，常常是植物受压的早期信号。"
           }
         }
       }
@@ -809,6 +1061,71 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "看看%@的土壤"
+          }
+        }
+      }
+    },
+    "Check fallen leaves for yellowing, spots, pests, or soft tissue." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查掉落的叶片是否发黄、有斑点、虫害或组织软烂。"
+          }
+        }
+      }
+    },
+    "Check first" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先检查这些"
+          }
+        }
+      }
+    },
+    "Check soil moisture at root depth rather than only at the surface." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查根系深度的土壤湿度，不要只看表面。"
+          }
+        }
+      }
+    },
+    "Check whether spots are dry and bleached or soft and spreading." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察斑点是干燥褪色，还是柔软并继续扩散。"
+          }
+        }
+      }
+    },
+    "Check whether the soil has been staying dry for long periods." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查土壤是否已经长时间处于干燥状态。"
+          }
+        }
+      }
+    },
+    "Check whether yellowing is limited to older lower leaves or is spreading." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看看发黄是否只出现在下部老叶，还是正在扩散。"
           }
         }
       }
@@ -854,12 +1171,32 @@
         }
       }
     },
+    "Choose a symptom" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择一种症状"
+          }
+        }
+      }
+    },
     "Choose an existing location" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "选择已有位置"
+          }
+        }
+      }
+    },
+    "Choose any dot. You can revisit a part whenever you like." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击任意圆点，之后也可以随时回来复习。"
           }
         }
       }
@@ -944,12 +1281,33 @@
         }
       }
     },
+    "Common causes" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常见原因"
+          }
+        }
+      }
+    },
     "Common name" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "常见名称"
+          }
+        }
+      }
+    },
+    "Compare the plant’s current light with the conditions it normally prefers." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认植物目前的光照是否符合它平时喜欢的环境。"
           }
         }
       }
@@ -980,6 +1338,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "管理 OpenAI API 密钥"
+          }
+        }
+      }
+    },
+    "Constantly wet soil can reduce oxygen around the roots and cause leaves to yellow." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤长期潮湿会减少根系周围的氧气，从而导致叶片发黄。"
           }
         }
       }
@@ -1024,6 +1393,17 @@
         }
       }
     },
+    "Curling leaves" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片卷曲"
+          }
+        }
+      }
+    },
     "Current collection" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1060,6 +1440,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自定义间隔"
+          }
+        }
+      }
+    },
+    "Damaged, crowded, or unhealthy roots may struggle to deliver water evenly to each leaf." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "受损、拥挤或不健康的根系，可能无法将水分均匀输送到每片叶子。"
+          }
+        }
+      }
+    },
+    "Dark, mushy roots can be a sign of rot." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系发黑、软烂，可能是烂根的迹象。"
+          }
+        }
+      }
+    },
+    "Dark, pale, or wet marks" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深色、浅色或水渍状斑点"
           }
         }
       }
@@ -1211,6 +1624,16 @@
         }
       }
     },
+    "Discover roots, stems, nodes, leaves, buds, and flowers." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识根、茎、节、叶、芽和花。"
+          }
+        }
+      }
+    },
     "Discovered" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1251,6 +1674,61 @@
         }
       }
     },
+    "Drooping" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "萎蔫下垂"
+          }
+        }
+      }
+    },
+    "Dropping leaves" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片脱落"
+          }
+        }
+      }
+    },
+    "Dry soil can reduce water pressure inside leaves and stems, making them hang." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤干燥会降低叶片和茎内的水分压力，使它们下垂。"
+          }
+        }
+      }
+    },
+    "Dry soil or air" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤或空气过于干燥"
+          }
+        }
+      }
+    },
+    "Dry, dark leaf edges" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶尖或叶缘干枯发暗"
+          }
+        }
+      }
+    },
     "Due now" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1268,6 +1746,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "今天检查"
+          }
+        }
+      }
+    },
+    "Dust and damage on the blade can reduce how effectively the leaf uses light." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片积灰或受损，会影响它利用光线的效率。"
+          }
+        }
+      }
+    },
+    "Each fertilized ovule may become a seed that can grow into a new plant." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每一颗受精的胚珠都有可能变成种子，并长成新的植物。"
+          }
+        }
+      }
+    },
+    "Edges rolling inward or out" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶缘向内或向外卷起"
           }
         }
       }
@@ -1387,6 +1898,38 @@
         }
       }
     },
+    "Explore anatomy" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索植物结构"
+          }
+        }
+      }
+    },
+    "Explore by view" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分部位探索"
+          }
+        }
+      }
+    },
+    "Explore the parts a flower uses to make seeds." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看看花朵如何借助不同部位形成种子。"
+          }
+        }
+      }
+    },
     "Export a manual backup above and save it somewhere you can open on the new iPhone." : {
       "localizations" : {
         "zh-Hans" : {
@@ -1443,6 +1986,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "反馈"
+          }
+        }
+      }
+    },
+    "Feeding insects, rubbing, or bruising can leave scattered marks that resemble disease." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "害虫取食、摩擦或碰伤都可能留下零散斑痕，看起来与病害相似。"
+          }
+        }
+      }
+    },
+    "Feel the soil below the surface before watering again." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再次浇水前，先摸一摸表层以下的土壤。"
+          }
+        }
+      }
+    },
+    "Feel the soil first; do not assume every drooping plant needs water." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先摸土壤，不要看到植物下垂就直接认定它缺水。"
           }
         }
       }
@@ -1526,6 +2102,116 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "本月需施肥"
+          }
+        }
+      }
+    },
+    "Find it at the base of the pistil, below the style and stigma." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它位于雌蕊底部，在花柱和柱头的下方。"
+          }
+        }
+      }
+    },
+    "Find the end of the leaf where its two margins meet." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片两侧边缘汇合的末端就是叶尖。"
+          }
+        }
+      }
+    },
+    "Find the main upright structure that leaves, buds, and branches grow from." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到叶、芽和枝条共同长出的主要直立结构。"
+          }
+        }
+      }
+    },
+    "Find the small green, leaflike structures directly behind or beneath the petals." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花瓣后面或下方那些绿色、像小叶片一样的结构就是萼片。"
+          }
+        }
+      }
+    },
+    "Find the yellow or dusty-looking shape at the end of each slender filament." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "细长花丝末端那些黄色或看起来覆有粉末的部分就是花药。"
+          }
+        }
+      }
+    },
+    "Flower" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花"
+          }
+        }
+      }
+    },
+    "Flower close-up" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花朵特写"
+          }
+        }
+      }
+    },
+    "Flowers usually open from buds and may have colorful petals around their center." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花通常由花芽绽放，中央周围常有颜色鲜艳的花瓣。"
+          }
+        }
+      }
+    },
+    "Follow a leaf inward until its narrow stalk reaches the main stem." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沿着叶片向内看，直到细长的柄与主茎相连。"
+          }
+        }
+      }
+    },
+    "Follow the central structure downward from the stigma toward the flower base." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从柱头沿中央结构向下看，一直延伸到花朵底部。"
           }
         }
       }
@@ -1626,6 +2312,39 @@
         }
       }
     },
+    "Healthy roots are usually firm. Dark, mushy roots can be a sign of rot." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康的根通常结实有韧性；发黑、软烂可能是烂根的迹象。"
+          }
+        }
+      }
+    },
+    "Heat or dry air" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高温或空气干燥"
+          }
+        }
+      }
+    },
+    "Heat or intense light" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高温或强光"
+          }
+        }
+      }
+    },
     "Help this garden grow" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1636,12 +2355,33 @@
         }
       }
     },
+    "Hidden pests" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐蔽虫害"
+          }
+        }
+      }
+    },
     "How AI suggestions work" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "AI 建议说明"
+          }
+        }
+      }
+    },
+    "How to spot it" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何辨认"
           }
         }
       }
@@ -1676,6 +2416,17 @@
         }
       }
     },
+    "In a cutaway flower, ovules appear as small pale shapes inside the ovary." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在花朵剖面中，胚珠是子房内一个个浅色的小结构。"
+          }
+        }
+      }
+    },
     "In memory" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1686,12 +2437,78 @@
         }
       }
     },
+    "Inspect both sides of several leaves with bright light." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在明亮光线下检查几片叶子的正反两面。"
+          }
+        }
+      }
+    },
+    "Inspect curled edges, leaf undersides, and new growth for tiny pests or webbing." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查卷曲的叶缘、叶背和新芽，寻找小虫或蛛网状痕迹。"
+          }
+        }
+      }
+    },
+    "Inspect soil moisture and roots before changing the watering schedule." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调整浇水安排前，先检查土壤湿度和根系。"
+          }
+        }
+      }
+    },
+    "Inspect visible roots and confirm that excess water can drain from the pot." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查看得到的根系，并确认多余水分可以从盆底排出。"
+          }
+        }
+      }
+    },
     "Install PlantStory, open Storage & Data, and choose Restore from Backup. Apple Quick Start or a full device backup also works." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "安装 PlantStory 后，打开“存储与数据”，选择“从备份恢复”。也可以使用 Apple 快速开始或完整的设备备份。"
+          }
+        }
+      }
+    },
+    "Internode" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "节间"
+          }
+        }
+      }
+    },
+    "It is the main green surface extending outward from the petiole and midrib." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它是从叶柄和主脉向外展开的主要绿色表面。"
           }
         }
       }
@@ -1748,6 +2565,27 @@
         }
       }
     },
+    "Keep affected leaves dry and give the plant space for air to move around it." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保持受影响的叶片干燥，并给植物留出通风空间。"
+          }
+        }
+      }
+    },
+    "Keep in mind" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请留意"
+          }
+        }
+      }
+    },
     "Keep this file somewhere safe. You can restore it from Storage & Data on another iPhone." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1755,6 +2593,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请妥善保存备份文件。换到新 iPhone 后，可在“存储与数据”中恢复。"
+          }
+        }
+      }
+    },
+    "Knowing the petiole helps you prune a leaf without mistaking it for the main stem." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认清叶柄，修剪叶片时就不容易误伤主茎。"
           }
         }
       }
@@ -1813,6 +2662,181 @@
         }
       }
     },
+    "Leaf" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶"
+          }
+        }
+      }
+    },
+    "Leaf blade" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片"
+          }
+        }
+      }
+    },
+    "Leaf close-up" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片特写"
+          }
+        }
+      }
+    },
+    "Leaf edges are rolling, cupping, or twisting away from their usual shape." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶缘向内卷、呈杯状或扭曲，偏离原本的形态。"
+          }
+        }
+      }
+    },
+    "Leaf margin" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶缘"
+          }
+        }
+      }
+    },
+    "Leaf spots" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片斑点"
+          }
+        }
+      }
+    },
+    "Leaf tip" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶尖"
+          }
+        }
+      }
+    },
+    "Leaf tips or edges are becoming dry, crisp, and brown." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶尖或叶缘逐渐变干、变脆并呈褐色。"
+          }
+        }
+      }
+    },
+    "Learn the language\nof plants." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "读懂植物的\n生长语言。"
+          }
+        }
+      }
+    },
+    "Leaves and stems are hanging lower than usual or feel soft and limp." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片和茎比平时更下垂，摸起来柔软无力。"
+          }
+        }
+      }
+    },
+    "Leaves are turning pale or yellow on one part of the plant or across the whole plant." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物局部或整株的叶片正在变淡或发黄。"
+          }
+        }
+      }
+    },
+    "Leaves are usually flat green structures growing from stems or branches." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶通常是从茎或枝条上长出的扁平绿色结构。"
+          }
+        }
+      }
+    },
+    "Leaves capture light to make sugars and exchange gases with the air." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片吸收光线制造糖分，同时与空气交换气体。"
+          }
+        }
+      }
+    },
+    "Leaves falling unexpectedly" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片异常脱落"
+          }
+        }
+      }
+    },
+    "Leaves have distinct dark, pale, yellow, or water-soaked patches." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片上出现明显的深色、浅色、黄色或水渍状斑块。"
+          }
+        }
+      }
+    },
+    "Leaves may curl to reduce moisture loss in hot or low-humidity conditions." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在高温或低湿度环境中，叶片可能通过卷曲来减少水分流失。"
+          }
+        }
+      }
+    },
     "Library/Application Support/PlantStory/plants.json" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1849,6 +2873,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "光照"
+          }
+        }
+      }
+    },
+    "Light or nutrient stress" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照或养分不足"
           }
         }
       }
@@ -1899,6 +2934,149 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这次是在哪里发现的？"
+          }
+        }
+      }
+    },
+    "Long dry periods or very dry air can leave delicate leaf tips crisp." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤长期干燥或空气过于干燥，会让脆弱的叶尖变得干焦。"
+          }
+        }
+      }
+    },
+    "Look at the top of the central structure, often above the surrounding anthers." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察花朵中央结构的顶端，它通常高于周围的花药。"
+          }
+        }
+      }
+    },
+    "Look closely at how a leaf is built to collect light." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仔细看看叶片由哪些结构组成，又如何接收光线。"
+          }
+        }
+      }
+    },
+    "Look for a joint or slight ring where a leaf meets the main stem." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片与主茎相接处常有一个关节状或略微隆起的环。"
+          }
+        }
+      }
+    },
+    "Look for a small, tightly closed point near a node or at a stem tip." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在节附近或茎尖寻找小小的、尚未展开的尖状结构。"
+          }
+        }
+      }
+    },
+    "Look for a white mineral crust on the soil or around the pot." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看看土面或花盆周围是否有白色矿物盐结晶。"
+          }
+        }
+      }
+    },
+    "Look for nearby heaters, vents, or intense sunlight that may be drying the plant." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看附近是否有暖气、风口或强烈阳光使植物变干。"
+          }
+        }
+      }
+    },
+    "Look for several slender stalks arranged around the central pistil." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雌蕊周围排列着的几根细长结构就是雄蕊。"
+          }
+        }
+      }
+    },
+    "Look for the broad, often colorful structures that open as the flower blooms." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花朵绽放时展开的宽大彩色结构通常就是花瓣。"
+          }
+        }
+      }
+    },
+    "Look for the small green, leaflike structures directly behind or beneath the petals." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花瓣后面或下方那些绿色、像小叶片的结构就是萼片。"
+          }
+        }
+      }
+    },
+    "Look for the thick line running from the petiole toward the leaf tip." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从叶柄一路延伸到叶尖的粗线就是主脉。"
+          }
+        }
+      }
+    },
+    "Look for the yellow or dusty-looking shape at the end of each slender filament." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每根细长花丝末端黄色或带粉末的部分就是花药。"
+          }
+        }
+      }
+    },
+    "Loose pollen near anthers is usually a normal part of flowering, not a pest." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花药附近散落的花粉通常是正常开花现象，并不是害虫。"
           }
         }
       }
@@ -1955,12 +3133,87 @@
         }
       }
     },
+    "Many stem cuttings need at least one node before they can produce new growth." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "许多茎插繁殖都需要保留至少一个节，才能长出新芽或新根。"
+          }
+        }
+      }
+    },
+    "Match visible symptoms with likely causes and simple checks." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根据可见症状了解可能原因和简单的排查方法。"
+          }
+        }
+      }
+    },
+    "Meet the whole plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先来认识整株植物"
+          }
+        }
+      }
+    },
+    "Midrib" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主脉"
+          }
+        }
+      }
+    },
+    "Mineral or fertilizer buildup" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "矿物盐或肥料积累"
+          }
+        }
+      }
+    },
     "Model" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "模型"
+          }
+        }
+      }
+    },
+    "Moisture and low airflow" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "潮湿且通风不良"
+          }
+        }
+      }
+    },
+    "Move the plant away from harsh midday sun or a strong draft while it recovers." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复期间，将植物移开强烈的正午阳光或强风口。"
           }
         }
       }
@@ -2001,6 +3254,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "名称"
+          }
+        }
+      }
+    },
+    "Natural aging" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自然老化"
+          }
+        }
+      }
+    },
+    "Needs water" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缺水"
           }
         }
       }
@@ -2179,6 +3454,17 @@
         }
       }
     },
+    "Node" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "节"
+          }
+        }
+      }
+    },
     "Not fertilized yet" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2248,6 +3534,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "笔记"
+          }
+        }
+      }
+    },
+    "Notice whether the pot is unusually light, heavy, hot, or cold." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留意花盆是否异常轻、重、热或冷。"
           }
         }
       }
@@ -2453,6 +3750,16 @@
         }
       }
     },
+    "Opens possible causes and checks" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看可能原因和检查步骤"
+          }
+        }
+      }
+    },
     "Opens the PlantStory GitHub issues page in your browser" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2479,6 +3786,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在 GitHub 上打开 PlantStory 源代码"
+          }
+        }
+      }
+    },
+    "Opens the visual plant problem guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开植物问题图解"
+          }
+        }
+      }
+    },
+    "Opens the whole plant anatomy lesson" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开整株植物结构课程"
           }
         }
       }
@@ -2533,12 +3860,45 @@
         }
       }
     },
+    "Ovary" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "子房"
+          }
+        }
+      }
+    },
     "Overdue %lld days" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "已过 %lld 天"
+          }
+        }
+      }
+    },
+    "Ovule" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "胚珠"
+          }
+        }
+      }
+    },
+    "Pale or yellowing foliage" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片变淡或发黄"
           }
         }
       }
@@ -2559,6 +3919,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "发现病虫害"
+          }
+        }
+      }
+    },
+    "Pests or physical damage" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "虫害或物理损伤"
+          }
+        }
+      }
+    },
+    "Petal" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花瓣"
+          }
+        }
+      }
+    },
+    "Petals are different from sepals, which protect the flower before it opens." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花瓣和萼片并不相同；萼片会在花朵开放前保护花芽。"
+          }
+        }
+      }
+    },
+    "Petals surround a flower's center and often help attract pollinators." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花瓣围绕花朵中央，常用颜色和形状吸引传粉者。"
+          }
+        }
+      }
+    },
+    "Petiole" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶柄"
           }
         }
       }
@@ -2656,6 +4071,26 @@
         }
       }
     },
+    "PLANT PART" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物部位"
+          }
+        }
+      }
+    },
+    "Plant problem guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物问题指南"
+          }
+        }
+      }
+    },
     "PLANT PROFILE" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2682,6 +4117,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "养护统计"
+          }
+        }
+      }
+    },
+    "Plant Wiki" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物百科"
+          }
+        }
+      }
+    },
+    "PLANT WIKI" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物小百科"
           }
         }
       }
@@ -2803,6 +4258,17 @@
         }
       }
     },
+    "Protect active buds when pruning because they contain the plant's next growth." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修剪时要保护正在生长的芽，因为植物接下来的新生长就藏在里面。"
+          }
+        }
+      }
+    },
     "Prune" : {
       "localizations" : {
         "zh-Hans" : {
@@ -2887,6 +4353,17 @@
         }
       }
     },
+    "Recognizing stamens helps explain where pollen comes from during flowering." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识雄蕊后，就能明白植物开花时的花粉来自哪里。"
+          }
+        }
+      }
+    },
     "Remember the plants\nyou meet outside." : {
       "localizations" : {
         "zh-Hans" : {
@@ -2954,6 +4431,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "要移除 API 密钥吗？"
+          }
+        }
+      }
+    },
+    "Removing spent flowers can redirect energy, but some plants need them to make seeds or fruit." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "剪去残花可以调整养分分配，但有些植物需要保留花朵才能结种或结果。"
           }
         }
       }
@@ -3079,12 +4567,56 @@
         }
       }
     },
+    "Root stress" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系受损"
+          }
+        }
+      }
+    },
+    "Roots" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根"
+          }
+        }
+      }
+    },
+    "Roots anchor the plant and absorb water and dissolved minerals from the growing medium." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根固定植物，并从介质中吸收水分和溶解的矿物质。"
+          }
+        }
+      }
+    },
     "Rough cost" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "费用参考"
+          }
+        }
+      }
+    },
+    "Salts left by tap water or excess fertilizer can collect in soil and damage leaf edges." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自来水残留的矿物盐或过量肥料会在土壤中积累，并损伤叶缘。"
           }
         }
       }
@@ -3149,6 +4681,17 @@
         }
       }
     },
+    "Season or natural aging" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "季节变化或自然老化"
+          }
+        }
+      }
+    },
     "Seasonal care" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3179,6 +4722,39 @@
         }
       }
     },
+    "Sepal" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "萼片"
+          }
+        }
+      }
+    },
+    "Sepals can look like leaves, but their position beneath the flower identifies them." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "萼片看起来像叶子，但它们位于花朵下方，可以借此辨认。"
+          }
+        }
+      }
+    },
+    "Sepals protect the developing flower bud before the petals open." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花瓣展开之前，萼片会包裹并保护正在发育的花芽。"
+          }
+        }
+      }
+    },
     "Set a watering reminder" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3189,22 +4765,22 @@
         }
       }
     },
-    "Set up watering reminder" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用建议设置浇水提醒"
-          }
-        }
-      }
-    },
     "Set one interval year-round, or choose a different interval for each season." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "全年使用同一间隔，或为每个季节分别设置。"
+          }
+        }
+      }
+    },
+    "Set up watering reminder" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用建议设置浇水提醒"
           }
         }
       }
@@ -3269,12 +4845,77 @@
         }
       }
     },
+    "Shows what this plant part does" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解这个植物部位的作用"
+          }
+        }
+      }
+    },
+    "Small pests often feed along leaf undersides or new growth and distort the leaf as it opens." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小型害虫常躲在叶背或新芽处取食，使展开的新叶变形。"
+          }
+        }
+      }
+    },
+    "Smooth, toothed, or wavy margins are useful clues when identifying a plant." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光滑、锯齿状或波浪状的叶缘，都是辨认植物的重要线索。"
+          }
+        }
+      }
+    },
+    "Soft or hanging leaves" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片发软或下垂"
+          }
+        }
+      }
+    },
+    "Soggy soil can damage roots, so the plant may droop even when the pot is wet." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "积水会伤害根系，因此即使盆土很湿，植物也可能下垂。"
+          }
+        }
+      }
+    },
     "Soil" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "土壤"
+          }
+        }
+      }
+    },
+    "Some plants regularly lose older leaves or slow their growth as conditions change." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有些植物会随季节和环境变化自然脱落老叶，或放慢生长速度。"
           }
         }
       }
@@ -3339,6 +4980,17 @@
         }
       }
     },
+    "Stamen" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雄蕊"
+          }
+        }
+      }
+    },
     "Star PlantStory on GitHub" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3359,12 +5011,75 @@
         }
       }
     },
+    "Start exploring" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始探索"
+          }
+        }
+      }
+    },
+    "START HERE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从这里开始"
+          }
+        }
+      }
+    },
+    "Start with the change you can see. We’ll help you decide what to inspect next." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先从眼前的变化开始，再一步步看看接下来该检查什么。"
+          }
+        }
+      }
+    },
+    "Start with the structures you can see from roots to flower." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从根到花，先认识整株植物上看得见的主要结构。"
+          }
+        }
+      }
+    },
     "Status" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "状态"
+          }
+        }
+      }
+    },
+    "Stem" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎"
+          }
+        }
+      }
+    },
+    "Stigma" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "柱头"
           }
         }
       }
@@ -3385,6 +5100,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "单独保存在 iOS 钥匙串中，仅限这台设备使用。"
+          }
+        }
+      }
+    },
+    "Style" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花柱"
           }
         }
       }
@@ -3439,6 +5165,17 @@
         }
       }
     },
+    "Sun scorch" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "晒伤"
+          }
+        }
+      }
+    },
     "Support options are not available yet." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3467,6 +5204,49 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "拍摄日期"
+          }
+        }
+      }
+    },
+    "Tap a dot to discover each part of the plant." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击圆点，逐一认识整株植物的各个部位。"
+          }
+        }
+      }
+    },
+    "Tap a dot to explore the structures of a leaf." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击圆点，看看一片叶子由哪些结构组成。"
+          }
+        }
+      }
+    },
+    "Tap a dot to look inside a flower." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击圆点，一起看看花朵里面的结构。"
+          }
+        }
+      }
+    },
+    "Tap, explore, and understand the parts that help a plant grow." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点一点、看一看，认识帮助植物生长的各个部位。"
           }
         }
       }
@@ -3523,6 +5303,28 @@
         }
       }
     },
+    "The anther is the pollen-bearing tip of a stamen." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花药位于雄蕊顶端，是承载和产生花粉的部位。"
+          }
+        }
+      }
+    },
+    "The blade is the broad, flat part of a leaf that captures most of its light." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片是叶子宽阔而扁平的部分，承担大部分光线吸收。"
+          }
+        }
+      }
+    },
     "The complete source code is open for you to download, explore, and build upon." : {
       "comment" : "A description of the open-source aspect of PlantStory.",
       "isCommentAutoGenerated" : true,
@@ -3541,6 +5343,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "出于安全考虑，API 密钥不会随备份迁移。如果还想使用 AI 建议，请在新 iPhone 上重新添加。"
+          }
+        }
+      }
+    },
+    "The internode is the stretch of stem between two neighboring nodes." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "节间是茎上相邻两个节之间的一段。"
           }
         }
       }
@@ -3575,6 +5388,61 @@
         }
       }
     },
+    "The margin is the outer edge that defines the shape of the leaf blade." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶缘是叶片的外侧边界，也决定了叶片的轮廓。"
+          }
+        }
+      }
+    },
+    "The midrib is the main central vein that supports the blade and moves materials through it." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主脉是叶片中央最粗的叶脉，负责支撑并运输物质。"
+          }
+        }
+      }
+    },
+    "The ovary is the swollen flower structure that holds one or more ovules." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "子房是花朵中较膨大的结构，里面容纳一个或多个胚珠。"
+          }
+        }
+      }
+    },
+    "The petiole is the small stalk that connects a leaf blade to the stem." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶柄是连接叶片与茎的细小柄状结构。"
+          }
+        }
+      }
+    },
+    "The plant is losing more leaves than usual, sometimes while they are still green." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物落叶比平时更多，有时叶片尚未变黄就脱落。"
+          }
+        }
+      }
+    },
     "The reminder was saved, but PlantStory cannot alert you until notifications are enabled in iPhone Settings." : {
       "localizations" : {
         "zh-Hans" : {
@@ -3596,6 +5464,61 @@
         }
       }
     },
+    "The stamen is the pollen-producing structure made of a filament and an anther." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雄蕊由花丝和花药组成，负责产生花粉。"
+          }
+        }
+      }
+    },
+    "The stem supports the plant and carries water and sugars between roots and leaves." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎支撑植物，并在根和叶之间运输水分与糖分。"
+          }
+        }
+      }
+    },
+    "The stigma is the receptive tip of the pistil where pollen can land." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "柱头位于雌蕊顶端，可以接收落下的花粉。"
+          }
+        }
+      }
+    },
+    "The style is the stalk connecting the stigma to the ovary below." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花柱是连接柱头与下方子房的柄状结构。"
+          }
+        }
+      }
+    },
+    "The tip is the farthest point of the leaf blade from the petiole." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶尖是叶片上距离叶柄最远的末端。"
+          }
+        }
+      }
+    },
     "The tip jar is taking root" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3612,6 +5535,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这些文件位于 PlantStory 的私有 App 空间中，因此不会显示在“文件”App 里。"
+          }
+        }
+      }
+    },
+    "They are the thinner lines branching outward from the central midrib." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从中央主脉向两侧分出的细线就是叶脉。"
+          }
+        }
+      }
+    },
+    "They usually branch below the soil, with fine roots spreading from thicker ones." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根通常在土壤下方分叉，细根从较粗的根上向外延伸。"
+          }
+        }
+      }
+    },
+    "Think about any recent move or change in temperature, light, or watering." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回想近期是否搬动过植物，或改变了温度、光照和浇水。"
           }
         }
       }
@@ -3746,12 +5702,56 @@
         }
       }
     },
+    "Too little light or a lasting nutrient shortage can cause broader yellowing." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长期光照不足或缺少养分，可能导致更多叶片发黄。"
+          }
+        }
+      }
+    },
+    "Too much water" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水过多"
+          }
+        }
+      }
+    },
     "Toxicity" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "毒性"
+          }
+        }
+      }
+    },
+    "Trace the bare section of stem between two leaf attachment points." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察两个叶片连接点之间没有叶子的那一段茎。"
+          }
+        }
+      }
+    },
+    "Trace the complete outside border of the leaf from its base to its tip." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从叶片基部一路沿着外侧边缘看到叶尖。"
           }
         }
       }
@@ -3818,6 +5818,17 @@
         }
       }
     },
+    "Unusually long internodes can be a clue that a plant needs more light." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "节间异常拉长，可能说明植物需要更多光照。"
+          }
+        }
+      }
+    },
     "Use a different key" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3844,6 +5855,49 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "按季节设置间隔"
+          }
+        }
+      }
+    },
+    "Uses the AI-recommended seasonal intervals. Existing reminder times are kept, and you can adjust the schedule later." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 AI 建议的各季节间隔。已有提醒会保留原来的时间，之后也可以随时调整。"
+          }
+        }
+      }
+    },
+    "Vein patterns can help identify plants and reveal some nutrient or watering problems." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶脉纹路能帮助辨认植物，也可能反映某些养分或浇水问题。"
+          }
+        }
+      }
+    },
+    "Veins" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶脉"
+          }
+        }
+      }
+    },
+    "Veins carry water and sugars while forming a supportive network inside the leaf." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶脉在叶片内形成支撑网络，并运输水分和糖分。"
           }
         }
       }
@@ -3888,6 +5942,36 @@
         }
       }
     },
+    "VISIBLE SYMPTOM" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可见症状"
+          }
+        }
+      }
+    },
+    "VISUAL CHECK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察症状"
+          }
+        }
+      }
+    },
+    "Visual problem guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物问题图解"
+          }
+        }
+      }
+    },
     "Watch for" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3914,6 +5998,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "记录浇水"
+          }
+        }
+      }
+    },
+    "Water or root stress" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水分或根系问题"
+          }
+        }
+      }
+    },
+    "Water stress" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水分失调"
           }
         }
       }
@@ -4000,6 +6106,17 @@
         }
       }
     },
+    "Wet leaves and still air can encourage some fungal or bacterial problems." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片潮湿且空气不流通，容易引发某些真菌或细菌问题。"
+          }
+        }
+      }
+    },
     "What is shared" : {
       "localizations" : {
         "zh-Hans" : {
@@ -4010,12 +6127,53 @@
         }
       }
     },
+    "What is your plant showing?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的植物出现了什么状况？"
+          }
+        }
+      }
+    },
+    "What it does" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它有什么作用"
+          }
+        }
+      }
+    },
     "Where your data is stored" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "数据存在哪里"
+          }
+        }
+      }
+    },
+    "Whole plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "整株植物"
+          }
+        }
+      }
+    },
+    "Why it matters" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为什么值得了解"
           }
         }
       }
@@ -4066,6 +6224,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "冬季"
+          }
+        }
+      }
+    },
+    "Yellow leaves" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片发黄"
           }
         }
       }
@@ -4195,6 +6364,3290 @@
           }
         }
       }
+    },
+    "Understand your plants." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "读懂你的植物"
+          }
+        }
+      }
+    },
+    "Learn how plants work, spot common problems, and care with confidence." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解植物如何生长，读懂常见问题，更有信心地照顾它们。"
+          }
+        }
+      }
+    },
+    "Explore guides" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索指南"
+          }
+        }
+      }
+    },
+    "Plant anatomy" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物结构"
+          }
+        }
+      }
+    },
+    "Learn about roots, stems, leaves, and flowers." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识植物的根、茎、叶和花。"
+          }
+        }
+      }
+    },
+    "Understand symptoms and what to check first." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解常见症状，并知道该先检查什么。"
+          }
+        }
+      }
+    },
+    "Opens the plant anatomy guides" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开植物结构指南"
+          }
+        }
+      }
+    },
+    "Choose a view to learn how each part helps a plant grow." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择一个视图，了解各个部位如何帮助植物生长。"
+          }
+        }
+      }
+    },
+    "Leaf shapes & patterns" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶形与叶片特征"
+          }
+        }
+      }
+    },
+    "Learn the clues that help describe and identify leaves." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "学会观察叶形和特征，更容易描述和辨认叶片。"
+          }
+        }
+      }
+    },
+    "Opens the leaf shapes and patterns guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开叶形与叶片特征指南"
+          }
+        }
+      }
+    },
+    "LEAF CLUES" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察叶片"
+          }
+        }
+      }
+    },
+    "Learn to describe what you see." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "学会准确描述眼前的叶片。"
+          }
+        }
+      }
+    },
+    "Shape, color, openings, and edges are useful clues when identifying a plant." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶形、颜色、孔洞和叶缘，都是辨认植物的重要线索。"
+          }
+        }
+      }
+    },
+    "Shapes" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶形"
+          }
+        }
+      }
+    },
+    "Patterns & features" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花纹与特征"
+          }
+        }
+      }
+    },
+    "Tap any leaf to learn what to notice." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点按任意叶片，看看应该观察什么。"
+          }
+        }
+      }
+    },
+    "Opens the leaf guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开叶片指南"
+          }
+        }
+      }
+    },
+    "What it looks like" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外观特点"
+          }
+        }
+      }
+    },
+    "How to recognize it" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何辨认"
+          }
+        }
+      }
+    },
+    "Why it helps" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有什么用"
+          }
+        }
+      }
+    },
+    "Common example" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常见例子"
+          }
+        }
+      }
+    },
+    "LEAF SHAPE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶形"
+          }
+        }
+      }
+    },
+    "LEAF FEATURE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片特征"
+          }
+        }
+      }
+    },
+    "Elliptic" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "椭圆形"
+          }
+        }
+      }
+    },
+    "Cordate" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "心形"
+          }
+        }
+      }
+    },
+    "Lanceolate" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "披针形"
+          }
+        }
+      }
+    },
+    "Lobed" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裂叶"
+          }
+        }
+      }
+    },
+    "Variegated" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "斑锦"
+          }
+        }
+      }
+    },
+    "Spotted" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "斑点"
+          }
+        }
+      }
+    },
+    "Fenestrated" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "穿孔叶"
+          }
+        }
+      }
+    },
+    "Serrated edge" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "锯齿状叶缘"
+          }
+        }
+      }
+    },
+    "Widest near the middle" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中部最宽"
+          }
+        }
+      }
+    },
+    "A heart-like base notch" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶基有心形缺口"
+          }
+        }
+      }
+    },
+    "Long, narrow, and pointed" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "细长，末端尖"
+          }
+        }
+      }
+    },
+    "Deep curves divide the blade" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深凹口把叶片分成数瓣"
+          }
+        }
+      }
+    },
+    "Stable areas of contrasting color" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶面有稳定的对比色块"
+          }
+        }
+      }
+    },
+    "Repeated dots or patches" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶面有重复出现的斑点或斑块"
+          }
+        }
+      }
+    },
+    "Natural holes or splits" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片自然开孔或分裂"
+          }
+        }
+      }
+    },
+    "A saw-toothed margin" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶缘像锯齿"
+          }
+        }
+      }
+    },
+    "An oval blade that is widest around the middle and narrows toward both ends." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片呈椭圆形，中部最宽，两端逐渐变窄。"
+          }
+        }
+      }
+    },
+    "A broad, heart-shaped blade with a notch at the base where the petiole attaches." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片宽大，形似心脏；叶柄连接处有明显缺口。"
+          }
+        }
+      }
+    },
+    "A long, narrow blade that is widest below the middle and tapers to a pointed tip." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片细长，中部偏下最宽，并逐渐收尖。"
+          }
+        }
+      }
+    },
+    "A single blade with deep rounded or pointed indentations that form distinct sections." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一整片叶上有较深的圆形或尖形凹口，看起来像被分成数瓣。"
+          }
+        }
+      }
+    },
+    "Stable areas of cream, yellow, pink, or lighter green appear beside the leaf’s base color." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片底色上稳定分布着乳白、黄色、粉色或浅绿色区域。"
+          }
+        }
+      }
+    },
+    "Contrasting dots or patches repeat across the blade as part of the leaf’s normal coloring." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "对比色的斑点或斑块有规律地分布在叶面上，属于叶片本身的正常花纹。"
+          }
+        }
+      }
+    },
+    "Openings form naturally inside the blade or as smooth splits along its edges." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片内部会自然形成孔洞，或在边缘长出平滑的裂口。"
+          }
+        }
+      }
+    },
+    "Small, regular teeth run around the leaf margin like the edge of a saw." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶缘排列着细小而规则的齿，像锯子的边缘。"
+          }
+        }
+      }
+    },
+    "Imagine an ellipse: both sides curve smoothly, with no base notch or deep lobes." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "想象一个椭圆：两侧弧线平滑，叶基没有缺口，叶缘也没有深裂。"
+          }
+        }
+      }
+    },
+    "Look first at the base. The two rounded sides meet around a clear inward notch." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先看叶基：两侧圆弧在明显的内凹处相接。"
+          }
+        }
+      }
+    },
+    "Compare length with width. It should be much longer than it is wide and taper gradually." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "比较叶片的长和宽：长度明显大于宽度，并且逐渐变尖。"
+          }
+        }
+      }
+    },
+    "Trace the outer edge. Deep curves reach inward, but the blade remains one connected leaf." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沿着叶缘观察：凹口深入叶片，但整片叶仍连在一起。"
+          }
+        }
+      }
+    },
+    "The color pattern usually repeats on healthy new leaves. Sudden irregular discoloration may instead signal stress or damage." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康的新叶通常会延续相似的色块。突然出现的不规则变色，则可能是养护压力或损伤。"
+          }
+        }
+      }
+    },
+    "Natural spots tend to look deliberate and repeat across healthy leaves. Spreading brown spots or yellow halos can indicate damage." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天然斑点通常分布有规律，并会出现在多片健康叶子上。不断扩散的褐斑或黄色晕圈，可能说明叶片受损。"
+          }
+        }
+      }
+    },
+    "The openings have smooth, finished edges and appear predictably as the plant matures, unlike ragged chewing damage." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天然孔洞的边缘平滑，会随着植株成熟规律出现；虫咬留下的缺口通常参差不齐。"
+          }
+        }
+      }
+    },
+    "Run your eyes along the edge and look for evenly repeated teeth rather than tears or missing chunks." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沿叶缘观察，寻找均匀重复的锯齿，而不是撕裂或缺损。"
+          }
+        }
+      }
+    },
+    "It gives you a precise word for a very common leaf shape and helps narrow down similar plants." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这是很常见的叶形。学会准确描述它，可以更快排除相似植物。"
+          }
+        }
+      }
+    },
+    "The distinctive base notch is often more useful for identification than overall leaf size." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "辨认植物时，独特的叶基缺口往往比叶片大小更有参考价值。"
+          }
+        }
+      }
+    },
+    "Its strong length-to-width ratio separates it from elliptic and oval leaves." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "明显偏长的比例，可以把它与椭圆形或卵形叶区分开。"
+          }
+        }
+      }
+    },
+    "The number, depth, and shape of lobes can distinguish plants that otherwise look alike." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裂片的数量、深浅和形状，可以帮助区分外观相近的植物。"
+          }
+        }
+      }
+    },
+    "Recognizing normal variegation helps you avoid mistaking healthy color for a care problem." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认出正常斑锦，可以避免把健康的叶色误认为养护问题。"
+          }
+        }
+      }
+    },
+    "Recognizing a consistent natural pattern makes it easier to notice genuinely new or unhealthy spots." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "熟悉稳定的天然斑纹后，就更容易发现新出现的异常斑点。"
+          }
+        }
+      }
+    },
+    "Knowing these openings are normal prevents confusion with pest damage or torn leaves." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "知道这些孔洞属于正常特征，就不会误以为是虫害或叶片撕裂。"
+          }
+        }
+      }
+    },
+    "Leaf margins are useful identification clues even when two plants share the same overall shape." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "即使两种植物的整体叶形相似，叶缘也能提供重要的辨认线索。"
+          }
+        }
+      }
+    },
+    "Rubber plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "橡皮树"
+          }
+        }
+      }
+    },
+    "Heartleaf philodendron" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "心叶喜林芋"
+          }
+        }
+      }
+    },
+    "Peace lily" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "白鹤芋"
+          }
+        }
+      }
+    },
+    "Oak" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "橡树"
+          }
+        }
+      }
+    },
+    "Golden pothos" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "黄金葛"
+          }
+        }
+      }
+    },
+    "Polka dot begonia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "斑点秋海棠"
+          }
+        }
+      }
+    },
+    "Monstera" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "龟背竹"
+          }
+        }
+      }
+    },
+    "Rose" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月季"
+          }
+        }
+      }
+    },
+    "Common pests" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常见害虫"
+          }
+        }
+      }
+    },
+    "Recognize common houseplant pests and learn what to check." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识室内植物常见害虫，学会从哪里开始检查。"
+          }
+        }
+      }
+    },
+    "Opens the common pests guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开常见害虫指南"
+          }
+        }
+      }
+    },
+    "Choose a pest" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择一种害虫"
+          }
+        }
+      }
+    },
+    "Opens signs and next steps" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看特征和处理建议"
+          }
+        }
+      }
+    },
+    "Identify the pest before treating. Different problems can leave similar marks on a plant." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先确认害虫种类再处理。不同问题可能会在植物上留下相似痕迹。"
+          }
+        }
+      }
+    },
+    "PEST FIELD GUIDE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "害虫图鉴"
+          }
+        }
+      }
+    },
+    "Know what you’re looking at." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看清它是什么。"
+          }
+        }
+      }
+    },
+    "Learn the visual clues of common houseplant pests and what to check next." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识室内植物常见害虫的外观线索，并了解接下来该检查什么。"
+          }
+        }
+      }
+    },
+    "First step" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第一步"
+          }
+        }
+      }
+    },
+    "Move the plant away from others, then inspect it in bright light." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先把这盆植物与其他植物分开，再放到明亮处仔细检查。"
+          }
+        }
+      }
+    },
+    "What you might notice" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可能会看到"
+          }
+        }
+      }
+    },
+    "Where to look" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重点检查哪里"
+          }
+        }
+      }
+    },
+    "What to do now" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "现在可以怎么做"
+          }
+        }
+      }
+    },
+    "Help prevent it" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如何预防"
+          }
+        }
+      }
+    },
+    "Treat carefully" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谨慎处理"
+          }
+        }
+      }
+    },
+    "Before using any pest-control product, confirm it is labeled for indoor use and for your plant. Follow the label and test a small area first." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用任何除虫产品前，请确认标签注明可用于室内和这类植物。严格按说明使用，并先在小范围测试。"
+          }
+        }
+      }
+    },
+    "COMMON PEST" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常见害虫"
+          }
+        }
+      }
+    },
+    "Spider mites" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶螨（红蜘蛛）"
+          }
+        }
+      }
+    },
+    "Mealybugs" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "粉蚧"
+          }
+        }
+      }
+    },
+    "Scale insects" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "介壳虫"
+          }
+        }
+      }
+    },
+    "Aphids" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蚜虫"
+          }
+        }
+      }
+    },
+    "Fungus gnats" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小黑飞（真菌蚋）"
+          }
+        }
+      }
+    },
+    "Thrips" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蓟马"
+          }
+        }
+      }
+    },
+    "Fine webbing and pale speckles" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "细网和密集浅色小点"
+          }
+        }
+      }
+    },
+    "White, cottony clusters" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "白色棉絮状虫团"
+          }
+        }
+      }
+    },
+    "Brown bumps fixed to stems" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "附着在茎上的褐色小凸点"
+          }
+        }
+      }
+    },
+    "Clusters on tender new growth" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "聚集在嫩芽和新叶上"
+          }
+        }
+      }
+    },
+    "Tiny dark flies near soil" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在盆土附近飞动的小黑虫"
+          }
+        }
+      }
+    },
+    "Silver streaks and black specks" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "银白色擦痕和黑色小点"
+          }
+        }
+      }
+    },
+    "Leaves develop many tiny pale dots, then may look bronze or dry. Fine webbing can appear when numbers grow." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶面会出现密集的浅色小点，随后可能变成铜褐色或干枯。虫量增多时，还会看到细细的网。"
+          }
+        }
+      }
+    },
+    "White cottony insects collect in plant joints. Leaves may yellow, and the plant can feel sticky from honeydew." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "白色棉絮状小虫常聚集在叶片与茎的连接处。叶片可能发黄，虫体分泌的蜜露也会让植株摸起来发黏。"
+          }
+        }
+      }
+    },
+    "Small tan or brown shell-like bumps stay fixed in place. Sticky honeydew, yellow leaves, or weak growth may follow." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "黄褐色或褐色的壳状小凸点会牢牢附着在植株上，随后可能出现蜜露、黄叶或长势变弱。"
+          }
+        }
+      }
+    },
+    "Soft green, brown, or black insects crowd around new growth. Young leaves may curl, and white shed skins or sticky honeydew may appear." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "绿色、褐色或黑色的软体小虫常挤在新芽周围。嫩叶可能卷曲，还可能看到白色蜕皮或黏稠蜜露。"
+          }
+        }
+      }
+    },
+    "Tiny dark flies run across or hover above damp potting mix. Adults are mostly a nuisance, but larvae live in the mix and may harm roots when numerous." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小黑虫会在潮湿盆土上爬动或盘旋。成虫主要让人困扰，但幼虫生活在土中，数量很多时可能伤害根系。"
+          }
+        }
+      }
+    },
+    "Leaves or flowers develop silvery scraped patches, streaks, distortion, or tiny black specks. The insects are narrow and difficult to see." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片或花朵会出现银白色擦痕、条斑、变形或黑色小点。蓟马身体细长，很难直接看清。"
+          }
+        }
+      }
+    },
+    "Check leaf undersides, growing tips, and the joints where leaves meet stems. Use bright light to spot webbing." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查叶背、生长点和叶片与茎的连接处。借助明亮光线更容易发现细网。"
+          }
+        }
+      }
+    },
+    "Look in leaf axils, along stems and veins, under leaves, and around tight crevices near the pot rim." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重点查看叶腋、茎、叶脉、叶背，以及盆沿附近的狭小缝隙。"
+          }
+        }
+      }
+    },
+    "Inspect stems, leaf veins, and leaf undersides. Compare suspicious bumps with normal stem texture." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查茎、叶脉和叶背，并把可疑凸点与植株本身的正常纹理作比较。"
+          }
+        }
+      }
+    },
+    "Inspect curled young leaves, buds, tender stems, and leaf undersides. Ants or sticky surfaces can be extra clues." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查卷曲的嫩叶、花苞、嫩茎和叶背。蚂蚁或发黏的叶面也可能是线索。"
+          }
+        }
+      }
+    },
+    "Watch the soil surface and nearby leaves after watering. A yellow sticky card near the pot can help confirm flying adults." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水后观察土面和附近叶片。在花盆旁放一张黄色粘虫板，可以帮助确认是否有成虫。"
+          }
+        }
+      }
+    },
+    "Look under leaves, inside flowers, around buds, and in tight folds. Check damaged areas for slender insects and black specks." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看叶背、花朵内部、花苞周围和紧密褶皱处，并在受损区域寻找细长小虫和黑色小点。"
+          }
+        }
+      }
+    },
+    "Isolate the plant. Rinse leaves thoroughly, especially underneath, wipe away webbing, and inspect again every few days." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先隔离植株。彻底冲洗叶片，尤其是叶背，擦掉细网，并每隔几天重新检查。"
+          }
+        }
+      }
+    },
+    "Isolate the plant. Remove visible insects with a damp cotton swab, rinse sturdy leaves, and repeat checks because hidden bugs can return." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先隔离植株。用湿棉签清除看得见的虫体，冲洗较结实的叶片，并反复检查，因为藏起来的粉蚧可能再次出现。"
+          }
+        }
+      }
+    },
+    "Isolate the plant. Gently wipe or lift off visible scale if the plant tolerates it, and prune heavily infested growth." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先隔离植株。如果植株耐受，可轻轻擦掉或挑除可见虫体，并剪去受害严重的枝叶。"
+          }
+        }
+      }
+    },
+    "Isolate the plant. Wash aphids off with water and remove badly infested tips. Repeat the inspection as new growth opens." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先隔离植株。用水冲掉蚜虫，剪去受害严重的嫩梢，并随着新叶展开继续检查。"
+          }
+        }
+      }
+    },
+    "Let the top layer of mix dry as much as the plant safely allows, clear decaying debris, and use sticky cards to reduce and monitor adults." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在植物能够承受的范围内，让盆土表层充分变干，清除腐烂杂物，并用粘虫板减少和监测成虫。"
+          }
+        }
+      }
+    },
+    "Isolate the plant. Rinse foliage, remove badly damaged flowers or leaves, and repeat close inspections because thrips hide in crevices." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先隔离植株。冲洗叶片，剪去受损严重的花或叶，并反复仔细检查，因为蓟马会躲在缝隙中。"
+          }
+        }
+      }
+    },
+    "Inspect leaves weekly, clean dusty foliage, and avoid letting the plant remain severely dry or stressed." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每周检查叶片，及时清理积尘，并避免植株长期严重缺水或处于压力状态。"
+          }
+        }
+      }
+    },
+    "Quarantine new plants for several weeks and inspect every joint before placing them with your collection." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新植物先单独放置数周，仔细检查各个连接处，再与其他植物摆在一起。"
+          }
+        }
+      }
+    },
+    "Check stems and leaf undersides before buying or bringing a plant indoors, then quarantine new arrivals." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "购买植物或搬回室内前，检查茎和叶背；新到的植物要先单独观察。"
+          }
+        }
+      }
+    },
+    "Inspect tender growth often and quarantine new plants, cuttings, or plants returning from outdoors." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "经常检查嫩芽，并把新植物、插条或刚从室外搬回的植物先单独观察。"
+          }
+        }
+      }
+    },
+    "Avoid keeping potting mix constantly wet. Use drainage holes and remove fallen leaves from the soil surface." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不要让盆土一直潮湿。确保花盆排水通畅，并及时清理土面的落叶。"
+          }
+        }
+      }
+    },
+    "Quarantine new plants and inspect flowers, buds, and leaf undersides before adding them to your collection." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新植物先单独观察，并检查花朵、花苞和叶背，再放入现有植物区域。"
+          }
+        }
+      }
+    },
+    "Roots & repotting" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系与换盆"
+          }
+        }
+      }
+    },
+    "Read root health, choose a pot, and repot with confidence." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看懂根系状态，选对花盆，轻松完成换盆。"
+          }
+        }
+      }
+    },
+    "Opens the roots and repotting guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开根系与换盆指南"
+          }
+        }
+      }
+    },
+    "BELOW THE SOIL" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤之下"
+          }
+        }
+      }
+    },
+    "Give roots room to breathe." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "给根系留出呼吸和生长的空间。"
+          }
+        }
+      }
+    },
+    "Learn what healthy roots look like, when a plant needs more space, and how to repot without guesswork." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识健康根系，判断植物何时需要更大空间，并一步步学会换盆。"
+          }
+        }
+      }
+    },
+    "Read the roots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看懂根系"
+          }
+        }
+      }
+    },
+    "Opens root condition details" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看根系状态详情"
+          }
+        }
+      }
+    },
+    "Is it time to repot?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该换盆了吗？"
+          }
+        }
+      }
+    },
+    "Roots circle the root ball or grow through drainage holes" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系绕满根团，或从排水孔长出"
+          }
+        }
+      }
+    },
+    "The potting mix dries much faster than it used to" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土比以前干得快很多"
+          }
+        }
+      }
+    },
+    "Growth has slowed during the plant’s active season" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在生长季里，长势明显变慢"
+          }
+        }
+      }
+    },
+    "The plant is top-heavy or roots are stressing the pot" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植株头重脚轻，或根系已经挤压花盆"
+          }
+        }
+      }
+    },
+    "One clue alone is not proof. If you are unsure, gently slide out the root ball and look before choosing a larger pot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单凭一个迹象还不能确定。如果拿不准，可以轻轻取出根团查看，再决定是否换大盆。"
+          }
+        }
+      }
+    },
+    "Choose the next pot" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择新花盆"
+          }
+        }
+      }
+    },
+    "Drainage first" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "排水优先"
+          }
+        }
+      }
+    },
+    "Use a container with an open drainage hole so extra water can escape." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择有畅通排水孔的花盆，让多余水分能顺利流出。"
+          }
+        }
+      }
+    },
+    "Go up one size" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只换大一号"
+          }
+        }
+      }
+    },
+    "For many small and medium houseplants, choose a pot roughly 1–2 inches wider than the current one." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "对多数中小型室内植物，新盆比旧盆宽约 2.5–5 厘米即可。"
+          }
+        }
+      }
+    },
+    "Match the potting mix" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择合适的盆土"
+          }
+        }
+      }
+    },
+    "Use fresh potting mix suited to the plant instead of soil taken from the garden." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用适合该植物的新盆土，不要直接挖园土来种。"
+          }
+        }
+      }
+    },
+    "Repot step by step" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分步换盆"
+          }
+        }
+      }
+    },
+    "Some plants prefer a snug pot. Repot because the roots and watering behavior show a need—not just because a date arrived." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有些植物更喜欢稍紧的花盆。是否换盆要看根系和浇水状态，而不是只看日期。"
+          }
+        }
+      }
+    },
+    "What you might see" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可能会看到"
+          }
+        }
+      }
+    },
+    "What it can mean" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这可能说明"
+          }
+        }
+      }
+    },
+    "What to do" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可以怎么做"
+          }
+        }
+      }
+    },
+    "ROOT CHECK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系检查"
+          }
+        }
+      }
+    },
+    "Root color varies by species. Texture matters too: healthy roots are firm, while rotting roots are often soft or limp." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不同植物的根色本来就可能不同，手感也很重要：健康根通常结实，腐烂的根往往柔软、发塌。"
+          }
+        }
+      }
+    },
+    "Healthy roots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康根系"
+          }
+        }
+      }
+    },
+    "Rootbound" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系满盆"
+          }
+        }
+      }
+    },
+    "Possible root rot" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可能烂根"
+          }
+        }
+      }
+    },
+    "Firm roots with room for potting mix" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系结实，周围仍有盆土空间"
+          }
+        }
+      }
+    },
+    "Dense roots circle the pot’s shape" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "密集根系沿花盆形状盘绕"
+          }
+        }
+      }
+    },
+    "Soft, dark roots need a closer look" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深色柔软的根需要仔细检查"
+          }
+        }
+      }
+    },
+    "Roots feel firm and branch through the potting mix. Many species have cream, tan, or pale growing tips." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根摸起来结实，在盆土中自然分枝。许多植物的新根尖呈乳白、浅棕或其他浅色。"
+          }
+        }
+      }
+    },
+    "Roots densely circle the outside or bottom of the root ball, push through drainage holes, or leave very little potting mix visible." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系密密地绕在根团外侧或底部，从排水孔钻出，几乎看不到盆土。"
+          }
+        }
+      }
+    },
+    "Some roots look dark and feel soft, limp, or hollow. The plant may also wilt in wet mix, yellow, or lose vigor." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "部分根颜色发深，摸起来柔软、发塌或中空。植株也可能在盆土潮湿时仍萎蔫、黄叶或长势变弱。"
+          }
+        }
+      }
+    },
+    "The root system has air, moisture, and potting mix around it. A healthy plant does not automatically need a larger pot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系周围仍有空气、水分和盆土空间。植物根系健康，并不代表一定要换到更大的盆。"
+          }
+        }
+      }
+    },
+    "The plant may be running out of room and water-holding potting mix. Some plants tolerate snug roots, so consider the plant’s overall behavior too." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物可能缺少生长空间和能保水的盆土。不过有些植物能适应紧凑根系，也要结合整体状态判断。"
+          }
+        }
+      }
+    },
+    "Roots may have been damaged by long-lasting wet conditions, poor drainage, cold, excess fertilizer, or disease. Color alone does not confirm rot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系可能因长期潮湿、排水不良、低温、肥料过量或病害受损。仅凭颜色不能确定是否烂根。"
+          }
+        }
+      }
+    },
+    "Keep the root ball intact unless another problem needs attention. If you are repotting, use fresh suitable mix and avoid a needlessly large pot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果没有其他问题，不必打散根团。需要换盆时，使用新鲜合适的盆土，也不要选过大的花盆。"
+          }
+        }
+      }
+    },
+    "If watering has become difficult or growth has slowed, move up one pot size and gently loosen the outer circling roots." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果浇水越来越困难或生长变慢，可以换大一号花盆，并轻轻松开外层盘绕的根。"
+          }
+        }
+      }
+    },
+    "Remove soft dead roots with clean shears, use fresh well-draining mix and a clean draining container, then correct the watering or drainage problem." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用干净剪刀剪掉柔软坏死的根，换上新鲜透气的盆土和干净、排水良好的花盆，再解决浇水或排水问题。"
+          }
+        }
+      }
+    },
+    "Prepare the new home" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "准备新花盆"
+          }
+        }
+      }
+    },
+    "Slide the plant out" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轻轻取出植株"
+          }
+        }
+      }
+    },
+    "Inspect and trim" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查并修剪"
+          }
+        }
+      }
+    },
+    "Loosen circling roots" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "松开盘绕根系"
+          }
+        }
+      }
+    },
+    "Keep the same depth" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保持原有栽种深度"
+          }
+        }
+      }
+    },
+    "Water and drain" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇透并沥干"
+          }
+        }
+      }
+    },
+    "Choose a clean draining pot and lightly moisten fresh potting mix." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选好干净且排水通畅的花盆，将新盆土稍微润湿。"
+          }
+        }
+      }
+    },
+    "Support the root ball, tip the container, and ease it free. Do not pull the plant by its stem." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "托住根团，倾斜花盆，慢慢将植株取出。不要拉拽茎部。"
+          }
+        }
+      }
+    },
+    "Look for firm healthy roots and remove roots that are clearly dead, soft, or damaged using clean shears." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查结实健康的根，用干净剪刀剪掉明显坏死、柔软或受损的根。"
+          }
+        }
+      }
+    },
+    "Gently tease apart the outer roots if they are tightly circling the root ball." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果外层根系紧密盘绕，轻轻将它们拨松。"
+          }
+        }
+      }
+    },
+    "Set the plant at its previous soil depth, then fill around it without packing the mix too firmly." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植株保持原来的入土深度，填入盆土，但不要压得太实。"
+          }
+        }
+      }
+    },
+    "Water thoroughly, let excess water escape, and return the plant to suitable light while it settles." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇透水，让多余水分流出，再将植株放回光照合适的位置适应。"
+          }
+        }
+      }
+    },
+    "Watering basics" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水基础"
+          }
+        }
+      }
+    },
+    "Learn when to water, how to check the pot, and what changes the schedule." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解何时该浇水、如何检查盆土，以及哪些因素会改变浇水频率。"
+          }
+        }
+      }
+    },
+    "Opens the watering basics guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开浇水基础指南"
+          }
+        }
+      }
+    },
+    "WATER WITH A REASON" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先检查，再浇水"
+          }
+        }
+      }
+    },
+    "Check first. Water fully." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先检查，再浇透。"
+          }
+        }
+      }
+    },
+    "Build a simple habit: inspect the potting mix, water evenly when needed, and always let the excess escape." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "养成简单习惯：先检查盆土，需要时均匀浇透，并让多余水分完全流出。"
+          }
+        }
+      }
+    },
+    "Check before you water" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水前先检查"
+          }
+        }
+      }
+    },
+    "Opens moisture check details" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看盆土湿度详情"
+          }
+        }
+      }
+    },
+    "These are starting points, not universal rules. Learn how much drying your plant species prefers." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这些只是判断起点，并非适合所有植物。还要了解你的植物喜欢盆土干到什么程度。"
+          }
+        }
+      }
+    },
+    "Water thoroughly" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每次浇透"
+          }
+        }
+      }
+    },
+    "Why the schedule changes" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水频率为什么会变"
+          }
+        }
+      }
+    },
+    "Brighter conditions often help the plant and potting mix use water faster." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照越充足，植物和盆土通常越快消耗水分。"
+          }
+        }
+      }
+    },
+    "Temperature and humidity" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "温度与湿度"
+          }
+        }
+      }
+    },
+    "Warm, dry air usually speeds drying; cool or humid air usually slows it." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "温暖干燥的空气通常会加快盆土变干；凉爽或潮湿的环境则会让它干得更慢。"
+          }
+        }
+      }
+    },
+    "Pot and potting mix" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花盆与盆土"
+          }
+        }
+      }
+    },
+    "Pot size, drainage, material, and mix all change how long moisture remains." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花盆大小、排水情况、材质和盆土配方，都会影响水分保留多久。"
+          }
+        }
+      }
+    },
+    "Growth and season" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生长状态与季节"
+          }
+        }
+      }
+    },
+    "A plant often uses less water when growth slows or available light decreases." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物生长放缓或光照减少时，通常也会减少用水。"
+          }
+        }
+      }
+    },
+    "Too dry or too wet?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "太干还是太湿？"
+          }
+        }
+      }
+    },
+    "Possible underwatering" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可能缺水"
+          }
+        }
+      }
+    },
+    "Dry mix, a noticeably light pot, drooping or curling leaves, and crisp edges can be clues." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土干燥、花盆明显变轻、叶片下垂或卷曲、叶缘干脆，都可能是缺水迹象。"
+          }
+        }
+      }
+    },
+    "Possible overwatering" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可能浇水过多"
+          }
+        }
+      }
+    },
+    "Mix that stays wet, yellowing leaves, soft stems, odor, or declining roots deserve a closer look." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土久湿不干、叶片发黄、茎部变软、出现异味或根系衰弱，都需要进一步检查。"
+          }
+        }
+      }
+    },
+    "Wilting can happen when a plant is too dry or when damaged roots cannot take up water. Check the potting mix and roots before reacting." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "萎蔫既可能是缺水，也可能是根系受损后无法吸水。采取措施前，先检查盆土和根系。"
+          }
+        }
+      }
+    },
+    "A reminder tells you when to check your plant. The plant and potting mix tell you whether to water." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提醒只是告诉你何时检查；是否真的需要浇水，要由植物和盆土状态决定。"
+          }
+        }
+      }
+    },
+    "MOISTURE CHECK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土检查"
+          }
+        }
+      }
+    },
+    "Try this" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这样检查"
+          }
+        }
+      }
+    },
+    "Next step" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下一步"
+          }
+        }
+      }
+    },
+    "Dry and light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土干，花盆轻"
+          }
+        }
+      }
+    },
+    "Still slightly moist" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土仍微湿"
+          }
+        }
+      }
+    },
+    "Wet and heavy" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土湿，花盆沉"
+          }
+        }
+      }
+    },
+    "It may be time to water" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可能该浇水了"
+          }
+        }
+      }
+    },
+    "Wait and check again" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先等等，之后再检查"
+          }
+        }
+      }
+    },
+    "Do not add more water" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时不要再浇水"
+          }
+        }
+      }
+    },
+    "The potting mix feels dry to the depth recommended for this plant, and the pot feels lighter than it does after watering." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土已经干到这种植物适合浇水的深度，花盆也比刚浇透时轻。"
+          }
+        }
+      }
+    },
+    "The potting mix still feels cool or slightly damp below the surface. Many houseplants can wait, but moisture-loving species may differ." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表层以下的盆土摸起来仍然凉爽或微湿。多数室内植物可以再等等，但喜湿植物可能不同。"
+          }
+        }
+      }
+    },
+    "The mix feels wet below the surface and the pot is still heavy. Adding water now can keep air away from the roots." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "表层以下的盆土仍然湿润，花盆也很沉。此时继续浇水，可能会让根系缺少空气。"
+          }
+        }
+      }
+    },
+    "Press a finger into the potting mix rather than judging only the surface. Lift the pot too, if it is safe to handle." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将手指伸入盆土，不要只看表面。如果方便且安全，也可以拿起花盆感受重量。"
+          }
+        }
+      }
+    },
+    "Check again after a day or two. Notice how the pot’s weight and the feel of the mix change as it dries." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一两天后再检查，并留意盆土变干时，手感和花盆重量如何变化。"
+          }
+        }
+      }
+    },
+    "Confirm that drainage holes are open and empty any water collected inside the saucer or decorative outer pot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确认排水孔畅通，并倒掉托盘或装饰套盆里的积水。"
+          }
+        }
+      }
+    },
+    "If this plant prefers to dry to this depth, water slowly and evenly until excess drains from the bottom." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果这种植物适合干到这个程度再浇水，就缓慢、均匀地浇透，直到多余水分从盆底流出。"
+          }
+        }
+      }
+    },
+    "Skip watering for now. Use the reminder as a prompt to inspect again, not as an instruction to pour water." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "现在先不要浇水。把提醒当作再次检查的提示，而不是必须浇水的指令。"
+          }
+        }
+      }
+    },
+    "Wait for the mix to dry to the plant’s preferred level. If it stays wet unusually long, inspect drainage, light, pot size, and root health." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等盆土干到植物适合的程度。如果它长时间不干，要检查排水、光照、花盆大小和根系状态。"
+          }
+        }
+      }
+    },
+    "Test below the surface" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查表层以下"
+          }
+        }
+      }
+    },
+    "Pour slowly and evenly" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缓慢均匀地浇"
+          }
+        }
+      }
+    },
+    "Watch for drainage" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察盆底出水"
+          }
+        }
+      }
+    },
+    "Empty standing water" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "倒掉积水"
+          }
+        }
+      }
+    },
+    "Feel the potting mix at the depth your plant prefers and notice whether the pot feels light or heavy." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "摸一摸植物适合的盆土深度，同时感受花盆是轻还是沉。"
+          }
+        }
+      }
+    },
+    "Move around the pot so the whole root ball is moistened instead of wetting only one small area." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沿花盆四周缓慢浇水，让整个根团湿润，而不是只浇湿一小块。"
+          }
+        }
+      }
+    },
+    "Continue until some water exits the drainage holes. Very dry mix may need a second slow pass." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续浇到少量水从排水孔流出。盆土过干时，可能需要再慢慢浇一遍。"
+          }
+        }
+      }
+    },
+    "Let the pot finish draining, then discard water from its saucer or decorative outer pot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等花盆沥干后，倒掉托盘或装饰套盆里的水。"
+          }
+        }
+      }
+    },
+    "Light Made Simple" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轻松看懂光照"
+          }
+        }
+      }
+    },
+    "Understand indoor light, read plant signals, and find a better spot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识室内光照，读懂植物信号，为它找到更合适的位置。"
+          }
+        }
+      }
+    },
+    "Opens the Light Made Simple guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开“轻松看懂光照”指南"
+          }
+        }
+      }
+    },
+    "FIND THE RIGHT SPOT" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到合适的位置"
+          }
+        }
+      }
+    },
+    "See light through a plant’s eyes." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从植物的角度看光照。"
+          }
+        }
+      }
+    },
+    "Learn what common light labels mean, observe how light moves through your home, and notice when a plant wants a change." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看懂常见的光照说法，观察阳光如何进入家中，并留意植物何时需要换个位置。"
+          }
+        }
+      }
+    },
+    "Meet the light levels" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识不同光照强度"
+          }
+        }
+      }
+    },
+    "Opens light level details" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看光照强度详情"
+          }
+        }
+      }
+    },
+    "“Low light” does not mean darkness. Every plant needs usable light, and each species has its own range." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“低光照”不等于黑暗。所有植物都需要能利用的光，只是每种植物适应的范围不同。"
+          }
+        }
+      }
+    },
+    "Read the room" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察房间里的光"
+          }
+        }
+      }
+    },
+    "Distance matters" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距离很重要"
+          }
+        }
+      }
+    },
+    "Light usually becomes weaker as a plant moves farther from a window." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物离窗户越远，接收到的光通常越弱。"
+          }
+        }
+      }
+    },
+    "Watch the sun" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察阳光路径"
+          }
+        }
+      }
+    },
+    "Check the spot at several times of day to see whether direct rays actually reach the leaves." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在一天中的不同时间查看这个位置，确认阳光是否会直接照到叶片。"
+          }
+        }
+      }
+    },
+    "Look for obstructions" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留意遮挡"
+          }
+        }
+      }
+    },
+    "Trees, nearby buildings, screens, curtains, and roof overhangs can reduce window light." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "树木、邻近建筑、纱窗、窗帘和屋檐都会削弱窗边的光照。"
+          }
+        }
+      }
+    },
+    "Recheck each season" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每个季节重新观察"
+          }
+        }
+      }
+    },
+    "Day length, sun angle, and outdoor foliage can make the same spot brighter or dimmer over the year." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日照时长、太阳角度和室外树叶的变化，会让同一位置在不同季节变亮或变暗。"
+          }
+        }
+      }
+    },
+    "Read the plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察植物反馈"
+          }
+        }
+      }
+    },
+    "Possible too little light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可能光照不足"
+          }
+        }
+      }
+    },
+    "Long, thin growth, leaning toward a window, smaller new leaves, fading color, or fewer flowers can be clues." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "枝茎细长、向窗户倾斜、新叶变小、叶色变淡或开花减少，都可能是光照不足的迹象。"
+          }
+        }
+      }
+    },
+    "Possible too much light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可能光照过强"
+          }
+        }
+      }
+    },
+    "Bleached areas, pale patches, curling, or dry scorched spots can appear when light is too intense." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照过强时，叶片可能褪色、出现浅色斑块、卷曲或留下干枯焦斑。"
+          }
+        }
+      }
+    },
+    "These symptoms can have other causes. Check watering, roots, temperature, and pests before moving the plant again." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这些表现也可能由其他问题引起。再次移动植物前，先检查浇水、根系、温度和虫害。"
+          }
+        }
+      }
+    },
+    "Adjust light safely" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安全调整光照"
+          }
+        }
+      }
+    },
+    "Move gradually" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "逐步增加光照"
+          }
+        }
+      }
+    },
+    "Introduce stronger light a little at a time, especially before placing an indoor plant outside." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一点点增加光照强度，尤其不要把室内植物突然搬到户外强光下。"
+          }
+        }
+      }
+    },
+    "Rotate for even growth" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "定期转盆"
+          }
+        }
+      }
+    },
+    "Turn the pot periodically if one side keeps leaning toward the light." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果植物总向光源一侧倾斜，可以定期转动花盆，让生长更均匀。"
+          }
+        }
+      }
+    },
+    "Supplement when needed" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "必要时补光"
+          }
+        }
+      }
+    },
+    "A suitable grow light can help in a dim spot. Follow its distance and timing instructions, and give plants a daily dark period." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光线不足时，可以使用合适的植物灯。按照说明设置距离和时长，并让植物每天有一段黑暗时间。"
+          }
+        }
+      }
+    },
+    "More light often means faster growth and faster drying. After changing a plant’s light, check its watering needs again." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照增加后，植物通常长得更快，盆土也干得更快。调整位置后，要重新观察它的浇水需求。"
+          }
+        }
+      }
+    },
+    "LIGHT LEVEL" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照强度"
+          }
+        }
+      }
+    },
+    "Beginner note" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新手提示"
+          }
+        }
+      }
+    },
+    "Low light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "低光照"
+          }
+        }
+      }
+    },
+    "Medium indirect light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中等散射光"
+          }
+        }
+      }
+    },
+    "Bright indirect light" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "明亮散射光"
+          }
+        }
+      }
+    },
+    "Direct sun" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "阳光直射"
+          }
+        }
+      }
+    },
+    "Daylight is present, but weak" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有自然光，但强度较弱"
+          }
+        }
+      }
+    },
+    "Gentle, useful light without strong rays" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "柔和且足够使用，没有强烈直射"
+          }
+        }
+      }
+    },
+    "A bright spot just outside direct rays" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "明亮，但避开阳光直射"
+          }
+        }
+      }
+    },
+    "Sunbeams fall directly on the leaves" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "阳光直接照到叶片"
+          }
+        }
+      }
+    },
+    "The space receives limited natural light. Only plants that tolerate low light are likely to maintain healthy growth here." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个位置获得的自然光有限，只有耐低光照的植物较容易在这里维持健康生长。"
+          }
+        }
+      }
+    },
+    "The plant receives steady indirect daylight, but not the strongest window light or prolonged direct sun." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物能持续获得散射自然光，但不会承受窗边最强的光线或长时间直射。"
+          }
+        }
+      }
+    },
+    "The area is brightly illuminated for much of the day while curtains, angle, or placement keep strong sunbeams off the leaves." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这里一天中大部分时间都很明亮，但窗帘、太阳角度或摆放位置让强烈阳光不会直接照到叶片。"
+          }
+        }
+      }
+    },
+    "Unfiltered sunlight reaches the foliage for part of the day. This is much more intense than a bright room." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一天中有一段时间，未经遮挡的阳光会直接照到叶片，强度远高于普通明亮房间。"
+          }
+        }
+      }
+    },
+    "The room has daytime visibility without lamps, but the plant is well away from bright windows or near a window with major obstructions." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "白天不开灯也能看清房间，但植物离明亮窗户较远，或窗外有明显遮挡。"
+          }
+        }
+      }
+    },
+    "The plant may be close to a gentler window or several feet back from a brighter one. The spot looks comfortably lit, not glaring." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物可能靠近光线柔和的窗户，或离明亮窗户有一段距离。这个位置看起来光线舒适，并不刺眼。"
+          }
+        }
+      }
+    },
+    "The area near the plant looks very bright, but you do not see a hard-edged patch of sun traveling across its leaves." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物周围看起来很明亮，但叶片上不会出现边缘清晰、随太阳移动的光斑。"
+          }
+        }
+      }
+    },
+    "You can see a distinct patch of sunlight or a crisp shadow on or beside the plant when the sun reaches the window." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "太阳照进窗户时，植物叶片上或周围会出现清晰的光斑或轮廓分明的影子。"
+          }
+        }
+      }
+    },
+    "Low-light tolerant means the plant can cope—not that it will grow quickly. Watch for stretching, small leaves, or fading color." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "耐低光照只代表植物能够适应，并不代表它会长得快。要留意徒长、新叶变小或叶色变淡。"
+          }
+        }
+      }
+    },
+    "This is a comfortable range for many foliage plants, but always check the care needs of the individual species." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "许多观叶植物都适合这个范围，但仍要查看具体品种的养护需求。"
+          }
+        }
+      }
+    },
+    "Many tropical foliage plants favor this range. A sheer curtain can soften stronger window light." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "许多热带观叶植物喜欢这个范围。光线太强时，可以用薄纱帘柔化阳光。"
+          }
+        }
+      }
+    },
+    "Use this for plants that are adapted to strong sun. Acclimate plants gradually because sudden intense light can scorch leaves." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只有适应强光的植物才适合直射阳光。要逐步适应，突然增强光照可能灼伤叶片。"
+          }
+        }
+      }
+    },
+    "Tap a numbered plant to explore its light level." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击编号植物，了解对应的光照强度。"
+          }
+        }
+      }
+    },
+    "New Growth & Life Stages" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新芽与生长阶段" } } }
+    },
+    "Follow a leaf from growth point to maturity and learn which changes are normal." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "观察叶片从萌发到成熟的过程，读懂哪些变化属于正常生长。" } } }
+    },
+    "Opens the new growth and life stages guide" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开新芽与生长阶段指南" } } }
+    },
+    "FOLLOW NEW GROWTH" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "观察新芽生长" } } }
+    },
+    "Watch a new leaf take shape." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "看一片新叶慢慢长成。" } } }
+    },
+    "Learn where growth begins, what changes as a leaf opens, and which signals deserve a closer look." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "了解新芽从哪里长出、叶片展开时会发生什么，以及哪些信号值得进一步检查。" } } }
+    },
+    "Follow a new leaf" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "跟随一片新叶成长" } } }
+    },
+    "Tap a numbered stage to follow the leaf’s journey." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "点击编号阶段，了解叶片的成长过程。" } } }
+    },
+    "Opens growth stage details" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开生长阶段详情" } } }
+    },
+    "Growth point" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生长点" } } }
+    },
+    "Emerging leaf" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新叶冒出" } } }
+    },
+    "Unfurling leaf" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片展开" } } }
+    },
+    "Mature leaf" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片成熟" } } }
+    },
+    "A bud or shoot tip begins the next step" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "芽点或枝梢开始孕育新生长" } } }
+    },
+    "Tender growth appears folded or rolled" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "幼嫩的新叶以折叠或卷曲的形态冒出" } } }
+    },
+    "The leaf expands and begins to flatten" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片逐渐伸展并摊开" } } }
+    },
+    "The leaf firms up and reaches its working shape" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片变得结实，长成完整形态" } } }
+    },
+    "Where growth begins" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新芽从哪里长出" } } }
+    },
+    "Growing tips" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "枝梢生长点" } } }
+    },
+    "New stems and leaves often develop at the active tip of a shoot." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新的茎和叶通常会从活跃生长的枝梢长出。" } } }
+    },
+    "Nodes and buds" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "茎节与芽点" } } }
+    },
+    "A node is the point where a leaf or bud attaches to a stem. New branches and roots can also begin there." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "茎节是叶片或芽与茎相连的位置，新枝和根也可能从这里长出。" } } }
+    },
+    "Crown or base" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "冠部或基部" } } }
+    },
+    "Some plants push new leaves or small offsets from the crown or base instead of a vining tip." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "有些植物不会从藤蔓末端发芽，而是从冠部或基部长出新叶和侧芽。" } } }
+    },
+    "Normal changes" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "常见的正常变化" } } }
+    },
+    "New leaves may look different" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新叶可能看起来不一样" } } }
+    },
+    "Tender leaves are often softer or lighter than mature foliage. Their color and texture may change as they expand." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新叶往往比成熟叶片更柔软、颜色更浅；随着叶片展开，颜色和质感也会继续变化。" } } }
+    },
+    "Growth can pause" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生长也会暂时停下来" } } }
+    },
+    "Shorter days, lower light, cooler conditions, or the plant’s natural rhythm can slow new growth." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "日照变短、光线变弱、气温降低，或植物自身的生长节奏，都可能让新芽长得慢一些。" } } }
+    },
+    "Older leaves eventually retire" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "老叶也会自然退场" } } }
+    },
+    "An occasional older leaf may yellow and drop. Several leaves changing quickly deserve a closer check." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "偶尔一片老叶变黄脱落并不罕见；如果多片叶子短时间内一起变化，就要仔细检查。" } } }
+    },
+    "Protect tender growth" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保护幼嫩新芽" } } }
+    },
+    "Let it open on its own" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "让叶片自己展开" } } }
+    },
+    "Do not pull or force a folded leaf open. Tender tissue is easy to tear." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "不要拉扯或强行掰开卷着的新叶，幼嫩组织很容易受伤。" } } }
+    },
+    "Keep care steady" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保持养护稳定" } } }
+    },
+    "Avoid sudden swings in watering, temperature, or light while new growth is developing." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新芽生长期间，尽量避免浇水、温度或光照突然大幅变化。" } } }
+    },
+    "Check the newest leaves" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "检查最新长出的叶片" } } }
+    },
+    "Pests often gather around tender shoots and folded leaves, so inspect them gently." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "害虫容易藏在嫩芽和卷叶周围，检查时动作要轻。" } } }
+    },
+    "Pause or problem?" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "只是暂停，还是出了问题？" } } }
+    },
+    "Usually a pause" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "通常只是生长放缓" } } }
+    },
+    "No new leaf during a slower season can be normal when the existing foliage and roots remain stable." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在生长较慢的季节，只要现有叶片和根系状态稳定，暂时没有新叶也可能是正常的。" } } }
+    },
+    "Look more closely" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "需要仔细检查" } } }
+    },
+    "Black or mushy tips, repeated deformity, spreading discoloration, pests, or several symptoms together call for a full care check." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "如果新芽发黑发软、反复畸形、变色范围扩大、发现害虫，或多种症状同时出现，就要全面检查养护环境。" } } }
+    },
+    "New growth is a progress signal, not proof that every care condition is perfect. Read it together with the roots, older leaves, and potting mix." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "长出新芽说明植物正在前进，但不代表所有养护条件都完美。还要结合根系、老叶和盆土一起判断。" } } }
+    },
+    "GROWTH STAGE" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生长阶段" } } }
+    },
+    "What to notice" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "观察重点" } } }
+    },
+    "How to help" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "怎样照顾" } } }
+    },
+    "A new leaf begins in a protected growing region. On many vining plants, look near the shoot tip or a node where a leaf joins the stem." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新叶会从受到保护的生长区域开始发育。对于许多藤本植物，可以在枝梢或叶片与茎相连的茎节附近寻找。" } } }
+    },
+    "The young leaf becomes visible but stays compact. Folding or rolling protects tender tissue while it grows." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新叶已经露出来，但仍保持紧凑。折叠或卷曲的形态能在生长时保护幼嫩组织。" } } }
+    },
+    "The blade expands and opens. It may still look soft, pale, glossy, or slightly uneven while the tissue finishes developing." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片开始伸展、打开。在组织尚未完全成熟时，它可能仍显得柔软、颜色较浅、有光泽，或略微不平整。" } } }
+    },
+    "The leaf reaches its fuller size and working form. Its color and texture become more stable, though the final look varies by species." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片逐渐达到完整大小和形态，颜色与质感也趋于稳定；最终模样会因品种而异。" } } }
+    },
+    "Look for a small pointed bud, swelling, or fresh tip. Compare it with nearby older growth so you can recognize what is new." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "寻找小小的尖芽、鼓起处或颜色鲜嫩的枝梢，并与附近较老的部分对比，就更容易认出新生长。" } } }
+    },
+    "Notice the fresh color and compact shape. Check nearby folds gently for pests without prying the leaf apart." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "留意鲜嫩的颜色和紧凑的形态。可以轻轻检查叶片褶皱附近是否有害虫，但不要把叶片掰开。" } } }
+    },
+    "One side may open before the other. Minor temporary wrinkles can smooth as the leaf expands." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶片两侧不一定同时展开。随着叶片继续伸展，轻微的暂时性皱褶可能会逐渐变平。" } } }
+    },
+    "Compare size, spacing, color, and shape with older leaves. A repeated pattern of smaller or distorted leaves can signal stress." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "把新叶的大小、间距、颜色和形状与老叶对比。如果新叶持续偏小或畸形，可能说明植物正承受压力。" } } }
+    },
+    "Keep light, watering, and temperature appropriate for the species. Avoid making several major care changes at once." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "根据品种保持合适的光照、浇水和温度，不要一次同时大改多项养护条件。" } } }
+    },
+    "Give it space and resist touching it often. Keep the plant away from abrupt drafts, heat, or strong new sunlight." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "给新叶留出空间，别频繁触碰，并避开突然的穿堂风、热源或骤然增强的阳光。" } } }
+    },
+    "Let the leaf open by itself. Do not peel, pull, or rub the tender blade." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "让叶片自然展开，不要剥、拉或揉搓幼嫩的叶面。" } } }
+    },
+    "Keep watching the whole plant rather than chasing perfect leaves. Record changes over time if a pattern concerns you." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关注整株植物的状态，不必追求每片叶子都完美。如果某种变化反复出现，可以记录下来持续观察。" } } }
+    },
+    "The plant’s bigger story" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "整株植物的成长故事" } } }
+    },
+    "A fresh start" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生命的起点" } } }
+    },
+    "Depending on the species, a new plant can begin from a seed, spore, cutting, division, or offset." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "不同植物的繁殖方式各不相同，可以从种子、孢子、扦插苗、分株或侧芽开始。" } } }
+    },
+    "Juvenile phase" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "幼年阶段" } } }
+    },
+    "A young plant builds roots, stems, and leaves. In some species, juvenile leaves look different from adult leaves." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "幼株会专注长根、茎和叶。有些植物幼年期的叶片与成年后的样子并不相同。" } } }
+    },
+    "Adult phase" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "成年阶段" } } }
+    },
+    "A mature plant gains the ability to reproduce through flowers, cones, or spores, though indoor conditions may not trigger them." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "植物成熟后便具备通过花、球果或孢子繁殖的能力，不过室内环境不一定能促使它们出现。" } } }
+    },
+    "Rest and regrowth" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "休整与再生长" } } }
+    },
+    "Some houseplants slow down when days are shorter, then resume stronger growth when light and conditions improve." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "日照变短时，有些室内植物会放慢生长；等光照和环境改善后，通常会重新活跃起来。" } } }
+    },
+    "Propagation Basics" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "繁殖入门" } } }
+    },
+    "Choose the right method, start a healthy cutting, and care for new roots." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选对方法，做好健康插穗，陪伴新根长成。" } } }
+    },
+    "Opens the propagation basics guide" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开繁殖入门指南" } } }
+    },
+    "GROW ONE INTO MANY" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "一株变多株" } } }
+    },
+    "Start with the right plant part." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选对部位，繁殖就成功了一半。" } } }
+    },
+    "Learn four common ways to make a new plant, what each method needs, and how to care for it while roots develop." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "认识四种常见繁殖方法，了解各自需要什么，以及新根长出期间该怎样照顾。" } } }
+    },
+    "Choose a propagation method" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择繁殖方法" } } }
+    },
+    "Tap a numbered method to learn which plant part it uses." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "点击编号方法，看看它需要植物的哪个部位。" } } }
+    },
+    "Opens propagation method details" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "打开繁殖方法详情" } } }
+    },
+    "The right method depends on the species. A leaf that grows roots does not always have the tissue needed to grow a new shoot." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "合适的方法取决于植物品种。叶片长出根，并不代表它一定具备长出新芽所需的组织。" } } }
+    },
+    "Stem cutting" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "茎插" } } }
+    },
+    "Leaf cutting" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "叶插" } } }
+    },
+    "Division" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "分株" } } }
+    },
+    "Offsets and plantlets" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "侧芽与小苗" } } }
+    },
+    "Root a stem section with the right node" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保留正确的茎节，让茎段长出新根" } } }
+    },
+    "Grow from a leaf when the species allows it" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "适合叶插的品种，可以从一片叶子开始" } } }
+    },
+    "Separate a rooted clump into complete plants" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "把带根的植株分成几株完整小苗" } } }
+    },
+    "Detach a small plant produced by its parent" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "把母株长出的小苗分离出来" } } }
+    },
+    "Before you start" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "动手之前" } } }
+    },
+    "Match the method to the plant" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "先确认植物适合哪种方法" } } }
+    },
+    "Check a reliable, species-specific guide before removing anything from the parent plant." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "从母株剪下任何部位之前，先查阅可靠的品种专属繁殖指南。" } } }
+    },
+    "Choose healthy material" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择健康的繁殖材料" } } }
+    },
+    "Start with growth that is free of pests, disease, rot, and severe stress." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择没有虫害、病害、腐烂或严重受损的健康部位。" } } }
+    },
+    "Use clean, sharp tools" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "工具要干净锋利" } } }
+    },
+    "Clean tools make a neater cut and reduce the chance of carrying pests or pathogens between plants." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "干净的工具能留下整齐切口，也能降低害虫和病原在植物之间传播的风险。" } } }
+    },
+    "A simple workflow" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "简单四步" } } }
+    },
+    "Find the viable part" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "找到能繁殖的部位" } } }
+    },
+    "Identify the node, leaf, rooted division, or offset required by your chosen method." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "根据所选方法，找准需要的茎节、叶片、带根分株或侧芽。" } } }
+    },
+    "Prepare the new home" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "准备新住处" } } }
+    },
+    "Use a clean container and fresh, airy propagation medium—or water when the species and method suit it." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "准备干净容器和新鲜透气的繁殖基质；如果品种和方法合适，也可以用水培生根。" } } }
+    },
+    "Cut or separate gently" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "轻柔剪取或分开" } } }
+    },
+    "Keep the part you need intact. Remove only leaves that would sit below water or the medium." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保留繁殖所需的完整结构，只去掉会浸在水里或埋进基质的叶片。" } } }
+    },
+    "Label and observe" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "做好标签，耐心观察" } } }
+    },
+    "Record the plant and date, then watch for roots, new shoots, and signs of rot or drying." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "记下植物名称和日期，之后留意新根、新芽，以及腐烂或干枯的迹象。" } } }
+    },
+    "Water or potting mix?" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "水培还是基质？" } } }
+    },
+    "Starting in water" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "先在水中生根" } } }
+    },
+    "You can see roots develop and monitor the water level. Move the cutting to mix before the water roots become a crowded tangle." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "水培方便观察新根和水位。不要等水生根挤成一团后才转入基质。" } } }
+    },
+    "Starting in a medium" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "直接在基质中生根" } } }
+    },
+    "Roots develop in the material where the plant may continue growing, but progress is harder to see. Use a fresh, airy medium." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "根会直接适应之后继续生长的环境，但生根进度不容易看见。要使用新鲜、透气的基质。" } } }
+    },
+    "Both approaches can work for some plants. Follow the method recommended for your species rather than choosing only by appearance." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "有些植物两种方式都能成功。应按品种推荐的方法选择，而不是只看哪种更好看。" } } }
+    },
+    "Help new roots succeed" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "帮助新根顺利生长" } } }
+    },
+    "Bright, indirect light" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "明亮散射光" } } }
+    },
+    "Give the propagule useful light without harsh direct sun that can dry or scorch tender growth." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "给繁殖苗充足但柔和的光线，避开会让幼嫩组织失水或灼伤的强烈直射阳光。" } } }
+    },
+    "Moist, not saturated" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保持湿润，不要积水" } } }
+    },
+    "Keep the rooting medium evenly moist and airy. Constantly soggy conditions can encourage rot." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "让生根基质均匀湿润并保持透气，长期湿漉漉容易引起腐烂。" } } }
+    },
+    "Humidity with airflow" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "湿度与通风都要有" } } }
+    },
+    "Extra humidity can reduce water loss, but trapped condensation and stale air can encourage disease." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "适当提高湿度能减少水分流失，但闷住的水汽和不流通的空气也会增加病害风险。" } } }
+    },
+    "Patience" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "给它一点时间" } } }
+    },
+    "Rooting speed varies widely by species, season, temperature, and method. Avoid disturbing the cutting repeatedly." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生根速度会因品种、季节、温度和方法而相差很大，不要反复拔动插穗检查。" } } }
+    },
+    "Ready for the next pot?" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "可以住进新花盆了吗？" } } }
+    },
+    "Look for an established start" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "确认根系已经站稳脚跟" } } }
+    },
+    "Wait for several healthy roots or a rooted division that holds together. New shoot growth is another encouraging sign." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "等长出数条健康新根，或分株的根团已经稳固后再换盆；开始冒出新芽也是好信号。" } } }
+    },
+    "Pause if it is struggling" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "状态不对，先停下来检查" } } }
+    },
+    "Black, mushy, foul-smelling, or collapsing tissue suggests rot. Remove damaged material and review moisture, cleanliness, and airflow." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "组织发黑、软烂、有异味或塌陷，通常提示腐烂。去掉受损部分，并检查湿度、清洁和通风是否合适。" } } }
+    },
+    "Propagation is an experiment, not a promise. Start with one healthy piece, label it, and learn how that species responds before taking more." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "繁殖更像一次小实验，并非每次都保证成功。先从一份健康材料开始，做好标签，摸清这个品种的反应后再多取。" } } }
+    },
+    "PROPAGATION METHOD" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "繁殖方法" } } }
+    },
+    "What to take" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "该取哪个部位" } } }
+    },
+    "How to start" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "怎样开始" } } }
+    },
+    "A piece of stem produces roots and a new shoot. This is common for many vining and trailing houseplants, but the location of the node matters." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "茎段会长出根和新芽。许多藤本、垂吊植物都适合茎插，但茎节的位置非常关键。" } } }
+    },
+    "A whole leaf, petiole, or leaf section can form a new plant in certain species. Other plants may grow roots from a leaf but never produce a shoot." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "某些植物可以用完整叶片、叶柄或叶片切段繁殖；另一些植物的叶片即使长根，也不会冒出新芽。" } } }
+    },
+    "An established clump is separated into smaller plants. Each division begins with both growing points and roots, so it does not need to build a root system from a bare cutting." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "把成熟的丛生植株分成几株小苗。每份分株都保留生长点和根，不必像裸插穗那样从头长根。" } } }
+    },
+    "Some parent plants naturally produce pups, offsets, or plantlets. These can become independent plants once they have enough of their own structure and roots." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "有些母株会自然长出侧芽或小苗。等它们具备足够完整的结构和根系，就可以独立生长。" } } }
+    },
+    "Choose a healthy, preferably non-flowering stem with the number of nodes recommended for the species. A node is where a leaf or bud joins the stem." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择健康、最好没有开花的茎，并按品种要求保留足够茎节。茎节就是叶片或芽与茎相连的位置。" } } }
+    },
+    "Use the leaf, petiole, or leaf section specified for that plant. Keep track of which end is the base when orientation matters." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "按该植物的要求选择叶片、叶柄或叶片切段；如果栽插方向很重要，要记清哪一端朝下。" } } }
+    },
+    "Choose a natural clump with more than one growing point. Plan sections so every new plant keeps healthy shoots and roots." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择带有多个生长点的自然丛生植株，分开时确保每株小苗都保留健康枝叶和根。" } } }
+    },
+    "Choose an offset or plantlet that has begun forming roots, or keep it attached while it roots when the species allows layering." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择已经开始长根的侧芽或小苗；如果品种适合压条，也可以先保持与母株相连，等生根后再分开。" } } }
+    },
+    "Place the correct lower node in water or fresh rooting medium while keeping leaves above the surface. Remove submerged or buried leaves." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "把正确的下方茎节放入水中或新鲜生根基质，叶片留在表面以上，并去掉会被水淹或埋住的叶片。" } } }
+    },
+    "Place the correct cut surface or petiole in fresh rooting medium. Some fleshy plants need the cut to dry first, so check species-specific instructions." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "把正确的切口或叶柄插入新鲜生根基质。有些肉质植物需要先晾干切口，要以品种专属说明为准。" } } }
+    },
+    "Gently tease or make a clean cut between sections, keeping roots attached. Pot each division at about the same depth it was growing before." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "沿分株之间轻轻拨开或整齐切开，尽量保留根系；重新上盆时保持与原来接近的栽种深度。" } } }
+    },
+    "Separate it with a clean cut only when ready, preserve its roots, and place it in a small container with an appropriate fresh mix." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "等小苗准备好后再整齐切离母株，保留根系，并栽进装有合适新基质的小容器。" } } }
     }
   },
   "version" : "1.1"
