@@ -172,11 +172,12 @@ struct WildFindsView: View {
         }
     }
 
-    private var collectionSubtitle: String {
+    private var collectionSubtitle: LocalizedStringKey {
         let count = store.finds.count
-        return count == 1
-            ? AppLocalization.string("You’ve saved 1 discovery")
-            : AppLocalization.string("You’ve saved %lld discoveries", Int64(count))
+        if count == 1 {
+            return "You’ve saved 1 discovery"
+        }
+        return "You’ve saved \(count) discoveries"
     }
 
     private var searchField: some View {

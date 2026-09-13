@@ -485,12 +485,19 @@ struct PlantFormView: View {
             suggestion.careNotes,
             wateringIntervals: suggestion.wateringIntervals
         )
-        if !careNotes.isEmpty, !notes.localizedCaseInsensitiveContains(careNotes) {
+        let taxonomy = formattedTaxonomy(
+            suggestion.taxonomy,
+            species: suggestion.scientificName
+        )
+        let generatedNotes = [taxonomy, careNotes.isEmpty ? "" : "\(AppLocalization.string("Caring guide"))\n\(careNotes)"]
+            .filter { !$0.isEmpty }
+            .joined(separator: "\n\n")
+
+        if !generatedNotes.isEmpty, !notes.localizedCaseInsensitiveContains(generatedNotes) {
             let hasExistingNotes = !notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             let prefix = hasExistingNotes ? "\n\n────────────\n" : ""
             let sectionHeading = AppLocalization.string("AI generated notes below")
-            let guideHeading = AppLocalization.string("Caring guide")
-            notes += "\(prefix)\(sectionHeading)\n\n\(guideHeading)\n\(careNotes)"
+            notes += "\(prefix)\(sectionHeading)\n\n\(generatedNotes)"
         }
     }
 
@@ -554,6 +561,25 @@ struct PlantFormView: View {
         }
 
         return sections.filter { !$0.isEmpty }.joined(separator: "\n\n")
+    }
+
+    private func formattedTaxonomy(
+        _ taxonomy: PlantAITaxonomy,
+        species: String
+    ) -> String {
+        let fields = [
+            (AppLocalization.string("Major group"), taxonomy.majorGroup),
+            (AppLocalization.string("Order"), taxonomy.order),
+            (AppLocalization.string("Family"), taxonomy.family),
+            (AppLocalization.string("Genus"), taxonomy.genus),
+            (AppLocalization.string("Species"), species)
+        ]
+        let lines = fields.compactMap { label, value -> String? in
+            let trimmedValue = value.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmedValue.isEmpty ? nil : "• \(label): \(trimmedValue)"
+        }
+        guard !lines.isEmpty else { return "" }
+        return "\(AppLocalization.string("Taxonomy"))\n\(lines.joined(separator: "\n"))"
     }
 
     private func wateringIntervalText(_ days: Int) -> String {

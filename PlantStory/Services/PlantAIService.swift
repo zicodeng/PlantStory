@@ -8,6 +8,7 @@ struct PlantAISuggestion: Identifiable, Decodable {
     let fertilizingMonths: [Int]
     let pruningMonths: [Int]
     let wateringIntervals: PlantAIWateringIntervals
+    let taxonomy: PlantAITaxonomy
     let careNotes: PlantAICareNotes
     let confidence: Double
     let caveat: String
@@ -19,6 +20,7 @@ struct PlantAISuggestion: Identifiable, Decodable {
         case fertilizingMonths = "fertilizing_months"
         case pruningMonths = "pruning_months"
         case wateringIntervals = "watering_intervals"
+        case taxonomy
         case careNotes = "care_notes"
         case confidence
         case caveat
@@ -89,15 +91,68 @@ struct PlantAICareNotes: Decodable {
 struct WildFindAISuggestion: Identifiable, Decodable {
     let id = UUID()
     let scientificName: String
-    let description: String
+    let fieldGuide: WildFindAIFieldGuide
+    let taxonomy: PlantAITaxonomy
     let confidence: Double
     let caveat: String
 
     private enum CodingKeys: String, CodingKey {
         case scientificName = "scientific_name"
-        case description
+        case fieldGuide = "field_guide"
+        case taxonomy
         case confidence
         case caveat
+    }
+}
+
+struct WildFindAIFieldGuide: Decodable {
+    let appearance: String
+    let identifyingFeatures: String
+    let growthHabit: String
+    let flowersAndFruit: String
+    let habitat: String
+    let nativeRange: String
+    let lookalikes: String
+
+    private enum CodingKeys: String, CodingKey {
+        case appearance
+        case identifyingFeatures = "identifying_features"
+        case growthHabit = "growth_habit"
+        case flowersAndFruit = "flowers_and_fruit"
+        case habitat
+        case nativeRange = "native_range"
+        case lookalikes
+    }
+
+    var hasContent: Bool {
+        [
+            appearance,
+            identifyingFeatures,
+            growthHabit,
+            flowersAndFruit,
+            habitat,
+            nativeRange,
+            lookalikes
+        ].contains { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+    }
+}
+
+struct PlantAITaxonomy: Decodable {
+    let majorGroup: String
+    let order: String
+    let family: String
+    let genus: String
+
+    private enum CodingKeys: String, CodingKey {
+        case majorGroup = "major_group"
+        case order
+        case family
+        case genus
+    }
+
+    var hasContent: Bool {
+        [majorGroup, order, family, genus]
+            .contains { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     }
 }
 
@@ -221,25 +276,27 @@ actor PlantAIService {
         Existing species text, if any: “\(existingSpecies)”.
         The device region is “\(region)”.
 
-        Suggest the most likely plant identity, general fertilizing and pruning months, seasonal watering intervals, and practical care notes for ordinary home growing in that region. Month values must be integers from 1 through 12.
+        Suggest the most likely plant identity, beginner-friendly taxonomy, general fertilizing and pruning months, seasonal watering intervals, and practical care notes for ordinary home growing in that region. Month values must be integers from 1 through 12.
+
+        For taxonomy, provide the broad major group in the requested output language, followed by the standard Latin order, family, and genus. The species is returned separately as the full standard Latin scientific name. Leave uncertain taxonomy fields empty rather than guessing.
 
         Suggest a watering interval in whole days from 1 through 90 for spring, summer, fall, and winter. Base the intervals on the plant's likely indoor needs, typical seasonal growth, and the user's region. Treat these as starting points that the user should adjust for light, temperature, humidity, pot size, and soil. Use null for every seasonal interval when the plant identity is too uncertain to make a responsible recommendation.
 
         Fill each care-notes field with one concise, plant-specific sentence, ideally under 20 words. Cover light, watering cues, soil, humidity, temperature, fertilizing, pruning, repotting, toxicity to people or pets, and visible warning signs. Keep the watering note focused on soil and plant cues rather than repeating the seasonal day intervals. Do not repeat the same advice across fields. Do not put labels, bullets, markdown, or line breaks inside field values because the app formats them. If a detail is not reliably known, say so briefly instead of inventing it.
 
-        Common plant names can be ambiguous: if the identity is uncertain, leave uncertain identity and care-note text empty, return empty month arrays, lower confidence, and explain what identifying details the user should verify. Do not present the result as guaranteed professional advice. \(outputLanguage)
+        Common plant names can be ambiguous: if the identity is uncertain, leave uncertain identity, taxonomy, and care-note text empty, return empty month arrays, lower confidence, and explain what identifying details the user should verify. Do not present the result as guaranteed professional advice. \(outputLanguage)
         """
 
         return [
             "model": model,
             "store": false,
-            "max_output_tokens": 800,
+            "max_output_tokens": 950,
             "input": [
                 [
                     "role": "developer",
                     "content": [[
                         "type": "input_text",
-                        "text": "You are a practical, cautious horticultural assistant. Return only the requested structured plant identity, care calendar, seasonal watering intervals, and concise care notes."
+                        "text": "You are a practical, cautious horticultural assistant. Return only the requested structured plant identity, taxonomy, care calendar, seasonal watering intervals, and concise care notes."
                     ]]
                 ],
                 [
@@ -261,6 +318,17 @@ actor PlantAIService {
                             "common_name": ["type": "string"],
                             "scientific_name": ["type": "string"],
                             "other_name": ["type": "string"],
+                            "taxonomy": [
+                                "type": "object",
+                                "properties": [
+                                    "major_group": ["type": "string"],
+                                    "order": ["type": "string"],
+                                    "family": ["type": "string"],
+                                    "genus": ["type": "string"]
+                                ],
+                                "required": ["major_group", "order", "family", "genus"],
+                                "additionalProperties": false
+                            ],
                             "fertilizing_months": [
                                 "type": "array",
                                 "items": ["type": "integer", "minimum": 1, "maximum": 12]
@@ -315,6 +383,7 @@ actor PlantAIService {
                             "common_name",
                             "scientific_name",
                             "other_name",
+                            "taxonomy",
                             "fertilizing_months",
                             "pruning_months",
                             "watering_intervals",
@@ -335,19 +404,23 @@ actor PlantAIService {
         The user saved a wild plant under the name “\(plantName)”.
         Existing species text, if any: “\(existingSpecies)”.
 
-        Suggest the most likely scientific species and a concise field-guide description. The description should be two to four short sentences focused on the likely plant’s appearance, notable botanical traits, and typical habitat or native range when reliable. The user has not provided an image to analyze, so do not claim to have observed specific features in their individual plant. Do not include watering, fertilizing, pruning, propagation, or other care instructions. Common names can be ambiguous: if identity is uncertain, leave the scientific name empty, lower confidence, and explain what identifying details the user should verify. \(outputLanguage)
+        Suggest the most likely scientific species, a structured beginner-friendly field guide, and its taxonomy. Fill each field-guide value with one concise sentence, ideally under 20 words. Cover appearance, useful identifying features, growth habit, flowers or fruit, habitat, native range, and likely lookalikes. Do not repeat the same fact across fields, and leave a field empty when it is not reliably known.
+
+        For taxonomy, provide the broad major group in the requested output language, followed by the standard Latin order, family, and genus. The species is returned separately as the full standard Latin scientific name. The user has not provided an image to analyze, so do not claim to have observed specific features in their individual plant. Do not include watering, fertilizing, pruning, propagation, or other care instructions. Do not put labels, bullets, markdown, or line breaks inside field values because the app formats them.
+
+        Common names can be ambiguous: if identity is too uncertain, leave the scientific name and uncertain field values empty, lower confidence, and explain which visible features the user should verify. Do not present the result as a guaranteed identification. \(outputLanguage)
         """
 
         return [
             "model": model,
             "store": false,
-            "max_output_tokens": 600,
+            "max_output_tokens": 850,
             "input": [
                 [
                     "role": "developer",
                     "content": [[
                         "type": "input_text",
-                        "text": "You are a cautious botanical field-guide assistant. Return only the requested structured identification and plant description, never a care guide."
+                        "text": "You are a cautious botanical field-guide assistant. Return only the requested structured identification, field guide, and taxonomy, never a care guide."
                     ]]
                 ],
                 [
@@ -367,13 +440,46 @@ actor PlantAIService {
                         "type": "object",
                         "properties": [
                             "scientific_name": ["type": "string"],
-                            "description": ["type": "string"],
+                            "field_guide": [
+                                "type": "object",
+                                "properties": [
+                                    "appearance": ["type": "string"],
+                                    "identifying_features": ["type": "string"],
+                                    "growth_habit": ["type": "string"],
+                                    "flowers_and_fruit": ["type": "string"],
+                                    "habitat": ["type": "string"],
+                                    "native_range": ["type": "string"],
+                                    "lookalikes": ["type": "string"]
+                                ],
+                                "required": [
+                                    "appearance",
+                                    "identifying_features",
+                                    "growth_habit",
+                                    "flowers_and_fruit",
+                                    "habitat",
+                                    "native_range",
+                                    "lookalikes"
+                                ],
+                                "additionalProperties": false
+                            ],
+                            "taxonomy": [
+                                "type": "object",
+                                "properties": [
+                                    "major_group": ["type": "string"],
+                                    "order": ["type": "string"],
+                                    "family": ["type": "string"],
+                                    "genus": ["type": "string"]
+                                ],
+                                "required": ["major_group", "order", "family", "genus"],
+                                "additionalProperties": false
+                            ],
                             "confidence": ["type": "number", "minimum": 0, "maximum": 1],
                             "caveat": ["type": "string"]
                         ],
                         "required": [
                             "scientific_name",
-                            "description",
+                            "field_guide",
+                            "taxonomy",
                             "confidence",
                             "caveat"
                         ],

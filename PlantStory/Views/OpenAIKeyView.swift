@@ -221,6 +221,15 @@ struct PlantAISuggestionReviewView: View {
                     suggestionRow("Other name", value: suggestion.otherName)
                 }
 
+                if suggestion.taxonomy.hasContent {
+                    Section("Taxonomy") {
+                        suggestionRow("Major group", value: suggestion.taxonomy.majorGroup)
+                        suggestionRow("Order", value: suggestion.taxonomy.order)
+                        suggestionRow("Family", value: suggestion.taxonomy.family)
+                        suggestionRow("Genus", value: suggestion.taxonomy.genus)
+                    }
+                }
+
                 Section("Care calendar") {
                     suggestionRow("Fertilize", value: monthNames(suggestion.fertilizingMonths))
                     suggestionRow("Prune", value: monthNames(suggestion.pruningMonths))

@@ -10197,6 +10197,42 @@
     },
     "Kentia palm" : {
       "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "肯氏椰子" } } }
+    },
+    "AI can suggest a species, structured field guide, and taxonomy—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "AI 可以帮你推测物种、生成结构化野外图鉴和分类信息，但不会提供养护指南。每次生成都会消耗你自己的 OpenAI API 额度，采用前可以先查看内容。" } } }
+    },
+    "AI can confuse plants with similar common names. No photo was analyzed, so review the species, taxonomy, and field guide before applying them." : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "AI 可能会混淆俗名相近的植物。本次未分析照片，请在采用前核对物种、分类信息和野外图鉴。" } } }
+    },
+    "Appearance" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "外观" } } }
+    },
+    "Field guide" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "野外图鉴" } } }
+    },
+    "Flowers and fruit" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "花与果实" } } }
+    },
+    "Growth habit" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生长形态" } } }
+    },
+    "Habitat" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生境" } } }
+    },
+    "Identifying features" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "识别特征" } } }
+    },
+    "Lookalikes" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "相似植物" } } }
+    },
+    "Major group" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主要类群" } } }
+    },
+    "Native range" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "原生分布" } } }
+    },
+    "Taxonomy" : {
+      "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "植物分类" } } }
     }
   },
   "version" : "1.1"

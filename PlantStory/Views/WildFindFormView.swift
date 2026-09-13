@@ -122,7 +122,7 @@ struct WildFindFormView: View {
                     Text("AI assistant")
                 } footer: {
                     if openAIKeyStore.hasAPIKey {
-                        Text("AI can suggest a species and short botanical description—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it.")
+                        Text("AI can suggest a species, structured field guide, and taxonomy—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it.")
                     } else {
                         Text("AI is optional. Add your own OpenAI API key in Settings to unlock Wild Find suggestions.")
                     }
@@ -363,11 +363,54 @@ struct WildFindFormView: View {
             species = suggestedSpecies
         }
 
-        let description = suggestion.description.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !description.isEmpty, !notes.localizedCaseInsensitiveContains(description) {
-            let prefix = notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "" : "\n\n"
-            notes += "\(prefix)\(description)"
+        let generatedNotes = formattedAISuggestion(suggestion)
+        if !generatedNotes.isEmpty, !notes.localizedCaseInsensitiveContains(generatedNotes) {
+            let hasExistingNotes = !notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            let prefix = hasExistingNotes ? "\n\n────────────\n" : ""
+            let sectionHeading = AppLocalization.string("AI generated notes below")
+            notes += "\(prefix)\(sectionHeading)\n\n\(generatedNotes)"
         }
+    }
+
+    private func formattedAISuggestion(_ suggestion: WildFindAISuggestion) -> String {
+        let fieldGuideFields = [
+            (AppLocalization.string("Appearance"), suggestion.fieldGuide.appearance),
+            (AppLocalization.string("Identifying features"), suggestion.fieldGuide.identifyingFeatures),
+            (AppLocalization.string("Growth habit"), suggestion.fieldGuide.growthHabit),
+            (AppLocalization.string("Flowers and fruit"), suggestion.fieldGuide.flowersAndFruit),
+            (AppLocalization.string("Habitat"), suggestion.fieldGuide.habitat),
+            (AppLocalization.string("Native range"), suggestion.fieldGuide.nativeRange),
+            (AppLocalization.string("Lookalikes"), suggestion.fieldGuide.lookalikes)
+        ]
+        let taxonomyFields = [
+            (AppLocalization.string("Major group"), suggestion.taxonomy.majorGroup),
+            (AppLocalization.string("Order"), suggestion.taxonomy.order),
+            (AppLocalization.string("Family"), suggestion.taxonomy.family),
+            (AppLocalization.string("Genus"), suggestion.taxonomy.genus),
+            (AppLocalization.string("Species"), suggestion.scientificName)
+        ]
+
+        let fieldGuide = formattedBulletSection(
+            title: AppLocalization.string("Field guide"),
+            fields: fieldGuideFields
+        )
+        let taxonomy = formattedBulletSection(
+            title: AppLocalization.string("Taxonomy"),
+            fields: taxonomyFields
+        )
+        return [taxonomy, fieldGuide].filter { !$0.isEmpty }.joined(separator: "\n\n")
+    }
+
+    private func formattedBulletSection(
+        title: String,
+        fields: [(String, String)]
+    ) -> String {
+        let lines = fields.compactMap { label, value -> String? in
+            let trimmedValue = value.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmedValue.isEmpty ? nil : "• \(label): \(trimmedValue)"
+        }
+        guard !lines.isEmpty else { return "" }
+        return "\(title)\n\(lines.joined(separator: "\n"))"
     }
 
     @MainActor
@@ -411,9 +454,24 @@ private struct WildFindAISuggestionReviewView: View {
                     suggestionRow("Species", value: suggestion.scientificName)
                 }
 
-                if !suggestion.description.isEmpty {
-                    Section("Plant description") {
-                        Text(suggestion.description)
+                if suggestion.taxonomy.hasContent {
+                    Section("Taxonomy") {
+                        suggestionRow("Major group", value: suggestion.taxonomy.majorGroup)
+                        suggestionRow("Order", value: suggestion.taxonomy.order)
+                        suggestionRow("Family", value: suggestion.taxonomy.family)
+                        suggestionRow("Genus", value: suggestion.taxonomy.genus)
+                    }
+                }
+
+                if suggestion.fieldGuide.hasContent {
+                    Section("Field guide") {
+                        fieldGuideRow("Appearance", value: suggestion.fieldGuide.appearance)
+                        fieldGuideRow("Identifying features", value: suggestion.fieldGuide.identifyingFeatures)
+                        fieldGuideRow("Growth habit", value: suggestion.fieldGuide.growthHabit)
+                        fieldGuideRow("Flowers and fruit", value: suggestion.fieldGuide.flowersAndFruit)
+                        fieldGuideRow("Habitat", value: suggestion.fieldGuide.habitat)
+                        fieldGuideRow("Native range", value: suggestion.fieldGuide.nativeRange)
+                        fieldGuideRow("Lookalikes", value: suggestion.fieldGuide.lookalikes)
                     }
                 }
 
@@ -429,7 +487,7 @@ private struct WildFindAISuggestionReviewView: View {
                             .foregroundStyle(.secondary)
                     }
                 } footer: {
-                    Text("AI can confuse plants with similar common names. No photo was analyzed, so review the species and description before applying them.")
+                    Text("AI can confuse plants with similar common names. No photo was analyzed, so review the species, taxonomy, and field guide before applying them.")
                 }
             }
             .navigationTitle("Review suggestion")
@@ -463,6 +521,22 @@ private struct WildFindAISuggestionReviewView: View {
             }
             .foregroundStyle(.secondary)
             .multilineTextAlignment(.trailing)
+        }
+    }
+
+    @ViewBuilder
+    private func fieldGuideRow(_ title: LocalizedStringKey, value: String) -> some View {
+        let trimmedValue = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmedValue.isEmpty {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.subheadline.weight(.semibold))
+                Text(trimmedValue)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(.vertical, 2)
         }
     }
 }
