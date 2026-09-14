@@ -10310,6 +10310,276 @@
     },
     "Taxonomy" : {
       "localizations" : { "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "植物分类" } } }
+    },
+    "Root close-up" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系特写"
+          }
+        }
+      }
+    },
+    "Explore how roots anchor a plant, absorb water, and keep growing." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索根系如何固定植物、吸收水分并持续生长。"
+          }
+        }
+      }
+    },
+    "Tap a dot to explore a healthy root system." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击圆点，探索健康根系的结构。"
+          }
+        }
+      }
+    },
+    "Root crown" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根颈"
+          }
+        }
+      }
+    },
+    "The root crown is the transition point where the stem meets and branches into the root system." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根颈是茎与根系相连并开始分枝的过渡部位。"
+          }
+        }
+      }
+    },
+    "Find the slightly thickened area directly below the base of the stem." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在茎基部正下方寻找略微膨大的部位。"
+          }
+        }
+      }
+    },
+    "Keep the crown near the plant's original planting depth. Burying it too deeply can trap moisture." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "让根颈保持在植物原来的种植深度附近；埋得过深可能积聚水分。"
+          }
+        }
+      }
+    },
+    "Structural root" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支撑根"
+          }
+        }
+      }
+    },
+    "Thick structural roots anchor the plant and form the framework that supports smaller roots." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "粗壮的支撑根固定植物，并形成承托较小根系的骨架。"
+          }
+        }
+      }
+    },
+    "Trace one of the thick roots spreading away from the crown before it divides." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沿着一条从根颈向外伸展、尚未分枝的粗根观察。"
+          }
+        }
+      }
+    },
+    "A firm structural root supports the whole system. Soft or hollow sections may indicate damage or rot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "结实的支撑根承托整个根系；柔软或中空的部位可能表示受损或腐烂。"
+          }
+        }
+      }
+    },
+    "Lateral root" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "侧根"
+          }
+        }
+      }
+    },
+    "Lateral roots branch from larger roots, expanding the area where the plant can find water and minerals." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "侧根从较粗的根上分出，扩大植物寻找水分和矿物质的范围。"
+          }
+        }
+      }
+    },
+    "Look for medium-sized roots growing sideways from a thicker structural root." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "寻找从较粗支撑根侧面长出的中等粗细根。"
+          }
+        }
+      }
+    },
+    "Healthy branching gives the plant more access to moisture while helping hold it securely in the pot." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "健康的分枝让植物接触更多水分，也帮助它稳固在花盆中。"
+          }
+        }
+      }
+    },
+    "Fine root" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "细根"
+          }
+        }
+      }
+    },
+    "Fine roots are the small, delicate branches that do much of the root system's water and mineral uptake." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "细根是细小脆弱的分枝，承担根系大部分水分和矿物质吸收工作。"
+          }
+        }
+      }
+    },
+    "Follow a lateral root outward to the thinnest branching roots near its ends." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沿侧根向外观察，在末端附近寻找最细的分枝根。"
+          }
+        }
+      }
+    },
+    "Fine roots dry out and become damaged faster than thick roots, so handle them gently when repotting." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "细根比粗根更容易干燥和受损，因此换盆时要轻柔处理。"
+          }
+        }
+      }
+    },
+    "Root-hair zone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根毛区"
+          }
+        }
+      }
+    },
+    "Thousands of microscopic root hairs increase the surface area available to absorb water and dissolved minerals." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数以千计的微小根毛扩大表面积，用来吸收水分和溶解的矿物质。"
+          }
+        }
+      }
+    },
+    "On a very young root, this zone sits just behind the smooth growing tip and may look softly fuzzy." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在很幼嫩的根上，根毛区位于光滑生长根尖的后方，看起来可能带有柔软细绒。"
+          }
+        }
+      }
+    },
+    "Root hairs are fragile and short-lived. New ones continually form as a healthy root grows through the potting mix." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根毛脆弱且寿命很短；健康的根在盆土中生长时会不断形成新的根毛。"
+          }
+        }
+      }
+    },
+    "Growing root tip" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生长根尖"
+          }
+        }
+      }
+    },
+    "The growing tip lengthens the root, while a tiny root cap protects its tender cells as it moves through the potting mix." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生长根尖让根伸长，微小的根冠则在根穿过盆土时保护娇嫩细胞。"
+          }
+        }
+      }
+    },
+    "Look for a smooth, pale or cream-colored point at the end of a healthy young root." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在健康幼根末端寻找光滑、浅色或乳白色的尖端。"
+          }
+        }
+      }
+    },
+    "Fresh tips signal active growth. Avoid tearing or crushing them when loosening roots during repotting." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新鲜根尖表示根系正在生长；换盆松根时不要撕裂或挤压它们。"
+          }
+        }
+      }
     }
   },
   "version" : "1.1"

@@ -8,6 +8,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Added **Plant Wiki**, a new beginner-friendly learning tab with visual guides for plant anatomy, common problems, leaf shapes and patterns, common pests, roots and repotting, watering, light, new growth and life stages, propagation, and plant families and taxonomy.
 - Added interactive plant illustrations and visual comparisons that make unfamiliar plant parts, symptoms, light levels, pests, roots, and propagation methods easier to recognize.
+- Added an interactive root close-up covering the root crown, structural and lateral roots, fine roots, root hairs, and growing tips.
 - Added an offline **Houseplant Family Finder** that can search common names, scientific names, alternate names, genera, and families without uploading search data.
 - Added local watering reminders with a customizable schedule and time for each plant, reminder status on garden cards, and a central reminder dashboard in Settings.
 - Added seasonal watering schedules with separate spring, summer, fall, and winter intervals and one shared active-season setting for the whole garden.

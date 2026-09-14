@@ -282,6 +282,7 @@ private struct PlantAnatomyLibraryView: View {
 
 private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     case wholePlant
+    case root
     case leaf
     case flower
 
@@ -290,6 +291,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     var titleKey: String {
         switch self {
         case .wholePlant: "Whole plant"
+        case .root: "Root close-up"
         case .leaf: "Leaf close-up"
         case .flower: "Flower close-up"
         }
@@ -298,6 +300,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     var subtitleKey: String {
         switch self {
         case .wholePlant: "Start with the structures you can see from roots to flower."
+        case .root: "Explore how roots anchor a plant, absorb water, and keep growing."
         case .leaf: "Look closely at how a leaf is built to collect light."
         case .flower: "Explore the parts a flower uses to make seeds."
         }
@@ -306,6 +309,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     var instructionKey: String {
         switch self {
         case .wholePlant: "Tap a dot to discover each part of the plant."
+        case .root: "Tap a dot to explore a healthy root system."
         case .leaf: "Tap a dot to explore the structures of a leaf."
         case .flower: "Tap a dot to look inside a flower."
         }
@@ -314,6 +318,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     var imageName: String {
         switch self {
         case .wholePlant: "PlantAnatomyWhole"
+        case .root: "PlantAnatomyRoot"
         case .leaf: "PlantAnatomyLeaf"
         case .flower: "PlantAnatomyFlower"
         }
@@ -322,6 +327,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     var imageAspectRatio: CGFloat {
         switch self {
         case .wholePlant: 1122 / 1402
+        case .root: 1240 / 1269
         case .leaf: 1448 / 1086
         case .flower: 1
         }
@@ -330,6 +336,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     var accent: Color {
         switch self {
         case .wholePlant: Color(red: 0.36, green: 0.82, blue: 0.12)
+        case .root: Color(red: 0.72, green: 0.45, blue: 0.24)
         case .leaf: Color(red: 0.18, green: 0.68, blue: 0.48)
         case .flower: Color(red: 0.96, green: 0.43, blue: 0.36)
         }
@@ -338,6 +345,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
     var parts: [AnatomyPart] {
         switch self {
         case .wholePlant: AnatomyPart.wholePlantParts
+        case .root: AnatomyPart.rootParts
         case .leaf: AnatomyPart.leafParts
         case .flower: AnatomyPart.flowerParts
         }
@@ -433,6 +441,66 @@ private extension AnatomyPart {
         spottingKey: "Flowers usually open from buds and may have colorful petals around their center.",
         importanceKey: "Removing spent flowers can redirect energy, but some plants need them to make seeds or fruit.",
         position: CGPoint(x: 0.68, y: 0.14)
+    )
+
+    static let rootCrown = AnatomyPart(
+        id: "root-crown",
+        titleKey: "Root crown",
+        pronunciationKey: nil,
+        functionKey: "The root crown is the transition point where the stem meets and branches into the root system.",
+        spottingKey: "Find the slightly thickened area directly below the base of the stem.",
+        importanceKey: "Keep the crown near the plant's original planting depth. Burying it too deeply can trap moisture.",
+        position: CGPoint(x: 0.50, y: 0.21)
+    )
+
+    static let structuralRoot = AnatomyPart(
+        id: "structural-root",
+        titleKey: "Structural root",
+        pronunciationKey: nil,
+        functionKey: "Thick structural roots anchor the plant and form the framework that supports smaller roots.",
+        spottingKey: "Trace one of the thick roots spreading away from the crown before it divides.",
+        importanceKey: "A firm structural root supports the whole system. Soft or hollow sections may indicate damage or rot.",
+        position: CGPoint(x: 0.52, y: 0.48)
+    )
+
+    static let lateralRoot = AnatomyPart(
+        id: "lateral-root",
+        titleKey: "Lateral root",
+        pronunciationKey: "LAT-er-uhl root",
+        functionKey: "Lateral roots branch from larger roots, expanding the area where the plant can find water and minerals.",
+        spottingKey: "Look for medium-sized roots growing sideways from a thicker structural root.",
+        importanceKey: "Healthy branching gives the plant more access to moisture while helping hold it securely in the pot.",
+        position: CGPoint(x: 0.76, y: 0.43)
+    )
+
+    static let fineRoot = AnatomyPart(
+        id: "fine-root",
+        titleKey: "Fine root",
+        pronunciationKey: nil,
+        functionKey: "Fine roots are the small, delicate branches that do much of the root system's water and mineral uptake.",
+        spottingKey: "Follow a lateral root outward to the thinnest branching roots near its ends.",
+        importanceKey: "Fine roots dry out and become damaged faster than thick roots, so handle them gently when repotting.",
+        position: CGPoint(x: 0.18, y: 0.57)
+    )
+
+    static let rootHairZone = AnatomyPart(
+        id: "root-hair-zone",
+        titleKey: "Root-hair zone",
+        pronunciationKey: nil,
+        functionKey: "Thousands of microscopic root hairs increase the surface area available to absorb water and dissolved minerals.",
+        spottingKey: "On a very young root, this zone sits just behind the smooth growing tip and may look softly fuzzy.",
+        importanceKey: "Root hairs are fragile and short-lived. New ones continually form as a healthy root grows through the potting mix.",
+        position: CGPoint(x: 0.31, y: 0.75)
+    )
+
+    static let growingRootTip = AnatomyPart(
+        id: "growing-root-tip",
+        titleKey: "Growing root tip",
+        pronunciationKey: nil,
+        functionKey: "The growing tip lengthens the root, while a tiny root cap protects its tender cells as it moves through the potting mix.",
+        spottingKey: "Look for a smooth, pale or cream-colored point at the end of a healthy young root.",
+        importanceKey: "Fresh tips signal active growth. Avoid tearing or crushing them when loosening roots during repotting.",
+        position: CGPoint(x: 0.76, y: 0.83)
     )
 
     static let blade = AnatomyPart(
@@ -567,6 +635,10 @@ private extension AnatomyPart {
 
     static let wholePlantParts: [AnatomyPart] = [
         roots, stem, node, internode, leaf, petiole, bud, flower
+    ]
+
+    static let rootParts: [AnatomyPart] = [
+        rootCrown, structuralRoot, lateralRoot, fineRoot, rootHairZone, growingRootTip
     ]
 
     static let leafParts: [AnatomyPart] = [
