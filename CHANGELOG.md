@@ -2,7 +2,7 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
-## [1.1.0] - Unreleased
+## [1.1.0] - 2026-09-14
 
 ### New features
 
@@ -28,7 +28,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 - Fixed missing Chinese Plant Wiki translations and removed English pronunciation hints from Chinese plant-part lessons.
 - Refined seasonal controls with distinct icons and colors, more consistent spacing, and no unexpected animation when switching guide tabs.
 
-## [1.0.0] - Initial release
+## [1.0.0] - 2026-09-14 (Initial release)
 
 ### New features
 
