@@ -251,7 +251,7 @@ private struct PlantAnatomyLibraryView: View {
                     .scaledToFit()
                     .frame(width: 76, height: 76)
                     .padding(8)
-                    .background(lesson.accent.opacity(0.12), in: RoundedRectangle(cornerRadius: 18))
+                    .background(lesson.thumbnailTint.opacity(0.14), in: RoundedRectangle(cornerRadius: 18))
                     .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: 5) {
@@ -280,6 +280,7 @@ private struct PlantAnatomyLibraryView: View {
 private enum AnatomyLesson: String, CaseIterable, Identifiable {
     case wholePlant
     case root
+    case stemAndNode
     case leaf
     case flower
 
@@ -289,6 +290,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
         switch self {
         case .wholePlant: "Whole plant"
         case .root: "Root close-up"
+        case .stemAndNode: "Stem & node close-up"
         case .leaf: "Leaf close-up"
         case .flower: "Flower close-up"
         }
@@ -298,6 +300,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
         switch self {
         case .wholePlant: "Start with the structures you can see from roots to flower."
         case .root: "Explore how roots anchor a plant, absorb water, and keep growing."
+        case .stemAndNode: "See where leaves, buds, and roots connect to make new growth."
         case .leaf: "Look closely at how a leaf is built to collect light."
         case .flower: "Explore the parts a flower uses to make seeds."
         }
@@ -307,6 +310,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
         switch self {
         case .wholePlant: "Tap a dot to discover each part of the plant."
         case .root: "Tap a dot to explore a healthy root system."
+        case .stemAndNode: "Tap a dot to explore how a stem grows and branches."
         case .leaf: "Tap a dot to explore the structures of a leaf."
         case .flower: "Tap a dot to look inside a flower."
         }
@@ -316,6 +320,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
         switch self {
         case .wholePlant: "PlantAnatomyWhole"
         case .root: "PlantAnatomyRoot"
+        case .stemAndNode: "PlantAnatomyStemNode"
         case .leaf: "PlantAnatomyLeaf"
         case .flower: "PlantAnatomyFlower"
         }
@@ -325,6 +330,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
         switch self {
         case .wholePlant: 1122 / 1402
         case .root: 1240 / 1269
+        case .stemAndNode: 1024 / 1536
         case .leaf: 1448 / 1086
         case .flower: 1
         }
@@ -334,8 +340,16 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
         switch self {
         case .wholePlant: Color(red: 0.36, green: 0.82, blue: 0.12)
         case .root: Color(red: 0.72, green: 0.45, blue: 0.24)
+        case .stemAndNode: Color(red: 0.20, green: 0.62, blue: 0.42)
         case .leaf: Color(red: 0.18, green: 0.68, blue: 0.48)
         case .flower: Color(red: 0.96, green: 0.43, blue: 0.36)
+        }
+    }
+
+    var thumbnailTint: Color {
+        switch self {
+        case .stemAndNode: Color(red: 0.90, green: 0.65, blue: 0.22)
+        default: accent
         }
     }
 
@@ -343,6 +357,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
         switch self {
         case .wholePlant: AnatomyPart.wholePlantParts
         case .root: AnatomyPart.rootParts
+        case .stemAndNode: AnatomyPart.stemAndNodeParts
         case .leaf: AnatomyPart.leafParts
         case .flower: AnatomyPart.flowerParts
         }
@@ -500,6 +515,46 @@ private extension AnatomyPart {
         position: CGPoint(x: 0.76, y: 0.83)
     )
 
+    static let axillaryBud = AnatomyPart(
+        id: "axillary-bud",
+        titleKey: "Axillary bud",
+        pronunciationKey: "AK-suh-lair-ee bud",
+        functionKey: "An axillary bud is a small growth point that can develop into a side shoot or, in some plants, a flower.",
+        spottingKey: "Look just above the place where a petiole meets the stem at a node.",
+        importanceKey: "After the main tip is pruned, a healthy axillary bud may begin growing and make the plant branch.",
+        position: CGPoint(x: 0.39, y: 0.55)
+    )
+
+    static let aerialRoot = AnatomyPart(
+        id: "aerial-root",
+        titleKey: "Aerial root",
+        pronunciationKey: "AIR-ee-uhl root",
+        functionKey: "An aerial root grows from an above-ground stem and may help a climbing plant attach to support.",
+        spottingKey: "Look for a firm green or brown nub emerging from a node, often opposite a leaf.",
+        importanceKey: "Guide longer aerial roots toward a support or potting mix when helpful. They are normal growth, not a pest.",
+        position: CGPoint(x: 0.23, y: 0.63)
+    )
+
+    static let leafScar = AnatomyPart(
+        id: "leaf-scar",
+        titleKey: "Leaf scar",
+        pronunciationKey: nil,
+        functionKey: "A leaf scar marks the place where a leaf or its petiole was once attached to the stem.",
+        spottingKey: "Find a dry, shaped mark at a node where no leaf is currently attached.",
+        importanceKey: "A clean, dry scar is usually normal. A soft, dark, or spreading patch deserves a closer look.",
+        position: CGPoint(x: 0.35, y: 0.34)
+    )
+
+    static let shootTip = AnatomyPart(
+        id: "shoot-tip",
+        titleKey: "Shoot tip",
+        pronunciationKey: nil,
+        functionKey: "The shoot tip contains the plant's active growing region, where new stem and leaves begin.",
+        spottingKey: "Find the newest folded or tightly clustered growth at the end of the stem.",
+        importanceKey: "Protect the tender tip while it grows. Removing it can encourage some plants to branch from buds below.",
+        position: CGPoint(x: 0.31, y: 0.12)
+    )
+
     static let blade = AnatomyPart(
         id: "blade",
         titleKey: "Leaf blade",
@@ -636,6 +691,49 @@ private extension AnatomyPart {
 
     static let rootParts: [AnatomyPart] = [
         rootCrown, structuralRoot, lateralRoot, fineRoot, rootHairZone, growingRootTip
+    ]
+
+    static let stemAndNodeParts: [AnatomyPart] = [
+        AnatomyPart(
+            id: stem.id,
+            titleKey: stem.titleKey,
+            pronunciationKey: stem.pronunciationKey,
+            functionKey: stem.functionKey,
+            spottingKey: stem.spottingKey,
+            importanceKey: stem.importanceKey,
+            position: CGPoint(x: 0.34, y: 0.44)
+        ),
+        AnatomyPart(
+            id: node.id,
+            titleKey: node.titleKey,
+            pronunciationKey: node.pronunciationKey,
+            functionKey: node.functionKey,
+            spottingKey: node.spottingKey,
+            importanceKey: node.importanceKey,
+            position: CGPoint(x: 0.35, y: 0.61)
+        ),
+        AnatomyPart(
+            id: internode.id,
+            titleKey: internode.titleKey,
+            pronunciationKey: internode.pronunciationKey,
+            functionKey: internode.functionKey,
+            spottingKey: internode.spottingKey,
+            importanceKey: internode.importanceKey,
+            position: CGPoint(x: 0.36, y: 0.73)
+        ),
+        AnatomyPart(
+            id: petiole.id,
+            titleKey: petiole.titleKey,
+            pronunciationKey: petiole.pronunciationKey,
+            functionKey: petiole.functionKey,
+            spottingKey: petiole.spottingKey,
+            importanceKey: petiole.importanceKey,
+            position: CGPoint(x: 0.52, y: 0.55)
+        ),
+        axillaryBud,
+        aerialRoot,
+        leafScar,
+        shootTip
     ]
 
     static let leafParts: [AnatomyPart] = [

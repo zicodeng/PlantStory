@@ -12835,6 +12835,196 @@
           }
         }
       }
+    },
+    "Stem & node close-up" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎与节特写"
+          }
+        }
+      }
+    },
+    "See where leaves, buds, and roots connect to make new growth." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察叶片、芽和根如何连接在茎上并形成新生长。"
+          }
+        }
+      }
+    },
+    "Tap a dot to explore how a stem grows and branches." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击圆点，探索茎如何生长和分枝。"
+          }
+        }
+      }
+    },
+    "Axillary bud" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "腋芽"
+          }
+        }
+      }
+    },
+    "An axillary bud is a small growth point that can develop into a side shoot or, in some plants, a flower." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "腋芽是一个小生长点，可以发育成侧枝，在某些植物上也能发育成花。"
+          }
+        }
+      }
+    },
+    "Look just above the place where a petiole meets the stem at a node." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在叶柄与茎相接的节上方寻找。"
+          }
+        }
+      }
+    },
+    "After the main tip is pruned, a healthy axillary bud may begin growing and make the plant branch." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主茎顶端被修剪后，健康的腋芽可能开始生长，让植物产生分枝。"
+          }
+        }
+      }
+    },
+    "Aerial root" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "气生根"
+          }
+        }
+      }
+    },
+    "An aerial root grows from an above-ground stem and may help a climbing plant attach to support." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "气生根从地上茎长出，可帮助攀援植物附着在支撑物上。"
+          }
+        }
+      }
+    },
+    "Look for a firm green or brown nub emerging from a node, often opposite a leaf." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在节上寻找坚实的绿色或棕色小突起，通常位于叶片对面。"
+          }
+        }
+      }
+    },
+    "Guide longer aerial roots toward a support or potting mix when helpful. They are normal growth, not a pest." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "较长的气生根可按需引向支撑物或盆土。它们是正常生长，并非害虫。"
+          }
+        }
+      }
+    },
+    "Leaf scar" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶痕"
+          }
+        }
+      }
+    },
+    "A leaf scar marks the place where a leaf or its petiole was once attached to the stem." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶痕标记叶片或叶柄曾经与茎连接的位置。"
+          }
+        }
+      }
+    },
+    "Find a dry, shaped mark at a node where no leaf is currently attached." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在目前没有叶片的节上寻找干燥、有形状的痕迹。"
+          }
+        }
+      }
+    },
+    "A clean, dry scar is usually normal. A soft, dark, or spreading patch deserves a closer look." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "干燥整洁的叶痕通常正常；柔软、发黑或扩散的斑块需要仔细检查。"
+          }
+        }
+      }
+    },
+    "Shoot tip" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎尖"
+          }
+        }
+      }
+    },
+    "The shoot tip contains the plant's active growing region, where new stem and leaves begin." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎尖包含植物活跃的生长区域，新茎和叶片从这里开始形成。"
+          }
+        }
+      }
+    },
+    "Find the newest folded or tightly clustered growth at the end of the stem." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在茎的末端寻找最新的折叠状或紧密簇生的新生组织。"
+          }
+        }
+      }
+    },
+    "Protect the tender tip while it grows. Removing it can encourage some plants to branch from buds below." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生长时保护娇嫩的茎尖。移除茎尖可能促使某些植物从下方芽点分枝。"
+          }
+        }
+      }
     }
   },
   "version" : "1.1"
