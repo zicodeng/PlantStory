@@ -14,6 +14,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 - Expanded My Garden AI suggestions with structured care guides, seasonal watering recommendations, plant taxonomy, and an option to create a reminder from the suggested intervals.
 - Expanded Wild Finds AI suggestions with a taxonomy-first layout and structured field-guide details covering appearance, identifying features, growth habit, flowers and fruit, habitat, native range, and lookalikes.
 - Added complete English and Simplified Chinese localization for the new reminders, AI guidance, and Plant Wiki content.
+- Added a medium Home Screen widget that shows up to three due watering reminders and opens the selected plant.
 
 ### Bug fixes
 

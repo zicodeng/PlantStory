@@ -55,10 +55,12 @@ struct PlantStoryApp: App {
                     await aiAvailabilityStore.monitorStorefront()
                 }
                 .task(id: appLanguageCode) {
+                    WidgetWateringSnapshotWriter.update(plants: store.plants)
                     WateringReminderService.shared.configureNotificationCategories()
                     await WateringReminderService.shared.reconcile(plants: store.plants)
                 }
                 .task(id: activeWateringSeasonCode) {
+                    WidgetWateringSnapshotWriter.update(plants: store.plants)
                     await WateringReminderService.shared.reconcile(plants: store.plants)
                 }
                 .onReceive(store.$plants) { plants in
@@ -235,6 +237,19 @@ final class AppNavigationStore: ObservableObject {
         selectedTab = .garden
         gardenPath = [id]
     }
+
+    func handle(url: URL) {
+        guard url.scheme == "plantstory" else { return }
+
+        if url.host == "plant",
+           let idString = url.pathComponents.dropFirst().first,
+           let id = UUID(uuidString: idString) {
+            showPlant(id: id)
+        } else if url.host == "watering-due" {
+            selectedTab = .garden
+            gardenPath = []
+        }
+    }
 }
 
 private struct AppRootView: View {
@@ -271,6 +286,9 @@ private struct AppRootView: View {
         .tint(Color(red: 0.36, green: 0.82, blue: 0.12))
         .fontDesign(.rounded)
         .environmentObject(navigation)
+        .onOpenURL { url in
+            navigation.handle(url: url)
+        }
         .onChange(of: scenePhase) { _, phase in
             guard phase == .active else { return }
             Task { @MainActor in

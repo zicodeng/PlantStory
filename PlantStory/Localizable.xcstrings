@@ -4,6 +4,83 @@
     "" : {
 
     },
+    "%lld watering reminders due" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 个浇水提醒已到期"
+          }
+        }
+      }
+    },
+    "%lldd overdue" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已过期 %lld 天"
+          }
+        }
+      }
+    },
+    "All caught up" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "都照顾好了"
+          }
+        }
+      }
+    },
+    "No watering reminders are due." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有已到期的浇水提醒。"
+          }
+        }
+      }
+    },
+    "See which plants have a watering reminder due." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看哪些植物的浇水提醒已经到期。"
+          }
+        }
+      }
+    },
+    "Today" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天"
+          }
+        }
+      }
+    },
+    "Watering due" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水提醒"
+          }
+        }
+      }
+    },
     "%@ · %@" : {
       "extractionState" : "stale",
       "localizations" : {

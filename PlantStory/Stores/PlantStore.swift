@@ -33,6 +33,7 @@ final class PlantStore: ObservableObject {
         decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         load()
+        WidgetWateringSnapshotWriter.update(plants: plants)
     }
 
     func add(_ plant: Plant) {
@@ -121,6 +122,7 @@ final class PlantStore: ObservableObject {
         let data = try encoder.encode(restoredPlants)
         try data.write(to: fileURL, options: .atomic)
         plants = restoredPlants
+        WidgetWateringSnapshotWriter.update(plants: plants)
     }
 
     private func load() {
@@ -159,5 +161,6 @@ final class PlantStore: ObservableObject {
     private func save() {
         guard let data = try? encoder.encode(plants) else { return }
         try? data.write(to: fileURL, options: .atomic)
+        WidgetWateringSnapshotWriter.update(plants: plants)
     }
 }
