@@ -700,8 +700,6 @@ private struct AnatomyLessonView: View {
         }
         .sheet(item: $selectedPart) { part in
             AnatomyPartSheet(part: part, accent: lesson.accent)
-                .presentationDetents([.medium, .large])
-                .presentationDragIndicator(.visible)
         }
     }
 
@@ -766,12 +764,19 @@ private struct AnatomyPartSheet: View {
 
     @Environment(\.dismiss) private var dismiss
     @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
+    @State private var measuredContentHeight: CGFloat = 560
 
     private var showsPronunciation: Bool {
         AppLanguage(rawValue: appLanguageCode) == .english
     }
 
     var body: some View {
+        sheetContent
+            .presentationDetents([.height(measuredContentHeight + 56), .large])
+            .presentationDragIndicator(.visible)
+    }
+
+    private var sheetContent: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
@@ -808,7 +813,15 @@ private struct AnatomyPartSheet: View {
                     )
                 }
                 .padding(20)
-                .padding(.bottom, 20)
+                .padding(.bottom, 32)
+                .background {
+                    GeometryReader { geometry in
+                        Color.clear.preference(
+                            key: AnatomyPartSheetContentHeightKey.self,
+                            value: geometry.size.height
+                        )
+                    }
+                }
             }
             .background(Color("Canvas"))
             .toolbar {
@@ -816,6 +829,10 @@ private struct AnatomyPartSheet: View {
                     Button("Done") { dismiss() }
                 }
             }
+        }
+        .onPreferenceChange(AnatomyPartSheetContentHeightKey.self) { height in
+            guard height > 0, abs(height - measuredContentHeight) > 1 else { return }
+            measuredContentHeight = height
         }
     }
 
@@ -841,5 +858,13 @@ private struct AnatomyPartSheet: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+private struct AnatomyPartSheetContentHeightKey: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = max(value, nextValue())
     }
 }
