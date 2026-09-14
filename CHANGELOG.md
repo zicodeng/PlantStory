@@ -19,6 +19,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ### Bug fixes
 
+- Fixed Plant Wiki anatomy cards not opening their interactive lessons.
 - Kept garden cards the same height by showing a placeholder when a plant has no watering reminder.
 - Made overdue watering reminders easier to notice with a distinct warning color.
 - Fixed Plant Wiki titles and the Wild Finds discovery count not updating immediately after changing the app language.

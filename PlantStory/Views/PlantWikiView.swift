@@ -1,15 +1,13 @@
 import SwiftUI
 
 struct PlantWikiView: View {
-    @State private var path: [AnatomyLesson] = []
-
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
     private let panel = Color(red: 0.105, green: 0.31, blue: 0.19)
     private let lime = Color(red: 0.36, green: 0.82, blue: 0.12)
     private let coral = Color(red: 0.96, green: 0.43, blue: 0.36)
 
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             ZStack {
                 forest.ignoresSafeArea()
 
@@ -159,9 +157,6 @@ struct PlantWikiView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
-            .navigationDestination(for: AnatomyLesson.self) { lesson in
-                AnatomyLessonView(lesson: lesson)
-            }
         }
     }
 
@@ -247,7 +242,9 @@ private struct PlantAnatomyLibraryView: View {
     }
 
     private func lessonRow(_ lesson: AnatomyLesson) -> some View {
-        NavigationLink(value: lesson) {
+        NavigationLink {
+            AnatomyLessonView(lesson: lesson)
+        } label: {
             HStack(spacing: 16) {
                 Image(lesson.imageName)
                     .resizable()
@@ -280,7 +277,7 @@ private struct PlantAnatomyLibraryView: View {
     }
 }
 
-private enum AnatomyLesson: String, CaseIterable, Identifiable, Hashable {
+private enum AnatomyLesson: String, CaseIterable, Identifiable {
     case wholePlant
     case root
     case leaf
