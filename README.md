@@ -5,10 +5,10 @@
 </p>
 
 <p align="center">
-  A vibrant, local-first iOS journal for the plants you raise and the plants you meet outside.
+  A free, open-source, local-first iOS journal for the plants you raise and the plants you meet outside.
 </p>
 
-PlantStory helps you remember the life of each plant—not just its care schedule. Keep a photo timeline, record everyday care, plan seasonal tasks, and save wild discoveries in a private collection that stays on your iPhone.
+PlantStory helps you remember the life of each plant—not just its care schedule. Keep photo timelines, record everyday care, schedule seasonal watering reminders, learn with beginner-friendly visual guides, and save wild discoveries in a private collection that stays on your iPhone.
 
 ## Features
 
@@ -22,29 +22,53 @@ PlantStory helps you remember the life of each plant—not just its care schedul
 - Record watering and fertilizing events, review recent history, and remove accidental entries.
 - Choose the best fertilizing and pruning months for each plant.
 - View seasonal care tasks in a garden calendar.
+- Create local watering reminders with a time and either one year-round interval or separate spring, summer, fall, and winter intervals.
+- See upcoming and overdue reminders on garden cards and manage every configured reminder from Settings.
+- Mark a plant as watered or ask to be reminded tomorrow directly from its notification.
 - Assign plants to locations such as rooms, balconies, or gardens, reuse existing location choices, and browse the home collection grouped by location.
 - Search your collection and sort it by name, acquisition date, last watered, or last fertilized in ascending or descending order.
+
+### Plant Wiki
+
+- Learn plant care through visual, interactive guides designed for beginners.
+- Explore plant anatomy, common symptoms, leaf shapes and patterns, pests, roots and repotting, watering, indoor light, new growth and life stages, propagation, and plant families and taxonomy.
+- Open interactive close-ups of roots, stems, nodes, leaves, flowers, and other plant structures.
+- Use the offline Houseplant Family Finder to search common names, scientific names, alternate names, genera, and families without uploading search data.
 
 ### Wild Finds
 
 - Save plants discovered in parks, on trails, and while traveling.
-- Record names, species, discovery dates, notes, and photo timelines.
+- Record names, species, discovery dates, locations, notes, and photo timelines.
 - Search your saved discoveries.
 - Keep wild observations separate from the plants you care for at home.
 
+### Watering widget
+
+- Add the medium PlantStory Home Screen widget to see up to three plants that are due for watering.
+- Tap a reminder in the widget to open that plant directly in PlantStory.
+- Keep widget and reminder data on the device through PlantStory's private app group.
+
 ### Optional AI suggestions
 
-- Bring your own OpenAI API key to suggest plant species, alternate names, care notes, and seasonal care months.
-- Generate species and short botanical descriptions for Wild Finds.
+- Bring your own OpenAI API key to suggest plant identity, alternate names, taxonomy, care notes, seasonal care months, and seasonal watering intervals.
+- Review a structured care guide and optionally turn suggested watering intervals into a local reminder.
+- Generate taxonomy and field-guide details for Wild Finds, including appearance, identifying features, growth habit, flowers and fruit, habitat, native range, and lookalikes.
 - Review every suggestion before applying it.
 - AI is completely optional; all core plant-tracking features work without it.
 - The API key is stored in the iOS Keychain and requests are billed directly to the user's OpenAI API account.
+- AI features are unavailable when PlantStory is downloaded from the China mainland App Store; the journal, reminders, Plant Wiki, backup, and other local features remain available.
+
+### Language support
+
+- Use PlantStory in English or Simplified Chinese.
+- Follow the iPhone language automatically or choose a language inside the app.
 
 ### Privacy and storage
 
 - No PlantStory account is required.
 - No cloud database or PlantStory server is used.
-- Plants, photos, notes, and care histories remain inside the app's private local container.
+- Plants, photos, notes, care histories, and reminder schedules remain in the app's private local storage.
+- The watering widget receives only the small on-device snapshot it needs through PlantStory's private app group.
 - Plant data is stored in `Library/Application Support/PlantStory/plants.json`.
 - Wild Finds are stored in `Library/Application Support/PlantStory/wild-finds.json`.
 - Photos and their dates and notes are encoded in those private files.
@@ -63,7 +87,7 @@ Open **Settings → Storage & Data** to manage portable backups.
 2. Save the generated JSON file to Files, iCloud Drive, or another location you control.
 3. Keep the file until you have confirmed the data is available on the destination device.
 
-The backup contains My Garden, Wild Finds, photos, notes, timeline events, locations, and care histories. Because photos are embedded in the JSON file, backups with many photos can be large. OpenAI API keys and StoreKit purchase history are not included.
+The backup contains My Garden, Wild Finds, photos, notes, timeline events, locations, care histories, and watering reminder settings. Because photos are embedded in the JSON file, backups with many photos can be large. OpenAI API keys and StoreKit purchase history are not included.
 
 ### Restore a backup
 
@@ -75,15 +99,18 @@ Restore replaces the current My Garden and Wild Finds collections; it does not m
 
 ## Download and install
 
-PlantStory is not currently distributed through the App Store or TestFlight. For now, download the source code and build it with Xcode.
+Choose a published release for a stable source snapshot, or use the `main` branch for the latest development version. See the changelog for release notes and current development details.
 
-[Download the latest source code as a ZIP](https://github.com/zicodeng/PlantStory/archive/refs/heads/main.zip), or clone the repository using the instructions below. An App Store or TestFlight link can be added here when a public build becomes available.
+- [View and download the latest published release](https://github.com/zicodeng/PlantStory/releases/latest)
+- [Download the current development source](https://github.com/zicodeng/PlantStory/archive/refs/heads/main.zip)
+- [Read the changelog](CHANGELOG.md)
 
 ### Requirements
 
 - macOS with Xcode
 - iOS 17.0 or later, or an iOS Simulator
 - An Apple ID added to Xcode when installing on a physical iPhone
+- Notification permission only if you enable watering reminders
 - An OpenAI API key only if you choose to enable AI suggestions
 
 ### Build from source
@@ -97,10 +124,11 @@ open PlantStory.xcodeproj
 In Xcode:
 
 1. Select the **PlantStory** target.
-2. Open **Signing & Capabilities** and choose your development team.
-3. If Xcode reports that the bundle identifier is unavailable, replace `com.zicodeng.PlantStory` with a unique identifier such as `com.yourname.PlantStory`.
-4. Choose an iOS Simulator or your paired iPhone as the run destination.
-5. Press **Run** (`⌘R`).
+2. Open **Signing & Capabilities** and choose your development team for the app and widget targets.
+3. If Xcode reports that a bundle identifier is unavailable, replace `com.zicodeng.PlantStory` and `com.zicodeng.PlantStory.Widget` with unique identifiers.
+4. Update the shared App Group capability to an identifier available to your development team.
+5. Choose an iOS Simulator or your paired iPhone as the run destination.
+6. Press **Run** (`⌘R`).
 
 Installing with a free Apple ID is suitable for personal development but may require periodic reinstalling. App Store or TestFlight distribution requires Apple Developer Program membership.
 
@@ -114,6 +142,12 @@ AI suggestions are disabled by default.
 4. Open a plant or Wild Find editor and tap **Suggest with AI**.
 
 PlantStory currently uses `gpt-5.4-nano` through the OpenAI Responses API with response storage disabled. Model availability and API pricing can change; consult OpenAI's current documentation before relying on a particular cost.
+
+AI setup is not shown when the app is downloaded from the China mainland App Store.
+
+## Support
+
+For help, troubleshooting, feedback, or feature requests, visit [PlantStory Support](https://zicodeng.github.io/PlantStory/support/). You can also [open a GitHub issue](https://github.com/zicodeng/PlantStory/issues/new).
 
 ## Contributing
 
@@ -136,8 +170,6 @@ Please keep pull requests focused, preserve the local-first privacy model, and n
 ## Support the project
 
 If PlantStory is useful to you, [star the project on GitHub](https://github.com/zicodeng/PlantStory) to help other plant lovers discover it.
-
-PlantStory also includes optional StoreKit tips for people who would like to help the garden grow. Tip products require configuration in App Store Connect for a distributed build; the included StoreKit configuration supports local development and testing.
 
 ## Credits
 
