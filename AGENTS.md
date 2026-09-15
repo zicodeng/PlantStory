@@ -31,7 +31,7 @@
 
 ## Git and releases
 
-- Follow `RELEASING.md` for the complete App Store release, merge, build-number, changelog, and tagging workflow.
+- Follow the branch naming and release workflow in `RELEASING.md`; feature-release branches must use `dev/major.minor.patch`.
 - Do not commit or push unless the user explicitly asks.
 - Before committing, inspect `git status` and stage only the files that belong to the requested change. Do not include generated builds, archives, or unrelated shared-scheme changes.
 - Update `CHANGELOG.md` for notable user-facing features and bug fixes.

@@ -39,7 +39,8 @@ The version stored in the app and entered in App Store Connect must match each o
 ### 1. Develop on a focused branch
 
 - Start from the latest `main`.
-- Use one branch for one coherent feature or release, for example `dev/1.2.0`.
+- Name feature-release branches using `dev/major.minor.patch`, where the version is the target semantic app version (for example, `dev/1.2.0`).
+- Use one branch for one coherent feature or release.
 - Add notable user-facing changes to the upcoming `Unreleased` section of `CHANGELOG.md`.
 - Keep unrelated local files, generated artifacts, and shared-scheme overrides out of commits.
 
