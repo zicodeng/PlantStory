@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.2.0] - Unreleased
+
+### New features
+
+- Expanded the Houseplant Family Finder to 100 source-verified plants across its ten featured families, including supported alternate and former scientific names.
+
 ## [1.1.0] - Unreleased
 
 ### New features
