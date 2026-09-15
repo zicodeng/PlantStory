@@ -177,4 +177,4 @@ PlantStory is vibe-coded with love by [Zico](https://github.com/zicodeng). The c
 
 ## License
 
-A software license has not been added yet. Until one is included, copyright law reserves reuse and redistribution rights to the project owner. If the goal is unrestricted open-source collaboration, adding a standard license such as MIT is recommended.
+PlantStory is available under the [MIT License](LICENSE).
