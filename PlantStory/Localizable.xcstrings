@@ -1801,6 +1801,16 @@
         }
       }
     },
+    "All care" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部养护"
+          }
+        }
+      }
+    },
     "All caught up" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3865,6 +3875,16 @@
         }
       }
     },
+    "Edit a plant to add care months or a watering reminder." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑植物，即可设置养护月份或浇水提醒。"
+          }
+        }
+      }
+    },
     "Edit a plant to add fertilizing or pruning months." : {
       "localizations" : {
         "zh-Hans" : {
@@ -4373,6 +4393,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "桑科"
+          }
+        }
+      }
+    },
+    "Filter care" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选养护事项"
           }
         }
       }
@@ -7500,6 +7530,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "暂无养护安排"
+          }
+        }
+      }
+    },
+    "No plants match this filter" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有符合此筛选条件的植物"
           }
         }
       }
@@ -12334,6 +12374,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "再试一次"
+          }
+        }
+      }
+    },
+    "Try another care filter for this month." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请尝试本月的其他养护筛选条件。"
           }
         }
       }
