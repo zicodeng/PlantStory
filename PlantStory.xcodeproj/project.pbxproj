@@ -73,6 +73,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C16D2AB3059077A00D9B657 /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = SOURCE_ROOT; };
+		5C16D2AC305907A500D9B657 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
+		5C16D2AD305907A500D9B657 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = SOURCE_ROOT; };
+		5C16D2AE305907A500D9B657 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		5C16D2AF305907A500D9B657 /* RELEASING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASING.md; sourceTree = SOURCE_ROOT; };
 		B10000000000000000000001 /* PlantStoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStoryApp.swift; sourceTree = "<group>"; };
 		B10000000000000000000002 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		B10000000000000000000003 /* PlantStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStore.swift; sourceTree = "<group>"; };
@@ -150,6 +155,11 @@
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000001 /* PlantStoryApp.swift */,
+				5C16D2AB3059077A00D9B657 /* AGENTS.md */,
+				5C16D2AC305907A500D9B657 /* CHANGELOG.md */,
+				5C16D2AD305907A500D9B657 /* PRIVACY.md */,
+				5C16D2AE305907A500D9B657 /* README.md */,
+				5C16D2AF305907A500D9B657 /* RELEASING.md */,
 				D10000000000000000000003 /* Models */,
 				D10000000000000000000004 /* Stores */,
 				D10000000000000000000007 /* Services */,
