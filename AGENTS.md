@@ -31,7 +31,7 @@
 
 ## Git and releases
 
-- Follow the branch naming and release workflow in `RELEASING.md`; feature-release branches must use `dev/major.minor.patch`.
+- Follow the branch naming and release workflow in `RELEASING.md`; feature-release branches must use `dev/major.minor`.
 - Do not commit or push unless the user explicitly asks.
 - Before committing, inspect `git status` and stage only the files that belong to the requested change. Do not include generated builds, archives, or unrelated shared-scheme changes.
 - Update `CHANGELOG.md` for notable user-facing features and bug fixes.

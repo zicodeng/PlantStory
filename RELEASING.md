@@ -19,27 +19,26 @@ Start each new App Store version at build `1`. If another build of the same vers
 
 Keep the app and widget targets on the same version and build.
 
-### App Store versions and Git tags
+### Release version alignment
 
-PlantStory keeps Git tags aligned exactly with the customer-facing version in App Store Connect. `CHANGELOG.md` uses the normalized semantic version:
+PlantStory uses the same two-part `major.minor` release version everywhere. Only the Git tag and development branch add a prefix:
 
-| Release | App Store version | Git tag | Changelog version |
-| --- | ---: | ---: | ---: |
-| Initial release | 1.0 | v1.0 | 1.0.0 |
-| Feature release | 1.1 | v1.1 | 1.1.0 |
-| Patch release | 1.1.1 | v1.1.1 | 1.1.1 |
-| Next feature release | 1.2 | v1.2 | 1.2.0 |
+| Release | App Store version | Git tag | Development branch | Changelog version |
+| --- | ---: | ---: | ---: | ---: |
+| Initial release | 1.0 | v1.0 | dev/1.0 | 1.0 |
+| Feature release | 1.1 | v1.1 | dev/1.1 | 1.1 |
+| Next feature release | 1.2 | v1.2 | dev/1.2 | 1.2 |
 
-The Git tag is the App Store version with a `v` prefix. For a two-part App Store feature release such as `1.1`, use `v1.1`; do not append `.0`. Use a third component only for an actual App Store patch release, such as `1.1.1` and `v1.1.1`.
+Do not append an omitted patch component such as `.0`. For App Store version `1.1`, use tag `v1.1`, branch `dev/1.1`, and changelog heading `1.1`.
 
-The version stored in the app, entered in App Store Connect, and recorded in the Git tag must match each other apart from the tag's `v` prefix. The changelog continues to use a full three-part semantic version.
+The version stored in the app, entered in App Store Connect, and written in the changelog must match exactly. The Git tag adds only `v`, and the development branch adds only `dev/`.
 
 ## Release lifecycle
 
 ### 1. Develop on a focused branch
 
 - Start from the latest `main`.
-- Name feature-release branches using `dev/major.minor.patch`, where the version is the target semantic app version (for example, `dev/1.2.0`).
+- Name feature-release branches using `dev/major.minor`, matching the target App Store version (for example, `dev/1.2`).
 - Use one branch for one coherent feature or release.
 - Add notable user-facing changes to the upcoming `Unreleased` section of `CHANGELOG.md`.
 - Keep unrelated local files, generated artifacts, and shared-scheme overrides out of commits.
@@ -71,7 +70,7 @@ Once the exact build has been submitted to App Review, merge its branch into `ma
 ```sh
 git switch main
 git pull --ff-only origin main
-git merge --ff-only dev/1.2.0
+git merge --ff-only dev/1.2
 git push origin main
 ```
 
