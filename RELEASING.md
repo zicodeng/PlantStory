@@ -21,18 +21,18 @@ Keep the app and widget targets on the same version and build.
 
 ### App Store versions and Git tags
 
-PlantStory uses a short customer-facing version in App Store Connect and a normalized semantic version in Git and `CHANGELOG.md`:
+PlantStory keeps Git tags aligned exactly with the customer-facing version in App Store Connect. `CHANGELOG.md` uses the normalized semantic version:
 
-| Release | App Store version | Git tag and changelog version |
-| --- | ---: | ---: |
-| Initial release | 1.0 | v1.0.0 / 1.0.0 |
-| Feature release | 1.1 | v1.1.0 / 1.1.0 |
-| Patch release | 1.1.1 | v1.1.1 / 1.1.1 |
-| Next feature release | 1.2 | v1.2.0 / 1.2.0 |
+| Release | App Store version | Git tag | Changelog version |
+| --- | ---: | ---: | ---: |
+| Initial release | 1.0 | v1.0 | 1.0.0 |
+| Feature release | 1.1 | v1.1 | 1.1.0 |
+| Patch release | 1.1.1 | v1.1.1 | 1.1.1 |
+| Next feature release | 1.2 | v1.2 | 1.2.0 |
 
-For a two-part App Store version such as `1.1`, Git records the omitted patch component explicitly as zero: `v1.1.0`. Do not add `.0` to a future App Store feature release solely to match its Git tag. Continue the established `1.0`, `1.1`, `1.2` format and use the third App Store component only for an actual patch release.
+The Git tag is the App Store version with a `v` prefix. For a two-part App Store feature release such as `1.1`, use `v1.1`; do not append `.0`. Use a third component only for an actual App Store patch release, such as `1.1.1` and `v1.1.1`.
 
-The version stored in the app and entered in App Store Connect must match each other. The Git tag intentionally uses the fuller semantic-version form.
+The version stored in the app, entered in App Store Connect, and recorded in the Git tag must match each other apart from the tag's `v` prefix. The changelog continues to use a full three-part semantic version.
 
 ## Release lifecycle
 
@@ -99,12 +99,12 @@ Wait until the version is approved and distributed on the App Store before final
 
 1. Replace `Unreleased` in `CHANGELOG.md` with the actual release date in `YYYY-MM-DD` format.
 2. Commit that changelog update on `main`.
-3. Create an annotated tag using the semantic version, such as `v1.1.0`.
+3. Create an annotated tag by adding a `v` prefix to the App Store version, such as `v1.1`.
 4. Push `main` and the tag.
 
 ```sh
-git tag -a v1.1.0 -m "PlantStory 1.1.0"
-git push origin main v1.1.0
+git tag -a v1.1 -m "PlantStory 1.1"
+git push origin main v1.1
 ```
 
 Create the tag only after the version is distributed. This makes the final tag clearly mean "publicly released," rather than merely submitted or approved.
