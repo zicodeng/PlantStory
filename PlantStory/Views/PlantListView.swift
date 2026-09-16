@@ -1013,24 +1013,15 @@ private struct GardenCarePlantRow: View {
                     .foregroundStyle(.white)
                     .lineLimit(1)
 
-                ViewThatFits(in: .horizontal) {
-                    HStack(spacing: 8) {
-                        careChips
+                HStack(spacing: 8) {
+                    if schedule.shouldFertilize {
+                        careIcon("Fertilize", icon: "leaf.fill", color: lime)
                     }
-
-                    VStack(alignment: .leading, spacing: 6) {
-                        HStack(spacing: 8) {
-                            if schedule.shouldFertilize {
-                                careChip("Fertilize", icon: "leaf.fill", color: lime)
-                            }
-                            if schedule.shouldPrune {
-                                careChip("Prune", icon: "scissors", color: pruneColor)
-                            }
-                        }
-
-                        if schedule.hasWateringDue {
-                            careChip("Watering due", icon: "drop.fill", color: waterBlue)
-                        }
+                    if schedule.shouldPrune {
+                        careIcon("Prune", icon: "scissors", color: pruneColor)
+                    }
+                    if schedule.hasWateringDue {
+                        careIcon("Watering due", icon: "drop.fill", color: waterBlue)
                     }
                 }
             }
@@ -1055,28 +1046,13 @@ private struct GardenCarePlantRow: View {
         .accessibilityHint("Opens plant details")
     }
 
-    @ViewBuilder
-    private var careChips: some View {
-        if schedule.shouldFertilize {
-            careChip("Fertilize", icon: "leaf.fill", color: lime)
-        }
-        if schedule.shouldPrune {
-            careChip("Prune", icon: "scissors", color: pruneColor)
-        }
-        if schedule.hasWateringDue {
-            careChip("Watering due", icon: "drop.fill", color: waterBlue)
-        }
-    }
-
-    private func careChip(_ title: LocalizedStringKey, icon: String, color: Color) -> some View {
-        Label(title, systemImage: icon)
+    private func careIcon(_ title: LocalizedStringKey, icon: String, color: Color) -> some View {
+        Image(systemName: icon)
             .font(.caption2.weight(.bold))
             .foregroundStyle(color)
-            .lineLimit(1)
-            .fixedSize(horizontal: true, vertical: false)
-            .padding(.horizontal, 9)
-            .padding(.vertical, 6)
-            .background(color.opacity(0.13), in: Capsule())
+            .frame(width: 30, height: 30)
+            .background(color.opacity(0.13), in: Circle())
+            .accessibilityLabel(title)
     }
 }
 

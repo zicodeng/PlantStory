@@ -11,7 +11,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ### Bug fixes
 
-- Kept care-calendar badges readable by wrapping whole badges onto a second row instead of splitting their labels.
+- Replaced crowded care-calendar labels with compact, color-coded icons that correspond to the legend.
 
 ## [1.1] - 2026-09-15
 
