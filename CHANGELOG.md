@@ -2,6 +2,13 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.2] - Unreleased
+
+### New features
+
+- Expanded the Houseplant Family Finder to 100 source-verified plants across its ten featured families, including supported alternate and former scientific names.
+- Added watering reminder dates to the care calendar, with a distinct month marker and filters for fertilizing, pruning, and watering due.
+
 ## [1.1] - 2026-09-15
 
 ### New features

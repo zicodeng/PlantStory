@@ -672,28 +672,37 @@ private enum GardenViewMode: String, CaseIterable, Identifiable {
 }
 
 private struct GardenCareCalendar: View {
+    @AppStorage(WateringSeason.storageKey) private var activeSeasonCode = WateringSeason.suggested().rawValue
     let plants: [Plant]
     let forest: Color
     let panel: Color
     let lime: Color
 
     @State private var selectedMonth = Calendar.current.component(.month, from: .now)
+    @State private var careFilter: GardenCareFilter = .all
 
     private let pruneColor = Color(red: 0.95, green: 0.62, blue: 0.25)
+    private let waterBlue = Color(red: 0.22, green: 0.64, blue: 0.88)
     private let monthColumns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
 
-    private var scheduledPlants: [GardenCareSchedule] {
+    private var allScheduledPlants: [GardenCareSchedule] {
         plants.compactMap { plant in
             let shouldFertilize = plant.fertilizingMonths?.contains(selectedMonth) ?? false
             let shouldPrune = plant.pruningMonths?.contains(selectedMonth) ?? false
-            guard shouldFertilize || shouldPrune else { return nil }
+            let hasWateringDue = wateringDueMonth(for: plant) == selectedMonth
+            guard shouldFertilize || shouldPrune || hasWateringDue else { return nil }
             return GardenCareSchedule(
                 plant: plant,
                 shouldFertilize: shouldFertilize,
-                shouldPrune: shouldPrune
+                shouldPrune: shouldPrune,
+                hasWateringDue: hasWateringDue
             )
         }
         .sorted { $0.plant.name.localizedCaseInsensitiveCompare($1.plant.name) == .orderedAscending }
+    }
+
+    private var scheduledPlants: [GardenCareSchedule] {
+        allScheduledPlants.filter { careFilter.includes($0) }
     }
 
     var body: some View {
@@ -710,6 +719,7 @@ private struct GardenCareCalendar: View {
             HStack(spacing: 18) {
                 calendarLegend(title: "Fertilize", color: lime)
                 calendarLegend(title: "Prune", color: pruneColor)
+                calendarLegend(title: "Watering due", color: waterBlue)
             }
 
             LazyVGrid(columns: monthColumns, spacing: 10) {
@@ -723,6 +733,24 @@ private struct GardenCareCalendar: View {
                     .font(.system(.title3, design: .serif, weight: .semibold))
                     .foregroundStyle(.white)
                 Spacer()
+                Menu {
+                    Picker("Filter care", selection: $careFilter) {
+                        ForEach(GardenCareFilter.allCases) { filter in
+                            Label(filter.title, systemImage: filter.icon)
+                                .tag(filter)
+                        }
+                    }
+                } label: {
+                    Label(careFilter.title, systemImage: "line.3.horizontal.decrease")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(lime)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .background(.white.opacity(0.09), in: Capsule())
+                }
+                .accessibilityLabel("Filter care")
+                .accessibilityValue(careFilter.localizedTitle)
+
                 Text(careCountText)
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.white.opacity(0.58))
@@ -734,10 +762,10 @@ private struct GardenCareCalendar: View {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.largeTitle)
                         .foregroundStyle(lime)
-                    Text("No seasonal care scheduled")
+                    Text(emptyStateTitle)
                         .font(.system(.headline, design: .serif, weight: .semibold))
                         .foregroundStyle(.white)
-                    Text("Edit a plant to add fertilizing or pruning months.")
+                    Text(emptyStateMessage)
                         .font(.subheadline)
                         .foregroundStyle(.white.opacity(0.6))
                         .multilineTextAlignment(.center)
@@ -754,7 +782,8 @@ private struct GardenCareCalendar: View {
                                 schedule: schedule,
                                 panel: panel,
                                 lime: lime,
-                                pruneColor: pruneColor
+                                pruneColor: pruneColor,
+                                waterBlue: waterBlue
                             )
                         }
                         .buttonStyle(.plain)
@@ -771,6 +800,9 @@ private struct GardenCareCalendar: View {
         }
         let hasPruning = plants.contains {
             $0.pruningMonths?.contains(month) ?? false
+        }
+        let hasWateringDue = plants.contains {
+            wateringDueMonth(for: $0) == month
         }
         let isCurrentMonth = month == Calendar.current.component(.month, from: .now)
 
@@ -791,7 +823,10 @@ private struct GardenCareCalendar: View {
                     if hasPruning {
                         Circle().fill(isSelected ? forest.opacity(0.68) : pruneColor).frame(width: 7, height: 7)
                     }
-                    if !hasFertilizing && !hasPruning {
+                    if hasWateringDue {
+                        Circle().fill(isSelected ? forest.opacity(0.46) : waterBlue).frame(width: 7, height: 7)
+                    }
+                    if !hasFertilizing && !hasPruning && !hasWateringDue {
                         Circle().fill(.clear).frame(width: 7, height: 7)
                     }
                 }
@@ -808,7 +843,13 @@ private struct GardenCareCalendar: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(monthName(month))
-        .accessibilityValue(accessibilityValue(hasFertilizing: hasFertilizing, hasPruning: hasPruning))
+        .accessibilityValue(
+            accessibilityValue(
+                hasFertilizing: hasFertilizing,
+                hasPruning: hasPruning,
+                hasWateringDue: hasWateringDue
+            )
+        )
     }
 
     private func calendarLegend(title: LocalizedStringKey, color: Color) -> some View {
@@ -827,6 +868,18 @@ private struct GardenCareCalendar: View {
             : AppLocalization.string("%lld plants", Int64(count))
     }
 
+    private var emptyStateTitle: String {
+        careFilter == .all
+            ? AppLocalization.string("No care scheduled")
+            : AppLocalization.string("No plants match this filter")
+    }
+
+    private var emptyStateMessage: String {
+        careFilter == .all
+            ? AppLocalization.string("Edit a plant to add care months or a watering reminder.")
+            : AppLocalization.string("Try another care filter for this month.")
+    }
+
     private func monthName(_ month: Int) -> String {
         localizedCalendar.monthSymbols[month - 1]
     }
@@ -841,16 +894,76 @@ private struct GardenCareCalendar: View {
         return calendar
     }
 
-    private func accessibilityValue(hasFertilizing: Bool, hasPruning: Bool) -> String {
-        switch (hasFertilizing, hasPruning) {
-        case (true, true):
-            return AppLocalization.string("Fertilizing and pruning scheduled")
-        case (true, false):
-            return AppLocalization.string("Fertilizing scheduled")
-        case (false, true):
-            return AppLocalization.string("Pruning scheduled")
-        case (false, false):
-            return AppLocalization.string("No care scheduled")
+    private var activeSeason: WateringSeason {
+        WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
+    }
+
+    private func wateringDueMonth(for plant: Plant) -> Int? {
+        guard let dueDate = plant.nextWateringReminderDate(season: activeSeason) else {
+            return nil
+        }
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: .now)
+        let effectiveDueDate = calendar.startOfDay(for: dueDate) < today ? today : dueDate
+        return calendar.component(.month, from: effectiveDueDate)
+    }
+
+    private func accessibilityValue(
+        hasFertilizing: Bool,
+        hasPruning: Bool,
+        hasWateringDue: Bool
+    ) -> String {
+        var careTypes: [String] = []
+        if hasFertilizing { careTypes.append(AppLocalization.string("Fertilize")) }
+        if hasPruning { careTypes.append(AppLocalization.string("Prune")) }
+        if hasWateringDue { careTypes.append(AppLocalization.string("Watering due")) }
+        return careTypes.isEmpty
+            ? AppLocalization.string("No care scheduled")
+            : ListFormatter.localizedString(byJoining: careTypes)
+    }
+}
+
+private enum GardenCareFilter: String, CaseIterable, Identifiable {
+    case all
+    case fertilize
+    case prune
+    case wateringDue
+
+    var id: Self { self }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .all: "All care"
+        case .fertilize: "Fertilize"
+        case .prune: "Prune"
+        case .wateringDue: "Watering due"
+        }
+    }
+
+    var localizedTitle: String {
+        switch self {
+        case .all: AppLocalization.string("All care")
+        case .fertilize: AppLocalization.string("Fertilize")
+        case .prune: AppLocalization.string("Prune")
+        case .wateringDue: AppLocalization.string("Watering due")
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .all: "square.grid.2x2.fill"
+        case .fertilize: "leaf.fill"
+        case .prune: "scissors"
+        case .wateringDue: "drop.fill"
+        }
+    }
+
+    func includes(_ schedule: GardenCareSchedule) -> Bool {
+        switch self {
+        case .all: true
+        case .fertilize: schedule.shouldFertilize
+        case .prune: schedule.shouldPrune
+        case .wateringDue: schedule.hasWateringDue
         }
     }
 }
@@ -859,6 +972,7 @@ private struct GardenCareSchedule: Identifiable {
     let plant: Plant
     let shouldFertilize: Bool
     let shouldPrune: Bool
+    let hasWateringDue: Bool
 
     var id: UUID { plant.id }
 }
@@ -868,14 +982,22 @@ private struct GardenCarePlantRow: View {
     let panel: Color
     let lime: Color
     let pruneColor: Color
+    let waterBlue: Color
 
     @State private var cardPhoto: Data?
 
-    init(schedule: GardenCareSchedule, panel: Color, lime: Color, pruneColor: Color) {
+    init(
+        schedule: GardenCareSchedule,
+        panel: Color,
+        lime: Color,
+        pruneColor: Color,
+        waterBlue: Color
+    ) {
         self.schedule = schedule
         self.panel = panel
         self.lime = lime
         self.pruneColor = pruneColor
+        self.waterBlue = waterBlue
         _cardPhoto = State(initialValue: schedule.plant.photos.randomElement())
     }
 
@@ -897,6 +1019,9 @@ private struct GardenCarePlantRow: View {
                     }
                     if schedule.shouldPrune {
                         careChip("Prune", icon: "scissors", color: pruneColor)
+                    }
+                    if schedule.hasWateringDue {
+                        careChip("Watering due", icon: "drop.fill", color: waterBlue)
                     }
                 }
             }

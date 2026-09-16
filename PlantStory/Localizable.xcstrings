@@ -4,6 +4,736 @@
     "" : {
 
     },
+    "African fig" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "African fig"
+          }
+        }
+      }
+    },
+    "African spear" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "African spear"
+          }
+        }
+      }
+    },
+    "Baby tears pilea" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baby tears pilea"
+          }
+        }
+      }
+    },
+    "Bamburanta" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bamburanta"
+          }
+        }
+      }
+    },
+    "Black velvet alocasia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Black velvet alocasia"
+          }
+        }
+      }
+    },
+    "Black-gold philodendron" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Black-gold philodendron"
+          }
+        }
+      }
+    },
+    "Bunny ears cactus" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "黄毛掌"
+          }
+        }
+      }
+    },
+    "Burro’s tail" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "玉缀"
+          }
+        }
+      }
+    },
+    "Cast-iron plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蜘蛛抱蛋"
+          }
+        }
+      }
+    },
+    "Chinese fan palm" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蒲葵"
+          }
+        }
+      }
+    },
+    "Clustering fishtail palm" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "短穗鱼尾葵"
+          }
+        }
+      }
+    },
+    "Crystal anthurium" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crystal anthurium"
+          }
+        }
+      }
+    },
+    "Cupid peperomia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cupid peperomia"
+          }
+        }
+      }
+    },
+    "Dragon tree" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "龙血树"
+          }
+        }
+      }
+    },
+    "Dragon-tail plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "麒麟叶"
+          }
+        }
+      }
+    },
+    "Eyelash begonia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eyelash begonia"
+          }
+        }
+      }
+    },
+    "Foxtail fern" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foxtail fern"
+          }
+        }
+      }
+    },
+    "Friendship plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Friendship plant"
+          }
+        }
+      }
+    },
+    "Glorious philodendron" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glorious philodendron"
+          }
+        }
+      }
+    },
+    "Iron cross begonia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "马蹄秋海棠"
+          }
+        }
+      }
+    },
+    "Lipstick echeveria" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lipstick echeveria"
+          }
+        }
+      }
+    },
+    "Metallic begonia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metallic begonia"
+          }
+        }
+      }
+    },
+    "Ming asparagus fern" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ming asparagus fern"
+          }
+        }
+      }
+    },
+    "Mini monstera" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mini monstera"
+          }
+        }
+      }
+    },
+    "Mistletoe fig" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mistletoe fig"
+          }
+        }
+      }
+    },
+    "Moon Valley pilea" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moon Valley pilea"
+          }
+        }
+      }
+    },
+    "Mother of thousands" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "落地生根"
+          }
+        }
+      }
+    },
+    "Never-never plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Never-never plant"
+          }
+        }
+      }
+    },
+    "Old lady cactus" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Old lady cactus"
+          }
+        }
+      }
+    },
+    "Paddle plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paddle plant"
+          }
+        }
+      }
+    },
+    "Panda plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月兔耳"
+          }
+        }
+      }
+    },
+    "Pinstripe calathea" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pinstripe calathea"
+          }
+        }
+      }
+    },
+    "Port Jackson fig" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "锈叶榕"
+          }
+        }
+      }
+    },
+    "Raindrop peperomia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Raindrop peperomia"
+          }
+        }
+      }
+    },
+    "Red-edge peperomia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Red-edge peperomia"
+          }
+        }
+      }
+    },
+    "Rose-painted calathea" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rose-painted calathea"
+          }
+        }
+      }
+    },
+    "Sacred fig" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菩提树"
+          }
+        }
+      }
+    },
+    "String of turtles" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "String of turtles"
+          }
+        }
+      }
+    },
+    "Velvet cardboard anthurium" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velvet cardboard anthurium"
+          }
+        }
+      }
+    },
+    "Zebra alocasia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "斑马海芋"
+          }
+        }
+      }
+    },
+    "African mask" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "African mask"
+          }
+        }
+      }
+    },
+    "Calathea ‘Triostar’" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "三色卧花竹芋"
+          }
+        }
+      }
+    },
+    "Christmas cactus" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Christmas cactus"
+          }
+        }
+      }
+    },
+    "Ctenanthe burle-marxii" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ctenanthe burle-marxii"
+          }
+        }
+      }
+    },
+    "Gold dust dracaena" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gold dust dracaena"
+          }
+        }
+      }
+    },
+    "Golden barrel cactus" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Golden barrel cactus"
+          }
+        }
+      }
+    },
+    "Houseleek tree" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Houseleek tree"
+          }
+        }
+      }
+    },
+    "Jade necklace" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jade necklace"
+          }
+        }
+      }
+    },
+    "Mexican snow ball" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mexican snow ball"
+          }
+        }
+      }
+    },
+    "Moon cactus" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红瑞云"
+          }
+        }
+      }
+    },
+    "Aluminum plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花叶冷水花"
+          }
+        }
+      }
+    },
+    "Areca palm" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "散尾葵"
+          }
+        }
+      }
+    },
+    "Arrowhead vine" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "合果芋"
+          }
+        }
+      }
+    },
+    "Artillery plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小叶冷水花"
+          }
+        }
+      }
+    },
+    "Fern asparagus" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文竹"
+          }
+        }
+      }
+    },
+    "Banyan" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "孟加拉榕"
+          }
+        }
+      }
+    },
+    "Blushing philodendron" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红苞喜林芋"
+          }
+        }
+      }
+    },
+    "Creeping fig" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "薜荔"
+          }
+        }
+      }
+    },
+    "Dumb cane" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花叶万年青"
+          }
+        }
+      }
+    },
+    "Ginseng fig" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "榕树"
+          }
+        }
+      }
+    },
+    "Lady palm" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "棕竹"
+          }
+        }
+      }
+    },
+    "Lucky bamboo" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "富贵竹"
+          }
+        }
+      }
+    },
+    "Madagascar dragon tree" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "五彩千年木"
+          }
+        }
+      }
+    },
+    "Majesty palm" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "国王椰子"
+          }
+        }
+      }
+    },
+    "Rattlesnake plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "箭羽竹芋"
+          }
+        }
+      }
+    },
+    "King begonia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大王秋海棠"
+          }
+        }
+      }
+    },
+    "Emerald ripple pepper" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "皱叶椒草"
+          }
+        }
+      }
+    },
+    "Satin pothos" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小叶银斑葛"
+          }
+        }
+      }
+    },
+    "Spineless yucca" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "象腿丝兰"
+          }
+        }
+      }
+    },
+    "String of buttons" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "钱串青锁龙"
+          }
+        }
+      }
+    },
+    "Mexican breadfruit plant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长叶龟背竹"
+          }
+        }
+      }
+    },
+    "Tree philodendron" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "春羽"
+          }
+        }
+      }
+    },
+    "Wax begonia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "四季秋海棠"
+          }
+        }
+      }
+    },
     "%@ and %@" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1067,6 +1797,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "成功授粉后，许多植物的子房会逐渐发育成果实。"
+          }
+        }
+      }
+    },
+    "All care" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部养护"
           }
         }
       }
@@ -3135,6 +3875,16 @@
         }
       }
     },
+    "Edit a plant to add care months or a watering reminder." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑植物，即可设置养护月份或浇水提醒。"
+          }
+        }
+      }
+    },
     "Edit a plant to add fertilizing or pruning months." : {
       "localizations" : {
         "zh-Hans" : {
@@ -3643,6 +4393,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "桑科"
+          }
+        }
+      }
+    },
+    "Filter care" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选养护事项"
           }
         }
       }
@@ -6770,6 +7530,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "暂无养护安排"
+          }
+        }
+      }
+    },
+    "No plants match this filter" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有符合此筛选条件的植物"
           }
         }
       }
@@ -11604,6 +12374,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "再试一次"
+          }
+        }
+      }
+    },
+    "Try another care filter for this month." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请尝试本月的其他养护筛选条件。"
           }
         }
       }
