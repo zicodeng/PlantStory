@@ -9,6 +9,10 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 - Expanded the Houseplant Family Finder to 100 source-verified plants across its ten featured families, including supported alternate and former scientific names.
 - Added watering reminder dates to the care calendar, with a distinct month marker and filters for fertilizing, pruning, and watering due.
 
+### Bug fixes
+
+- Kept care-calendar badges readable by wrapping whole badges onto a second row instead of splitting their labels.
+
 ## [1.1] - 2026-09-15
 
 ### New features

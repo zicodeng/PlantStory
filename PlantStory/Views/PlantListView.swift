@@ -1013,18 +1013,28 @@ private struct GardenCarePlantRow: View {
                     .foregroundStyle(.white)
                     .lineLimit(1)
 
-                HStack(spacing: 8) {
-                    if schedule.shouldFertilize {
-                        careChip("Fertilize", icon: "leaf.fill", color: lime)
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 8) {
+                        careChips
                     }
-                    if schedule.shouldPrune {
-                        careChip("Prune", icon: "scissors", color: pruneColor)
-                    }
-                    if schedule.hasWateringDue {
-                        careChip("Watering due", icon: "drop.fill", color: waterBlue)
+
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(spacing: 8) {
+                            if schedule.shouldFertilize {
+                                careChip("Fertilize", icon: "leaf.fill", color: lime)
+                            }
+                            if schedule.shouldPrune {
+                                careChip("Prune", icon: "scissors", color: pruneColor)
+                            }
+                        }
+
+                        if schedule.hasWateringDue {
+                            careChip("Watering due", icon: "drop.fill", color: waterBlue)
+                        }
                     }
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
 
             Spacer(minLength: 0)
             Image(systemName: "chevron.right")
@@ -1045,10 +1055,25 @@ private struct GardenCarePlantRow: View {
         .accessibilityHint("Opens plant details")
     }
 
+    @ViewBuilder
+    private var careChips: some View {
+        if schedule.shouldFertilize {
+            careChip("Fertilize", icon: "leaf.fill", color: lime)
+        }
+        if schedule.shouldPrune {
+            careChip("Prune", icon: "scissors", color: pruneColor)
+        }
+        if schedule.hasWateringDue {
+            careChip("Watering due", icon: "drop.fill", color: waterBlue)
+        }
+    }
+
     private func careChip(_ title: LocalizedStringKey, icon: String, color: Color) -> some View {
         Label(title, systemImage: icon)
             .font(.caption2.weight(.bold))
             .foregroundStyle(color)
+            .lineLimit(1)
+            .fixedSize(horizontal: true, vertical: false)
             .padding(.horizontal, 9)
             .padding(.vertical, 6)
             .background(color.opacity(0.13), in: Capsule())
