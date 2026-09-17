@@ -32,6 +32,7 @@
 ## Git and releases
 
 - Follow the branch naming and release workflow in `RELEASING.md`; feature-release branches must use `dev/major.minor`.
+- Treat requests such as “archive app” or “I am ready to distribute” as an explicit request to prepare the release archive. Inspect the current branch, working tree, version, build number, and release checklist; create a normally signed archive with `PlantStory.xcodeproj` and the `PlantStory` scheme; save it under `~/Library/Developer/Xcode/Archives/YYYY-MM-DD/`; and verify the archived app and widget versions. Also draft App Store “What’s New in This Version” copy for that release in both English and Simplified Chinese, based on the verified user-facing changes. Do not upload the archive or submit the version to App Review unless the user explicitly asks.
 - Do not commit or push unless the user explicitly asks.
 - Before committing, inspect `git status` and stage only the files that belong to the requested change. Do not include generated builds, archives, or unrelated shared-scheme changes.
 - Update `CHANGELOG.md` for notable user-facing features and bug fixes.
