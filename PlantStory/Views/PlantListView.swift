@@ -744,7 +744,7 @@ private struct GardenCareCalendar: View {
                 }
             }
 
-            HStack(alignment: .firstTextBaseline) {
+            HStack(alignment: .center) {
                 Text(monthName(selectedMonth))
                     .font(.system(.title3, design: .serif, weight: .semibold))
                     .foregroundStyle(.white)
@@ -763,6 +763,7 @@ private struct GardenCareCalendar: View {
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
                         .background(.white.opacity(0.09), in: Capsule())
+                        .fixedSize(horizontal: true, vertical: false)
                 }
                 .accessibilityLabel("Filter care")
                 .accessibilityValue(careFilter.localizedTitle)
@@ -770,6 +771,7 @@ private struct GardenCareCalendar: View {
                 Text(careCountText)
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.white.opacity(0.58))
+                    .fixedSize(horizontal: true, vertical: false)
             }
             .padding(.top, 4)
 
@@ -972,7 +974,7 @@ private enum GardenCareFilter: String, CaseIterable, Identifiable {
         case .all: "All care"
         case .fertilize: "Fertilize"
         case .prune: "Prune"
-        case .wateringDue: "Watering needed"
+        case .wateringDue: "Water"
         }
     }
 
@@ -981,7 +983,7 @@ private enum GardenCareFilter: String, CaseIterable, Identifiable {
         case .all: AppLocalization.string("All care")
         case .fertilize: AppLocalization.string("Fertilize")
         case .prune: AppLocalization.string("Prune")
-        case .wateringDue: AppLocalization.string("Watering needed")
+        case .wateringDue: AppLocalization.string("Water")
         }
     }
 

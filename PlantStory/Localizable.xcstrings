@@ -13077,16 +13077,6 @@
         }
       }
     },
-    "Watering needed" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "需要浇水"
-          }
-        }
-      }
-    },
     "Water today" : {
       "localizations" : {
         "zh-Hans" : {

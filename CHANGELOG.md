@@ -8,6 +8,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Clarified the care calendar with separate current-month markers and labels for plants due today and plants with overdue watering.
 - Made watering reminder rows clearly state whether watering is due today, tomorrow, on a later date, or overdue.
+- Shortened the care-calendar watering filter to the action-focused “Water” label and stabilized its layout when changing filters.
 
 ## [1.2] - 2026-09-16
 
