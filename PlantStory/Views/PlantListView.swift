@@ -689,13 +689,13 @@ private struct GardenCareCalendar: View {
         plants.compactMap { plant in
             let shouldFertilize = plant.fertilizingMonths?.contains(selectedMonth) ?? false
             let shouldPrune = plant.pruningMonths?.contains(selectedMonth) ?? false
-            let hasWateringDue = wateringDueMonth(for: plant) == selectedMonth
-            guard shouldFertilize || shouldPrune || hasWateringDue else { return nil }
+            let isWateringDueToday = selectedMonth == currentMonth && isWateringDueToday(for: plant)
+            guard shouldFertilize || shouldPrune || isWateringDueToday else { return nil }
             return GardenCareSchedule(
                 plant: plant,
                 shouldFertilize: shouldFertilize,
                 shouldPrune: shouldPrune,
-                hasWateringDue: hasWateringDue
+                isWateringDueToday: isWateringDueToday
             )
         }
         .sorted { $0.plant.name.localizedCaseInsensitiveCompare($1.plant.name) == .orderedAscending }
@@ -711,7 +711,7 @@ private struct GardenCareCalendar: View {
                 Text("Care calendar")
                     .font(.system(.title3, design: .serif, weight: .semibold))
                     .foregroundStyle(.white)
-                Text("Choose a month to see the plants that need seasonal care.")
+                Text("Choose a month for seasonal care. Watering appears only when due today.")
                     .font(.subheadline)
                     .foregroundStyle(.white.opacity(0.62))
             }
@@ -719,7 +719,7 @@ private struct GardenCareCalendar: View {
             HStack(spacing: 18) {
                 calendarLegend(title: "Fertilize", color: lime)
                 calendarLegend(title: "Prune", color: pruneColor)
-                calendarLegend(title: "Watering due", color: waterBlue)
+                calendarLegend(title: "Water today", color: waterBlue)
             }
 
             LazyVGrid(columns: monthColumns, spacing: 10) {
@@ -795,16 +795,16 @@ private struct GardenCareCalendar: View {
 
     private func monthButton(_ month: Int) -> some View {
         let isSelected = month == selectedMonth
+        let isCurrentMonth = month == currentMonth
         let hasFertilizing = plants.contains {
             $0.fertilizingMonths?.contains(month) ?? false
         }
         let hasPruning = plants.contains {
             $0.pruningMonths?.contains(month) ?? false
         }
-        let hasWateringDue = plants.contains {
-            wateringDueMonth(for: $0) == month
+        let hasWateringDue = isCurrentMonth && plants.contains {
+            isWateringDueToday(for: $0)
         }
-        let isCurrentMonth = month == Calendar.current.component(.month, from: .now)
 
         return Button {
             withAnimation(.easeInOut(duration: 0.18)) {
@@ -898,14 +898,15 @@ private struct GardenCareCalendar: View {
         WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
     }
 
-    private func wateringDueMonth(for plant: Plant) -> Int? {
+    private var currentMonth: Int {
+        Calendar.current.component(.month, from: .now)
+    }
+
+    private func isWateringDueToday(for plant: Plant) -> Bool {
         guard let dueDate = plant.nextWateringReminderDate(season: activeSeason) else {
-            return nil
+            return false
         }
-        let calendar = Calendar.current
-        let today = calendar.startOfDay(for: .now)
-        let effectiveDueDate = calendar.startOfDay(for: dueDate) < today ? today : dueDate
-        return calendar.component(.month, from: effectiveDueDate)
+        return Calendar.current.isDate(dueDate, inSameDayAs: .now)
     }
 
     private func accessibilityValue(
@@ -916,7 +917,7 @@ private struct GardenCareCalendar: View {
         var careTypes: [String] = []
         if hasFertilizing { careTypes.append(AppLocalization.string("Fertilize")) }
         if hasPruning { careTypes.append(AppLocalization.string("Prune")) }
-        if hasWateringDue { careTypes.append(AppLocalization.string("Watering due")) }
+        if hasWateringDue { careTypes.append(AppLocalization.string("Water today")) }
         return careTypes.isEmpty
             ? AppLocalization.string("No care scheduled")
             : ListFormatter.localizedString(byJoining: careTypes)
@@ -936,7 +937,7 @@ private enum GardenCareFilter: String, CaseIterable, Identifiable {
         case .all: "All care"
         case .fertilize: "Fertilize"
         case .prune: "Prune"
-        case .wateringDue: "Watering due"
+        case .wateringDue: "Water today"
         }
     }
 
@@ -945,7 +946,7 @@ private enum GardenCareFilter: String, CaseIterable, Identifiable {
         case .all: AppLocalization.string("All care")
         case .fertilize: AppLocalization.string("Fertilize")
         case .prune: AppLocalization.string("Prune")
-        case .wateringDue: AppLocalization.string("Watering due")
+        case .wateringDue: AppLocalization.string("Water today")
         }
     }
 
@@ -963,7 +964,7 @@ private enum GardenCareFilter: String, CaseIterable, Identifiable {
         case .all: true
         case .fertilize: schedule.shouldFertilize
         case .prune: schedule.shouldPrune
-        case .wateringDue: schedule.hasWateringDue
+        case .wateringDue: schedule.isWateringDueToday
         }
     }
 }
@@ -972,7 +973,7 @@ private struct GardenCareSchedule: Identifiable {
     let plant: Plant
     let shouldFertilize: Bool
     let shouldPrune: Bool
-    let hasWateringDue: Bool
+    let isWateringDueToday: Bool
 
     var id: UUID { plant.id }
 }
@@ -1020,8 +1021,8 @@ private struct GardenCarePlantRow: View {
                     if schedule.shouldPrune {
                         careIcon("Prune", icon: "scissors", color: pruneColor)
                     }
-                    if schedule.hasWateringDue {
-                        careIcon("Watering due", icon: "drop.fill", color: waterBlue)
+                    if schedule.isWateringDueToday {
+                        careIcon("Water today", icon: "drop.fill", color: waterBlue)
                     }
                 }
             }

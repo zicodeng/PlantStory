@@ -132,8 +132,8 @@ struct WateringReminderEditorView: View {
 
                 Section("Preview") {
                     Label(scheduleText, systemImage: "bell.fill")
-                    if let nextCheckText {
-                        Text(nextCheckText)
+                    if let dueDescriptionText {
+                        Text(dueDescriptionText)
                             .foregroundStyle(.secondary)
                     }
                 }
@@ -200,10 +200,10 @@ struct WateringReminderEditorView: View {
         WateringReminderText.schedule(draftReminder, season: activeSeason)
     }
 
-    private var nextCheckText: String? {
+    private var dueDescriptionText: String? {
         var draftPlant = plant
         draftPlant.wateringReminder = draftReminder
-        return WateringReminderText.nextCheck(for: draftPlant, season: activeSeason)
+        return WateringReminderText.dueDescription(for: draftPlant, season: activeSeason)
     }
 
     @MainActor
@@ -434,11 +434,11 @@ struct WateringRemindersSettingsView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                if let nextCheck = WateringReminderText.nextCheck(
+                if let dueDescription = WateringReminderText.dueDescription(
                     for: plant,
                     season: activeSeason
                 ) {
-                    Text(nextCheck)
+                    Text(dueDescription)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

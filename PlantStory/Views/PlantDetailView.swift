@@ -503,13 +503,13 @@ struct PlantDetailView: View {
                         Text(WateringReminderText.schedule(reminder, season: activeSeason))
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.white)
-                        if let nextCheck = WateringReminderText.nextCheck(
+                        if let dueDescription = WateringReminderText.dueDescription(
                             for: currentPlant,
                             season: activeSeason
                         ) {
-                            Text(nextCheck)
-                                .font(.caption)
-                                .foregroundStyle(.white.opacity(0.58))
+                            Text(dueDescription)
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(wateringReminderStatusColor)
                         }
                     } else {
                         Text("Set a watering reminder")
@@ -535,6 +535,22 @@ struct PlantDetailView: View {
 
     private var activeSeason: WateringSeason {
         WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
+    }
+
+    private var wateringReminderStatusColor: Color {
+        guard let dueDate = currentPlant.nextWateringReminderDate(season: activeSeason) else {
+            return .white.opacity(0.58)
+        }
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: .now)
+        let dueDay = calendar.startOfDay(for: dueDate)
+        if dueDay < today {
+            return .orange
+        }
+        if dueDay == today {
+            return waterBlue
+        }
+        return .white.opacity(0.58)
     }
 
     private func deleteCareHistoryEntry(_ deletion: CareHistoryDeletion) {

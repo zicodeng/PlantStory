@@ -23,7 +23,7 @@ enum WateringReminderText {
         return AppLocalization.string("%@ · %@", season.localizedTitle, timing)
     }
 
-    static func nextCheck(
+    static func dueDescription(
         for plant: Plant,
         now: Date = .now,
         season: WateringSeason = .active
@@ -31,11 +31,26 @@ enum WateringReminderText {
         guard let dueDate = plant.nextWateringReminderDate(now: now, season: season) else {
             return nil
         }
-        if dueDate <= now {
-            return AppLocalization.string("Due now")
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: now)
+        let dueDay = calendar.startOfDay(for: dueDate)
+        let dayDifference = calendar.dateComponents([.day], from: today, to: dueDay).day ?? 0
+        let time = AppLocalization.dateString(dueDate, dateStyle: .none, timeStyle: .short)
+
+        if dayDifference < 0 {
+            return AppLocalization.string(
+                "Overdue since %@",
+                AppLocalization.dateString(dueDate, dateStyle: .medium, timeStyle: .short)
+            )
+        }
+        if dayDifference == 0 {
+            return AppLocalization.string("Due today at %@", time)
+        }
+        if dayDifference == 1 {
+            return AppLocalization.string("Due tomorrow at %@", time)
         }
         return AppLocalization.string(
-            "Next check: %@",
+            "Due %@",
             AppLocalization.dateString(dueDate, dateStyle: .medium, timeStyle: .short)
         )
     }

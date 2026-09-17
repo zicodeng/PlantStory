@@ -2,6 +2,13 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.3] - Unreleased
+
+### Bug fixes
+
+- Clarified the care calendar so its blue watering marker shows only plants due today, instead of assigning each plant's next watering date to a month.
+- Made watering reminder rows clearly state whether watering is due today, tomorrow, on a later date, or overdue.
+
 ## [1.2] - 2026-09-16
 
 ### New features
