@@ -2843,12 +2843,12 @@
         }
       }
     },
-    "Choose a month for seasonal care. Watering appears only when due today." : {
+    "Choose a month for seasonal care. Watering shows plants due today or overdue." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "选择月份查看季节性养护；浇水仅在今天到期时显示。"
+            "value" : "选择月份查看季节性养护；浇水会显示今天到期或已逾期的植物。"
           }
         }
       }
@@ -8492,6 +8492,16 @@
         }
       }
     },
+    "Overdue" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已逾期"
+          }
+        }
+      }
+    },
     "Overdue %lld days" : {
       "localizations" : {
         "zh-Hans" : {
@@ -13063,6 +13073,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "浇水提醒"
+          }
+        }
+      }
+    },
+    "Watering needed" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要浇水"
           }
         }
       }
