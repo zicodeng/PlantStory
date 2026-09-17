@@ -4,732 +4,34 @@
     "" : {
 
     },
-    "African fig" : {
+    "‘Thai Constellation’" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "African fig"
+            "value" : "‘Thai Constellation’"
           }
         }
       }
     },
-    "African spear" : {
+    "“Low light” does not mean darkness. Every plant needs usable light, and each species has its own range." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "African spear"
+            "value" : "“低光照”不等于黑暗。所有植物都需要能利用的光，只是每种植物适应的范围不同。"
           }
         }
       }
     },
-    "Baby tears pilea" : {
+    "%@ · %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Baby tears pilea"
-          }
-        }
-      }
-    },
-    "Bamburanta" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bamburanta"
-          }
-        }
-      }
-    },
-    "Black velvet alocasia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Black velvet alocasia"
-          }
-        }
-      }
-    },
-    "Black-gold philodendron" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Black-gold philodendron"
-          }
-        }
-      }
-    },
-    "Bunny ears cactus" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "黄毛掌"
-          }
-        }
-      }
-    },
-    "Burro’s tail" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "玉缀"
-          }
-        }
-      }
-    },
-    "Cast-iron plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "蜘蛛抱蛋"
-          }
-        }
-      }
-    },
-    "Chinese fan palm" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "蒲葵"
-          }
-        }
-      }
-    },
-    "Clustering fishtail palm" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "短穗鱼尾葵"
-          }
-        }
-      }
-    },
-    "Crystal anthurium" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Crystal anthurium"
-          }
-        }
-      }
-    },
-    "Cupid peperomia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cupid peperomia"
-          }
-        }
-      }
-    },
-    "Dragon tree" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "龙血树"
-          }
-        }
-      }
-    },
-    "Dragon-tail plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "麒麟叶"
-          }
-        }
-      }
-    },
-    "Eyelash begonia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eyelash begonia"
-          }
-        }
-      }
-    },
-    "Foxtail fern" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Foxtail fern"
-          }
-        }
-      }
-    },
-    "Friendship plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Friendship plant"
-          }
-        }
-      }
-    },
-    "Glorious philodendron" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Glorious philodendron"
-          }
-        }
-      }
-    },
-    "Iron cross begonia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "马蹄秋海棠"
-          }
-        }
-      }
-    },
-    "Lipstick echeveria" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lipstick echeveria"
-          }
-        }
-      }
-    },
-    "Metallic begonia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Metallic begonia"
-          }
-        }
-      }
-    },
-    "Ming asparagus fern" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ming asparagus fern"
-          }
-        }
-      }
-    },
-    "Mini monstera" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mini monstera"
-          }
-        }
-      }
-    },
-    "Mistletoe fig" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mistletoe fig"
-          }
-        }
-      }
-    },
-    "Moon Valley pilea" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Moon Valley pilea"
-          }
-        }
-      }
-    },
-    "Mother of thousands" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "落地生根"
-          }
-        }
-      }
-    },
-    "Never-never plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Never-never plant"
-          }
-        }
-      }
-    },
-    "Old lady cactus" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Old lady cactus"
-          }
-        }
-      }
-    },
-    "Paddle plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paddle plant"
-          }
-        }
-      }
-    },
-    "Panda plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "月兔耳"
-          }
-        }
-      }
-    },
-    "Pinstripe calathea" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pinstripe calathea"
-          }
-        }
-      }
-    },
-    "Port Jackson fig" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "锈叶榕"
-          }
-        }
-      }
-    },
-    "Raindrop peperomia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Raindrop peperomia"
-          }
-        }
-      }
-    },
-    "Red-edge peperomia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Red-edge peperomia"
-          }
-        }
-      }
-    },
-    "Rose-painted calathea" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rose-painted calathea"
-          }
-        }
-      }
-    },
-    "Sacred fig" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "菩提树"
-          }
-        }
-      }
-    },
-    "String of turtles" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "String of turtles"
-          }
-        }
-      }
-    },
-    "Velvet cardboard anthurium" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Velvet cardboard anthurium"
-          }
-        }
-      }
-    },
-    "Zebra alocasia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "斑马海芋"
-          }
-        }
-      }
-    },
-    "African mask" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "African mask"
-          }
-        }
-      }
-    },
-    "Calathea ‘Triostar’" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "三色卧花竹芋"
-          }
-        }
-      }
-    },
-    "Christmas cactus" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Christmas cactus"
-          }
-        }
-      }
-    },
-    "Ctenanthe burle-marxii" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ctenanthe burle-marxii"
-          }
-        }
-      }
-    },
-    "Gold dust dracaena" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gold dust dracaena"
-          }
-        }
-      }
-    },
-    "Golden barrel cactus" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Golden barrel cactus"
-          }
-        }
-      }
-    },
-    "Houseleek tree" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Houseleek tree"
-          }
-        }
-      }
-    },
-    "Jade necklace" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jade necklace"
-          }
-        }
-      }
-    },
-    "Mexican snow ball" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mexican snow ball"
-          }
-        }
-      }
-    },
-    "Moon cactus" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "红瑞云"
-          }
-        }
-      }
-    },
-    "Aluminum plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "花叶冷水花"
-          }
-        }
-      }
-    },
-    "Areca palm" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "散尾葵"
-          }
-        }
-      }
-    },
-    "Arrowhead vine" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "合果芋"
-          }
-        }
-      }
-    },
-    "Artillery plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "小叶冷水花"
-          }
-        }
-      }
-    },
-    "Fern asparagus" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "文竹"
-          }
-        }
-      }
-    },
-    "Banyan" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "孟加拉榕"
-          }
-        }
-      }
-    },
-    "Blushing philodendron" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "红苞喜林芋"
-          }
-        }
-      }
-    },
-    "Creeping fig" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "薜荔"
-          }
-        }
-      }
-    },
-    "Dumb cane" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "花叶万年青"
-          }
-        }
-      }
-    },
-    "Ginseng fig" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "榕树"
-          }
-        }
-      }
-    },
-    "Lady palm" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "棕竹"
-          }
-        }
-      }
-    },
-    "Lucky bamboo" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "富贵竹"
-          }
-        }
-      }
-    },
-    "Madagascar dragon tree" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "五彩千年木"
-          }
-        }
-      }
-    },
-    "Majesty palm" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "国王椰子"
-          }
-        }
-      }
-    },
-    "Rattlesnake plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "箭羽竹芋"
-          }
-        }
-      }
-    },
-    "King begonia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "大王秋海棠"
-          }
-        }
-      }
-    },
-    "Emerald ripple pepper" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "皱叶椒草"
-          }
-        }
-      }
-    },
-    "Satin pothos" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "小叶银斑葛"
-          }
-        }
-      }
-    },
-    "Spineless yucca" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "象腿丝兰"
-          }
-        }
-      }
-    },
-    "String of buttons" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "钱串青锁龙"
-          }
-        }
-      }
-    },
-    "Mexican breadfruit plant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "长叶龟背竹"
-          }
-        }
-      }
-    },
-    "Tree philodendron" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "春羽"
-          }
-        }
-      }
-    },
-    "Wax begonia" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "四季秋海棠"
+            "value" : "%1$@ · %2$@"
           }
         }
       }
@@ -747,17 +49,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ 和 %2$@"
-          }
-        }
-      }
-    },
-    "%@ · %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ · %2$@"
           }
         }
       }
@@ -839,6 +130,7 @@
       }
     },
     "%lld matches" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -974,6 +266,7 @@
       }
     },
     "A bright spot just outside direct rays" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -984,6 +277,7 @@
       }
     },
     "A broad, heart-shaped blade with a notch at the base where the petiole attaches." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1005,6 +299,7 @@
       }
     },
     "A bud or shoot tip begins the next step" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1014,7 +309,19 @@
         }
       }
     },
+    "A clean, dry scar is usually normal. A soft, dark, or spreading patch deserves a closer look." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "干燥整洁的叶痕通常正常；柔软、发黑或扩散的斑块需要仔细检查。"
+          }
+        }
+      }
+    },
     "A cultivar is a named selection maintained through cultivation. It sits below the species in this practical plant address." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1046,6 +353,7 @@
       }
     },
     "A family contains related genera. Araceae includes Monstera, Epipremnum, Philodendron, and many other aroids." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1076,6 +384,7 @@
       }
     },
     "A firm structural root supports the whole system. Soft or hollow sections may indicate damage or rot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1128,6 +437,7 @@
       }
     },
     "A genus brings together closely related species. It is the first word in a scientific species name." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1138,6 +448,7 @@
       }
     },
     "A heart-like base notch" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1147,7 +458,19 @@
         }
       }
     },
+    "A leaf scar marks the place where a leaf or its petiole was once attached to the stem." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶痕标记叶片或叶柄曾经与茎连接的位置。"
+          }
+        }
+      }
+    },
     "A long, narrow blade that is widest below the middle and tapers to a pointed tip." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1189,6 +512,7 @@
       }
     },
     "A new leaf begins in a protected growing region. On many vining plants, look near the shoot tip or a node where a leaf joins the stem." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1240,6 +564,7 @@
       }
     },
     "A piece of stem produces roots and a new shoot. This is common for many vining and trailing houseplants, but the location of the node matters." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1250,6 +575,7 @@
       }
     },
     "A plant can have palm-like leaves without being a flowering palm. Sago palm is a cycad." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1312,6 +638,7 @@
       }
     },
     "A saw-toothed margin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1342,6 +669,7 @@
       }
     },
     "A single blade with deep rounded or pointed indentations that form distinct sections." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1426,6 +754,7 @@
       }
     },
     "A visible flower or fruit is the clearest clue, but either may be absent outside the plant’s reproductive season." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1436,6 +765,7 @@
       }
     },
     "A whole leaf, petiole, or leaf section can form a new plant in certain species. Other plants may grow roots from a leaf but never produce a shoot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1461,179 +791,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关于"
-          }
-        }
-      }
-    },
-    "AI Assistant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 助手"
-          }
-        }
-      }
-    },
-    "AI Suggestions" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 建议"
-          }
-        }
-      }
-    },
-    "AI assistant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 助手"
-          }
-        }
-      }
-    },
-    "AI can confuse plants with similar common names. No photo was analyzed, so review the species and description before applying them." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "仅凭名称，AI 可能会认错同名或相似的植物。这里不会分析照片，请在采用前核对物种和描述。"
-          }
-        }
-      }
-    },
-    "AI can confuse plants with similar common names. No photo was analyzed, so review the species, taxonomy, and field guide before applying them." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 可能会混淆俗名相近的植物。本次未分析照片，请在采用前核对物种、分类信息和野外图鉴。"
-          }
-        }
-      }
-    },
-    "AI can suggest a species and short botanical description—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 可以帮你推测物种并生成简短的植物介绍，但不会提供养护指南。每次生成都会消耗你自己的 OpenAI API 额度，采用前可以先查看内容。"
-          }
-        }
-      }
-    },
-    "AI can suggest a species, structured field guide, and taxonomy—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 可以帮你推测物种、生成结构化野外图鉴和分类信息，但不会提供养护指南。每次生成都会消耗你自己的 OpenAI API 额度，采用前可以先查看内容。"
-          }
-        }
-      }
-    },
-    "AI care suggestion: %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 建议：%@"
-          }
-        }
-      }
-    },
-    "AI generated notes below" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "以下内容由 AI 生成"
-          }
-        }
-      }
-    },
-    "AI is optional. Add your own OpenAI API key in Settings to unlock Wild Find suggestions." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 是可选功能。你可以在“设置”中添加自己的 OpenAI API 密钥，让 AI 帮忙识别野外植物。"
-          }
-        }
-      }
-    },
-    "AI is optional. Add your own OpenAI API key in Settings to unlock plant suggestions." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 是可选功能。你可以在“设置”中添加自己的 OpenAI API 密钥，让 AI 帮忙补全植物信息。"
-          }
-        }
-      }
-    },
-    "AI suggestion unavailable" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂时无法获取 AI 建议"
-          }
-        }
-      }
-    },
-    "AI suggestions are off" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 建议已关闭"
-          }
-        }
-      }
-    },
-    "AI suggestions are on" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 建议已开启"
-          }
-        }
-      }
-    },
-    "AI suggestions are optional and use your own OpenAI API account. Plant tracking works normally when this feature is off." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 建议完全可选，并使用你自己的 OpenAI API 账户。不开启也不会影响植物记录。"
-          }
-        }
-      }
-    },
-    "AI suggestions can be wrong, especially when a common name refers to several species. Review these values before applying them." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "俗名可能对应多个物种，AI 也可能判断出错。采用前请仔细核对。"
-          }
-        }
-      }
-    },
-    "AI suggestions will be turned off on this device." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "这台设备上的 AI 建议将被关闭。"
           }
         }
       }
@@ -1679,16 +836,6 @@
         }
       }
     },
-    "Add API key in Settings" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "前往设置添加 API 密钥"
-          }
-        }
-      }
-    },
     "Add a note about this photo…" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1715,6 +862,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "添加野外记录"
+          }
+        }
+      }
+    },
+    "Add API key in Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往设置添加 API 密钥"
           }
         }
       }
@@ -1779,6 +936,50 @@
         }
       }
     },
+    "Aerial root" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "气生根"
+          }
+        }
+      }
+    },
+    "African fig" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "African fig"
+          }
+        }
+      }
+    },
+    "African mask" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "African mask"
+          }
+        }
+      }
+    },
+    "African spear" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "African spear"
+          }
+        }
+      }
+    },
     "After pollination, pollen tubes can grow through the style toward the ovules." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1801,6 +1002,192 @@
         }
       }
     },
+    "After the main tip is pruned, a healthy axillary bud may begin growing and make the plant branch." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主茎顶端被修剪后，健康的腋芽可能开始生长，让植物产生分枝。"
+          }
+        }
+      }
+    },
+    "AI assistant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 助手"
+          }
+        }
+      }
+    },
+    "AI Assistant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 助手"
+          }
+        }
+      }
+    },
+    "AI can confuse plants with similar common names. No photo was analyzed, so review the species and description before applying them." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅凭名称，AI 可能会认错同名或相似的植物。这里不会分析照片，请在采用前核对物种和描述。"
+          }
+        }
+      }
+    },
+    "AI can confuse plants with similar common names. No photo was analyzed, so review the species, taxonomy, and field guide before applying them." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 可能会混淆俗名相近的植物。本次未分析照片，请在采用前核对物种、分类信息和野外图鉴。"
+          }
+        }
+      }
+    },
+    "AI can suggest a species and short botanical description—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 可以帮你推测物种并生成简短的植物介绍，但不会提供养护指南。每次生成都会消耗你自己的 OpenAI API 额度，采用前可以先查看内容。"
+          }
+        }
+      }
+    },
+    "AI can suggest a species, structured field guide, and taxonomy—not a care guide. Each request uses your OpenAI API credits, and you’ll review the result before applying it." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 可以帮你推测物种、生成结构化野外图鉴和分类信息，但不会提供养护指南。每次生成都会消耗你自己的 OpenAI API 额度，采用前可以先查看内容。"
+          }
+        }
+      }
+    },
+    "AI care suggestion: %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议：%@"
+          }
+        }
+      }
+    },
+    "AI generated notes below" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以下内容由 AI 生成"
+          }
+        }
+      }
+    },
+    "AI is optional. Add your own OpenAI API key in Settings to unlock plant suggestions." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 是可选功能。你可以在“设置”中添加自己的 OpenAI API 密钥，让 AI 帮忙补全植物信息。"
+          }
+        }
+      }
+    },
+    "AI is optional. Add your own OpenAI API key in Settings to unlock Wild Find suggestions." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 是可选功能。你可以在“设置”中添加自己的 OpenAI API 密钥，让 AI 帮忙识别野外植物。"
+          }
+        }
+      }
+    },
+    "AI suggestion unavailable" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时无法获取 AI 建议"
+          }
+        }
+      }
+    },
+    "AI Suggestions" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议"
+          }
+        }
+      }
+    },
+    "AI suggestions are off" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议已关闭"
+          }
+        }
+      }
+    },
+    "AI suggestions are on" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议已开启"
+          }
+        }
+      }
+    },
+    "AI suggestions are optional and use your own OpenAI API account. Plant tracking works normally when this feature is off." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI 建议完全可选，并使用你自己的 OpenAI API 账户。不开启也不会影响植物记录。"
+          }
+        }
+      }
+    },
+    "AI suggestions can be wrong, especially when a common name refers to several species. Review these values before applying them." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "俗名可能对应多个物种，AI 也可能判断出错。采用前请仔细核对。"
+          }
+        }
+      }
+    },
+    "AI suggestions will be turned off on this device." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这台设备上的 AI 建议将被关闭。"
+          }
+        }
+      }
+    },
     "All care" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1812,6 +1199,7 @@
       }
     },
     "All caught up" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1853,6 +1241,28 @@
         }
       }
     },
+    "Aluminum plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花叶冷水花"
+          }
+        }
+      }
+    },
+    "An aerial root grows from an above-ground stem and may help a climbing plant attach to support." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "气生根从地上茎长出，可帮助攀援植物附着在支撑物上。"
+          }
+        }
+      }
+    },
     "An aroid, not a true lily" : {
       "localizations" : {
         "zh-Hans" : {
@@ -1863,7 +1273,19 @@
         }
       }
     },
+    "An axillary bud is a small growth point that can develop into a side shoot or, in some plants, a flower." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "腋芽是一个小生长点，可以发育成侧枝，在某些植物上也能发育成花。"
+          }
+        }
+      }
+    },
     "An established clump is separated into smaller plants. Each division begins with both growing points and roots, so it does not need to build a root system from a bare cutting." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1884,6 +1306,7 @@
       }
     },
     "An old label may use Sansevieria for snake plants, but accepted classifications now place them in Dracaena." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1905,6 +1328,7 @@
       }
     },
     "An oval blade that is widest around the middle and narrows toward both ends." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1926,6 +1350,7 @@
       }
     },
     "An uneven leaf base—one side larger than the other—is a classic begonia clue." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -1967,6 +1392,7 @@
       }
     },
     "Aphids" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2039,6 +1465,7 @@
       }
     },
     "Araceae" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2048,7 +1475,19 @@
         }
       }
     },
+    "Areca palm" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "散尾葵"
+          }
+        }
+      }
+    },
     "Areoles distinguish true cacti from other spiny succulents." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2059,6 +1498,7 @@
       }
     },
     "Aroid family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2069,11 +1509,34 @@
       }
     },
     "Aroids are a large tropical family that includes many familiar foliage plants." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "天南星科是一个庞大的热带植物家族，许多常见观叶植物都属于这一科。"
+          }
+        }
+      }
+    },
+    "Arrowhead vine" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "合果芋"
+          }
+        }
+      }
+    },
+    "Artillery plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小叶冷水花"
           }
         }
       }
@@ -2090,6 +1553,7 @@
       }
     },
     "Asparagus family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2110,6 +1574,7 @@
       }
     },
     "Avoid keeping potting mix constantly wet. Use drainage holes and remove fallen leaves from the soil surface." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2129,17 +1594,19 @@
         }
       }
     },
-    "BELOW THE SOIL" : {
+    "Axillary bud" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "土壤之下"
+            "value" : "腋芽"
           }
         }
       }
     },
     "Baby rubber plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2150,6 +1617,7 @@
       }
     },
     "Baby rubber plant is a Peperomia, not a close relative of the rubber plant in the fig family." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2160,11 +1628,23 @@
       }
     },
     "Baby rubber plant, watermelon peperomia, ripple peperomia, and black pepper." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "豆瓣绿、西瓜皮椒草、皱叶椒草和黑胡椒。"
+          }
+        }
+      }
+    },
+    "Baby tears pilea" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baby tears pilea"
           }
         }
       }
@@ -2218,6 +1698,28 @@
         }
       }
     },
+    "Bamburanta" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bamburanta"
+          }
+        }
+      }
+    },
+    "Banyan" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "孟加拉榕"
+          }
+        }
+      }
+    },
     "Before using any pest-control product, confirm it is labeled for indoor use and for your plant. Follow the label and test a small area first." : {
       "localizations" : {
         "zh-Hans" : {
@@ -2249,6 +1751,7 @@
       }
     },
     "Begonia family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2259,11 +1762,22 @@
       }
     },
     "Begonias differ greatly in leaf texture and growth habit, so identify the type before choosing care." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "不同秋海棠的叶片质地和生长习性差别很大，先确认类型再决定养护方式。"
+          }
+        }
+      }
+    },
+    "BELOW THE SOIL" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土壤之下"
           }
         }
       }
@@ -2298,6 +1812,28 @@
         }
       }
     },
+    "Black velvet alocasia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Black velvet alocasia"
+          }
+        }
+      }
+    },
+    "Black-gold philodendron" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Black-gold philodendron"
+          }
+        }
+      }
+    },
     "Black, mushy, foul-smelling, or collapsing tissue suggests rot. Remove damaged material and review moisture, cleanliness, and airflow." : {
       "localizations" : {
         "zh-Hans" : {
@@ -2328,7 +1864,19 @@
         }
       }
     },
+    "Blushing philodendron" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红苞喜林芋"
+          }
+        }
+      }
+    },
     "Boston fern, bird’s-nest fern, maidenhair fern, and horsetails." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2360,6 +1908,7 @@
       }
     },
     "Bright indirect light" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2390,6 +1939,7 @@
       }
     },
     "Broad group" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2400,6 +1950,7 @@
       }
     },
     "Brown bumps fixed to stems" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2462,17 +2013,30 @@
         }
       }
     },
-    "COMMON PEST" : {
+    "Bunny ears cactus" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "常见害虫"
+            "value" : "黄毛掌"
+          }
+        }
+      }
+    },
+    "Burro’s tail" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "玉缀"
           }
         }
       }
     },
     "Cacti are American succulents with areoles—the small structures that produce spines, branches, or flowers." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2483,6 +2047,7 @@
       }
     },
     "Cactus family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2492,7 +2057,19 @@
         }
       }
     },
+    "Calathea ‘Triostar’" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "三色卧花竹芋"
+          }
+        }
+      }
+    },
     "Calathea orbifolia" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2575,6 +2152,17 @@
         }
       }
     },
+    "Cast-iron plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蜘蛛抱蛋"
+          }
+        }
+      }
+    },
     "Change one thing at a time, then give the plant time to respond. Several different problems can create the same symptom." : {
       "localizations" : {
         "zh-Hans" : {
@@ -2628,6 +2216,7 @@
       }
     },
     "Check again after a day or two. Notice how the pot’s weight and the feel of the mix change as it dries." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2679,6 +2268,7 @@
       }
     },
     "Check leaf undersides, growing tips, and the joints where leaves meet stems. Use bright light to spot webbing." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2700,6 +2290,7 @@
       }
     },
     "Check stems and leaf undersides before buying or bringing a plant indoors, then quarantine new arrivals." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2784,6 +2375,7 @@
       }
     },
     "Chinese evergreen" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2793,7 +2385,19 @@
         }
       }
     },
+    "Chinese fan palm" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蒲葵"
+          }
+        }
+      }
+    },
     "Chinese money plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2804,6 +2408,7 @@
       }
     },
     "Chinese money plant, aluminum plant, artillery plant, and true nettles." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2814,6 +2419,7 @@
       }
     },
     "Choose a clean draining pot and lightly moisten fresh potting mix." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2824,6 +2430,7 @@
       }
     },
     "Choose a healthy, preferably non-flowering stem with the number of nodes recommended for the species. A node is where a leaf or bud joins the stem." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2854,6 +2461,7 @@
       }
     },
     "Choose a month to see the plants that need seasonal care." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2864,6 +2472,7 @@
       }
     },
     "Choose a natural clump with more than one growing point. Plan sections so every new plant keeps healthy shoots and roots." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -2924,6 +2533,7 @@
       }
     },
     "Choose an offset or plantlet that has begun forming roots, or keep it attached while it roots when the species allows layering." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3003,6 +2613,17 @@
         }
       }
     },
+    "Christmas cactus" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Christmas cactus"
+          }
+        }
+      }
+    },
     "Clean tools make a neater cut and reduce the chance of carrying pests or pathogens between plants." : {
       "localizations" : {
         "zh-Hans" : {
@@ -3043,7 +2664,19 @@
         }
       }
     },
+    "Clustering fishtail palm" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "短穗鱼尾葵"
+          }
+        }
+      }
+    },
     "Clusters on tender new growth" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3113,6 +2746,16 @@
         }
       }
     },
+    "COMMON PEST" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常见害虫"
+          }
+        }
+      }
+    },
     "Common pests" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3134,6 +2777,7 @@
       }
     },
     "Compare length with width. It should be much longer than it is wide and taper gradually." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3144,6 +2788,7 @@
       }
     },
     "Compare size, spacing, color, and shape with older leaves. A repeated pattern of smaller or distorted leaves can signal stress." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3175,6 +2820,7 @@
       }
     },
     "Cones are a strong clue. Needle-like leaves are common among conifers, while cycads and ginkgo show that the group has other leaf shapes too." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3205,6 +2851,7 @@
       }
     },
     "Confirm that drainage holes are open and empty any water collected inside the saucer or decorative outer pot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3226,6 +2873,7 @@
       }
     },
     "Continue until some water exits the drainage holes. Very dry mix may need a second slow pass." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3236,6 +2884,7 @@
       }
     },
     "Contrasting dots or patches repeat across the blade as part of the leaf’s normal coloring." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3246,6 +2895,7 @@
       }
     },
     "Cordate" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3256,6 +2906,7 @@
       }
     },
     "Corn plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3305,6 +2956,17 @@
         }
       }
     },
+    "Creeping fig" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "薜荔"
+          }
+        }
+      }
+    },
     "Crown or base" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3315,12 +2977,45 @@
         }
       }
     },
+    "Crystal anthurium" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crystal anthurium"
+          }
+        }
+      }
+    },
+    "Ctenanthe burle-marxii" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ctenanthe burle-marxii"
+          }
+        }
+      }
+    },
     "Cultivar" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "栽培品种"
+          }
+        }
+      }
+    },
+    "Cupid peperomia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cupid peperomia"
           }
         }
       }
@@ -3347,6 +3042,7 @@
       }
     },
     "Cushion mosses, sheet mosses, and liverworts." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3396,16 +3092,6 @@
         }
       }
     },
-    "DATA & PRIVACY" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据与隐私"
-          }
-        }
-      }
-    },
     "Damaged, crowded, or unhealthy roots may struggle to deliver water evenly to each leaf." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3439,6 +3125,16 @@
         }
       }
     },
+    "DATA & PRIVACY" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数据与隐私"
+          }
+        }
+      }
+    },
     "Day %lld" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3460,11 +3156,22 @@
       }
     },
     "Daylight is present, but weak" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "有自然光，但强度较弱"
+          }
+        }
+      }
+    },
+    "days raised" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "陪伴天数"
           }
         }
       }
@@ -3490,6 +3197,7 @@
       }
     },
     "Deep curves divide the blade" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3596,6 +3304,7 @@
       }
     },
     "Dense roots circle the pot’s shape" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3627,6 +3336,7 @@
       }
     },
     "Detach a small plant produced by its parent" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3637,6 +3347,7 @@
       }
     },
     "Direct sun" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3647,6 +3358,7 @@
       }
     },
     "Discover roots, stems, nodes, leaves, buds, and flowers." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3687,6 +3399,7 @@
       }
     },
     "Division" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3697,6 +3410,7 @@
       }
     },
     "Do not add more water" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3736,6 +3450,28 @@
         }
       }
     },
+    "Dragon tree" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "龙血树"
+          }
+        }
+      }
+    },
+    "Dragon-tail plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "麒麟叶"
+          }
+        }
+      }
+    },
     "Drainage first" : {
       "localizations" : {
         "zh-Hans" : {
@@ -3769,6 +3505,7 @@
       }
     },
     "Dry and light" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3821,6 +3558,17 @@
         }
       }
     },
+    "Due %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水时间：%@"
+          }
+        }
+      }
+    },
     "Due now" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3828,16 +3576,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "该检查了"
-          }
-        }
-      }
-    },
-    "Due %@" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "浇水时间：%@"
           }
         }
       }
@@ -3853,6 +3591,7 @@
       }
     },
     "Due today at %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3863,11 +3602,23 @@
       }
     },
     "Due tomorrow at %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "明天 %@ 浇水"
+          }
+        }
+      }
+    },
+    "Dumb cane" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花叶万年青"
           }
         }
       }
@@ -3916,6 +3667,7 @@
       }
     },
     "Edit a plant to add care months or a watering reminder." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3926,6 +3678,7 @@
       }
     },
     "Edit a plant to add fertilizing or pruning months." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3956,6 +3709,7 @@
       }
     },
     "Elliptic" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3965,7 +3719,19 @@
         }
       }
     },
+    "Emerald ripple pepper" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "皱叶椒草"
+          }
+        }
+      }
+    },
     "Emerging leaf" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -3976,6 +3742,7 @@
       }
     },
     "Empty standing water" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4071,6 +3838,7 @@
       }
     },
     "Explore anatomy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4102,6 +3870,7 @@
       }
     },
     "Explore how roots anchor a plant, absorb water, and keep growing." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4142,22 +3911,22 @@
         }
       }
     },
-    "Export Backup" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导出备份"
-          }
-        }
-      }
-    },
     "Export a manual backup above and save it somewhere you can open on the new iPhone." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "先导出备份，再把文件存到新 iPhone 可以打开的位置。"
+          }
+        }
+      }
+    },
+    "Export Backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出备份"
           }
         }
       }
@@ -4172,52 +3941,13 @@
         }
       }
     },
-    "FEATURES" : {
+    "Eyelash begonia" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "功能"
-          }
-        }
-      }
-    },
-    "FEEDBACK" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "反馈"
-          }
-        }
-      }
-    },
-    "FIND A PLANT’S FAMILY" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "找到植物的家族"
-          }
-        }
-      }
-    },
-    "FIND THE RIGHT SPOT" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "找到合适的位置"
-          }
-        }
-      }
-    },
-    "FOLLOW NEW GROWTH" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "观察新芽生长"
+            "value" : "Eyelash begonia"
           }
         }
       }
@@ -4272,6 +4002,26 @@
         }
       }
     },
+    "FEATURES" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "功能"
+          }
+        }
+      }
+    },
+    "FEEDBACK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反馈"
+          }
+        }
+      }
+    },
     "Feeding insects, rubbing, or bruising can leave scattered marks that resemble disease." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -4284,6 +4034,7 @@
       }
     },
     "Feel the potting mix at the depth your plant prefers and notice whether the pot feels light or heavy." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4316,6 +4067,7 @@
       }
     },
     "Fenestrated" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4325,7 +4077,19 @@
         }
       }
     },
+    "Fern asparagus" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文竹"
+          }
+        }
+      }
+    },
     "Ferns and relatives" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4336,11 +4100,22 @@
       }
     },
     "Ferns and their relatives have vascular tissue that moves water through the plant, but they reproduce with spores rather than seeds." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "蕨类及近缘植物具有在体内输送水分的维管组织，但它们通过孢子而不是种子繁殖。"
+          }
+        }
+      }
+    },
+    "fertilizations" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "施肥次数"
           }
         }
       }
@@ -4396,6 +4171,17 @@
         }
       }
     },
+    "fertilizing entry" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "施肥记录"
+          }
+        }
+      }
+    },
     "Fertilizing scheduled" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -4408,6 +4194,7 @@
       }
     },
     "Fiddle-leaf fig" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4428,6 +4215,7 @@
       }
     },
     "Fig family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4447,12 +4235,33 @@
         }
       }
     },
+    "Find a dry, shaped mark at a node where no leaf is currently attached." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在目前没有叶片的节上寻找干燥、有形状的痕迹。"
+          }
+        }
+      }
+    },
     "Find a houseplant family" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "查找室内植物的家族"
+          }
+        }
+      }
+    },
+    "FIND A PLANT’S FAMILY" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到植物的家族"
           }
         }
       }
@@ -4490,7 +4299,29 @@
         }
       }
     },
+    "Find the newest folded or tightly clustered growth at the end of the stem." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在茎的末端寻找最新的折叠状或紧密簇生的新生组织。"
+          }
+        }
+      }
+    },
+    "FIND THE RIGHT SPOT" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到合适的位置"
+          }
+        }
+      }
+    },
     "Find the slightly thickened area directly below the base of the stem." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4533,6 +4364,7 @@
       }
     },
     "Fine root" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4543,6 +4375,7 @@
       }
     },
     "Fine roots are the small, delicate branches that do much of the root system's water and mineral uptake." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4553,6 +4386,7 @@
       }
     },
     "Fine roots dry out and become damaged faster than thick roots, so handle them gently when repotting." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4563,6 +4397,7 @@
       }
     },
     "Fine webbing and pale speckles" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4573,6 +4408,7 @@
       }
     },
     "Firm roots with room for potting mix" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4593,6 +4429,7 @@
       }
     },
     "Flaming Katy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4603,6 +4440,7 @@
       }
     },
     "Flamingo flower" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4635,6 +4473,7 @@
       }
     },
     "Flowering plants" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4645,6 +4484,7 @@
       }
     },
     "Flowering plants, also called angiosperms, form flowers and enclose their seeds within an ovary that develops into a fruit." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4665,6 +4505,7 @@
       }
     },
     "Flowers can be tiny, seasonal, or easy to overlook. A plant does not need to be blooming now to belong to this group." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4686,6 +4527,7 @@
       }
     },
     "Follow a lateral root outward to the thinnest branching roots near its ends." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4722,6 +4564,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "跟随一片新叶成长"
+          }
+        }
+      }
+    },
+    "FOLLOW NEW GROWTH" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察新芽生长"
           }
         }
       }
@@ -4767,12 +4619,35 @@
         }
       }
     },
+    "Foxtail fern" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foxtail fern"
+          }
+        }
+      }
+    },
     "Fresh tips signal active growth. Avoid tearing or crushing them when loosening roots during repotting." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "新鲜根尖表示根系正在生长；换盆松根时不要撕裂或挤压它们。"
+          }
+        }
+      }
+    },
+    "Friendship plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Friendship plant"
           }
         }
       }
@@ -4802,31 +4677,12 @@
       }
     },
     "Fungus gnats" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "小黑飞（真菌蚋）"
-          }
-        }
-      }
-    },
-    "GROW ONE INTO MANY" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一株变多株"
-          }
-        }
-      }
-    },
-    "GROWTH STAGE" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "生长阶段"
           }
         }
       }
@@ -4862,6 +4718,7 @@
       }
     },
     "Gentle, useful light without strong rays" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4872,6 +4729,7 @@
       }
     },
     "Gently tease apart the outer roots if they are tightly circling the root ball." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4882,6 +4740,7 @@
       }
     },
     "Gently tease or make a clean cut between sections, keeping roots attached. Pot each division at about the same depth it was growing before." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4911,7 +4770,19 @@
         }
       }
     },
+    "Ginseng fig" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "榕树"
+          }
+        }
+      }
+    },
     "Give it space and resist touching it often. Keep the plant away from abrupt drafts, heat, or strong new sunlight." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4941,6 +4812,17 @@
         }
       }
     },
+    "Glorious philodendron" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glorious philodendron"
+          }
+        }
+      }
+    },
     "Go up one size" : {
       "localizations" : {
         "zh-Hans" : {
@@ -4951,7 +4833,30 @@
         }
       }
     },
+    "Gold dust dracaena" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gold dust dracaena"
+          }
+        }
+      }
+    },
+    "Golden barrel cactus" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Golden barrel cactus"
+          }
+        }
+      }
+    },
     "Golden pothos" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -4962,11 +4867,22 @@
       }
     },
     "Grow from a leaf when the species allows it" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "适合叶插的品种，可以从一片叶子开始"
+          }
+        }
+      }
+    },
+    "GROW ONE INTO MANY" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一株变多株"
           }
         }
       }
@@ -4994,6 +4910,7 @@
       }
     },
     "Growing root tip" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5054,6 +4971,7 @@
       }
     },
     "Growth point" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5063,7 +4981,29 @@
         }
       }
     },
+    "GROWTH STAGE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生长阶段"
+          }
+        }
+      }
+    },
+    "Guide longer aerial roots toward a support or potting mix when helpful. They are normal growth, not a pest." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "较长的气生根可按需引向支撑物或盆土。它们是正常生长，并非害虫。"
+          }
+        }
+      }
+    },
     "Gymnosperms" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5074,6 +5014,7 @@
       }
     },
     "Gymnosperms are seed plants, but their seeds are not enclosed inside fruits. Many familiar gymnosperms produce cones." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5094,6 +5035,7 @@
       }
     },
     "Healthy branching gives the plant more access to moisture while helping hold it securely in the pot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5104,6 +5046,7 @@
       }
     },
     "Healthy roots" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5125,6 +5068,7 @@
       }
     },
     "Heartleaf philodendron" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5198,11 +5142,23 @@
       }
     },
     "Holiday cacti, ladyfinger cactus, golden barrel cactus, and prickly pears." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "蟹爪兰等节日仙人掌、金手指、金琥和仙人掌属植物。"
+          }
+        }
+      }
+    },
+    "Houseleek tree" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Houseleek tree"
           }
         }
       }
@@ -5338,6 +5294,7 @@
       }
     },
     "If this plant prefers to dry to this depth, water slowly and evenly until excess drains from the bottom." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5348,6 +5305,7 @@
       }
     },
     "If watering has become difficult or growth has slowed, move up one pot size and gently loosen the outer circling roots." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5358,6 +5316,7 @@
       }
     },
     "Imagine an ellipse: both sides curve smoothly, with no base notch or deep lobes." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5399,6 +5358,7 @@
       }
     },
     "Inspect and trim" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5431,6 +5391,7 @@
       }
     },
     "Inspect curled young leaves, buds, tender stems, and leaf undersides. Ants or sticky surfaces can be extra clues." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5441,6 +5402,7 @@
       }
     },
     "Inspect leaves weekly, clean dusty foliage, and avoid letting the plant remain severely dry or stressed." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5462,6 +5424,7 @@
       }
     },
     "Inspect stems, leaf veins, and leaf undersides. Compare suspicious bumps with normal stem texture." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5472,6 +5435,7 @@
       }
     },
     "Inspect tender growth often and quarantine new plants, cuttings, or plants returning from outdoors." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5523,6 +5487,17 @@
         }
       }
     },
+    "Iron cross begonia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "马蹄秋海棠"
+          }
+        }
+      }
+    },
     "Is it time to repot?" : {
       "localizations" : {
         "zh-Hans" : {
@@ -5534,6 +5509,7 @@
       }
     },
     "Isolate the plant. Gently wipe or lift off visible scale if the plant tolerates it, and prune heavily infested growth." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5544,6 +5520,7 @@
       }
     },
     "Isolate the plant. Remove visible insects with a damp cotton swab, rinse sturdy leaves, and repeat checks because hidden bugs can return." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5554,6 +5531,7 @@
       }
     },
     "Isolate the plant. Rinse foliage, remove badly damaged flowers or leaves, and repeat close inspections because thrips hide in crevices." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5564,6 +5542,7 @@
       }
     },
     "Isolate the plant. Rinse leaves thoroughly, especially underneath, wipe away webbing, and inspect again every few days." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5574,6 +5553,7 @@
       }
     },
     "Isolate the plant. Wash aphids off with water and remove badly infested tips. Repeat the inspection as new growth opens." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5584,6 +5564,7 @@
       }
     },
     "It gives you a precise word for a very common leaf shape and helps narrow down similar plants." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5615,6 +5596,7 @@
       }
     },
     "It may be time to water" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5640,6 +5622,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "跨越语言也能对上号"
+          }
+        }
+      }
+    },
+    "It’s been %lld days since the last watering." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距离上次浇水已经 %lld 天了。"
+          }
+        }
+      }
+    },
+    "It’s been a day since the last watering." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "距离上次浇水已经一天了。"
           }
         }
       }
@@ -5675,6 +5679,7 @@
       }
     },
     "Its strong length-to-width ratio separates it from elliptic and oval leaves." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5694,29 +5699,19 @@
         }
       }
     },
-    "It’s been %lld days since the last watering." : {
+    "Jade necklace" : {
       "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "距离上次浇水已经 %lld 天了。"
-          }
-        }
-      }
-    },
-    "It’s been a day since the last watering." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "距离上次浇水已经一天了。"
+            "value" : "Jade necklace"
           }
         }
       }
     },
     "Jade plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5727,6 +5722,7 @@
       }
     },
     "Jade plant, flaming Katy, Echeveria, Sedum, and Aeonium." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5778,6 +5774,7 @@
       }
     },
     "Keep light, watering, and temperature appropriate for the species. Avoid making several major care changes at once." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5788,6 +5785,7 @@
       }
     },
     "Keep the crown near the plant's original planting depth. Burying it too deeply can trap moisture." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5808,6 +5806,7 @@
       }
     },
     "Keep the root ball intact unless another problem needs attention. If you are repotting, use fresh suitable mix and avoid a needlessly large pot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5828,6 +5827,7 @@
       }
     },
     "Keep the same depth" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5849,6 +5849,7 @@
       }
     },
     "Keep watching the whole plant rather than chasing perfect leaves. Record changes over time if a pattern concerns you." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5859,11 +5860,23 @@
       }
     },
     "Kentia palm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "肯氏椰子"
+          }
+        }
+      }
+    },
+    "King begonia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大王秋海棠"
           }
         }
       }
@@ -5890,61 +5903,12 @@
       }
     },
     "Knowing these openings are normal prevents confusion with pest damage or torn leaves." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "知道这些孔洞属于正常特征，就不会误以为是虫害或叶片撕裂。"
-          }
-        }
-      }
-    },
-    "LANGUAGE" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "语言"
-          }
-        }
-      }
-    },
-    "LEAF CLUES" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "观察叶片"
-          }
-        }
-      }
-    },
-    "LEAF FEATURE" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "叶片特征"
-          }
-        }
-      }
-    },
-    "LEAF SHAPE" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "叶形"
-          }
-        }
-      }
-    },
-    "LIGHT LEVEL" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "光照强度"
           }
         }
       }
@@ -5959,7 +5923,19 @@
         }
       }
     },
+    "Lady palm" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "棕竹"
+          }
+        }
+      }
+    },
     "Ladyfinger cactus" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -5970,11 +5946,22 @@
       }
     },
     "Lanceolate" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "披针形"
+          }
+        }
+      }
+    },
+    "LANGUAGE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语言"
           }
         }
       }
@@ -6024,6 +6011,7 @@
       }
     },
     "Lateral root" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6034,6 +6022,7 @@
       }
     },
     "Lateral roots branch from larger roots, expanding the area where the plant can find water and minerals." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6076,7 +6065,18 @@
         }
       }
     },
+    "LEAF CLUES" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察叶片"
+          }
+        }
+      }
+    },
     "Leaf cutting" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6097,6 +6097,17 @@
         }
       }
     },
+    "LEAF FEATURE" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶片特征"
+          }
+        }
+      }
+    },
     "Leaf margin" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -6109,11 +6120,34 @@
       }
     },
     "Leaf margins are useful identification clues even when two plants share the same overall shape." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "即使两种植物的整体叶形相似，叶缘也能提供重要的辨认线索。"
+          }
+        }
+      }
+    },
+    "Leaf scar" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶痕"
+          }
+        }
+      }
+    },
+    "LEAF SHAPE" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "叶形"
           }
         }
       }
@@ -6129,6 +6163,7 @@
       }
     },
     "Leaf shapes vary widely, but many members grow from rhizomes or thickened roots and tolerate seasonal dryness." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6212,6 +6247,7 @@
       }
     },
     "Learn the language\nof plants." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6293,6 +6329,7 @@
       }
     },
     "Leaves are often fleshy, while tiny flowers gather on narrow upright spikes." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6336,6 +6373,7 @@
       }
     },
     "Leaves develop many tiny pale dots, then may look bronze or dry. Fine webbing can appear when numbers grow." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6357,6 +6395,7 @@
       }
     },
     "Leaves frequently show clear veins; Pilea species often have small, inconspicuous flowers." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6389,6 +6428,7 @@
       }
     },
     "Leaves often unfold from sheathing stalks and may lift or fold as light changes." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6399,6 +6439,7 @@
       }
     },
     "Leaves or flowers develop silvery scraped patches, streaks, distortion, or tiny black specks. The insects are narrow and difficult to see." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6419,6 +6460,7 @@
       }
     },
     "Let the leaf open by itself. Do not peel, pull, or rub the tender blade." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6429,6 +6471,7 @@
       }
     },
     "Let the pot finish draining, then discard water from its saucer or decorative outer pot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6439,6 +6482,7 @@
       }
     },
     "Let the top layer of mix dry as much as the plant safely allows, clear decaying debris, and use sticky cards to reduce and monitor adults." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6488,6 +6532,16 @@
         }
       }
     },
+    "LIGHT LEVEL" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "光照强度"
+          }
+        }
+      }
+    },
     "Light Made Simple" : {
       "localizations" : {
         "zh-Hans" : {
@@ -6529,6 +6583,17 @@
         }
       }
     },
+    "Lipstick echeveria" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lipstick echeveria"
+          }
+        }
+      }
+    },
     "Loading support options…" : {
       "localizations" : {
         "zh-Hans" : {
@@ -6540,6 +6605,7 @@
       }
     },
     "Lobed" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6591,6 +6657,7 @@
       }
     },
     "Long, narrow, and pointed" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6633,6 +6700,7 @@
       }
     },
     "Look first at the base. The two rounded sides meet around a clear inward notch." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6642,7 +6710,19 @@
         }
       }
     },
+    "Look for a firm green or brown nub emerging from a node, often opposite a leaf." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在节上寻找坚实的绿色或棕色小突起，通常位于叶片对面。"
+          }
+        }
+      }
+    },
     "Look for a flower structure made of a central spike called a spadix, often wrapped by a leaflike spathe." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6664,6 +6744,7 @@
       }
     },
     "Look for a small pointed bud, swelling, or fresh tip. Compare it with nearby older growth so you can recognize what is new." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6685,6 +6766,7 @@
       }
     },
     "Look for a smooth, pale or cream-colored point at the end of a healthy young root." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6716,6 +6798,7 @@
       }
     },
     "Look for firm healthy roots and remove roots that are clearly dead, soft, or damaged using clean shears." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6726,6 +6809,7 @@
       }
     },
     "Look for low mats or small leafy forms in moist places. Fine stalks with capsules may rise above a moss when it is producing spores." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6736,6 +6820,7 @@
       }
     },
     "Look for medium-sized roots growing sideways from a thicker structural root." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6822,11 +6907,23 @@
       }
     },
     "Look in leaf axils, along stems and veins, under leaves, and around tight crevices near the pot rim." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "重点查看叶腋、茎、叶脉、叶背，以及盆沿附近的狭小缝隙。"
+          }
+        }
+      }
+    },
+    "Look just above the place where a petiole meets the stem at a node." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在叶柄与茎相接的节上方寻找。"
           }
         }
       }
@@ -6842,6 +6939,7 @@
       }
     },
     "Look under leaves, inside flowers, around buds, and in tight folds. Check damaged areas for slender insects and black specks." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6873,6 +6971,7 @@
       }
     },
     "Loosen circling roots" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6883,6 +6982,7 @@
       }
     },
     "Low light" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6893,6 +6993,7 @@
       }
     },
     "Low-light tolerant means the plant can cope—not that it will grow quickly. Watch for stretching, small leaves, or fading color." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6902,47 +7003,41 @@
         }
       }
     },
-    "MAJOR PLANT GROUP" : {
+    "Lucky bamboo" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "主要植物类群"
+            "value" : "富贵竹"
           }
         }
       }
     },
-    "MEET THE PLANT FAMILY TREE" : {
+    "Madagascar dragon tree" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "认识植物家族树"
+            "value" : "五彩千年木"
           }
         }
       }
     },
-    "MOISTURE CHECK" : {
+    "Majesty palm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "盆土检查"
-          }
-        }
-      }
-    },
-    "MY GARDEN" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我的花园"
+            "value" : "国王椰子"
           }
         }
       }
     },
     "Major branch" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -6958,6 +7053,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "主要类群"
+          }
+        }
+      }
+    },
+    "MAJOR PLANT GROUP" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主要植物类群"
           }
         }
       }
@@ -7015,6 +7120,7 @@
       }
     },
     "Many have divided fronds. Mature fronds may carry clusters of spore-producing structures, often visible as dots or lines on the underside." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7025,6 +7131,7 @@
       }
     },
     "Many plants still carry Calathea on shop labels even when their accepted genus is Goeppertia." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7046,6 +7153,7 @@
       }
     },
     "Many tropical foliage plants favor this range. A sheer curtain can soften stronger window light." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7076,6 +7184,7 @@
       }
     },
     "Match visible symptoms with likely causes and simple checks." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7086,6 +7195,7 @@
       }
     },
     "Mature leaf" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7096,6 +7206,7 @@
       }
     },
     "Mealybugs" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7106,6 +7217,7 @@
       }
     },
     "Medium indirect light" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7145,12 +7257,56 @@
         }
       }
     },
+    "MEET THE PLANT FAMILY TREE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "认识植物家族树"
+          }
+        }
+      }
+    },
     "Meet the whole plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "先来认识整株植物"
+          }
+        }
+      }
+    },
+    "Metallic begonia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metallic begonia"
+          }
+        }
+      }
+    },
+    "Mexican breadfruit plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长叶龟背竹"
+          }
+        }
+      }
+    },
+    "Mexican snow ball" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mexican snow ball"
           }
         }
       }
@@ -7167,6 +7323,7 @@
       }
     },
     "Milky latex is common. Ficus plants often have woody stems and prominent leaf scars." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7177,6 +7334,7 @@
       }
     },
     "Milky sap can irritate skin, and plants within the family do not all share the same indoor care." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7193,6 +7351,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "矿物盐或肥料积累"
+          }
+        }
+      }
+    },
+    "Ming asparagus fern" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ming asparagus fern"
+          }
+        }
+      }
+    },
+    "Mini monstera" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mini monstera"
+          }
+        }
+      }
+    },
+    "Mistletoe fig" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mistletoe fig"
           }
         }
       }
@@ -7238,7 +7429,18 @@
         }
       }
     },
+    "MOISTURE CHECK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "盆土检查"
+          }
+        }
+      }
+    },
     "Monstera" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7249,6 +7451,7 @@
       }
     },
     "Monstera deliciosa" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7259,6 +7462,7 @@
       }
     },
     "Monstera sits on the flowering-plant branch—the largest major group in this beginner map." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7269,6 +7473,7 @@
       }
     },
     "Monstera, pothos, orchids, palms, grasses, and cacti." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7279,11 +7484,34 @@
       }
     },
     "Monstera, pothos, philodendron, peace lily, anthurium, ZZ plant, and Chinese evergreen." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "龟背竹、绿萝、蔓绿绒、白掌、红掌、金钱树和广东万年青。"
+          }
+        }
+      }
+    },
+    "Moon cactus" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红瑞云"
+          }
+        }
+      }
+    },
+    "Moon Valley pilea" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moon Valley pilea"
           }
         }
       }
@@ -7299,6 +7527,7 @@
       }
     },
     "Mosses and liverworts" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7309,6 +7538,7 @@
       }
     },
     "Mosses and liverworts belong to early branches of the land-plant family tree. They stay small and reproduce with spores rather than flowers, fruits, or seeds." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7318,7 +7548,19 @@
         }
       }
     },
+    "Mother of thousands" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "落地生根"
+          }
+        }
+      }
+    },
     "Move around the pot so the whole root ball is moistened instead of wetting only one small area." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7379,6 +7621,16 @@
         }
       }
     },
+    "MY GARDEN" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的花园"
+          }
+        }
+      }
+    },
     "Name" : {
       "localizations" : {
         "zh-Hans" : {
@@ -7411,6 +7663,7 @@
       }
     },
     "Natural holes or splits" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7421,6 +7674,7 @@
       }
     },
     "Natural spots tend to look deliberate and repeat across healthy leaves. Spreading brown spots or yellow halos can indicate damage." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7442,6 +7696,7 @@
       }
     },
     "Nettle family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7451,12 +7706,13 @@
         }
       }
     },
-    "New Growth & Life Stages" : {
+    "Never-never plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新芽与生长阶段"
+            "value" : "Never-never plant"
           }
         }
       }
@@ -7467,6 +7723,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "长出新芽"
+          }
+        }
+      }
+    },
+    "New Growth & Life Stages" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新芽与生长阶段"
           }
         }
       }
@@ -7482,6 +7748,7 @@
       }
     },
     "New leaves emerge as folded spears from the crown; damage to the single growing point can be serious." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7574,16 +7841,6 @@
         }
       }
     },
-    "No plants match this filter" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有符合此筛选条件的植物"
-          }
-        }
-      }
-    },
     "No cloud storage" : {
       "localizations" : {
         "zh-Hans" : {
@@ -7655,6 +7912,17 @@
         }
       }
     },
+    "No plants match this filter" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有符合此筛选条件的植物"
+          }
+        }
+      }
+    },
     "No reminder set" : {
       "localizations" : {
         "zh-Hans" : {
@@ -7666,6 +7934,7 @@
       }
     },
     "No seasonal care scheduled" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7706,6 +7975,7 @@
       }
     },
     "No watering reminders are due." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7756,17 +8026,8 @@
         }
       }
     },
-    "Not Now" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂时不要"
-          }
-        }
-      }
-    },
     "Not every member stings. Chinese money plant is a gentle member commonly grown indoors." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7777,6 +8038,7 @@
       }
     },
     "Not every succulent is a cactus. Look for areoles rather than relying on spines alone." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7793,6 +8055,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "还没施过肥"
+          }
+        }
+      }
+    },
+    "Not Now" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时不要"
           }
         }
       }
@@ -7850,6 +8122,7 @@
       }
     },
     "Notice the fresh color and compact shape. Check nearby folds gently for pests without prying the leaf apart." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -7913,33 +8186,13 @@
         }
       }
     },
-    "OK" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "好"
-          }
-        }
-      }
-    },
     "Oak" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "橡树"
-          }
-        }
-      }
-    },
-    "Off in iPhone Settings" : {
       "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已在 iPhone 设置中关闭"
+            "value" : "橡树"
           }
         }
       }
@@ -7955,12 +8208,45 @@
         }
       }
     },
+    "Off in iPhone Settings" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已在 iPhone 设置中关闭"
+          }
+        }
+      }
+    },
     "Offsets and plantlets" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "侧芽与小苗"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
+          }
+        }
+      }
+    },
+    "Old lady cactus" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Old lady cactus"
           }
         }
       }
@@ -7985,16 +8271,6 @@
         }
       }
     },
-    "On a very young root, this zone sits just behind the smooth growing tip and may look softly fuzzy." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在很幼嫩的根上，根毛区位于光滑生长根尖的后方，看起来可能带有柔软细绒。"
-          }
-        }
-      }
-    },
     "On · Key %@" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -8002,6 +8278,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已开启 · 密钥 %@"
+          }
+        }
+      }
+    },
+    "On a very young root, this zone sits just behind the smooth growing tip and may look softly fuzzy." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在很幼嫩的根上，根毛区位于光滑生长根尖的后方，看起来可能带有柔软细绒。"
           }
         }
       }
@@ -8027,6 +8314,7 @@
       }
     },
     "One side may open before the other. Minor temporary wrinkles can smooth as the leaf expands." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8042,16 +8330,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "只有你主动使用 AI 建议时，PlantStory 才会把植物名称、已填写的物种，以及必要时的地区信息发送给 OpenAI。照片和植物记录不会发送。"
-          }
-        }
-      }
-    },
-    "Open Settings" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打开设置"
           }
         }
       }
@@ -8073,6 +8351,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开 iPhone 设置"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开设置"
           }
         }
       }
@@ -8132,6 +8420,7 @@
       }
     },
     "Openings form naturally inside the blade or as smooth splits along its edges." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8251,46 +8540,6 @@
         }
       }
     },
-    "Opens the Light Made Simple guide" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打开“轻松看懂光照”指南"
-          }
-        }
-      }
-    },
-    "Opens the PlantStory GitHub issues page in your browser" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在浏览器中打开 PlantStory 的 GitHub Issues 页面"
-          }
-        }
-      }
-    },
-    "Opens the PlantStory repository where you can star the project" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打开 PlantStory 的 GitHub 仓库并点亮 Star"
-          }
-        }
-      }
-    },
-    "Opens the PlantStory source code on GitHub" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在 GitHub 上打开 PlantStory 源代码"
-          }
-        }
-      }
-    },
     "Opens the common pests guide" : {
       "localizations" : {
         "zh-Hans" : {
@@ -8331,6 +8580,16 @@
         }
       }
     },
+    "Opens the Light Made Simple guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开“轻松看懂光照”指南"
+          }
+        }
+      }
+    },
     "Opens the new growth and life stages guide" : {
       "localizations" : {
         "zh-Hans" : {
@@ -8367,6 +8626,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开这株植物的分类路径"
+          }
+        }
+      }
+    },
+    "Opens the PlantStory GitHub issues page in your browser" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在浏览器中打开 PlantStory 的 GitHub Issues 页面"
+          }
+        }
+      }
+    },
+    "Opens the PlantStory repository where you can star the project" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 PlantStory 的 GitHub 仓库并点亮 Star"
+          }
+        }
+      }
+    },
+    "Opens the PlantStory source code on GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 GitHub 上打开 PlantStory 源代码"
           }
         }
       }
@@ -8412,6 +8701,7 @@
       }
     },
     "Opens the whole plant anatomy lesson" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8513,6 +8803,7 @@
       }
     },
     "Overdue since %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8533,52 +8824,13 @@
         }
       }
     },
-    "PEST FIELD GUIDE" : {
+    "Paddle plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "害虫图鉴"
-          }
-        }
-      }
-    },
-    "PLANT PART" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "植物部位"
-          }
-        }
-      }
-    },
-    "PLANT PROFILE" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "植物资料"
-          }
-        }
-      }
-    },
-    "PLANT WIKI" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "植物小百科"
-          }
-        }
-      }
-    },
-    "PROPAGATION METHOD" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "繁殖方法"
+            "value" : "Paddle plant"
           }
         }
       }
@@ -8595,6 +8847,7 @@
       }
     },
     "Palm family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8604,7 +8857,19 @@
         }
       }
     },
+    "Panda plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月兔耳"
+          }
+        }
+      }
+    },
     "Parlor palm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8615,6 +8880,7 @@
       }
     },
     "Parlor palm, kentia palm, areca palm, lady palm, and majesty palm." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8645,6 +8911,7 @@
       }
     },
     "Patterns & features" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8685,6 +8952,7 @@
       }
     },
     "Peacock plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8695,6 +8963,7 @@
       }
     },
     "Pepper family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8710,6 +8979,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "发现病虫害"
+          }
+        }
+      }
+    },
+    "PEST FIELD GUIDE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "害虫图鉴"
           }
         }
       }
@@ -8830,6 +9109,7 @@
       }
     },
     "Pines, cycads such as the sago palm, ginkgo, and firs." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8839,7 +9119,19 @@
         }
       }
     },
+    "Pinstripe calathea" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pinstripe calathea"
+          }
+        }
+      }
+    },
     "Place the correct cut surface or petiole in fresh rooting medium. Some fleshy plants need the cut to dry first, so check species-specific instructions." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8850,6 +9142,7 @@
       }
     },
     "Place the correct lower node in water or fresh rooting medium while keeping leaves above the surface. Remove submerged or buried leaves." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -8865,26 +9158,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "植物"
-          }
-        }
-      }
-    },
-    "Plant Families & Taxonomy" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "植物家族与分类"
-          }
-        }
-      }
-    },
-    "Plant Wiki" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "植物百科"
           }
         }
       }
@@ -8912,11 +9185,22 @@
       }
     },
     "Plant description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "植物描述"
+          }
+        }
+      }
+    },
+    "Plant Families & Taxonomy" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物家族与分类"
           }
         }
       }
@@ -8932,12 +9216,32 @@
         }
       }
     },
+    "PLANT PART" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物部位"
+          }
+        }
+      }
+    },
     "Plant problem guide" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "植物问题指南"
+          }
+        }
+      }
+    },
+    "PLANT PROFILE" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物资料"
           }
         }
       }
@@ -8958,6 +9262,58 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "养护统计"
+          }
+        }
+      }
+    },
+    "Plant Wiki" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物百科"
+          }
+        }
+      }
+    },
+    "PLANT WIKI" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物小百科"
+          }
+        }
+      }
+    },
+    "Plants" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物"
+          }
+        }
+      }
+    },
+    "Plants in this starter catalog" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "入门图鉴收录的本科植物"
+          }
+        }
+      }
+    },
+    "Plants that make flowers and seeds within fruits" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "会开花，种子包在果实里的植物"
           }
         }
       }
@@ -9047,37 +9403,6 @@
         }
       }
     },
-    "Plants" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "植物"
-          }
-        }
-      }
-    },
-    "Plants in this starter catalog" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "入门图鉴收录的本科植物"
-          }
-        }
-      }
-    },
-    "Plants that make flowers and seeds within fruits" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "会开花，种子包在果实里的植物"
-          }
-        }
-      }
-    },
     "Please try again." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -9090,6 +9415,7 @@
       }
     },
     "Polka dot begonia" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9100,6 +9426,7 @@
       }
     },
     "Polka dot begonia, rex begonias, wax begonias, and cane begonias." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9110,6 +9437,7 @@
       }
     },
     "Ponytail palm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9120,6 +9448,7 @@
       }
     },
     "Ponytail palm and sago palm are not true palms; they belong to entirely different plant groups." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9139,6 +9468,17 @@
         }
       }
     },
+    "Port Jackson fig" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "锈叶榕"
+          }
+        }
+      }
+    },
     "Possible overwatering" : {
       "localizations" : {
         "zh-Hans" : {
@@ -9150,6 +9490,7 @@
       }
     },
     "Possible root rot" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9210,6 +9551,7 @@
       }
     },
     "Pour slowly and evenly" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9220,6 +9562,7 @@
       }
     },
     "Prayer plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9230,6 +9573,7 @@
       }
     },
     "Prayer plant family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9240,6 +9584,7 @@
       }
     },
     "Prayer plant, Goeppertia species often sold as calatheas, Ctenanthe, and Stromanthe." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9250,6 +9595,7 @@
       }
     },
     "Prayer plants are tropical herbs known for patterned leaves and daily leaf movement." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9270,6 +9616,7 @@
       }
     },
     "Press a finger into the potting mix rather than judging only the surface. Lift the pot too, if it is safe to handle." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9309,6 +9656,16 @@
         }
       }
     },
+    "PROPAGATION METHOD" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁殖方法"
+          }
+        }
+      }
+    },
     "Protect active buds when pruning because they contain the plant's next growth." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -9326,6 +9683,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "保护幼嫩新芽"
+          }
+        }
+      }
+    },
+    "Protect the tender tip while it grows. Removing it can encourage some plants to branch from buds below." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "生长时保护娇嫩的茎尖。移除茎尖可能促使某些植物从下方芽点分枝。"
           }
         }
       }
@@ -9405,6 +9773,7 @@
       }
     },
     "Quarantine new plants and inspect flowers, buds, and leaf undersides before adding them to your collection." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9415,6 +9784,7 @@
       }
     },
     "Quarantine new plants for several weeks and inspect every joint before placing them with your collection." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9424,12 +9794,24 @@
         }
       }
     },
-    "ROOT CHECK" : {
+    "Raindrop peperomia" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "根系检查"
+            "value" : "Raindrop peperomia"
+          }
+        }
+      }
+    },
+    "Rattlesnake plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "箭羽竹芋"
           }
         }
       }
@@ -9515,6 +9897,7 @@
       }
     },
     "Recognizing a consistent natural pattern makes it easier to notice genuinely new or unhealthy spots." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9525,6 +9908,7 @@
       }
     },
     "Recognizing normal variegation helps you avoid mistaking healthy color for a care problem." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9551,6 +9935,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "记下植物名称和日期，之后留意新根、新芽，以及腐烂或干枯的迹象。"
+          }
+        }
+      }
+    },
+    "Red-edge peperomia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Red-edge peperomia"
           }
         }
       }
@@ -9637,6 +10032,7 @@
       }
     },
     "Remove soft dead roots with clean shears, use fresh well-draining mix and a clean draining container, then correct the watering or drainage problem." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9678,6 +10074,7 @@
       }
     },
     "Repeated dots or patches" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9829,6 +10226,7 @@
       }
     },
     "Root a stem section with the right node" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9838,7 +10236,18 @@
         }
       }
     },
+    "ROOT CHECK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根系检查"
+          }
+        }
+      }
+    },
     "Root close-up" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9859,6 +10268,7 @@
       }
     },
     "Root crown" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9869,6 +10279,7 @@
       }
     },
     "Root hairs are fragile and short-lived. New ones continually form as a healthy root grows through the potting mix." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9890,6 +10301,7 @@
       }
     },
     "Root-hair zone" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9900,6 +10312,7 @@
       }
     },
     "Rootbound" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9962,6 +10375,7 @@
       }
     },
     "Roots densely circle the outside or bottom of the root ball, push through drainage holes, or leave very little potting mix visible." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9982,6 +10396,7 @@
       }
     },
     "Roots feel firm and branch through the potting mix. Many species have cream, tan, or pale growing tips." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -9992,6 +10407,7 @@
       }
     },
     "Roots may have been damaged by long-lasting wet conditions, poor drainage, cold, excess fertilizer, or disease. Color alone does not confirm rot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10002,11 +10418,23 @@
       }
     },
     "Rose" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "月季"
+          }
+        }
+      }
+    },
+    "Rose-painted calathea" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rose-painted calathea"
           }
         }
       }
@@ -10032,6 +10460,7 @@
       }
     },
     "Rubber plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10042,6 +10471,7 @@
       }
     },
     "Rubber plant, fiddle-leaf fig, weeping fig, edible fig, and mulberry." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10052,6 +10482,7 @@
       }
     },
     "Run your eyes along the edge and look for evenly repeated teeth rather than tears or missing chunks." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10061,12 +10492,13 @@
         }
       }
     },
-    "START HERE" : {
+    "Sacred fig" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "从这里开始"
+            "value" : "菩提树"
           }
         }
       }
@@ -10088,6 +10520,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自来水残留的矿物盐或过量肥料会在土壤中积累，并损伤叶缘。"
+          }
+        }
+      }
+    },
+    "Satin pothos" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小叶银斑葛"
           }
         }
       }
@@ -10133,6 +10576,7 @@
       }
     },
     "Scale insects" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10253,7 +10697,19 @@
         }
       }
     },
+    "See where leaves, buds, and roots connect to make new growth." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察叶片、芽和根如何连接在茎上并形成新生长。"
+          }
+        }
+      }
+    },
     "See which plants have a watering reminder due." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10264,6 +10720,7 @@
       }
     },
     "Seed plants whose seeds are not enclosed in fruit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10317,6 +10774,7 @@
       }
     },
     "Separate a rooted clump into complete plants" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10327,6 +10785,7 @@
       }
     },
     "Separate it with a clean cut only when ready, preserve its roots, and place it in a small container with an appropriate fresh mix." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10337,6 +10796,7 @@
       }
     },
     "Serrated edge" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10367,6 +10827,7 @@
       }
     },
     "Set the plant at its previous soil depth, then fill around it without packing the mix too firmly." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10407,6 +10868,7 @@
       }
     },
     "Shapes" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10422,6 +10884,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在 App Store 评分或写几句话。"
+          }
+        }
+      }
+    },
+    "Shoot tip" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎尖"
           }
         }
       }
@@ -10487,6 +10960,7 @@
       }
     },
     "Silver streaks and black specks" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10497,6 +10971,7 @@
       }
     },
     "Skip watering for now. Use the reminder as a prompt to inspect again, not as an instruction to pour water." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10507,6 +10982,7 @@
       }
     },
     "Slide the plant out" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10517,6 +10993,7 @@
       }
     },
     "Small land plants that reproduce with spores" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10538,6 +11015,7 @@
       }
     },
     "Small tan or brown shell-like bumps stay fixed in place. Sticky honeydew, yellow leaves, or weak growth may follow." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10548,6 +11026,7 @@
       }
     },
     "Small, regular teeth run around the leaf margin like the edge of a saw." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10569,6 +11048,7 @@
       }
     },
     "Snake plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10579,6 +11059,7 @@
       }
     },
     "Snake plant, spider plant, corn plant, ponytail palm, asparagus fern, and yucca." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10589,6 +11070,7 @@
       }
     },
     "Soft green, brown, or black insects crowd around new growth. Young leaves may curl, and white shed skins or sticky honeydew may appear." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10610,6 +11092,7 @@
       }
     },
     "Soft, dark roots need a closer look" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10651,6 +11134,7 @@
       }
     },
     "Some parent plants naturally produce pups, offsets, or plantlets. These can become independent plants once they have enough of their own structure and roots." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10692,6 +11176,7 @@
       }
     },
     "Some roots look dark and feel soft, limp, or hollow. The plant may also wilt in wet mix, yellow, or lose vigor." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10752,6 +11237,7 @@
       }
     },
     "Spider mites" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10762,6 +11248,7 @@
       }
     },
     "Spider plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10771,7 +11258,19 @@
         }
       }
     },
+    "Spineless yucca" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "象腿丝兰"
+          }
+        }
+      }
+    },
     "Spotted" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10792,6 +11291,7 @@
       }
     },
     "Stable areas of contrasting color" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10802,6 +11302,7 @@
       }
     },
     "Stable areas of cream, yellow, pink, or lighter green appear beside the leaf’s base color." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10843,11 +11344,23 @@
       }
     },
     "Start exploring" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "开始探索"
+          }
+        }
+      }
+    },
+    "START HERE" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从这里开始"
           }
         }
       }
@@ -10944,7 +11457,19 @@
         }
       }
     },
+    "Stem & node close-up" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎与节特写"
+          }
+        }
+      }
+    },
     "Stem cutting" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10966,6 +11491,7 @@
       }
     },
     "Still slightly moist" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10976,6 +11502,7 @@
       }
     },
     "Stonecrop family" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -10986,6 +11513,7 @@
       }
     },
     "Stonecrop relatives are succulents that store water in thick leaves and stems." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11015,7 +11543,30 @@
         }
       }
     },
+    "String of buttons" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "钱串青锁龙"
+          }
+        }
+      }
+    },
+    "String of turtles" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "String of turtles"
+          }
+        }
+      }
+    },
     "Structural root" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11037,6 +11588,7 @@
       }
     },
     "Succulent leaves reduce water loss, but they do not mean the plant can live indefinitely without water." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11108,6 +11660,7 @@
       }
     },
     "Sunbeams fall directly on the leaves" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11150,6 +11703,7 @@
       }
     },
     "Support the root ball, tip the container, and ease it free. Do not pull the plant by its stem." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11191,11 +11745,23 @@
       }
     },
     "Tap a dot to explore a healthy root system." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "点击圆点，探索健康根系的结构。"
+          }
+        }
+      }
+    },
+    "Tap a dot to explore how a stem grows and branches." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击圆点，探索茎如何生长和分枝。"
           }
         }
       }
@@ -11273,6 +11839,7 @@
       }
     },
     "Tap, explore, and understand the parts that help a plant grow." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11323,6 +11890,7 @@
       }
     },
     "Tender growth appears folded or rolled" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11343,6 +11911,7 @@
       }
     },
     "Test below the surface" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11374,31 +11943,12 @@
       }
     },
     "Thanksgiving cactus" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "蟹爪兰"
-          }
-        }
-      }
-    },
-    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史，但不包含 OpenAI API 密钥或 StoreKit 购买记录。恢复备份会替换本机现有数据。"
-          }
-        }
-      }
-    },
-    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. Restoring replaces the current local collection." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史。恢复备份会替换本机现有数据。"
           }
         }
       }
@@ -11436,6 +11986,7 @@
       }
     },
     "The area is brightly illuminated for much of the day while curtains, angle, or placement keep strong sunbeams off the leaves." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11446,6 +11997,7 @@
       }
     },
     "The area near the plant looks very bright, but you do not see a hard-edged patch of sun traveling across its leaves." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11456,6 +12008,7 @@
       }
     },
     "The begonia family is best known for asymmetrical leaves, colorful foliage, and showy flowers." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11466,6 +12019,7 @@
       }
     },
     "The blade expands and opens. It may still look soft, pale, glossy, or slightly uneven while the tissue finishes developing." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11487,6 +12041,7 @@
       }
     },
     "The broad starting point in this simplified address. Many additional scientific ranks exist below it." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11497,6 +12052,7 @@
       }
     },
     "The brown dots beneath a healthy fern frond may be sori that produce spores—not necessarily pests or disease." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11507,6 +12063,7 @@
       }
     },
     "The color pattern usually repeats on healthy new leaves. Sudden irregular discoloration may instead signal stress or damage." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11539,6 +12096,7 @@
       }
     },
     "The distinctive base notch is often more useful for identification than overall leaf size." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11549,6 +12107,7 @@
       }
     },
     "The family relationship does not make every aroid safe to eat; many contain irritating calcium oxalate crystals." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11559,6 +12118,7 @@
       }
     },
     "The fig family includes woody tropical plants, many with milky sap and distinctive fruits." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11569,6 +12129,7 @@
       }
     },
     "The genus and specific epithet together identify the species: Monstera deliciosa." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11579,6 +12140,7 @@
       }
     },
     "The growing tip lengthens the root, while a tiny root cap protects its tender cells as it moves through the potting mix." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11599,6 +12161,26 @@
         }
       }
     },
+    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. It does not include your OpenAI API key or StoreKit purchase history. Restoring replaces the current local collection." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史，但不包含 OpenAI API 密钥或 StoreKit 购买记录。恢复备份会替换本机现有数据。"
+          }
+        }
+      }
+    },
+    "The JSON backup includes My Garden, Wild Finds, photos, notes, timelines, and care history. Restoring replaces the current local collection." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON 备份包含“我的花园”和“野外拾趣”中的照片、笔记、成长记录及养护历史。恢复备份会替换本机现有数据。"
+          }
+        }
+      }
+    },
     "The key is stored in this device’s Keychain and is never saved with your plants. PlantStory sends a plant name to OpenAI only after you tap Suggest with AI." : {
       "localizations" : {
         "zh-Hans" : {
@@ -11610,6 +12192,7 @@
       }
     },
     "The leaf expands and begins to flatten" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11620,6 +12203,7 @@
       }
     },
     "The leaf firms up and reaches its working shape" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11630,6 +12214,7 @@
       }
     },
     "The leaf reaches its fuller size and working form. Its color and texture become more stable, though the final look varies by species." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11662,6 +12247,7 @@
       }
     },
     "The mix feels wet below the surface and the pot is still heavy. Adding water now can keep air away from the roots." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11672,6 +12258,7 @@
       }
     },
     "The nettle family ranges from stinging herbs to gentle tropical foliage plants such as Pilea." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11682,6 +12269,7 @@
       }
     },
     "The number, depth, and shape of lobes can distinguish plants that otherwise look alike." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11692,6 +12280,7 @@
       }
     },
     "The openings have smooth, finished edges and appear predictably as the plant matures, unlike ragged chewing damage." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11713,6 +12302,7 @@
       }
     },
     "The pepper family includes compact tropical plants with fleshy leaves and slender flower spikes." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11755,6 +12345,7 @@
       }
     },
     "The plant may be close to a gentler window or several feet back from a brighter one. The spot looks comfortably lit, not glaring." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11765,6 +12356,7 @@
       }
     },
     "The plant may be running out of room and water-holding potting mix. Some plants tolerate snug roots, so consider the plant’s overall behavior too." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11775,6 +12367,7 @@
       }
     },
     "The plant receives steady indirect daylight, but not the strongest window light or prolonged direct sun." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11805,6 +12398,7 @@
       }
     },
     "The potting mix feels dry to the depth recommended for this plant, and the pot feels lighter than it does after watering." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11815,6 +12409,7 @@
       }
     },
     "The potting mix still feels cool or slightly damp below the surface. Many houseplants can wait, but moisture-loving species may differ." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11845,6 +12440,7 @@
       }
     },
     "The room has daytime visibility without lamps, but the plant is well away from bright windows or near a window with major obstructions." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11855,6 +12451,7 @@
       }
     },
     "The root crown is the transition point where the stem meets and branches into the root system." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11865,6 +12462,7 @@
       }
     },
     "The root system has air, moisture, and potting mix around it. A healthy plant does not automatically need a larger pot." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11885,7 +12483,19 @@
         }
       }
     },
+    "The shoot tip contains the plant's active growing region, where new stem and leaves begin." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "茎尖包含植物活跃的生长区域，新茎和叶片从这里开始形成。"
+          }
+        }
+      }
+    },
     "The space receives limited natural light. Only plants that tolerate low light are likely to maintain healthy growth here." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -11961,6 +12571,7 @@
       }
     },
     "The young leaf becomes visible but stays compact. Folding or rolling protects tender tissue while it grows." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12012,6 +12623,7 @@
       }
     },
     "They do not have the same vascular plumbing or true roots found in ferns and seed plants." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12033,6 +12645,7 @@
       }
     },
     "Thick leaves, compact growth, and star-shaped flowers are common family traits." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12043,6 +12656,7 @@
       }
     },
     "Thick structural roots anchor the plant and form the framework that supports smaller roots." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12074,17 +12688,6 @@
         }
       }
     },
-    "This OpenAI account is temporarily rate limited or needs billing credits." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "这个 OpenAI 账户暂时受到调用频率限制，或 API 余额不足。"
-          }
-        }
-      }
-    },
     "This backup uses unsupported format version %lld. Update PlantStory and try again." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -12097,6 +12700,7 @@
       }
     },
     "This broad family includes many tough, architectural houseplants once placed in separate families." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12127,6 +12731,7 @@
       }
     },
     "This is a comfortable range for many foliage plants, but always check the care needs of the individual species." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12142,6 +12747,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这个乘号表示植物具有杂交来源。"
+          }
+        }
+      }
+    },
+    "This OpenAI account is temporarily rate limited or needs billing credits." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个 OpenAI 账户暂时受到调用频率限制，或 API 余额不足。"
           }
         }
       }
@@ -12194,6 +12810,7 @@
       }
     },
     "Thousands of microscopic root hairs increase the surface area available to absorb water and dissolved minerals." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12214,6 +12831,7 @@
       }
     },
     "Thrips" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12244,6 +12862,7 @@
       }
     },
     "Tiny dark flies near soil" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12254,6 +12873,7 @@
       }
     },
     "Tiny dark flies run across or hover above damp potting mix. Adults are mostly a nuisance, but larvae live in the mix and may harm roots when numerous." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12327,6 +12947,7 @@
       }
     },
     "Trace one of the thick roots spreading away from the crown before it divides." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12359,6 +12980,7 @@
       }
     },
     "Trace the outer edge. Deep curves reach inward, but the blade remains one connected leaf." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12388,6 +13010,17 @@
         }
       }
     },
+    "Tree philodendron" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "春羽"
+          }
+        }
+      }
+    },
     "Trees, nearby buildings, screens, curtains, and roof overhangs can reduce window light." : {
       "localizations" : {
         "zh-Hans" : {
@@ -12399,6 +13032,7 @@
       }
     },
     "True palms are flowering plants with a single growing point and leaves commonly divided into leaflets." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12439,6 +13073,7 @@
       }
     },
     "Try another care filter for this month." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12541,6 +13176,7 @@
       }
     },
     "Unfiltered sunlight reaches the foliage for part of the day. This is much more intense than a bright room." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12551,6 +13187,7 @@
       }
     },
     "Unfurling leaf" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12642,6 +13279,7 @@
       }
     },
     "Use the leaf, petiole, or leaf section specified for that plant. Keep track of which end is the base when orientation matters." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12652,6 +13290,7 @@
       }
     },
     "Use this for plants that are adapted to strong sun. Acclimate plants gradually because sudden intense light can scorch leaves." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12691,27 +13330,8 @@
         }
       }
     },
-    "VISIBLE SYMPTOM" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "可见症状"
-          }
-        }
-      }
-    },
-    "VISUAL CHECK" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "观察症状"
-          }
-        }
-      }
-    },
     "Variegated" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12722,6 +13342,7 @@
       }
     },
     "Vascular plants with spores instead of seeds" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12764,12 +13385,33 @@
         }
       }
     },
+    "Velvet cardboard anthurium" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velvet cardboard anthurium"
+          }
+        }
+      }
+    },
     "Vibe-coded with love by Zico" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "由 Zico 用爱 Vibe Coding 打造"
+          }
+        }
+      }
+    },
+    "View app credits and open-source information" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看致谢、贡献者和开源信息"
           }
         }
       }
@@ -12794,12 +13436,22 @@
         }
       }
     },
-    "View app credits and open-source information" : {
+    "VISIBLE SYMPTOM" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "查看致谢、贡献者和开源信息"
+            "value" : "可见症状"
+          }
+        }
+      }
+    },
+    "VISUAL CHECK" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "观察症状"
           }
         }
       }
@@ -12814,37 +13466,8 @@
         }
       }
     },
-    "WATER WITH A REASON" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "先检查，再浇水"
-          }
-        }
-      }
-    },
-    "WILD DISCOVERY" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "野外记录"
-          }
-        }
-      }
-    },
-    "WILD FINDS" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "野外拾趣"
-          }
-        }
-      }
-    },
     "Wait and check again" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12865,6 +13488,7 @@
       }
     },
     "Wait for the mix to dry to the plant’s preferred level. If it stays wet unusually long, inspect drainage, light, pot size, and root health." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12905,6 +13529,7 @@
       }
     },
     "Watch for drainage" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12915,6 +13540,7 @@
       }
     },
     "Watch the soil surface and nearby leaves after watering. A yellow sticky card near the pot can help confirm flying adults." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -12945,6 +13571,7 @@
       }
     },
     "Water and drain" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13007,11 +13634,32 @@
       }
     },
     "Water thoroughly, let excess water escape, and return the plant to suitable light while it settles." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "浇透水，让多余水分流出，再将植株放回光照合适的位置适应。"
+          }
+        }
+      }
+    },
+    "Water today" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "今天浇水"
+          }
+        }
+      }
+    },
+    "WATER WITH A REASON" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先检查，再浇水"
           }
         }
       }
@@ -13037,7 +13685,49 @@
         }
       }
     },
+    "Watering basics" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水基础"
+          }
+        }
+      }
+    },
+    "Watering due" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水提醒"
+          }
+        }
+      }
+    },
+    "watering entry" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水记录"
+          }
+        }
+      }
+    },
     "Watering Reminder" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水提醒"
+          }
+        }
+      }
+    },
+    "Watering reminders" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13057,46 +13747,6 @@
         }
       }
     },
-    "Watering basics" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "浇水基础"
-          }
-        }
-      }
-    },
-    "Watering due" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "浇水提醒"
-          }
-        }
-      }
-    },
-    "Water today" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今天浇水"
-          }
-        }
-      }
-    },
-    "Watering reminders" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "浇水提醒"
-          }
-        }
-      }
-    },
     "Watering reminders are optional and scheduled only on this iPhone." : {
       "localizations" : {
         "zh-Hans" : {
@@ -13107,7 +13757,18 @@
         }
       }
     },
+    "waterings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浇水次数"
+          }
+        }
+      }
+    },
     "Watermelon peperomia" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13117,7 +13778,19 @@
         }
       }
     },
+    "Wax begonia" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "四季秋海棠"
+          }
+        }
+      }
+    },
     "Weeping fig" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13128,6 +13801,7 @@
       }
     },
     "Wet and heavy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13299,6 +13973,7 @@
       }
     },
     "White cottony insects collect in plant joints. Leaves may yellow, and the plant can feel sticky from honeydew." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13309,6 +13984,7 @@
       }
     },
     "White, cottony clusters" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13380,6 +14056,7 @@
       }
     },
     "Widest near the middle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13389,7 +14066,27 @@
         }
       }
     },
+    "WILD DISCOVERY" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野外记录"
+          }
+        }
+      }
+    },
     "Wild Finds" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "野外拾趣"
+          }
+        }
+      }
+    },
+    "WILD FINDS" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13441,6 +14138,7 @@
       }
     },
     "You can see a distinct patch of sunlight or a crisp shadow on or beside the plant when the sun reaches the window." : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
@@ -13497,6 +14195,48 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "是否使用，由你决定"
+          }
+        }
+      }
+    },
+    "You’re raising %lld plants" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在照顾 %lld 株植物"
+          }
+        }
+      }
+    },
+    "You’re raising 1 plant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在照顾 1 株植物"
+          }
+        }
+      }
+    },
+    "You’ve saved %lld discoveries" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已记录 %lld 次发现"
+          }
+        }
+      }
+    },
+    "You’ve saved 1 discovery" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已记录 1 次发现"
           }
         }
       }
@@ -13562,316 +14302,24 @@
         }
       }
     },
-    "You’re raising %lld plants" : {
+    "Zebra alocasia" : {
       "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在照顾 %lld 株植物"
-          }
-        }
-      }
-    },
-    "You’re raising 1 plant" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在照顾 1 株植物"
-          }
-        }
-      }
-    },
-    "You’ve saved %lld discoveries" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已记录 %lld 次发现"
-          }
-        }
-      }
-    },
-    "You’ve saved 1 discovery" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已记录 1 次发现"
+            "value" : "斑马海芋"
           }
         }
       }
     },
     "ZZ plant" : {
+      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "金钱树"
-          }
-        }
-      }
-    },
-    "days raised" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "陪伴天数"
-          }
-        }
-      }
-    },
-    "fertilizations" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "施肥次数"
-          }
-        }
-      }
-    },
-    "fertilizing entry" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "施肥记录"
-          }
-        }
-      }
-    },
-    "watering entry" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "浇水记录"
-          }
-        }
-      }
-    },
-    "waterings" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "浇水次数"
-          }
-        }
-      }
-    },
-    "‘Thai Constellation’" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "‘Thai Constellation’"
-          }
-        }
-      }
-    },
-    "“Low light” does not mean darkness. Every plant needs usable light, and each species has its own range." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "“低光照”不等于黑暗。所有植物都需要能利用的光，只是每种植物适应的范围不同。"
-          }
-        }
-      }
-    },
-    "Stem & node close-up" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "茎与节特写"
-          }
-        }
-      }
-    },
-    "See where leaves, buds, and roots connect to make new growth." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "观察叶片、芽和根如何连接在茎上并形成新生长。"
-          }
-        }
-      }
-    },
-    "Tap a dot to explore how a stem grows and branches." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "点击圆点，探索茎如何生长和分枝。"
-          }
-        }
-      }
-    },
-    "Axillary bud" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "腋芽"
-          }
-        }
-      }
-    },
-    "An axillary bud is a small growth point that can develop into a side shoot or, in some plants, a flower." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "腋芽是一个小生长点，可以发育成侧枝，在某些植物上也能发育成花。"
-          }
-        }
-      }
-    },
-    "Look just above the place where a petiole meets the stem at a node." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在叶柄与茎相接的节上方寻找。"
-          }
-        }
-      }
-    },
-    "After the main tip is pruned, a healthy axillary bud may begin growing and make the plant branch." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "主茎顶端被修剪后，健康的腋芽可能开始生长，让植物产生分枝。"
-          }
-        }
-      }
-    },
-    "Aerial root" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "气生根"
-          }
-        }
-      }
-    },
-    "An aerial root grows from an above-ground stem and may help a climbing plant attach to support." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "气生根从地上茎长出，可帮助攀援植物附着在支撑物上。"
-          }
-        }
-      }
-    },
-    "Look for a firm green or brown nub emerging from a node, often opposite a leaf." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在节上寻找坚实的绿色或棕色小突起，通常位于叶片对面。"
-          }
-        }
-      }
-    },
-    "Guide longer aerial roots toward a support or potting mix when helpful. They are normal growth, not a pest." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "较长的气生根可按需引向支撑物或盆土。它们是正常生长，并非害虫。"
-          }
-        }
-      }
-    },
-    "Leaf scar" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "叶痕"
-          }
-        }
-      }
-    },
-    "A leaf scar marks the place where a leaf or its petiole was once attached to the stem." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "叶痕标记叶片或叶柄曾经与茎连接的位置。"
-          }
-        }
-      }
-    },
-    "Find a dry, shaped mark at a node where no leaf is currently attached." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在目前没有叶片的节上寻找干燥、有形状的痕迹。"
-          }
-        }
-      }
-    },
-    "A clean, dry scar is usually normal. A soft, dark, or spreading patch deserves a closer look." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "干燥整洁的叶痕通常正常；柔软、发黑或扩散的斑块需要仔细检查。"
-          }
-        }
-      }
-    },
-    "Shoot tip" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "茎尖"
-          }
-        }
-      }
-    },
-    "The shoot tip contains the plant's active growing region, where new stem and leaves begin." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "茎尖包含植物活跃的生长区域，新茎和叶片从这里开始形成。"
-          }
-        }
-      }
-    },
-    "Find the newest folded or tightly clustered growth at the end of the stem." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在茎的末端寻找最新的折叠状或紧密簇生的新生组织。"
-          }
-        }
-      }
-    },
-    "Protect the tender tip while it grows. Removing it can encourage some plants to branch from buds below." : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "生长时保护娇嫩的茎尖。移除茎尖可能促使某些植物从下方芽点分枝。"
           }
         }
       }
