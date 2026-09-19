@@ -8,7 +8,6 @@ struct SettingsView: View {
     @EnvironmentObject private var openAIKeyStore: OpenAIKeyStore
     @EnvironmentObject private var plantStore: PlantStore
     @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
-    @Environment(\.requestReview) private var requestReview
     @Environment(\.scenePhase) private var scenePhase
     @State private var notificationAuthorizationStatus: UNAuthorizationStatus = .notDetermined
 
@@ -20,6 +19,7 @@ struct SettingsView: View {
     private let storageTeal = Color(red: 0.06, green: 0.56, blue: 0.48)
     private let reviewOrange = Color(red: 0.88, green: 0.42, blue: 0.08)
     private let feedbackBlue = Color(red: 0.16, green: 0.48, blue: 0.86)
+    private let reviewURL = URL(string: "https://apps.apple.com/app/id6807261183?action=write-review")!
     private let githubFeedbackURL = URL(string: "https://github.com/zicodeng/PlantStory/issues")!
 
     var body: some View {
@@ -185,9 +185,7 @@ struct SettingsView: View {
                                 .foregroundStyle(lime)
 
                             VStack(spacing: 0) {
-                                Button {
-                                    requestReview()
-                                } label: {
+                                Link(destination: reviewURL) {
                                     feedbackRow(
                                         icon: "star.fill",
                                         iconColor: reviewOrange,
@@ -197,7 +195,7 @@ struct SettingsView: View {
                                     )
                                 }
                                 .buttonStyle(.plain)
-                                .accessibilityHint("Opens Apple's in-app review prompt when available")
+                                .accessibilityHint("Opens PlantStory's App Store review page")
 
                                 Divider()
                                     .overlay(.white.opacity(0.1))

@@ -8430,12 +8430,12 @@
         }
       }
     },
-    "Opens Apple's in-app review prompt when available" : {
+    "Opens PlantStory's App Store review page" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "打开 Apple 的 App 内评分窗口（如可用）"
+            "value" : "打开 PlantStory 的 App Store 评价页面"
           }
         }
       }
