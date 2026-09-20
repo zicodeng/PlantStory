@@ -34,6 +34,7 @@ struct PlantFormView: View {
     @State private var notes: String
     @State private var wateringReminder: WateringReminder?
     @State private var photos: [Data]
+    @State private var cardPhotoIndex: Int?
     @State private var photoDates: [Date]
     @State private var photoNotes: [String]
     @State private var photoEventTags: [PlantPhotoEventTag?]
@@ -83,6 +84,12 @@ struct PlantFormView: View {
             initialValue: plant?.hasGeneratedAISuggestion ?? hasLegacyAISuggestion
         )
         _photos = State(initialValue: existingPhotos)
+        let savedCardPhotoIndex = plant?.cardPhotoIndex
+        _cardPhotoIndex = State(
+            initialValue: savedCardPhotoIndex.flatMap {
+                existingPhotos.indices.contains($0) ? $0 : nil
+            } ?? existingPhotos.indices.last
+        )
         _photoDates = State(initialValue: normalizedDates)
         _photoNotes = State(initialValue: normalizedNotes)
         _photoEventTags = State(initialValue: normalizedEventTags)
@@ -198,36 +205,72 @@ struct PlantFormView: View {
             Section {
                 ForEach(photos.indices, id: \.self) { index in
                     VStack(alignment: .leading, spacing: 12) {
-                        HStack(alignment: .center, spacing: 12) {
+                        HStack(alignment: .top, spacing: 12) {
                             PlantPhoto(data: photos[index], cornerRadius: 12)
-                                .frame(width: 82, height: 82)
+                                .frame(width: 104, height: 104)
                                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("Photo \(index + 1)")
-                                    .font(.subheadline.weight(.semibold))
-                                DatePicker(
-                                    "Taken",
-                                    selection: $photoDates[index],
-                                    in: ...Date.now,
-                                    displayedComponents: .date
-                                )
-                                .labelsHidden()
-                                .datePickerStyle(.compact)
-                                .fixedSize(horizontal: true, vertical: false)
+                            VStack(alignment: .leading, spacing: 5) {
+                                HStack(spacing: 8) {
+                                    Text("Photo \(index + 1)")
+                                        .font(.subheadline.weight(.semibold))
+
+                                    Spacer(minLength: 8)
+
+                                    Button(role: .destructive) {
+                                        removePhoto(at: index)
+                                    } label: {
+                                        Image(systemName: "trash.fill")
+                                            .font(.subheadline.weight(.semibold))
+                                            .frame(width: 36, height: 36)
+                                            .background(.red.opacity(0.1), in: Circle())
+                                    }
+                                    .buttonStyle(.borderless)
+                                    .accessibilityLabel("Remove photo \(index + 1)")
+                                }
+
+                                Button {
+                                    cardPhotoIndex = index
+                                } label: {
+                                    HStack(spacing: 8) {
+                                        Text("Garden card photo")
+                                            .font(.subheadline)
+                                            .foregroundStyle(.primary)
+
+                                        Spacer(minLength: 8)
+
+                                        Image(
+                                            systemName: cardPhotoIndex == index
+                                                ? "checkmark.circle.fill"
+                                                : "circle"
+                                        )
+                                        .font(.title3.weight(.semibold))
+                                        .foregroundStyle(cardPhotoIndex == index ? .green : .secondary)
+                                    }
+                                    .contentShape(Rectangle())
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityAddTraits(cardPhotoIndex == index ? .isSelected : [])
+
+                                HStack(spacing: 8) {
+                                    Text("Date")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.primary)
+
+                                    Spacer(minLength: 8)
+
+                                    DatePicker(
+                                        "Date",
+                                        selection: $photoDates[index],
+                                        in: ...Date.now,
+                                        displayedComponents: .date
+                                    )
+                                    .labelsHidden()
+                                    .datePickerStyle(.compact)
+                                    .fixedSize(horizontal: true, vertical: false)
+                                }
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
-
-                            Button(role: .destructive) {
-                                removePhoto(at: index)
-                            } label: {
-                                Image(systemName: "trash.fill")
-                                    .font(.subheadline.weight(.semibold))
-                                    .frame(width: 38, height: 38)
-                                    .background(.red.opacity(0.1), in: Circle())
-                            }
-                            .buttonStyle(.borderless)
-                            .accessibilityLabel("Remove photo \(index + 1)")
                         }
 
                         TimelineEventMenu(selection: $photoEventTags[index])
@@ -271,7 +314,10 @@ struct PlantFormView: View {
             } header: {
                 Text("Photos")
             } footer: {
-                Text("Photo dates are filled from image metadata when available. You can adjust them, choose a timeline event, and add a note.")
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Choose which photo appears on the My Garden card.")
+                    Text("Photo dates are filled from image metadata when available. You can adjust them, choose a timeline event, and add a note.")
+                }
             }
 
             Section("Notes") {
@@ -360,6 +406,15 @@ struct PlantFormView: View {
 
     private func removePhoto(at index: Int) {
         guard photos.indices.contains(index) else { return }
+
+        if let selectedIndex = cardPhotoIndex {
+            if selectedIndex == index {
+                cardPhotoIndex = photos.count > 1 ? min(index, photos.count - 2) : nil
+            } else if selectedIndex > index {
+                cardPhotoIndex = selectedIndex - 1
+            }
+        }
+
         photos.remove(at: index)
         if photoDates.indices.contains(index) {
             photoDates.remove(at: index)
@@ -392,6 +447,7 @@ struct PlantFormView: View {
             plant.notes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
             plant.wateringReminder = wateringReminder
             plant.photos = photos
+            plant.cardPhotoIndex = cardPhotoIndex
             plant.photoDates = photoDates
             plant.photoNotes = normalizedPhotoNotes
             plant.photoEventTags = photoEventTags
@@ -410,6 +466,7 @@ struct PlantFormView: View {
                 notes: notes.trimmingCharacters(in: .whitespacesAndNewlines),
                 wateringReminder: wateringReminder,
                 photos: photos,
+                cardPhotoIndex: cardPhotoIndex,
                 photoDates: photoDates,
                 photoNotes: normalizedPhotoNotes,
                 photoEventTags: photoEventTags,
@@ -602,7 +659,11 @@ struct PlantFormView: View {
                   let image = UIImage(data: data),
                   let resized = image.resizedForStorage(maxDimension: 1800) else { continue }
             let creationDate = PhotoMetadata.creationDate(from: data) ?? .now
+            let newPhotoIndex = photos.count
             photos.append(resized)
+            if cardPhotoIndex == nil {
+                cardPhotoIndex = newPhotoIndex
+            }
             photoDates.append(min(creationDate, .now))
             photoNotes.append("")
             photoEventTags.append(nil)
@@ -691,6 +752,8 @@ private struct TimelineEventMenu: View {
     var body: some View {
         HStack(spacing: 12) {
             Text("Timeline event")
+                .font(.subheadline)
+                .foregroundStyle(.primary)
 
             Spacer(minLength: 12)
 

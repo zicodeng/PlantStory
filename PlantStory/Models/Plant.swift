@@ -200,6 +200,8 @@ struct Plant: Identifiable, Codable, Equatable {
     /// Optional so plants saved before fertilizing history was added still decode correctly.
     var fertilizingHistory: [Date]?
     var photos: [Data]
+    /// Optional so plants saved before garden card photo selection was added still decode correctly.
+    var cardPhotoIndex: Int?
     /// Optional so plants saved by the first app version decode without migration errors.
     var photoDates: [Date]?
     /// Optional so plants saved before per-photo notes were added still decode correctly.
@@ -225,6 +227,7 @@ struct Plant: Identifiable, Codable, Equatable {
         wateringReminder: WateringReminder? = nil,
         fertilizingHistory: [Date]? = [],
         photos: [Data] = [],
+        cardPhotoIndex: Int? = nil,
         photoDates: [Date]? = nil,
         photoNotes: [String]? = nil,
         photoEventTags: [PlantPhotoEventTag?]? = nil,
@@ -245,11 +248,20 @@ struct Plant: Identifiable, Codable, Equatable {
         self.wateringReminder = wateringReminder
         self.fertilizingHistory = fertilizingHistory
         self.photos = photos
+        self.cardPhotoIndex = cardPhotoIndex
         self.photoDates = photoDates
         self.photoNotes = photoNotes
         self.photoEventTags = photoEventTags
         self.photoCustomEventTitles = photoCustomEventTitles
         self.createdAt = createdAt
+    }
+
+    var gardenCardPhoto: Data? {
+        guard !photos.isEmpty else { return nil }
+        guard let cardPhotoIndex, photos.indices.contains(cardPhotoIndex) else {
+            return photos.last
+        }
+        return photos[cardPhotoIndex]
     }
 
     var daysRaised: Int {

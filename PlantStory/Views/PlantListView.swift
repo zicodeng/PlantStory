@@ -1130,22 +1130,14 @@ private struct GardenPlantCard: View {
     let plant: Plant
     let panel: Color
     let lime: Color
-    @State private var cardPhoto: Data?
     private let waterBlue = Color(red: 0.22, green: 0.64, blue: 0.88)
-
-    init(plant: Plant, panel: Color, lime: Color) {
-        self.plant = plant
-        self.panel = panel
-        self.lime = lime
-        _cardPhoto = State(initialValue: plant.photos.randomElement())
-    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Color.clear
                 .aspectRatio(1, contentMode: .fit)
                 .overlay {
-                    PlantPhoto(data: cardPhoto, cornerRadius: 0)
+                    PlantPhoto(data: plant.gardenCardPhoto, cornerRadius: 0)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .saturation(plant.isDeceased ? 0 : 1)
                         .contrast(plant.isDeceased ? 0.88 : 1)
@@ -1209,12 +1201,6 @@ private struct GardenPlantCard: View {
             .padding(.horizontal, 12)
             .padding(.top, 11)
             .padding(.bottom, 13)
-        }
-        .onChange(of: plant.photos) { _, photos in
-            if let cardPhoto, photos.contains(cardPhoto) {
-                return
-            }
-            cardPhoto = photos.randomElement()
         }
         .padding(7)
         .background(

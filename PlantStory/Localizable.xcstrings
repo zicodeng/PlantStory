@@ -2613,6 +2613,16 @@
         }
       }
     },
+    "Choose which photo appears on the My Garden card." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择要显示在“我的花园”卡片上的照片。"
+          }
+        }
+      }
+    },
     "Christmas cactus" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3141,6 +3151,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "数据与隐私"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日期"
           }
         }
       }
@@ -4703,6 +4723,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "小黑飞（真菌蚋）"
+          }
+        }
+      }
+    },
+    "Garden card photo" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "花园卡片照片"
           }
         }
       }

@@ -7,6 +7,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 ### New features
 
 - Added full-screen photo viewing from My Garden and Wild Finds life timelines.
+- Added a photo picker for choosing which image appears on each My Garden card.
 
 ## [1.3] - 2026-09-19
 

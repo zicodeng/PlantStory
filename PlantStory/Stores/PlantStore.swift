@@ -137,6 +137,12 @@ final class PlantStore: ObservableObject {
 
     private func normalized(_ plant: Plant) -> Plant {
         var plant = plant
+        if plant.photos.isEmpty {
+            plant.cardPhotoIndex = nil
+        } else if let cardPhotoIndex = plant.cardPhotoIndex,
+                  !plant.photos.indices.contains(cardPhotoIndex) {
+            plant.cardPhotoIndex = plant.photos.indices.last
+        }
         plant.wateringHistory = cappedHistory(plant.wateringHistory)
         plant.fertilizingHistory = cappedHistory(plant.fertilizingEvents)
         if var reminder = plant.wateringReminder {
