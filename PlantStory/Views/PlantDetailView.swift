@@ -31,6 +31,7 @@ struct PlantDetailView: View {
     @State private var showingAllFertilizingHistory = false
     @State private var heroPhoto: Data?
     @State private var reminderPlant: Plant?
+    @State private var selectedPhoto: PhotoViewerItem?
 
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
     private let panel = Color(red: 0.105, green: 0.31, blue: 0.19)
@@ -122,6 +123,9 @@ struct PlantDetailView: View {
             NavigationStack {
                 WateringReminderEditorView(plant: plant)
             }
+        }
+        .fullScreenCover(item: $selectedPhoto) { photo in
+            FullScreenPhotoView(photo: photo)
         }
         .confirmationDialog(
             "Delete this plant?",
@@ -332,10 +336,16 @@ struct PlantDetailView: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
 
-                    PlantPhoto(data: data, cornerRadius: 16)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 176)
-                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    Button {
+                        selectedPhoto = PhotoViewerItem(data: data)
+                    } label: {
+                        PlantPhoto(data: data, cornerRadius: 16)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 176)
+                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("View photo full screen")
                 }
             }
             .padding(.bottom, isLast ? 0 : 18)

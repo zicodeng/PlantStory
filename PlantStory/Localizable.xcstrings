@@ -2654,6 +2654,16 @@
         }
       }
     },
+    "Close photo" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭照片"
+          }
+        }
+      }
+    },
     "Cloud & network use" : {
       "localizations" : {
         "zh-Hans" : {
@@ -4648,6 +4658,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Friendship plant"
+          }
+        }
+      }
+    },
+    "Full-screen photo" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全屏照片"
           }
         }
       }
@@ -13432,6 +13452,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "查看 GPT-5.4 nano 的价格"
+          }
+        }
+      }
+    },
+    "View photo full screen" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全屏查看照片"
           }
         }
       }

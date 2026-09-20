@@ -8,6 +8,7 @@ struct WildFindDetailView: View {
     @State private var showingEdit = false
     @State private var showingDeleteConfirmation = false
     @State private var heroPhoto: Data?
+    @State private var selectedPhoto: PhotoViewerItem?
 
     private let warmPaper = Color(red: 0.98, green: 0.83, blue: 0.59)
     private let paleSun = Color(red: 1.0, green: 0.91, blue: 0.73)
@@ -87,6 +88,9 @@ struct WildFindDetailView: View {
             NavigationStack {
                 WildFindFormView(find: currentFind)
             }
+        }
+        .fullScreenCover(item: $selectedPhoto) { photo in
+            FullScreenPhotoView(photo: photo)
         }
         .confirmationDialog(
             "Delete \(currentFind.name)?",
@@ -239,10 +243,16 @@ struct WildFindDetailView: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
 
-                    PlantPhoto(data: data, cornerRadius: 16)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 176)
-                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    Button {
+                        selectedPhoto = PhotoViewerItem(data: data)
+                    } label: {
+                        PlantPhoto(data: data, cornerRadius: 16)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 176)
+                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("View photo full screen")
                 }
             }
             .padding(.bottom, isLast ? 0 : 18)

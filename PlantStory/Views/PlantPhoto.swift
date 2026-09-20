@@ -100,6 +100,44 @@ struct PlantPhoto: View {
     }
 }
 
+struct PhotoViewerItem: Identifiable {
+    let id = UUID()
+    let data: Data
+}
+
+struct FullScreenPhotoView: View {
+    @Environment(\.dismiss) private var dismiss
+
+    let photo: PhotoViewerItem
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            Color.black.ignoresSafeArea()
+
+            if let image = UIImage(data: photo.data) {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .accessibilityLabel("Full-screen photo")
+            }
+
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.headline.weight(.bold))
+                    .foregroundStyle(.white)
+                    .frame(width: 44, height: 44)
+                    .background(.black.opacity(0.62), in: Circle())
+            }
+            .accessibilityLabel("Close photo")
+            .padding(18)
+        }
+        .statusBarHidden()
+    }
+}
+
 struct CuteBackground: View {
     var body: some View {
         ZStack {

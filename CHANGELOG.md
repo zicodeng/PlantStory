@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.4] - Unreleased
+
+### New features
+
+- Added full-screen photo viewing from My Garden and Wild Finds life timelines.
+
 ## [1.3] - 2026-09-19
 
 ### Bug fixes
