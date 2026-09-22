@@ -9,6 +9,10 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 - Added full-screen photo viewing from My Garden and Wild Finds life timelines.
 - Added a photo picker for choosing which image appears on each My Garden card.
 
+### Bug fixes
+
+- Made the Review PlantStory action open the App Store review page reliably.
+
 ## [1.3] - 2026-09-19
 
 ### Bug fixes
