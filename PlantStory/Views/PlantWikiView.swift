@@ -239,6 +239,7 @@ private struct PlantAnatomyLibraryView: View {
         }
         .navigationTitle("Plant anatomy")
         .navigationBarTitleDisplayMode(.inline)
+        .preferredColorScheme(.light)
     }
 
     private func lessonRow(_ lesson: AnatomyLesson) -> some View {
