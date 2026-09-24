@@ -9,6 +9,7 @@ struct PlantListView: View {
     @State private var gardenView: GardenViewMode = .plants
     @State private var sortOption: PlantSortOption = .acquiredDate
     @State private var sortDirection: PlantSortDirection = .descending
+    @AppStorage(GardenGridLayout.storageKey) private var gardenGridLayoutCode = GardenGridLayout.twoColumns.rawValue
     @Namespace private var gardenViewSelection
 
     private let warmCard = Color(red: 0.98, green: 0.91, blue: 0.76)
@@ -17,9 +18,20 @@ struct PlantListView: View {
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
     private let panel = Color(red: 0.105, green: 0.31, blue: 0.19)
     private let lime = Color(red: 0.36, green: 0.82, blue: 0.12)
-    private let columns = [
-        GridItem(.adaptive(minimum: 150, maximum: 220), spacing: 14, alignment: .top)
-    ]
+    private var gardenGridLayout: GardenGridLayout {
+        GardenGridLayout(rawValue: gardenGridLayoutCode) ?? .twoColumns
+    }
+
+    private var columns: [GridItem] {
+        Array(
+            repeating: GridItem(
+                .flexible(minimum: 0),
+                spacing: gardenGridLayout.columnSpacing,
+                alignment: .top
+            ),
+            count: gardenGridLayout.columnCount
+        )
+    }
 
     private var visiblePlants: [Plant] {
         let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -143,6 +155,26 @@ struct PlantListView: View {
                                 .accessibilityLabel("Sort plants")
                                 .accessibilityValue("\(sortOption.title), \(sortDirection.title)")
 
+                                Menu {
+                                    Picker("Plant layout", selection: $gardenGridLayoutCode) {
+                                        ForEach(GardenGridLayout.allCases) { layout in
+                                            Label(layout.title, systemImage: layout.icon)
+                                                .tag(layout.rawValue)
+                                        }
+                                    }
+                                } label: {
+                                    Image(systemName: gardenGridLayout.icon)
+                                        .font(.caption.weight(.semibold))
+                                        .foregroundStyle(lime)
+                                        .frame(width: 30, height: 28)
+                                        .background(.white.opacity(0.09), in: Capsule())
+                                        .padding(.horizontal, 7)
+                                        .padding(.vertical, 8)
+                                        .contentShape(Rectangle())
+                                }
+                                .accessibilityLabel("Plant layout")
+                                .accessibilityValue(gardenGridLayout.title)
+
                                 Text("\(visiblePlants.count)")
                                     .font(.caption.weight(.bold))
                                     .foregroundStyle(lime)
@@ -159,10 +191,25 @@ struct PlantListView: View {
                                         VStack(alignment: .leading, spacing: 12) {
                                             locationHeader(section)
 
-                                            LazyVGrid(columns: columns, alignment: .leading, spacing: 18) {
+                                            LazyVGrid(
+                                                columns: columns,
+                                                alignment: .leading,
+                                                spacing: gardenGridLayout.rowSpacing
+                                            ) {
                                                 ForEach(section.plants) { plant in
                                                     NavigationLink(value: plant.id) {
-                                                        GardenPlantCard(plant: plant, panel: panel, lime: lime)
+                                                        if gardenGridLayout == .fourColumns {
+                                                            CompactGardenPlantCard(
+                                                                plant: plant,
+                                                                panel: panel
+                                                            )
+                                                        } else {
+                                                            GardenPlantCard(
+                                                                plant: plant,
+                                                                panel: panel,
+                                                                lime: lime
+                                                            )
+                                                        }
                                                     }
                                                     .buttonStyle(.plain)
                                                     .contextMenu {
@@ -177,6 +224,7 @@ struct PlantListView: View {
                                 }
                                 .animation(.easeInOut(duration: 0.2), value: sortOption)
                                 .animation(.easeInOut(duration: 0.2), value: sortDirection)
+                                .animation(.easeInOut(duration: 0.2), value: gardenGridLayout)
                             }
                         } else {
                             GardenCareCalendar(
@@ -437,6 +485,50 @@ private struct PlantLocationSection: Identifiable {
     let title: String
     let plants: [Plant]
     let isUnassigned: Bool
+}
+
+private enum GardenGridLayout: String, CaseIterable, Identifiable {
+    static let storageKey = "gardenGridLayout"
+
+    case twoColumns
+    case fourColumns
+
+    var id: Self { self }
+
+    var title: String {
+        switch self {
+        case .twoColumns: AppLocalization.string("Two columns")
+        case .fourColumns: AppLocalization.string("Four columns")
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .twoColumns: "square.grid.2x2.fill"
+        case .fourColumns: "square.grid.3x3.fill"
+        }
+    }
+
+    var columnCount: Int {
+        switch self {
+        case .twoColumns: 2
+        case .fourColumns: 4
+        }
+    }
+
+    var columnSpacing: CGFloat {
+        switch self {
+        case .twoColumns: 14
+        case .fourColumns: 8
+        }
+    }
+
+    var rowSpacing: CGFloat {
+        switch self {
+        case .twoColumns: 18
+        case .fourColumns: 12
+        }
+    }
 }
 
 private struct AnimatedGardenEmblem: View {
@@ -1249,5 +1341,52 @@ private struct GardenPlantCard: View {
             .background(background, in: Capsule())
             .lineLimit(1)
             .minimumScaleFactor(0.8)
+    }
+}
+
+private struct CompactGardenPlantCard: View {
+    let plant: Plant
+    let panel: Color
+
+    var body: some View {
+        VStack(spacing: 7) {
+            Color.clear
+                .aspectRatio(1, contentMode: .fit)
+                .overlay {
+                    PlantPhoto(data: plant.gardenCardPhoto, cornerRadius: 0)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .saturation(plant.isDeceased ? 0 : 1)
+                        .contrast(plant.isDeceased ? 0.88 : 1)
+
+                    if plant.isDeceased {
+                        Color.black.opacity(0.24)
+                    }
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+
+            Text(plant.name)
+                .font(.system(.caption, design: .serif, weight: .semibold))
+                .foregroundStyle(.white.opacity(plant.isDeceased ? 0.78 : 1))
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, minHeight: 30, alignment: .top)
+        }
+        .padding(5)
+        .background(
+            plant.isDeceased ? Color(red: 0.19, green: 0.25, blue: 0.21) : panel,
+            in: RoundedRectangle(cornerRadius: 15, style: .continuous)
+        )
+        .overlay {
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                .stroke(
+                    .white.opacity(plant.isDeceased ? 0.18 : 0.07),
+                    style: StrokeStyle(lineWidth: 1, dash: plant.isDeceased ? [4, 3] : [])
+                )
+        }
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
+        .accessibilityValue(plant.isDeceased ? "In memory" : "Growing")
+        .accessibilityHint("Opens plant details")
     }
 }

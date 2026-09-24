@@ -4649,6 +4649,16 @@
         }
       }
     },
+    "Four columns" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "四列"
+          }
+        }
+      }
+    },
     "Found %@" : {
       "localizations" : {
         "zh-Hans" : {
@@ -9275,6 +9285,16 @@
         }
       }
     },
+    "Plant layout" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "植物布局"
+          }
+        }
+      }
+    },
     "Plant name" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -13210,6 +13230,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "如果植物总向光源一侧倾斜，可以定期转动花盆，让生长更均匀。"
+          }
+        }
+      }
+    },
+    "Two columns" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "两列"
           }
         }
       }

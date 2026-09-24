@@ -7,6 +7,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 ### New features
 
 - Added a gentle in-app notice when a newer PlantStory version is available on the App Store.
+- Added a compact four-column My Garden layout with smaller, name-only plant cards.
 
 ## [1.5] - Unreleased
 
