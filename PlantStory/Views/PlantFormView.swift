@@ -49,6 +49,8 @@ struct PlantFormView: View {
     @State private var isSaving = false
 
     private let aiService = PlantAIService()
+    private let photoControlSize: CGFloat = 36
+    private let photoControlVisualSize: CGFloat = 20
 
     init(plant: Plant? = nil) {
         existingPlant = plant
@@ -221,9 +223,8 @@ struct PlantFormView: View {
                                         removePhoto(at: index)
                                     } label: {
                                         Image(systemName: "trash.fill")
-                                            .font(.subheadline.weight(.semibold))
-                                            .frame(width: 36, height: 36)
-                                            .background(.red.opacity(0.1), in: Circle())
+                                            .font(.system(size: 18, weight: .semibold))
+                                            .frame(width: photoControlSize, height: photoControlSize)
                                     }
                                     .buttonStyle(.borderless)
                                     .accessibilityLabel("Remove photo \(index + 1)")
@@ -239,13 +240,27 @@ struct PlantFormView: View {
 
                                         Spacer(minLength: 8)
 
-                                        Image(
-                                            systemName: cardPhotoIndex == index
-                                                ? "checkmark.circle.fill"
-                                                : "circle"
+                                        ZStack {
+                                            Circle()
+                                                .fill(cardPhotoIndex == index ? Color.green : Color.clear)
+
+                                            Circle()
+                                                .stroke(
+                                                    cardPhotoIndex == index ? Color.green : Color.secondary,
+                                                    lineWidth: 2
+                                                )
+
+                                            if cardPhotoIndex == index {
+                                                Image(systemName: "checkmark")
+                                                    .font(.caption2.weight(.bold))
+                                                    .foregroundStyle(.white)
+                                            }
+                                        }
+                                        .frame(
+                                            width: photoControlVisualSize,
+                                            height: photoControlVisualSize
                                         )
-                                        .font(.title3.weight(.semibold))
-                                        .foregroundStyle(cardPhotoIndex == index ? .green : .secondary)
+                                        .frame(width: photoControlSize, height: photoControlSize)
                                     }
                                     .contentShape(Rectangle())
                                 }

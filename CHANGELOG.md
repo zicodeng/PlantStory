@@ -12,6 +12,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 ### Bug fixes
 
 - Made the My Garden search field dismiss the keyboard when tapping elsewhere on the page.
+- Aligned the photo delete and Garden card selection controls in the plant editor.
 
 ## [1.5] - Unreleased
 
