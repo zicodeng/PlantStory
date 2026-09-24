@@ -22,6 +22,10 @@ struct SettingsView: View {
     private let reviewURL = URL(string: "https://apps.apple.com/app/id6807261183?action=write-review")!
     private let githubFeedbackURL = URL(string: "https://github.com/zicodeng/PlantStory/issues")!
 
+    private var appVersion: String {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—"
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -262,6 +266,11 @@ struct SettingsView: View {
                             }
                             .buttonStyle(.plain)
                             .accessibilityHint("View app credits and open-source information")
+
+                            Text(AppLocalization.string("Version %@", appVersion))
+                                .font(.footnote)
+                                .foregroundStyle(.white.opacity(0.55))
+                                .frame(maxWidth: .infinity)
                         }
                     }
                     .padding(.horizontal, 18)

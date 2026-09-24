@@ -3460,6 +3460,16 @@
         }
       }
     },
+    "Download the latest version from the App Store." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往 App Store 下载最新版本。"
+          }
+        }
+      }
+    },
     "Do not pull or force a folded leaf open. Tender tissue is easy to tear." : {
       "localizations" : {
         "zh-Hans" : {
@@ -6056,6 +6066,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "上次浇水：%@"
+          }
+        }
+      }
+    },
+    "Later" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "稍后"
           }
         }
       }
@@ -9374,6 +9394,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PlantStory"
+          }
+        }
+      }
+    },
+    "PlantStory %@ is available" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory %@ 已发布"
           }
         }
       }
@@ -13380,6 +13410,16 @@
         }
       }
     },
+    "Update" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新"
+          }
+        }
+      }
+    },
     "Variegated" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -13452,6 +13492,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "由 Zico 用爱 Vibe Coding 打造"
+          }
+        }
+      }
+    },
+    "Version %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 %@"
           }
         }
       }

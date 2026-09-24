@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.6] - Unreleased
+
+### New features
+
+- Added a gentle in-app notice when a newer PlantStory version is available on the App Store.
+
 ## [1.5] - Unreleased
 
 ### Bug fixes
