@@ -10,6 +10,8 @@ struct PlantListView: View {
     @State private var sortOption: PlantSortOption = .acquiredDate
     @State private var sortDirection: PlantSortDirection = .descending
     @AppStorage(GardenGridLayout.storageKey) private var gardenGridLayoutCode = GardenGridLayout.twoColumns.rawValue
+    @State private var searchFieldFrame = CGRect.zero
+    @FocusState private var isSearchFieldFocused: Bool
     @Namespace private var gardenViewSelection
 
     private let warmCard = Color(red: 0.98, green: 0.91, blue: 0.76)
@@ -18,6 +20,7 @@ struct PlantListView: View {
     private let forest = Color(red: 0.035, green: 0.20, blue: 0.105)
     private let panel = Color(red: 0.105, green: 0.31, blue: 0.19)
     private let lime = Color(red: 0.36, green: 0.82, blue: 0.12)
+    private let gardenCoordinateSpace = "gardenContent"
     private var gardenGridLayout: GardenGridLayout {
         GardenGridLayout(rawValue: gardenGridLayoutCode) ?? .twoColumns
     }
@@ -245,6 +248,20 @@ struct PlantListView: View {
             }
             .scrollDismissesKeyboard(.interactively)
         }
+        .coordinateSpace(name: gardenCoordinateSpace)
+        .onPreferenceChange(SearchFieldFramePreferenceKey.self) { frame in
+            searchFieldFrame = frame
+        }
+        .simultaneousGesture(
+            SpatialTapGesture(coordinateSpace: .named(gardenCoordinateSpace))
+                .onEnded { value in
+                    guard isSearchFieldFocused,
+                          !searchFieldFrame.contains(value.location) else {
+                        return
+                    }
+                    isSearchFieldFocused = false
+                }
+        )
     }
 
     private var header: some View {
@@ -339,6 +356,7 @@ struct PlantListView: View {
                 .foregroundStyle(.white)
                 .tint(lime)
                 .textInputAutocapitalization(.never)
+                .focused($isSearchFieldFocused)
             if !searchText.isEmpty {
                 Button {
                     searchText = ""
@@ -355,6 +373,16 @@ struct PlantListView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .stroke(.white.opacity(0.08), lineWidth: 1)
+        }
+        .background {
+            GeometryReader { proxy in
+                Color.clear
+                    .preference(
+                        key: SearchFieldFramePreferenceKey.self,
+                        value: proxy.frame(in: .named(gardenCoordinateSpace))
+                    )
+            }
+            .allowsHitTesting(false)
         }
     }
 
@@ -485,6 +513,14 @@ private struct PlantLocationSection: Identifiable {
     let title: String
     let plants: [Plant]
     let isUnassigned: Bool
+}
+
+private struct SearchFieldFramePreferenceKey: PreferenceKey {
+    static var defaultValue: CGRect { .zero }
+
+    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
+        value = nextValue()
+    }
 }
 
 private enum GardenGridLayout: String, CaseIterable, Identifiable {
