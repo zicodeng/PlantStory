@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.5] - Unreleased
+
+### Bug fixes
+
+- Kept the Plant Anatomy library in light appearance so its text and cards remain easy to read when the device uses Dark Mode.
+
 ## [1.4] - 2026-09-22
 
 ### New features
