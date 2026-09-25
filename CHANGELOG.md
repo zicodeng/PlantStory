@@ -8,13 +8,14 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Added a gentle in-app notice when a newer PlantStory version is available on the App Store.
 - Added a compact four-column My Garden layout with smaller, name-only plant cards.
+- Expanded My Garden search to match plant locations.
 
 ### Bug fixes
 
 - Made the My Garden search field dismiss the keyboard when tapping elsewhere on the page.
 - Aligned the photo delete and Garden card selection controls in the plant editor.
 
-## [1.5] - Unreleased
+## [1.5] - 2026-09-24
 
 ### Bug fixes
 
