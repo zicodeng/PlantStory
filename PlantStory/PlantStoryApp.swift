@@ -254,7 +254,9 @@ final class AppNavigationStore: ObservableObject {
 
 private struct AppRootView: View {
     @StateObject private var navigation = AppNavigationStore.shared
+    @StateObject private var updateChecker = AppUpdateChecker()
     @EnvironmentObject private var store: PlantStore
+    @Environment(\.openURL) private var openURL
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
@@ -286,14 +288,82 @@ private struct AppRootView: View {
         .tint(Color(red: 0.36, green: 0.82, blue: 0.12))
         .fontDesign(.rounded)
         .environmentObject(navigation)
+        .safeAreaInset(edge: .top, spacing: 0) {
+            if let update = updateChecker.availableUpdate {
+                AppUpdateBanner(
+                    update: update,
+                    updateAction: {
+                        openURL(update.appStoreURL)
+                        updateChecker.openedAppStore(for: update)
+                    },
+                    laterAction: {
+                        updateChecker.remindLater(about: update)
+                    }
+                )
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .transition(.move(edge: .top).combined(with: .opacity))
+            }
+        }
         .onOpenURL { url in
             navigation.handle(url: url)
+        }
+        .task {
+            await updateChecker.checkIfNeeded()
         }
         .onChange(of: scenePhase) { _, phase in
             guard phase == .active else { return }
             Task { @MainActor in
-                await WateringReminderService.shared.reconcile(plants: store.plants)
+                async let reminderRefresh: Void = WateringReminderService.shared.reconcile(
+                    plants: store.plants
+                )
+                async let updateCheck: Void = updateChecker.checkIfNeeded()
+                _ = await (reminderRefresh, updateCheck)
             }
         }
+    }
+}
+
+private struct AppUpdateBanner: View {
+    let update: AppUpdate
+    let updateAction: () -> Void
+    let laterAction: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(alignment: .top, spacing: 12) {
+                Image(systemName: "arrow.down.circle.fill")
+                    .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color("LeafGreen"))
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(AppLocalization.string("PlantStory %@ is available", update.version))
+                        .font(.headline)
+                    Text("Download the latest version from the App Store.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+
+            HStack {
+                Spacer()
+
+                Button("Later", action: laterAction)
+                    .buttonStyle(.bordered)
+
+                Button("Update", action: updateAction)
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color("LeafGreen"))
+            }
+        }
+        .padding(16)
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(.primary.opacity(0.08), lineWidth: 1)
+        }
+        .shadow(color: .black.opacity(0.14), radius: 12, y: 6)
+        .accessibilityElement(children: .contain)
     }
 }
