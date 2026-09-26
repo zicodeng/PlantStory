@@ -61,6 +61,7 @@ When the release is feature-complete:
 - Verify the archived app and widget contain the intended version and build.
 - Upload the archive, complete the App Store metadata, and submit it to App Review.
 - Promotional Text should describe the app's current appeal. What's New should describe changes specific to this release.
+- In Simplified Chinese release notes, do not insert spaces between English terms or version numbers and adjacent Chinese characters. Write `GitHub备份` and `PlantStory 1.7新增`, not `GitHub 备份` or `PlantStory 1.7 新增`.
 - Do not mention unavailable AI or OpenAI features in public metadata or screenshots used for the China mainland storefront.
 
 ### 4. Merge after submission
