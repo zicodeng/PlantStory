@@ -4,6 +4,10 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ## [1.7] - Unreleased
 
+### New features
+
+- Added optional manual backup and restore through a user-managed private GitHub repository, with photos stored as individual image files.
+
 ### Bug fixes
 
 - Kept unsaved plant edits open while selecting photos.

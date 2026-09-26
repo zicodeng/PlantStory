@@ -159,7 +159,7 @@ struct SettingsView: View {
                                         Text("Storage & Data")
                                             .font(.system(.headline, design: .serif, weight: .semibold))
                                             .foregroundStyle(.white)
-                                        Text("Local-only storage · No cloud sync")
+                                        Text("Local-first · Manual backup options")
                                             .font(.subheadline)
                                             .foregroundStyle(.white.opacity(0.65))
                                     }
@@ -480,7 +480,7 @@ private struct StorageInfoView: View {
                     VStack(alignment: .leading, spacing: 3) {
                         Text("Your garden stays on this iPhone")
                             .font(.headline)
-                        Text("PlantStory uses no account, cloud database, or live cloud sync.")
+                        Text("PlantStory uses no account, cloud database, or live cloud sync. Backups leave this iPhone only when you choose an export or GitHub backup.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
@@ -527,8 +527,8 @@ private struct StorageInfoView: View {
             Section("Cloud & network use") {
                 storageRow(
                     icon: "icloud.slash.fill",
-                    title: "No cloud storage",
-                    detail: "Your plants, wild finds, photos, notes, watering history, and fertilizing history are not uploaded to iCloud, CloudKit, or a PlantStory server."
+                    title: "No automatic cloud storage",
+                    detail: "Your plants, wild finds, photos, notes, and care history are never uploaded automatically. Manual GitHub backup is optional and sends a backup only to the private repository you configure."
                 )
 
                 if aiFeaturesAvailable {
@@ -538,6 +538,29 @@ private struct StorageInfoView: View {
                         detail: "Only when you tap Suggest with AI, limited text such as the plant name, existing species, and region when relevant is sent directly to OpenAI. Photos and plant history are not sent."
                     )
                 }
+            }
+
+            Section {
+                NavigationLink {
+                    GitHubBackupView()
+                } label: {
+                    Label {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text("GitHub Backup")
+                                .font(.subheadline.weight(.semibold))
+                            Text("Advanced · Manual private-repository backup")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+                    } icon: {
+                        Image(systemName: "externaldrive.badge.icloud")
+                            .foregroundStyle(.teal)
+                    }
+                }
+            } header: {
+                Text("Optional cloud backup")
+            } footer: {
+                Text("For GitHub users who want to manage their own remote backup. PlantStory never uploads in the background.")
             }
 
             Section {
@@ -785,6 +808,456 @@ private struct StorageInfoView: View {
             }
         }
         .accessibilityElement(children: .combine)
+    }
+}
+
+private enum GitHubBackupOperation {
+    case verifying
+    case uploading
+    case downloading
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .verifying:
+            "Verifying repository…"
+        case .uploading:
+            "Uploading backup…"
+        case .downloading:
+            "Downloading backup…"
+        }
+    }
+}
+
+private struct GitHubBackupView: View {
+    @EnvironmentObject private var plantStore: PlantStore
+    @EnvironmentObject private var wildFindStore: WildFindStore
+
+    @AppStorage("githubBackup.owner") private var owner = ""
+    @AppStorage("githubBackup.repository") private var repositoryName = ""
+    @AppStorage("githubBackup.verifiedRepository") private var verifiedRepository = ""
+    @AppStorage("githubBackup.lastBackupAt") private var lastBackupTimestamp = 0.0
+
+    @StateObject private var tokenStore = GitHubBackupTokenStore()
+    @State private var tokenInput = ""
+    @State private var operation: GitHubBackupOperation?
+    @State private var notice: BackupNotice?
+    @State private var pendingBackup: PlantStoryBackupArchive?
+    @State private var isConfirmingUpload = false
+    @State private var isConfirmingRestore = false
+
+    private let service = GitHubBackupService()
+    private let newRepositoryURL = URL(string: "https://github.com/new?visibility=private")!
+    private let newTokenURL = URL(string: "https://github.com/settings/personal-access-tokens/new")!
+    private let tokenHelpURL = URL(string: "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")!
+    private let privacyURL = URL(string: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement")!
+
+    var body: some View {
+        Form {
+            Section {
+                Label {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Advanced manual backup")
+                            .font(.headline)
+                        Text("This option is for people comfortable managing a private GitHub repository and a fine-grained access token.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                } icon: {
+                    Image(systemName: "chevron.left.forwardslash.chevron.right")
+                        .foregroundStyle(.teal)
+                }
+            }
+
+            Section {
+                instructionStep(
+                    number: 1,
+                    title: "Create a private repository",
+                    detail: "Use plantstory-backup as the Repository name, keep visibility set to Private, and select Add a README file before creating it."
+                )
+                Link("Create a private repository on GitHub", destination: newRepositoryURL)
+
+                instructionStep(
+                    number: 2,
+                    title: "Create a fine-grained token",
+                    detail: "Use PlantStory Backup as the Token name. Set Resource owner to your GitHub account, choose an expiration you can renew (such as 90 days), then under Repository access choose Only select repositories and select plantstory-backup."
+                )
+                instructionStep(
+                    number: 3,
+                    title: "Grant one repository permission",
+                    detail: "Under Repository permissions, set Contents to Read and write. Leave every other permission set to No access."
+                )
+                Link("Create a fine-grained token on GitHub", destination: newTokenURL)
+                Link("View GitHub’s token instructions", destination: tokenHelpURL)
+
+                instructionStep(
+                    number: 4,
+                    title: "Verify and save",
+                    detail: "Enter your GitHub username as Repository owner, enter plantstory-backup as Repository name, and paste the token you just created. PlantStory verifies the private repository before saving the token in this iPhone’s Keychain."
+                )
+            } header: {
+                Text("Set up GitHub")
+            } footer: {
+                Text("Never put the token inside the repository or a backup file. Give it an expiration date and revoke it on GitHub if this iPhone is lost.")
+            }
+
+            Section {
+                TextField("Repository owner", text: $owner)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                    .textContentType(.username)
+
+                TextField("Repository name", text: $repositoryName)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+
+                SecureField(
+                    tokenStore.hasToken ? "Replace saved token (optional)" : "Fine-grained token",
+                    text: $tokenInput
+                )
+                .textInputAutocapitalization(.never)
+                .autocorrectionDisabled()
+                .textContentType(.password)
+
+                if let tokenPreview = tokenStore.tokenPreview {
+                    LabeledContent("Saved token") {
+                        Text(tokenPreview)
+                            .font(.caption.monospaced())
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                Button {
+                    Task { await verifyAndSave() }
+                } label: {
+                    actionLabel(
+                        "Verify & Save",
+                        systemImage: "checkmark.shield.fill",
+                        isEnabled: canVerifyAndSave
+                    )
+                }
+                .disabled(!canVerifyAndSave)
+
+                if tokenStore.hasToken {
+                    Button("Disconnect GitHub", role: .destructive) {
+                        disconnect()
+                    }
+                    .disabled(operation != nil)
+                }
+            } header: {
+                Text("Connection")
+            } footer: {
+                Text("The token is stored with device-only Keychain protection and is never included in a PlantStory backup.")
+            }
+
+            Section {
+                if let operation {
+                    HStack(spacing: 10) {
+                        ProgressView()
+                        Text(operation.title)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                Button {
+                    isConfirmingUpload = true
+                } label: {
+                    actionLabel(
+                        "Back Up Now",
+                        systemImage: "arrow.up.doc.fill",
+                        isEnabled: canUseBackupActions
+                    )
+                }
+                .disabled(!canUseBackupActions)
+
+                Button {
+                    Task { await downloadBackup() }
+                } label: {
+                    actionLabel(
+                        "Restore from GitHub",
+                        systemImage: "arrow.down.doc.fill",
+                        isEnabled: canUseBackupActions
+                    )
+                }
+                .disabled(!canUseBackupActions)
+
+                LabeledContent("Remote folder") {
+                    Text(verbatim: "plantstory/")
+                        .font(.caption.monospaced())
+                        .foregroundStyle(.secondary)
+                }
+
+                if lastBackupTimestamp > 0 {
+                    LabeledContent("Last backup from this iPhone") {
+                        Text(lastBackupText)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            } header: {
+                Text("Manual GitHub backup")
+            } footer: {
+                Text("Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. PlantStory limits each backup to 50 MB; Export Backup remains available for larger collections.")
+            }
+
+            Section("Privacy & recovery") {
+                Text("The backup includes plants, Wild Finds, photos, notes, locations, timelines, and care history. GitHub stores this data under your GitHub account. A private repository limits access but is not end-to-end encrypted by PlantStory.")
+                    .font(.subheadline)
+
+                Text("Restoring downloads the remote file, validates its PlantStory format, shows its date and collection size, and asks before replacing local data.")
+                    .font(.subheadline)
+
+                Link("Read GitHub’s Privacy Statement", destination: privacyURL)
+            }
+        }
+        .navigationTitle("GitHub Backup")
+        .navigationBarTitleDisplayMode(.inline)
+        .alert(
+            "Upload PlantStory backup to GitHub?",
+            isPresented: $isConfirmingUpload
+        ) {
+            Button("Upload") {
+                Task { await uploadBackup() }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This sends your plants, Wild Finds, photos, notes, locations, timelines, and care history to your configured private GitHub repository. The upload is manual and is not encrypted end to end by PlantStory.")
+        }
+        .alert(
+            "Replace local PlantStory data?",
+            isPresented: $isConfirmingRestore,
+            presenting: pendingBackup
+        ) { backup in
+            Button("Restore", role: .destructive) {
+                restore(backup)
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: { backup in
+            Text(
+                "GitHub backup from \(AppLocalization.dateString(backup.createdAt, dateStyle: .medium, timeStyle: .short)) with \(itemSummary(for: backup)). Your current plants and Wild Finds will be replaced."
+            )
+        }
+        .alert(item: $notice) { notice in
+            Alert(
+                title: Text(notice.title),
+                message: Text(notice.message),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+    }
+
+    private var repository: GitHubBackupRepository {
+        GitHubBackupRepository(owner: owner, name: repositoryName)
+    }
+
+    private var hasRepositoryDetails: Bool {
+        !owner.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && !repositoryName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    private var hasAvailableToken: Bool {
+        tokenStore.hasToken || !tokenInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    private var canVerifyAndSave: Bool {
+        operation == nil && hasRepositoryDetails && hasAvailableToken
+    }
+
+    private var canUseBackupActions: Bool {
+        operation == nil && isConfigured
+    }
+
+    private var isConfigured: Bool {
+        tokenStore.hasToken
+            && tokenInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            && currentRepositoryIdentity == verifiedRepository
+    }
+
+    private var currentRepositoryIdentity: String {
+        let owner = owner.trimmingCharacters(in: .whitespacesAndNewlines)
+        let name = repositoryName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !owner.isEmpty, !name.isEmpty else { return "" }
+        return "\(owner)/\(name)".lowercased()
+    }
+
+    private var lastBackupText: String {
+        AppLocalization.dateString(
+            Date(timeIntervalSince1970: lastBackupTimestamp),
+            dateStyle: .medium,
+            timeStyle: .short
+        )
+    }
+
+    private func instructionStep(
+        number: Int,
+        title: LocalizedStringKey,
+        detail: LocalizedStringKey
+    ) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            Text("\(number)")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.white)
+                .frame(width: 24, height: 24)
+                .background(Color.teal, in: Circle())
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(title)
+                    .font(.subheadline.weight(.semibold))
+                Text(detail)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .accessibilityElement(children: .combine)
+    }
+
+    private func actionLabel(
+        _ title: LocalizedStringKey,
+        systemImage: String,
+        isEnabled: Bool
+    ) -> some View {
+        Label {
+            Text(title)
+                .foregroundStyle(isEnabled ? Color.primary : Color.secondary)
+        } icon: {
+            Image(systemName: systemImage)
+                .foregroundStyle(isEnabled ? Color.accentColor : Color.secondary)
+        }
+    }
+
+    @MainActor
+    private func verifyAndSave() async {
+        operation = .verifying
+        defer { operation = nil }
+
+        do {
+            let token = try availableToken()
+            _ = try await service.verify(repository: repository, token: token)
+            if !tokenInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                try tokenStore.save(tokenInput)
+                tokenInput = ""
+            }
+            verifiedRepository = currentRepositoryIdentity
+            notice = BackupNotice(
+                title: AppLocalization.string("GitHub connection verified"),
+                message: AppLocalization.string(
+                    "PlantStory can read and write backups in this private repository."
+                )
+            )
+        } catch {
+            present(error)
+        }
+    }
+
+    @MainActor
+    private func uploadBackup() async {
+        operation = .uploading
+        defer { operation = nil }
+
+        do {
+            try await service.upload(
+                plants: plantStore.plants,
+                wildFinds: wildFindStore.finds,
+                to: repository,
+                token: try availableToken()
+            )
+            lastBackupTimestamp = Date.now.timeIntervalSince1970
+            notice = BackupNotice(
+                title: AppLocalization.string("GitHub backup saved"),
+                message: AppLocalization.string(
+                    "Uploaded the backup to %@.",
+                    repository.displayName
+                )
+            )
+        } catch {
+            present(error)
+        }
+    }
+
+    @MainActor
+    private func downloadBackup() async {
+        operation = .downloading
+        defer { operation = nil }
+
+        do {
+            let snapshot = try await service.download(
+                from: repository,
+                token: try availableToken()
+            )
+            pendingBackup = PlantStoryBackupArchive(
+                createdAt: snapshot.createdAt,
+                plants: snapshot.plants,
+                wildFinds: snapshot.wildFinds
+            )
+            isConfirmingRestore = true
+        } catch {
+            present(error)
+        }
+    }
+
+    private func availableToken() throws -> String {
+        let enteredToken = tokenInput.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !enteredToken.isEmpty {
+            return enteredToken
+        }
+        guard let savedToken = try tokenStore.token() else {
+            throw GitHubBackupError.invalidToken
+        }
+        return savedToken
+    }
+
+    private func restore(_ backup: PlantStoryBackupArchive) {
+        let previousPlants = plantStore.plants
+
+        do {
+            try plantStore.replaceAll(with: backup.plants)
+            do {
+                try wildFindStore.replaceAll(with: backup.wildFinds)
+            } catch {
+                try? plantStore.replaceAll(with: previousPlants)
+                throw error
+            }
+
+            pendingBackup = nil
+            notice = BackupNotice(
+                title: AppLocalization.string("Backup restored"),
+                message: AppLocalization.string(
+                    "Restored %@ from GitHub.",
+                    itemSummary(for: backup)
+                )
+            )
+        } catch {
+            present(error)
+        }
+    }
+
+    private func itemSummary(for backup: PlantStoryBackupArchive) -> String {
+        let plantLabel = backup.plants.count == 1
+            ? AppLocalization.string("1 plant")
+            : AppLocalization.string("%lld plants", Int64(backup.plants.count))
+        let findLabel = backup.wildFinds.count == 1
+            ? AppLocalization.string("1 wild find")
+            : AppLocalization.string("%lld wild finds", Int64(backup.wildFinds.count))
+        return AppLocalization.string("%@ and %@", plantLabel, findLabel)
+    }
+
+    private func disconnect() {
+        do {
+            try tokenStore.delete()
+            tokenInput = ""
+            owner = ""
+            repositoryName = ""
+            verifiedRepository = ""
+            lastBackupTimestamp = 0
+        } catch {
+            present(error)
+        }
+    }
+
+    private func present(_ error: Error) {
+        notice = BackupNotice(
+            title: AppLocalization.string("GitHub backup couldn’t be completed"),
+            message: error.localizedDescription
+        )
     }
 }
 

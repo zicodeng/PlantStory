@@ -4,6 +4,694 @@
     "" : {
 
     },
+    "A photo in the GitHub backup is missing or damaged." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 备份中的一张照片缺失或已损坏。"
+          }
+        }
+      }
+    },
+    "Advanced · Manual private-repository backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高级 · 手动备份到私有仓库"
+          }
+        }
+      }
+    },
+    "Advanced manual backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高级手动备份"
+          }
+        }
+      }
+    },
+    "Back Up Now" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "立即备份"
+          }
+        }
+      }
+    },
+    "Choose a private GitHub repository for PlantStory backups." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择一个私有 GitHub 仓库来保存 PlantStory 备份。"
+          }
+        }
+      }
+    },
+    "Use PlantStory Backup as the Token name. Set Resource owner to your GitHub account, choose an expiration you can renew (such as 90 days), then under Repository access choose Only select repositories and select plantstory-backup." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将 Token name 填为 PlantStory Backup。将 Resource owner 设为你的 GitHub 账号，选择一个便于定期更新的有效期（例如 90 天），然后在 Repository access 下选择 Only select repositories，并选中 plantstory-backup。"
+          }
+        }
+      }
+    },
+    "Connection" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "连接"
+          }
+        }
+      }
+    },
+    "Create a fine-grained token" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建细粒度令牌"
+          }
+        }
+      }
+    },
+    "Create a fine-grained token on GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 GitHub 上创建细粒度令牌"
+          }
+        }
+      }
+    },
+    "Use plantstory-backup as the Repository name, keep visibility set to Private, and select Add a README file before creating it." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将 Repository name 填为 plantstory-backup，将可见性保持为 Private，并在创建前勾选 Add a README file。"
+          }
+        }
+      }
+    },
+    "Create a private repository" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建私有仓库"
+          }
+        }
+      }
+    },
+    "Create a private repository on GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 GitHub 上创建私有仓库"
+          }
+        }
+      }
+    },
+    "Disconnect GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "断开 GitHub 连接"
+          }
+        }
+      }
+    },
+    "Downloading backup…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在下载备份…"
+          }
+        }
+      }
+    },
+    "Enter a valid fine-grained GitHub token." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入有效的 GitHub 细粒度令牌。"
+          }
+        }
+      }
+    },
+    "Enter a valid GitHub owner and repository name." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请输入有效的 GitHub 所有者和仓库名称。"
+          }
+        }
+      }
+    },
+    "Enter your GitHub username as Repository owner, enter plantstory-backup as Repository name, and paste the token you just created. PlantStory verifies the private repository before saving the token in this iPhone’s Keychain." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下方将 Repository owner 填为你的 GitHub 用户名，将 Repository name 填为 plantstory-backup，然后粘贴刚创建的令牌。PlantStory 会先确认这是私有仓库，再将令牌保存到这台 iPhone 的钥匙串中。"
+          }
+        }
+      }
+    },
+    "Fine-grained token" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "细粒度令牌"
+          }
+        }
+      }
+    },
+    "For GitHub users who want to manage their own remote backup. PlantStory never uploads in the background." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "适合希望自己管理远程备份的 GitHub 用户。PlantStory 绝不会在后台上传。"
+          }
+        }
+      }
+    },
+    "GitHub Backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 备份"
+          }
+        }
+      }
+    },
+    "GitHub backup couldn’t be completed" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法完成 GitHub 备份"
+          }
+        }
+      }
+    },
+    "GitHub backup from %@ with %@. Your current plants and Wild Finds will be replaced." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "GitHub backup from %1$@ with %2$@. Your current plants and Wild Finds will be replaced."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 备份创建于 %1$@，包含 %2$@。你当前的植物和野外发现将被替换。"
+          }
+        }
+      }
+    },
+    "GitHub backup saved" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 备份已保存"
+          }
+        }
+      }
+    },
+    "GitHub connection verified" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 连接已验证"
+          }
+        }
+      }
+    },
+    "GitHub couldn’t complete the backup request." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 无法完成备份请求。"
+          }
+        }
+      }
+    },
+    "GitHub couldn’t update the backup because the repository changed. Try again." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仓库已发生变化，GitHub 无法更新备份。请重试。"
+          }
+        }
+      }
+    },
+    "GitHub denied access. Give the token read and write access to repository contents." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 拒绝访问。请为令牌授予仓库内容的读取和写入权限。"
+          }
+        }
+      }
+    },
+    "GitHub returned an unreadable response." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 返回了无法读取的响应。"
+          }
+        }
+      }
+    },
+    "Grant one repository permission" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只授予一项仓库权限"
+          }
+        }
+      }
+    },
+    "Last backup from this iPhone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这台 iPhone 的上次备份"
+          }
+        }
+      }
+    },
+    "Local-first · Manual backup options" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地优先 · 手动备份选项"
+          }
+        }
+      }
+    },
+    "Manual GitHub backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手动 GitHub 备份"
+          }
+        }
+      }
+    },
+    "Never put the token inside the repository or a backup file. Give it an expiration date and revoke it on GitHub if this iPhone is lost." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切勿把令牌放进仓库或备份文件。请为它设置过期日期；如果这台 iPhone 丢失，请在 GitHub 上撤销令牌。"
+          }
+        }
+      }
+    },
+    "No automatic cloud storage" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不会自动存到云端"
+          }
+        }
+      }
+    },
+    "No PlantStory backup was found in this repository." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此仓库中没有找到 PlantStory 备份。"
+          }
+        }
+      }
+    },
+    "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. PlantStory limits each backup to 50 MB; Export Backup remains available for larger collections." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不会自动上传任何内容。PlantStory 会在 plantstory 文件夹中保存一个 JSON 清单和单独的照片文件。未更改的照片会重复使用，但 GitHub 会保留提交历史，因此仓库可能会随时间增长。PlantStory 将每次备份限制为 50 MB；较大的资料库仍可使用“导出备份”。"
+          }
+        }
+      }
+    },
+    "Optional cloud backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可选云端备份"
+          }
+        }
+      }
+    },
+    "PlantStory can read and write backups in this private repository." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 可以在此私有仓库中读取和写入备份。"
+          }
+        }
+      }
+    },
+    "PlantStory couldn’t find that repository. Check its owner, name, and token access." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 找不到该仓库。请检查所有者、名称和令牌访问权限。"
+          }
+        }
+      }
+    },
+    "PlantStory couldn’t securely update the GitHub token." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 无法安全更新 GitHub 令牌。"
+          }
+        }
+      }
+    },
+    "PlantStory uses no account, cloud database, or live cloud sync. Backups leave this iPhone only when you choose an export or GitHub backup." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 不需要账号，也不使用云端数据库或实时云同步。只有当你选择导出或 GitHub 备份时，备份才会离开这台 iPhone。"
+          }
+        }
+      }
+    },
+    "Privacy & recovery" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐私与恢复"
+          }
+        }
+      }
+    },
+    "Read GitHub’s Privacy Statement" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "阅读 GitHub 隐私声明"
+          }
+        }
+      }
+    },
+    "Remote folder" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "远程文件夹"
+          }
+        }
+      }
+    },
+    "Replace saved token (optional)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "替换已保存的令牌（可选）"
+          }
+        }
+      }
+    },
+    "Repository name" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仓库名称"
+          }
+        }
+      }
+    },
+    "Repository owner" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仓库所有者"
+          }
+        }
+      }
+    },
+    "Restore from GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从 GitHub 恢复"
+          }
+        }
+      }
+    },
+    "Restored %@ from GitHub." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Restored %1$@ from GitHub."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已从 GitHub 恢复 %1$@。"
+          }
+        }
+      }
+    },
+    "Restoring downloads the remote file, validates its PlantStory format, shows its date and collection size, and asks before replacing local data." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复时会下载远程文件、验证 PlantStory 格式、显示备份日期和收藏数量，并在替换本地数据前再次询问。"
+          }
+        }
+      }
+    },
+    "Saved token" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保存的令牌"
+          }
+        }
+      }
+    },
+    "Set up GitHub" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置 GitHub"
+          }
+        }
+      }
+    },
+    "The backup includes plants, Wild Finds, photos, notes, locations, timelines, and care history. GitHub stores this data under your GitHub account. A private repository limits access but is not end-to-end encrypted by PlantStory." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份包含植物、野外发现、照片、笔记、位置、时间线和养护记录。GitHub 会在你的 GitHub 账号下存储这些数据。私有仓库可以限制访问，但 PlantStory 不会对其进行端到端加密。"
+          }
+        }
+      }
+    },
+    "The token is stored with device-only Keychain protection and is never included in a PlantStory backup." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "令牌使用仅限本机的钥匙串保护，绝不会包含在 PlantStory 备份中。"
+          }
+        }
+      }
+    },
+    "This backup is larger than PlantStory’s 50 MB GitHub limit. Use Export Backup instead." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此备份超过 PlantStory 的 50 MB GitHub 限制。请改用“导出备份”。"
+          }
+        }
+      }
+    },
+    "This option is for people comfortable managing a private GitHub repository and a fine-grained access token." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此选项适合熟悉私有 GitHub 仓库和细粒度访问令牌的用户。"
+          }
+        }
+      }
+    },
+    "This sends your plants, Wild Finds, photos, notes, locations, timelines, and care history to your configured private GitHub repository. The upload is manual and is not encrypted end to end by PlantStory." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这会把你的植物、野外发现、照片、笔记、位置、时间线和养护记录发送到已配置的私有 GitHub 仓库。上传由你手动触发，PlantStory 不会进行端到端加密。"
+          }
+        }
+      }
+    },
+    "Under Repository permissions, set Contents to Read and write. Leave every other permission set to No access." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Repository permissions 下，将 Contents 设为 Read and write。其他所有权限保持为 No access。"
+          }
+        }
+      }
+    },
+    "Upload" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上传"
+          }
+        }
+      }
+    },
+    "Upload PlantStory backup to GitHub?" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将 PlantStory 备份上传到 GitHub？"
+          }
+        }
+      }
+    },
+    "Uploaded the backup to %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Uploaded the backup to %1$@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已将备份上传到 %1$@。"
+          }
+        }
+      }
+    },
+    "Uploading backup…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在上传备份…"
+          }
+        }
+      }
+    },
+    "Verify & Save" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "验证并保存"
+          }
+        }
+      }
+    },
+    "Verify and save" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "验证并保存"
+          }
+        }
+      }
+    },
+    "Verifying repository…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在验证仓库…"
+          }
+        }
+      }
+    },
+    "View GitHub’s token instructions" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看 GitHub 令牌说明"
+          }
+        }
+      }
+    },
+    "Your plants, wild finds, photos, notes, and care history are never uploaded automatically. Manual GitHub backup is optional and sends a backup only to the private repository you configure." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的植物、野外发现、照片、笔记和养护记录绝不会自动上传。GitHub 手动备份为可选功能，只会把备份发送到你配置的私有仓库。"
+          }
+        }
+      }
+    },
     "‘Thai Constellation’" : {
       "extractionState" : "stale",
       "localizations" : {

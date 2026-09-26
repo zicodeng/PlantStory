@@ -1,7 +1,7 @@
 # PlantStory Privacy Policy
 
 **Effective date: September 1, 2026**  
-**Last updated: September 1, 2026**
+**Last updated: September 25, 2026**
 
 PlantStory is a local-first plant journal created by Zike Deng. This Privacy Policy explains how PlantStory handles information when you use the iOS or iPadOS app.
 
@@ -10,6 +10,7 @@ PlantStory is a local-first plant journal created by Zike Deng. This Privacy Pol
 - PlantStory does not require an account.
 - Your plants, Wild Finds, photos, notes, locations, timelines, and care history are stored locally in the app's private container on your device.
 - PlantStory does not include advertising, analytics, cross-app tracking, or a developer-operated server.
+- Optional GitHub backup lets you manually send a backup to a private repository that you configure.
 - AI suggestions are optional. When you request one, limited text and your OpenAI API key are sent directly from your device to OpenAI.
 - Optional tips are processed by Apple through the App Store.
 
@@ -57,6 +58,24 @@ You may export a JSON backup containing your plants, Wild Finds, photos, notes, 
 
 You control where an exported backup is saved or shared. Any cloud storage provider, messaging app, or other service you choose may process the backup under its own privacy policy. Restoring a backup replaces the current local PlantStory collection.
 
+## Optional GitHub backup
+
+GitHub backup is an optional advanced feature. It is disabled until you configure it, and PlantStory uploads or downloads data only when you tap the corresponding backup or restore button. It is not live synchronization and does not run in the background.
+
+To use it, you provide:
+
+- the owner and name of a private GitHub repository; and
+- a fine-grained GitHub personal access token with read and write access to that repository's contents.
+
+The token is stored in the iOS Keychain with device-only protection. It is not included in PlantStory backups or sent to the developer. PlantStory sends the token directly to GitHub over HTTPS to authenticate the request.
+
+A GitHub backup contains your plants, Wild Finds, photos, notes, locations, timelines, and care history. PlantStory stores a JSON manifest at `plantstory/backup.json` and individual photo files under `plantstory/photos/` in the repository you selected. A private repository limits access through your GitHub account, but the backup is not end-to-end encrypted by PlantStory. GitHub processes and stores the repository and backup under its own terms and privacy practices:
+
+- [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+- [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)
+
+The developer does not receive your GitHub token, repository details, or backup contents.
+
 ## Analytics, advertising, and tracking
 
 PlantStory does not use third-party analytics or advertising SDKs. It does not track you across apps or websites and does not sell personal information.
@@ -69,11 +88,13 @@ Local PlantStory data remains on your device until you edit or delete it, restor
 
 You can remove your OpenAI API key at any time in **Settings -> AI Suggestions**. You can delete individual records in the app. To remove all locally stored PlantStory data, delete the app from your device and delete any backups you previously exported.
 
+You can disconnect GitHub backup in **Settings -> Storage & Data -> GitHub Backup**, which deletes the token from that device. Disconnecting does not delete the repository or backup from GitHub. Delete the `plantstory/` folder, its Git history, or the repository through GitHub if you want to remove the remote copy. You can also revoke the token in your GitHub account settings.
+
 For information processed by Apple or OpenAI, use the controls and deletion procedures provided by those companies.
 
 ## Security
 
-PlantStory relies on Apple's app sandbox and data-protection technologies to protect local files. The OpenAI API key is stored in the iOS Keychain and marked as accessible only while the device is unlocked and only on that device. Network requests to OpenAI use HTTPS through Apple's networking system. No method of storage or transmission can be guaranteed to be completely secure.
+PlantStory relies on Apple's app sandbox and data-protection technologies to protect local files. OpenAI and GitHub tokens are stored in the iOS Keychain and marked as accessible only while the device is unlocked and only on that device. Network requests to OpenAI and GitHub use HTTPS through Apple's networking system. No method of storage or transmission can be guaranteed to be completely secure.
 
 ## Children's privacy
 
@@ -81,7 +102,7 @@ PlantStory is not designed to collect personal information from children. It has
 
 ## International processing
 
-Local information remains on your device. If you use AI suggestions or an Apple purchase, OpenAI or Apple may process information in countries other than your own according to their respective policies.
+Local information remains on your device unless you choose an optional transfer feature. If you use GitHub backup, AI suggestions, or an Apple purchase, GitHub, OpenAI, or Apple may process information in countries other than your own according to their respective policies.
 
 ## Changes to this policy
 
