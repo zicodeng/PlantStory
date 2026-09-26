@@ -7,6 +7,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 ### Bug fixes
 
 - Kept unsaved plant edits open while selecting photos.
+- Dismissed the keyboard when tapping outside a field in the plant editor.
 
 ## [1.6] - 2026-09-25
 
