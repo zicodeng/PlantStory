@@ -8,7 +8,7 @@
   A free, open-source, local-first iOS journal for the plants you raise and the plants you meet outside.
 </p>
 
-PlantStory helps you remember the life of each plant—not just its care schedule. Keep photo timelines, record everyday care, schedule seasonal watering reminders, learn with beginner-friendly visual guides, and save wild discoveries in a private collection that stays on your iPhone.
+PlantStory helps you remember the life of each plant—not just its care schedule. Keep photo timelines, record everyday care, schedule seasonal watering reminders, learn with beginner-friendly visual guides, and save wild discoveries in a private collection stored locally by default. PlantStory does not upload this collection automatically; you can explicitly export a backup, upload one to your private GitHub repository, or request an optional AI suggestion.
 
 ## Features
 
@@ -19,6 +19,7 @@ PlantStory helps you remember the life of each plant—not just its care schedul
 - Build a chronological life timeline with dated photos, notes, and optional event tags for repotting, pruning, fertilizing, blooming, new growth, pests, treatment, coming home, death, or a custom event. Untagged photos remain “A new moment.”
 - Mark a plant’s death from its timeline to give its garden card a muted “In memory” treatment while preserving its days-raised count.
 - Automatically use a photo's creation date when that metadata is available.
+- Open timeline photos full-screen and choose which photo appears on each Garden card.
 - Record watering and fertilizing events, review recent history, and remove accidental entries.
 - Choose the best fertilizing and pruning months for each plant.
 - View seasonal care tasks in a garden calendar.
@@ -26,7 +27,7 @@ PlantStory helps you remember the life of each plant—not just its care schedul
 - See upcoming and overdue reminders on garden cards and manage every configured reminder from Settings.
 - Mark a plant as watered or ask to be reminded tomorrow directly from its notification.
 - Assign plants to locations such as rooms, balconies, or gardens, reuse existing location choices, and browse the home collection grouped by location.
-- Search your collection and sort it by name, acquisition date, last watered, or last fertilized in ascending or descending order.
+- Browse a compact four-column Garden layout, search by plant name or location, and sort by name, acquisition date, last watered, or last fertilized in ascending or descending order.
 
 ### Plant Wiki
 
@@ -63,25 +64,36 @@ PlantStory helps you remember the life of each plant—not just its care schedul
 - Use PlantStory in English or Simplified Chinese.
 - Follow the iPhone language automatically or choose a language inside the app.
 
+### Optional GitHub backup
+
+- Manually back up and restore through a private GitHub repository that you manage.
+- Keep GitHub backup completely optional; it is not automatic synchronization and never runs in the background.
+- Restrict a fine-grained GitHub token to one selected repository with only **Contents: Read and write** permission.
+- Store the GitHub token in the device-only iOS Keychain, separate from PlantStory backups.
+- Save a small JSON manifest at `plantstory/backup.json` and individual photo files under `plantstory/photos/`.
+- Reuse unchanged photo files on later backups while keeping each backup as a complete restorable snapshot.
+
 ### Privacy and storage
 
 - No PlantStory account is required.
 - No cloud database or PlantStory server is used.
-- Plants, photos, notes, care histories, and reminder schedules remain in the app's private local storage.
+- Plants, photos, notes, care histories, and reminder schedules remain in the app's private local storage unless you explicitly export or upload a backup.
 - The watering widget receives only the small on-device snapshot it needs through PlantStory's private app group.
 - Plant data is stored in `Library/Application Support/PlantStory/plants.json`.
 - Wild Finds are stored in `Library/Application Support/PlantStory/wild-finds.json`.
 - Photos and their dates and notes are encoded in those private files.
 - Export a versioned JSON backup from **Settings → Storage & Data** and restore it on another iPhone. The backup includes both collections and their photos but excludes the OpenAI API key and StoreKit purchase history.
+- Optionally upload a backup to a user-managed private GitHub repository. Uploads happen only after you tap **Back Up Now** and confirm. GitHub backups are not end-to-end encrypted by PlantStory.
+- OpenAI and GitHub tokens are stored in the device-only iOS Keychain and are never included in a PlantStory backup.
 - When AI is requested, limited text is sent directly to OpenAI; photos and care history are not sent.
 
-Deleting PlantStory deletes its local data from that iPhone. Before deleting it, export a manual backup or transfer the device with Apple Quick Start, iCloud Backup, or a Finder/Apple Devices backup. The OpenAI API key may need to be entered again.
+Deleting PlantStory removes its local app-container data from that iPhone. Before deleting the app, remove saved tokens in Settings if desired, then export a manual backup, create a GitHub backup, or transfer the device with Apple Quick Start, iCloud Backup, or a Finder/Apple Devices backup. Deleting the app does not delete a backup previously exported elsewhere or uploaded to GitHub. See the full [Privacy Policy](PRIVACY.md) for details.
 
-## Manual backup and restore
+## Backup and restore
 
 Open **Settings → Storage & Data** to manage portable backups.
 
-### Create a backup
+### Portable JSON backup
 
 1. Tap **Export Backup**.
 2. Save the generated JSON file to Files, iCloud Drive, or another location you control.
@@ -89,17 +101,33 @@ Open **Settings → Storage & Data** to manage portable backups.
 
 The backup contains My Garden, Wild Finds, photos, notes, timeline events, locations, care histories, and watering reminder settings. Because photos are embedded in the JSON file, backups with many photos can be large. OpenAI API keys and StoreKit purchase history are not included.
 
+### Private GitHub backup for advanced users
+
+GitHub backup is intended for people comfortable managing their own private repository and access token. It remains manual and does not turn PlantStory into a synchronization service.
+
+1. Create a private GitHub repository named `plantstory-backup` and initialize it with a README.
+2. Create a fine-grained token named `PlantStory Backup`, with an expiration you can renew such as 90 days. Limit **Repository access** to that repository and set **Contents** to **Read and write**, leaving other permissions at **No access**.
+3. In PlantStory, open **Settings → Storage & Data → GitHub Backup**.
+4. Enter your GitHub username, `plantstory-backup`, and the token, then tap **Verify & Save**.
+5. Tap **Back Up Now** and confirm the upload.
+
+PlantStory stores the token only in that iPhone's Keychain. The repository receives `plantstory/backup.json` plus content-hashed photo files under `plantstory/photos/`. Later backups reuse unchanged photos, upload new or changed photos, remove obsolete photos from the latest snapshot, and create a new Git commit. Older data can remain in Git history, so the repository may grow over time.
+
+Each GitHub backup is limited to 50 MB. The repository is private, but its contents are stored and processed by GitHub and are not end-to-end encrypted by PlantStory. Disconnecting GitHub backup removes the local token and settings; it does not delete the repository or its history.
+
 ### Restore a backup
 
-1. Tap **Restore from Backup** and select a PlantStory JSON backup.
+1. To restore a portable file, tap **Restore from Backup** and select a PlantStory JSON backup. To restore from GitHub, open **GitHub Backup** and tap **Restore from GitHub**.
 2. Review the backup date and the number of plants and Wild Finds shown in the confirmation.
 3. Confirm **Restore**.
 
-Restore replaces the current My Garden and Wild Finds collections; it does not merge them. Export the current collection first if you may need it later.
+Restore replaces the current My Garden and Wild Finds collections; it does not merge them. Back up the current collection first if you may need it later. GitHub restore supports both the current manifest-and-photo structure and older all-in-one GitHub JSON backups.
 
 ## Download and install
 
 Choose a published release for a stable source snapshot, or use the `main` branch for the latest development version. See the changelog for release notes and current development details.
+
+App Store builds can show a gentle in-app notice when a newer PlantStory version is available.
 
 - [View and download the latest published release](https://github.com/zicodeng/PlantStory/releases/latest)
 - [Download the current development source](https://github.com/zicodeng/PlantStory/archive/refs/heads/main.zip)
@@ -112,6 +140,7 @@ Choose a published release for a stable source snapshot, or use the `main` branc
 - An Apple ID added to Xcode when installing on a physical iPhone
 - Notification permission only if you enable watering reminders
 - An OpenAI API key only if you choose to enable AI suggestions
+- A GitHub account, private repository, and fine-grained token only if you choose to enable GitHub backup
 
 ### Build from source
 
