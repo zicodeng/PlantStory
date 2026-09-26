@@ -342,6 +342,7 @@ struct PlantFormView: View {
         }
         .navigationTitle(formTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .interactiveDismissDisabled()
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") { dismiss() }
