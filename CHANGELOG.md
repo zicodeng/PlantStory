@@ -8,6 +8,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Added the latest available App Store version to Settings alongside the installed app version.
 - Made the latest available version in Settings a direct App Store update link when a newer version is available.
+- Added “Propagated” as a plant timeline event.
 
 ### Bug fixes
 

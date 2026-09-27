@@ -717,6 +717,7 @@ private struct PlantTimelineEvent: Identifiable {
     private func photoColor(for eventTag: PlantPhotoEventTag?) -> Color {
         switch eventTag {
         case .repotted: Color(red: 0.68, green: 0.45, blue: 0.26)
+        case .propagated: Color(red: 0.16, green: 0.68, blue: 0.48)
         case .pruned: Color(red: 0.40, green: 0.72, blue: 0.28)
         case .fertilized: Color(red: 0.92, green: 0.56, blue: 0.16)
         case .bloomed: Color(red: 0.92, green: 0.30, blue: 0.52)

@@ -135,6 +135,7 @@ struct WateringReminder: Codable, Equatable {
 
 enum PlantPhotoEventTag: String, Codable, CaseIterable, Identifiable {
     case repotted
+    case propagated
     case pruned
     case fertilized
     case bloomed
@@ -150,6 +151,7 @@ enum PlantPhotoEventTag: String, Codable, CaseIterable, Identifiable {
     var title: LocalizedStringKey {
         switch self {
         case .repotted: "Repotted"
+        case .propagated: "Propagated"
         case .pruned: "Pruned"
         case .fertilized: "Fertilized"
         case .bloomed: "Bloomed"
@@ -165,6 +167,7 @@ enum PlantPhotoEventTag: String, Codable, CaseIterable, Identifiable {
     var icon: String {
         switch self {
         case .repotted: "arrow.triangle.2.circlepath"
+        case .propagated: "leaf.arrow.triangle.circlepath"
         case .pruned: "scissors"
         case .fertilized: "leaf.circle.fill"
         case .bloomed: "camera.macro"

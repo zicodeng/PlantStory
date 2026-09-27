@@ -10474,6 +10474,16 @@
         }
       }
     },
+    "Propagated" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁殖"
+          }
+        }
+      }
+    },
     "PROPAGATION METHOD" : {
       "localizations" : {
         "zh-Hans" : {
