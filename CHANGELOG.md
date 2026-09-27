@@ -12,6 +12,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ### Bug fixes
 
+- Allowed GitHub backups up to 500 MB in total and showed the estimated backup size in Settings.
 - Prevented cached App Store lookup responses from showing an outdated latest version.
 - Showed the update banner immediately when the last confirmed App Store version is newer than the installed version.
 - Shortened the update banner’s “Later” reminder from seven days to one day.

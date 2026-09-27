@@ -14,6 +14,16 @@
         }
       }
     },
+    "A photo is too large for GitHub backup. Use Export Backup instead." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有一张照片过大，无法备份到 GitHub。请改用“导出备份”。"
+          }
+        }
+      }
+    },
     "Advanced · Manual private-repository backup" : {
       "localizations" : {
         "zh-Hans" : {
@@ -60,6 +70,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "将 Token name 填为 PlantStory Backup。将 Resource owner 设为你的 GitHub 账号，选择一个便于定期更新的有效期（例如 90 天），然后在 Repository access 下选择 Only select repositories，并选中 plantstory-backup。"
+          }
+        }
+      }
+    },
+    "Calculating backup size" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在计算备份大小"
           }
         }
       }
@@ -140,6 +160,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在下载备份…"
+          }
+        }
+      }
+    },
+    "Estimated backup size" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预计备份大小"
           }
         }
       }
@@ -360,12 +390,12 @@
         }
       }
     },
-    "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. PlantStory limits each backup to 50 MB; Export Backup remains available for larger collections." : {
+    "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. Use Export Backup for larger collections." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不会自动上传任何内容。PlantStory 会在 plantstory 文件夹中保存一个 JSON 清单和单独的照片文件。未更改的照片会重复使用，但 GitHub 会保留提交历史，因此仓库可能会随时间增长。PlantStory 将每次备份限制为 50 MB；较大的资料库仍可使用“导出备份”。"
+            "value" : "不会自动上传任何内容。PlantStory 会在 plantstory 文件夹中保存 JSON 清单和单独的照片文件。PlantStory 支持总大小不超过 500 MB 的备份。未更改的照片会重复使用，但 GitHub 会保留提交历史，因此仓库可能会随时间增长。对于更大的资料库，请使用“导出备份”。"
           }
         }
       }
@@ -556,12 +586,22 @@
         }
       }
     },
-    "This backup is larger than PlantStory’s 50 MB GitHub limit. Use Export Backup instead." : {
+    "This GitHub backup is too large for PlantStory to restore safely." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "此备份超过 PlantStory 的 50 MB GitHub 限制。请改用“导出备份”。"
+            "value" : "此 GitHub 备份过大，PlantStory 无法安全恢复。"
+          }
+        }
+      }
+    },
+    "This GitHub backup’s index is too large or damaged." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此 GitHub 备份的索引过大或已损坏。"
           }
         }
       }
@@ -737,6 +777,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ 和 %2$@"
+          }
+        }
+      }
+    },
+    "%@ of %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ of %2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ / %2$@"
           }
         }
       }
@@ -13973,7 +14029,6 @@
       }
     },
     "Unavailable" : {
-      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {

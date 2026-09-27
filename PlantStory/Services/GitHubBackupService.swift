@@ -29,12 +29,24 @@ struct GitHubBackupSnapshot {
 
 struct GitHubBackupService {
     static let backupPath = "plantstory/backup.json"
-    static let maximumBackupSize = 50 * 1_024 * 1_024
+    static let maximumManifestSize = 5 * 1_024 * 1_024
+    static let maximumGitBlobSize = 95 * 1_024 * 1_024
+    static let maximumLegacyBackupSize = 50 * 1_024 * 1_024
+    static let maximumRestoredBackupSize = 500 * 1_024 * 1_024
 
     private let session: URLSession
 
     init(session: URLSession = .shared) {
         self.session = session
+    }
+
+    func estimatedBackupSize(
+        plants: [Plant],
+        wildFinds: [WildFind]
+    ) async throws -> Int {
+        try await Task.detached(priority: .utility) {
+            try GitHubBackupPackage(plants: plants, wildFinds: wildFinds).totalSize
+        }.value
     }
 
     func verify(
@@ -63,7 +75,13 @@ struct GitHubBackupService {
         token: String
     ) async throws {
         let package = try GitHubBackupPackage(plants: plants, wildFinds: wildFinds)
-        guard package.totalSize <= Self.maximumBackupSize else {
+        guard package.manifestData.count <= Self.maximumManifestSize else {
+            throw GitHubBackupError.manifestTooLarge
+        }
+        guard package.photos.allSatisfy({ $0.data.count <= Self.maximumGitBlobSize }) else {
+            throw GitHubBackupError.photoTooLarge
+        }
+        guard package.totalSize <= Self.maximumRestoredBackupSize else {
             throw GitHubBackupError.backupTooLarge
         }
 
@@ -176,8 +194,8 @@ struct GitHubBackupService {
             token: token,
             notFound: .backupNotFound
         )
-        guard manifestData.count <= Self.maximumBackupSize else {
-            throw GitHubBackupError.backupTooLarge
+        guard manifestData.count <= Self.maximumGitBlobSize else {
+            throw GitHubBackupError.manifestTooLarge
         }
 
         let decoder = JSONDecoder()
@@ -185,6 +203,9 @@ struct GitHubBackupService {
         let version = try decoder.decode(GitHubBackupVersion.self, from: manifestData)
         switch version.formatVersion {
         case 1:
+            guard manifestData.count <= Self.maximumLegacyBackupSize else {
+                throw GitHubBackupError.backupTooLarge
+            }
             let legacy = try decoder.decode(LegacyGitHubBackupArchive.self, from: manifestData)
             return GitHubBackupSnapshot(
                 createdAt: legacy.createdAt,
@@ -192,6 +213,9 @@ struct GitHubBackupService {
                 wildFinds: legacy.wildFinds
             )
         case GitHubBackupManifest.currentFormatVersion:
+            guard manifestData.count <= Self.maximumManifestSize else {
+                throw GitHubBackupError.manifestTooLarge
+            }
             let manifest = try decoder.decode(GitHubBackupManifest.self, from: manifestData)
             return try await restore(
                 manifest,
@@ -373,10 +397,10 @@ struct GitHubBackupService {
                     branch: branch,
                     token: token
                 )
-                totalSize += photo.count
-                guard totalSize <= Self.maximumBackupSize else {
+                guard photo.count <= Self.maximumRestoredBackupSize - totalSize else {
                     throw GitHubBackupError.backupTooLarge
                 }
+                totalSize += photo.count
                 plant.photos.append(photo)
             }
             restoredPlants.append(plant)
@@ -392,10 +416,10 @@ struct GitHubBackupService {
                     branch: branch,
                     token: token
                 )
-                totalSize += photo.count
-                guard totalSize <= Self.maximumBackupSize else {
+                guard photo.count <= Self.maximumRestoredBackupSize - totalSize else {
                     throw GitHubBackupError.backupTooLarge
                 }
+                totalSize += photo.count
                 wildFind.photos.append(photo)
             }
             restoredWildFinds.append(wildFind)
@@ -424,6 +448,9 @@ struct GitHubBackupService {
             token: token,
             notFound: .invalidBackupPhoto
         )
+        guard data.count <= Self.maximumGitBlobSize else {
+            throw GitHubBackupError.photoTooLarge
+        }
         guard GitHubBackupPackage.photoPath(for: data) == path else {
             throw GitHubBackupError.invalidBackupPhoto
         }
@@ -572,6 +599,8 @@ enum GitHubBackupError: LocalizedError {
     case accessDenied
     case backupNotFound
     case backupTooLarge
+    case manifestTooLarge
+    case photoTooLarge
     case invalidBackupPhoto
     case unsupportedBackupVersion(Int)
     case repositoryConflict
@@ -594,7 +623,11 @@ enum GitHubBackupError: LocalizedError {
         case .backupNotFound:
             AppLocalization.string("No PlantStory backup was found in this repository.")
         case .backupTooLarge:
-            AppLocalization.string("This backup is larger than PlantStory’s 50 MB GitHub limit. Use Export Backup instead.")
+            AppLocalization.string("This GitHub backup is too large for PlantStory to restore safely.")
+        case .manifestTooLarge:
+            AppLocalization.string("This GitHub backup’s index is too large or damaged.")
+        case .photoTooLarge:
+            AppLocalization.string("A photo is too large for GitHub backup. Use Export Backup instead.")
         case .invalidBackupPhoto:
             AppLocalization.string("A photo in the GitHub backup is missing or damaged.")
         case let .unsupportedBackupVersion(version):

@@ -880,6 +880,8 @@ private struct GitHubBackupView: View {
     @State private var pendingBackup: PlantStoryBackupArchive?
     @State private var isConfirmingUpload = false
     @State private var isConfirmingRestore = false
+    @State private var estimatedBackupSize: Int?
+    @State private var isEstimatingBackupSize = true
 
     private let service = GitHubBackupService()
     private let newRepositoryURL = URL(string: "https://github.com/new?visibility=private")!
@@ -1022,6 +1024,20 @@ private struct GitHubBackupView: View {
                         .foregroundStyle(.secondary)
                 }
 
+                LabeledContent("Estimated backup size") {
+                    if let estimatedBackupSize {
+                        Text(backupSizeText(estimatedBackupSize))
+                            .foregroundStyle(.secondary)
+                    } else if isEstimatingBackupSize {
+                        ProgressView()
+                            .controlSize(.small)
+                            .accessibilityLabel("Calculating backup size")
+                    } else {
+                        Text("Unavailable")
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
                 if lastBackupTimestamp > 0 {
                     LabeledContent("Last backup from this iPhone") {
                         Text(lastBackupText)
@@ -1031,7 +1047,7 @@ private struct GitHubBackupView: View {
             } header: {
                 Text("Manual GitHub backup")
             } footer: {
-                Text("Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. PlantStory limits each backup to 50 MB; Export Backup remains available for larger collections.")
+                Text("Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. Use Export Backup for larger collections.")
             }
 
             Section("Privacy & recovery") {
@@ -1046,6 +1062,9 @@ private struct GitHubBackupView: View {
         }
         .navigationTitle("GitHub Backup")
         .navigationBarTitleDisplayMode(.inline)
+        .task {
+            await updateEstimatedBackupSize()
+        }
         .alert(
             "Upload PlantStory backup to GitHub?",
             isPresented: $isConfirmingUpload
@@ -1261,6 +1280,7 @@ private struct GitHubBackupView: View {
                     itemSummary(for: backup)
                 )
             )
+            Task { await updateEstimatedBackupSize() }
         } catch {
             present(error)
         }
@@ -1274,6 +1294,26 @@ private struct GitHubBackupView: View {
             ? AppLocalization.string("1 wild find")
             : AppLocalization.string("%lld wild finds", Int64(backup.wildFinds.count))
         return AppLocalization.string("%@ and %@", plantLabel, findLabel)
+    }
+
+    private func updateEstimatedBackupSize() async {
+        isEstimatingBackupSize = true
+        defer { isEstimatingBackupSize = false }
+        estimatedBackupSize = try? await service.estimatedBackupSize(
+            plants: plantStore.plants,
+            wildFinds: wildFindStore.finds
+        )
+    }
+
+    private func backupSizeText(_ byteCount: Int) -> String {
+        let formatter = ByteCountFormatter()
+        formatter.countStyle = .memory
+        formatter.allowedUnits = [.useKB, .useMB, .useGB]
+        let estimated = formatter.string(fromByteCount: Int64(byteCount))
+        let limit = formatter.string(
+            fromByteCount: Int64(GitHubBackupService.maximumRestoredBackupSize)
+        )
+        return AppLocalization.string("%@ of %@", estimated, limit)
     }
 
     private func disconnect() {
