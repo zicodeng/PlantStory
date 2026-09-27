@@ -61,8 +61,19 @@ When the release is feature-complete:
 - Verify the archived app and widget contain the intended version and build.
 - Upload the archive, complete the App Store metadata, and submit it to App Review.
 - Promotional Text should describe the app's current appeal. What's New should describe changes specific to this release.
+- Draft both the English and Simplified Chinese What's New copy as plain text in this structure: one concise opening sentence beginning with `PlantStory <version>`, one blank line, then concise `•` bullets describing the shipped changes. Use as many bullets as the release needs, especially when it contains several notable features or fixes. Do not add a heading, label, Markdown list marker, or introductory paragraph outside this structure.
 - In Simplified Chinese release notes, do not insert spaces between English terms or version numbers and adjacent Chinese characters. Write `GitHub备份` and `PlantStory 1.7新增`, not `GitHub 备份` or `PlantStory 1.7 新增`.
 - Do not mention unavailable AI or OpenAI features in public metadata or screenshots used for the China mainland storefront.
+
+Use this format:
+
+```text
+PlantStory 1.7 adds an optional GitHub backup and makes plant editing smoother.
+
+• Manually back up and restore plants, Wild Finds, and photos through your own private GitHub repository.
+• Store photos as individual image files so unchanged photos can be reused in later backups.
+• Keep unsaved edits while choosing photos, and dismiss the keyboard by tapping outside a field.
+```
 
 ### 4. Merge after submission
 
