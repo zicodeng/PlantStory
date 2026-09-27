@@ -2,6 +2,19 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.8] - Unreleased
+
+### New features
+
+- Added the latest available App Store version to Settings alongside the installed app version.
+- Made the latest available version in Settings a direct App Store update link when a newer version is available.
+
+### Bug fixes
+
+- Prevented cached App Store lookup responses from showing an outdated latest version.
+- Showed the update banner immediately when the last confirmed App Store version is newer than the installed version.
+- Shortened the update banner’s “Later” reminder from seven days to one day.
+
 ## [1.7] - 2026-09-26
 
 ### New features

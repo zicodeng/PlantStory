@@ -279,7 +279,7 @@ private struct AppRootView: View {
                 }
                 .tag(AppTab.plantWiki)
 
-            SettingsView()
+            SettingsView(updateChecker: updateChecker)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }

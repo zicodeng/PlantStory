@@ -5,6 +5,7 @@ import UserNotifications
 
 struct SettingsView: View {
     @AppStorage(AppLanguage.storageKey) private var appLanguageCode = AppLanguage.english.rawValue
+    @ObservedObject var updateChecker: AppUpdateChecker
     @EnvironmentObject private var openAIKeyStore: OpenAIKeyStore
     @EnvironmentObject private var plantStore: PlantStore
     @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
@@ -24,6 +25,10 @@ struct SettingsView: View {
 
     private var appVersion: String {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—"
+    }
+
+    private var latestAppStoreVersion: String {
+        updateChecker.latestAppStoreVersion ?? "—"
     }
 
     var body: some View {
@@ -267,10 +272,37 @@ struct SettingsView: View {
                             .buttonStyle(.plain)
                             .accessibilityHint("View app credits and open-source information")
 
-                            Text(AppLocalization.string("Version %@", appVersion))
-                                .font(.footnote)
-                                .foregroundStyle(.white.opacity(0.55))
-                                .frame(maxWidth: .infinity)
+                            VStack(spacing: 4) {
+                                Text(AppLocalization.string("App Version %@", appVersion))
+                                    .foregroundStyle(.white.opacity(0.55))
+
+                                if let updateURL = updateChecker.availableAppStoreUpdateURL {
+                                    Link(destination: updateURL) {
+                                        HStack(spacing: 4) {
+                                            Text(
+                                                AppLocalization.string(
+                                                    "Latest available version %@",
+                                                    latestAppStoreVersion
+                                                )
+                                            )
+                                            Image(systemName: "arrow.up.right.square")
+                                        }
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(lime)
+                                    }
+                                    .accessibilityHint("Opens the App Store to update PlantStory")
+                                } else {
+                                    Text(
+                                        AppLocalization.string(
+                                            "Latest available version %@",
+                                            latestAppStoreVersion
+                                        )
+                                    )
+                                    .foregroundStyle(.white.opacity(0.55))
+                                }
+                            }
+                            .font(.footnote)
+                            .frame(maxWidth: .infinity)
                         }
                     }
                     .padding(.horizontal, 18)
@@ -280,7 +312,11 @@ struct SettingsView: View {
             }
             .toolbar(.hidden, for: .navigationBar)
         }
-        .task { await refreshNotificationAuthorizationStatus() }
+        .task {
+            async let notificationRefresh: Void = refreshNotificationAuthorizationStatus()
+            async let versionRefresh: Void = updateChecker.refreshLatestVersion()
+            _ = await (notificationRefresh, versionRefresh)
+        }
         .onChange(of: scenePhase) { _, phase in
             guard phase == .active else { return }
             Task { await refreshNotificationAuthorizationStatus() }

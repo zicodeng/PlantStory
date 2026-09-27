@@ -11,6 +11,7 @@ struct AppUpdate: Identifiable, Equatable {
 @MainActor
 final class AppUpdateChecker: ObservableObject {
     @Published private(set) var availableUpdate: AppUpdate?
+    @Published private(set) var latestAppStoreVersion: String?
 
     private let defaults: UserDefaults
     private let session: URLSession
@@ -24,13 +25,25 @@ final class AppUpdateChecker: ObservableObject {
     )!
     private static let successfulCheckInterval: TimeInterval = 24 * 60 * 60
     private static let failedCheckRetryInterval: TimeInterval = 60 * 60
-    private static let remindLaterInterval: TimeInterval = 7 * 24 * 60 * 60
+    private static let remindLaterInterval: TimeInterval = 24 * 60 * 60
 
     private enum DefaultsKey {
         static let lastAttempt = "appUpdate.lastAttempt"
         static let lastSuccessfulCheck = "appUpdate.lastSuccessfulCheck"
+        static let latestVersion = "appUpdate.latestVersion"
         static let deferredVersion = "appUpdate.deferredVersion"
         static let deferredUntil = "appUpdate.deferredUntil"
+    }
+
+    var availableAppStoreUpdateURL: URL? {
+        guard let latestAppStoreVersion,
+              let currentVersion = Bundle.main.object(
+                forInfoDictionaryKey: "CFBundleShortVersionString"
+              ) as? String,
+              Self.isVersion(latestAppStoreVersion, newerThan: currentVersion) else {
+            return nil
+        }
+        return availableUpdate?.appStoreURL ?? Self.fallbackAppStoreURL
     }
 
     init(
@@ -39,17 +52,38 @@ final class AppUpdateChecker: ObservableObject {
     ) {
         self.defaults = defaults
         self.session = session
+        let cachedVersion = defaults.string(forKey: DefaultsKey.latestVersion)
+        latestAppStoreVersion = cachedVersion
+        if let cachedVersion {
+            availableUpdate = update(
+                from: AppStoreLookupResult(
+                    version: cachedVersion,
+                    trackViewURL: nil
+                ),
+                now: .now
+            )
+        }
     }
 
     func checkIfNeeded(now: Date = .now) async {
-        guard !isChecking, shouldCheck(now: now) else { return }
+        await check(now: now, respectingSchedule: true)
+    }
+
+    func refreshLatestVersion(now: Date = .now) async {
+        await check(now: now, respectingSchedule: false)
+    }
+
+    private func check(now: Date, respectingSchedule: Bool) async {
+        guard !isChecking,
+              !respectingSchedule || shouldCheck(now: now) else { return }
 
         isChecking = true
         defaults.set(now, forKey: DefaultsKey.lastAttempt)
         defer { isChecking = false }
 
         do {
-            let (data, response) = try await session.data(from: Self.appStoreLookupURL)
+            let request = Self.appStoreLookupRequest(now: now)
+            let (data, response) = try await session.data(for: request)
             guard let httpResponse = response as? HTTPURLResponse,
                   (200..<300).contains(httpResponse.statusCode) else {
                 return
@@ -57,10 +91,36 @@ final class AppUpdateChecker: ObservableObject {
 
             let lookup = try JSONDecoder().decode(AppStoreLookupResponse.self, from: data)
             defaults.set(now, forKey: DefaultsKey.lastSuccessfulCheck)
-            availableUpdate = update(from: lookup.results.first, now: now)
+            let result = lookup.results.first
+            if let version = result?.version {
+                latestAppStoreVersion = version
+                defaults.set(version, forKey: DefaultsKey.latestVersion)
+            }
+            availableUpdate = update(from: result, now: now)
         } catch {
             // Version checks should never interrupt or block the local-first app experience.
         }
+    }
+
+    private static func appStoreLookupRequest(now: Date) -> URLRequest {
+        var components = URLComponents(
+            url: appStoreLookupURL,
+            resolvingAgainstBaseURL: false
+        )!
+        components.queryItems = (components.queryItems ?? []) + [
+            URLQueryItem(
+                name: "_",
+                value: String(Int(now.timeIntervalSince1970))
+            )
+        ]
+
+        var request = URLRequest(
+            url: components.url!,
+            cachePolicy: .reloadIgnoringLocalCacheData,
+            timeoutInterval: 15
+        )
+        request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        return request
     }
 
     func remindLater(about update: AppUpdate, now: Date = .now) {
