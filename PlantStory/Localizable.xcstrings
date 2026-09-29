@@ -54,6 +54,22 @@
         }
       }
     },
+    "Backup contents: %lld plants, %lld wild finds, and %lld photo files." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Backup contents: %1$lld plants, %2$lld wild finds, and %3$lld photo files."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份内容：%1$lld 株植物、%2$lld 条野外发现和 %3$lld 个照片文件。"
+          }
+        }
+      }
+    },
     "Choose a private GitHub repository for PlantStory backups." : {
       "localizations" : {
         "zh-Hans" : {
@@ -80,6 +96,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在计算备份大小"
+          }
+        }
+      }
+    },
+    "Checking backup…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在检查备份…"
           }
         }
       }
@@ -390,12 +416,22 @@
         }
       }
     },
-    "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. Use Export Backup for larger collections." : {
+    "Nothing to back up" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不会自动上传任何内容。PlantStory 会在 plantstory 文件夹中保存 JSON 清单和单独的照片文件。PlantStory 支持总大小不超过 500 MB 的备份。未更改的照片会重复使用，但 GitHub 会保留提交历史，因此仓库可能会随时间增长。对于更大的资料库，请使用“导出备份”。"
+            "value" : "没有需要备份的更改"
+          }
+        }
+      }
+    },
+    "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, and matching backups are skipped. GitHub keeps commit history when a backup changes, so the repository can grow over time. Use Export Backup for larger collections." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不会自动上传任何内容。PlantStory 会在 plantstory 文件夹中保存 JSON 清单和单独的照片文件。PlantStory 支持总大小不超过 500 MB 的备份。未更改的照片会重复使用，内容一致时会跳过备份。备份发生变化时，GitHub 会保留提交历史，因此仓库可能会随时间增长。对于更大的资料库，请使用“导出备份”。"
           }
         }
       }
@@ -416,6 +452,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PlantStory 可以在此私有仓库中读取和写入备份。"
+          }
+        }
+      }
+    },
+    "PlantStory will upload about %@, including %lld new or changed photo files. %lld unchanged photo files will be reused." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "PlantStory will upload about %1$@, including %2$lld new or changed photo files. %3$lld unchanged photo files will be reused."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 将上传约 %1$@，其中包括 %2$lld 个新增或已更改的照片文件。%3$lld 个未更改的照片文件会继续使用。"
           }
         }
       }
@@ -682,6 +734,16 @@
         }
       }
     },
+    "Your GitHub backup already matches the plants and Wild Finds on this iPhone." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 备份已与这台 iPhone 上的植物和野外发现一致。"
+          }
+        }
+      }
+    },
     "Verify & Save" : {
       "localizations" : {
         "zh-Hans" : {
@@ -847,6 +909,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld"
+          }
+        }
+      }
+    },
+    "%lld photo files will be removed from the current backup. Earlier versions remain in GitHub history." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld photo files will be removed from the current backup. Earlier versions remain in GitHub history."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld 个照片文件将从当前备份中移除。GitHub 历史记录仍会保留早期版本。"
           }
         }
       }

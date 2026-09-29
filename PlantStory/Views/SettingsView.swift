@@ -848,18 +848,41 @@ private struct StorageInfoView: View {
 }
 
 private enum GitHubBackupOperation {
+    case checking
     case verifying
     case uploading
     case downloading
 
     var title: LocalizedStringKey {
         switch self {
+        case .checking:
+            "Checking backup…"
         case .verifying:
             "Verifying repository…"
         case .uploading:
             "Uploading backup…"
         case .downloading:
             "Downloading backup…"
+        }
+    }
+}
+
+private enum GitHubBackupAlert: Identifiable {
+    case upload(GitHubBackupUploadPlan)
+    case nothingToBackUp
+    case uploaded(String)
+    case error(String)
+    case restore(PlantStoryBackupArchive)
+    case notice(title: String, message: String)
+
+    var id: String {
+        switch self {
+        case .upload: "upload"
+        case .nothingToBackUp: "nothingToBackUp"
+        case .uploaded: "uploaded"
+        case .error: "error"
+        case .restore: "restore"
+        case .notice: "notice"
         }
     }
 }
@@ -876,10 +899,7 @@ private struct GitHubBackupView: View {
     @StateObject private var tokenStore = GitHubBackupTokenStore()
     @State private var tokenInput = ""
     @State private var operation: GitHubBackupOperation?
-    @State private var notice: BackupNotice?
-    @State private var pendingBackup: PlantStoryBackupArchive?
-    @State private var isConfirmingUpload = false
-    @State private var isConfirmingRestore = false
+    @State private var githubBackupAlert: GitHubBackupAlert?
     @State private var estimatedBackupSize: Int?
     @State private var isEstimatingBackupSize = true
 
@@ -997,7 +1017,7 @@ private struct GitHubBackupView: View {
                 }
 
                 Button {
-                    isConfirmingUpload = true
+                    Task { await prepareUpload() }
                 } label: {
                     actionLabel(
                         "Back Up Now",
@@ -1047,7 +1067,7 @@ private struct GitHubBackupView: View {
             } header: {
                 Text("Manual GitHub backup")
             } footer: {
-                Text("Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, but GitHub keeps commit history, so the repository can grow over time. Use Export Backup for larger collections.")
+                Text("Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, and matching backups are skipped. GitHub keeps commit history when a backup changes, so the repository can grow over time. Use Export Backup for larger collections.")
             }
 
             Section("Privacy & recovery") {
@@ -1065,37 +1085,16 @@ private struct GitHubBackupView: View {
         .task {
             await updateEstimatedBackupSize()
         }
-        .alert(
-            "Upload PlantStory backup to GitHub?",
-            isPresented: $isConfirmingUpload
-        ) {
-            Button("Upload") {
-                Task { await uploadBackup() }
-            }
-            Button("Cancel", role: .cancel) {}
-        } message: {
-            Text("This sends your plants, Wild Finds, photos, notes, locations, timelines, and care history to your configured private GitHub repository. The upload is manual and is not encrypted end to end by PlantStory.")
-        }
-        .alert(
-            "Replace local PlantStory data?",
-            isPresented: $isConfirmingRestore,
-            presenting: pendingBackup
-        ) { backup in
-            Button("Restore", role: .destructive) {
-                restore(backup)
-            }
-            Button("Cancel", role: .cancel) {}
-        } message: { backup in
-            Text(
-                "GitHub backup from \(AppLocalization.dateString(backup.createdAt, dateStyle: .medium, timeStyle: .short)) with \(itemSummary(for: backup)). Your current plants and Wild Finds will be replaced."
-            )
-        }
-        .alert(item: $notice) { notice in
-            Alert(
-                title: Text(notice.title),
-                message: Text(notice.message),
-                dismissButton: .default(Text("OK"))
-            )
+        .background {
+            Color.clear
+                .alert(
+                    githubBackupAlert.map(githubBackupAlertTitle) ?? Text("GitHub Backup"),
+                    isPresented: isShowingGitHubBackupAlert,
+                    presenting: githubBackupAlert,
+                    actions: githubBackupAlertActions,
+                    message: githubBackupAlertMessage
+                )
+                .tint(.black)
         }
     }
 
@@ -1192,7 +1191,7 @@ private struct GitHubBackupView: View {
                 tokenInput = ""
             }
             verifiedRepository = currentRepositoryIdentity
-            notice = BackupNotice(
+            githubBackupAlert = .notice(
                 title: AppLocalization.string("GitHub connection verified"),
                 message: AppLocalization.string(
                     "PlantStory can read and write backups in this private repository."
@@ -1204,27 +1203,160 @@ private struct GitHubBackupView: View {
     }
 
     @MainActor
-    private func uploadBackup() async {
-        operation = .uploading
-        defer { operation = nil }
+    private func prepareUpload() async {
+        guard operation == nil else { return }
+        operation = .checking
 
         do {
-            try await service.upload(
+            let plan = try await service.uploadPlan(
                 plants: plantStore.plants,
                 wildFinds: wildFindStore.finds,
                 to: repository,
                 token: try availableToken()
             )
-            lastBackupTimestamp = Date.now.timeIntervalSince1970
-            notice = BackupNotice(
-                title: AppLocalization.string("GitHub backup saved"),
-                message: AppLocalization.string(
-                    "Uploaded the backup to %@.",
-                    repository.displayName
-                )
+            operation = nil
+            if plan.hasChanges {
+                githubBackupAlert = .upload(plan)
+            } else {
+                githubBackupAlert = .nothingToBackUp
+            }
+        } catch {
+            operation = nil
+            present(error)
+        }
+    }
+
+    @MainActor
+    private func uploadBackup() async {
+        guard operation == nil else { return }
+        githubBackupAlert = nil
+        operation = .uploading
+        defer { operation = nil }
+
+        do {
+            let result = try await service.upload(
+                plants: plantStore.plants,
+                wildFinds: wildFindStore.finds,
+                to: repository,
+                token: try availableToken()
             )
+            switch result {
+            case .uploaded:
+                lastBackupTimestamp = Date.now.timeIntervalSince1970
+                githubBackupAlert = .uploaded(repository.displayName)
+            case .unchanged:
+                githubBackupAlert = .nothingToBackUp
+            }
         } catch {
             present(error)
+        }
+    }
+
+    private func uploadSummary(for plan: GitHubBackupUploadPlan) -> String {
+        var details = [
+            AppLocalization.string(
+                "Backup contents: %lld plants, %lld wild finds, and %lld photo files.",
+                Int64(plan.plantCount),
+                Int64(plan.wildFindCount),
+                Int64(plan.photoCount)
+            ),
+            AppLocalization.string(
+                "PlantStory will upload about %@, including %lld new or changed photo files. %lld unchanged photo files will be reused.",
+                backupSizeText(plan.estimatedUploadSize),
+                Int64(plan.photosToUpload),
+                Int64(plan.photosToReuse)
+            )
+        ]
+        if plan.photosToRemove > 0 {
+            details.append(
+                AppLocalization.string(
+                    "%lld photo files will be removed from the current backup. Earlier versions remain in GitHub history.",
+                    Int64(plan.photosToRemove)
+                )
+            )
+        }
+        return details.joined(separator: "\n\n")
+    }
+
+    private var isShowingGitHubBackupAlert: Binding<Bool> {
+        Binding(
+            get: { githubBackupAlert != nil },
+            set: { isPresented in
+                if !isPresented {
+                    githubBackupAlert = nil
+                }
+            }
+        )
+    }
+
+    private func githubBackupAlertTitle(_ alert: GitHubBackupAlert) -> Text {
+        switch alert {
+        case .upload:
+            Text("Upload PlantStory backup to GitHub?")
+        case .nothingToBackUp:
+            Text("Nothing to back up")
+        case .uploaded:
+            Text("GitHub backup saved")
+        case .error:
+            Text("GitHub backup couldn’t be completed")
+        case .restore:
+            Text("Replace local PlantStory data?")
+        case let .notice(title, _):
+            Text(title)
+        }
+    }
+
+    @ViewBuilder
+    private func githubBackupAlertActions(_ alert: GitHubBackupAlert) -> some View {
+        switch alert {
+        case .upload:
+            Button("Cancel", role: .cancel) {}
+            Button("Upload") {
+                Task { await uploadBackup() }
+            }
+        case .nothingToBackUp, .uploaded, .error, .notice:
+            Button("OK") {}
+        case let .restore(backup):
+            Button("Cancel", role: .cancel) {}
+            Button("Restore", role: .destructive) {
+                restore(backup)
+            }
+        }
+    }
+
+    private func githubBackupAlertMessage(_ alert: GitHubBackupAlert) -> Text {
+        switch alert {
+        case let .upload(plan):
+            Text(uploadSummary(for: plan))
+        case .nothingToBackUp:
+            Text(
+                AppLocalization.string(
+                    "Your GitHub backup already matches the plants and Wild Finds on this iPhone."
+                )
+            )
+        case let .uploaded(repositoryName):
+            Text(
+                AppLocalization.string(
+                    "Uploaded the backup to %@.",
+                    repositoryName
+                )
+            )
+        case let .error(message):
+            Text(message)
+        case let .restore(backup):
+            Text(
+                AppLocalization.string(
+                    "GitHub backup from %@ with %@. Your current plants and Wild Finds will be replaced.",
+                    AppLocalization.dateString(
+                        backup.createdAt,
+                        dateStyle: .medium,
+                        timeStyle: .short
+                    ),
+                    itemSummary(for: backup)
+                )
+            )
+        case let .notice(_, message):
+            Text(message)
         }
     }
 
@@ -1238,12 +1370,11 @@ private struct GitHubBackupView: View {
                 from: repository,
                 token: try availableToken()
             )
-            pendingBackup = PlantStoryBackupArchive(
+            githubBackupAlert = .restore(PlantStoryBackupArchive(
                 createdAt: snapshot.createdAt,
                 plants: snapshot.plants,
                 wildFinds: snapshot.wildFinds
-            )
-            isConfirmingRestore = true
+            ))
         } catch {
             present(error)
         }
@@ -1272,14 +1403,17 @@ private struct GitHubBackupView: View {
                 throw error
             }
 
-            pendingBackup = nil
-            notice = BackupNotice(
-                title: AppLocalization.string("Backup restored"),
-                message: AppLocalization.string(
-                    "Restored %@ from GitHub.",
-                    itemSummary(for: backup)
-                )
+            let restoredMessage = AppLocalization.string(
+                "Restored %@ from GitHub.",
+                itemSummary(for: backup)
             )
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(300))
+                githubBackupAlert = .notice(
+                    title: AppLocalization.string("Backup restored"),
+                    message: restoredMessage
+                )
+            }
             Task { await updateEstimatedBackupSize() }
         } catch {
             present(error)
@@ -1330,10 +1464,7 @@ private struct GitHubBackupView: View {
     }
 
     private func present(_ error: Error) {
-        notice = BackupNotice(
-            title: AppLocalization.string("GitHub backup couldn’t be completed"),
-            message: error.localizedDescription
-        )
+        githubBackupAlert = .error(error.localizedDescription)
     }
 }
 

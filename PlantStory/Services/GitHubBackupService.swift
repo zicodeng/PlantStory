@@ -27,6 +27,26 @@ struct GitHubBackupSnapshot {
     let wildFinds: [WildFind]
 }
 
+struct GitHubBackupUploadPlan {
+    let plantCount: Int
+    let wildFindCount: Int
+    let photoCount: Int
+    let photosToUpload: Int
+    let photosToReuse: Int
+    let photosToRemove: Int
+    let estimatedUploadSize: Int
+    let dataHasChanges: Bool
+
+    var hasChanges: Bool {
+        dataHasChanges || photosToUpload > 0 || photosToRemove > 0
+    }
+}
+
+enum GitHubBackupUploadResult {
+    case uploaded
+    case unchanged
+}
+
 struct GitHubBackupService {
     static let backupPath = "plantstory/backup.json"
     static let maximumManifestSize = 5 * 1_024 * 1_024
@@ -68,50 +88,56 @@ struct GitHubBackupService {
         return info
     }
 
+    func uploadPlan(
+        plants: [Plant],
+        wildFinds: [WildFind],
+        to repository: GitHubBackupRepository,
+        token: String
+    ) async throws -> GitHubBackupUploadPlan {
+        try await prepareUpload(
+            plants: plants,
+            wildFinds: wildFinds,
+            to: repository,
+            token: token
+        ).plan
+    }
+
     func upload(
         plants: [Plant],
         wildFinds: [WildFind],
         to repository: GitHubBackupRepository,
         token: String
-    ) async throws {
-        let package = try GitHubBackupPackage(plants: plants, wildFinds: wildFinds)
-        guard package.manifestData.count <= Self.maximumManifestSize else {
-            throw GitHubBackupError.manifestTooLarge
-        }
-        guard package.photos.allSatisfy({ $0.data.count <= Self.maximumGitBlobSize }) else {
-            throw GitHubBackupError.photoTooLarge
-        }
-        guard package.totalSize <= Self.maximumRestoredBackupSize else {
-            throw GitHubBackupError.backupTooLarge
-        }
+    ) async throws -> GitHubBackupUploadResult {
+        try await upload(
+            plants: plants,
+            wildFinds: wildFinds,
+            to: repository,
+            token: token,
+            retryOnConflict: true
+        )
+    }
 
-        let repository = try validated(repository)
-        let token = try validated(token)
-        let info = try await verify(repository: repository, token: token)
-        let reference = try await branchReference(
-            repository: repository,
-            branch: info.defaultBranch,
+    private func upload(
+        plants: [Plant],
+        wildFinds: [WildFind],
+        to repository: GitHubBackupRepository,
+        token: String,
+        retryOnConflict: Bool
+    ) async throws -> GitHubBackupUploadResult {
+        let preparation = try await prepareUpload(
+            plants: plants,
+            wildFinds: wildFinds,
+            to: repository,
             token: token
         )
-        let parentCommit = try await commit(
-            repository: repository,
-            sha: reference.object.sha,
-            token: token
-        )
-        let existingTree = try await tree(
-            repository: repository,
-            sha: parentCommit.tree.sha,
-            token: token
-        )
-        guard !existingTree.truncated else {
-            throw GitHubBackupError.invalidResponse
-        }
-        let existingFiles: [String: String] = Dictionary(
-            uniqueKeysWithValues: existingTree.tree.compactMap { entry in
-                guard entry.type == "blob", let sha = entry.sha else { return nil }
-                return (entry.path, sha)
-            }
-        )
+        guard preparation.plan.hasChanges else { return .unchanged }
+
+        let package = preparation.package
+        let repository = preparation.repository
+        let token = preparation.token
+        let info = preparation.info
+        let parentCommit = preparation.parentCommit
+        let existingFiles = preparation.existingFiles
 
         let manifestBlob = try await createBlob(
             package.manifestData,
@@ -172,12 +198,138 @@ struct GitHubBackupService {
             parentSHA: parentCommit.sha,
             token: token
         )
-        try await updateBranchReference(
+        do {
+            try await updateBranchReference(
+                repository: repository,
+                branch: info.defaultBranch,
+                commitSHA: newCommit.sha,
+                token: token
+            )
+        } catch GitHubBackupError.repositoryConflict where retryOnConflict {
+            return try await upload(
+                plants: plants,
+                wildFinds: wildFinds,
+                to: repository,
+                token: token,
+                retryOnConflict: false
+            )
+        }
+        return .uploaded
+    }
+
+    private func prepareUpload(
+        plants: [Plant],
+        wildFinds: [WildFind],
+        to repository: GitHubBackupRepository,
+        token: String
+    ) async throws -> GitHubBackupUploadPreparation {
+        let package = try GitHubBackupPackage(plants: plants, wildFinds: wildFinds)
+        guard package.manifestData.count <= Self.maximumManifestSize else {
+            throw GitHubBackupError.manifestTooLarge
+        }
+        guard package.photos.allSatisfy({ $0.data.count <= Self.maximumGitBlobSize }) else {
+            throw GitHubBackupError.photoTooLarge
+        }
+        guard package.totalSize <= Self.maximumRestoredBackupSize else {
+            throw GitHubBackupError.backupTooLarge
+        }
+
+        let repository = try validated(repository)
+        let token = try validated(token)
+        let info = try await verify(repository: repository, token: token)
+        let reference = try await branchReference(
             repository: repository,
             branch: info.defaultBranch,
-            commitSHA: newCommit.sha,
             token: token
         )
+        let parentCommit = try await commit(
+            repository: repository,
+            sha: reference.object.sha,
+            token: token
+        )
+        let existingTree = try await tree(
+            repository: repository,
+            sha: parentCommit.tree.sha,
+            token: token
+        )
+        guard !existingTree.truncated else {
+            throw GitHubBackupError.invalidResponse
+        }
+        let existingFiles: [String: String] = Dictionary(
+            uniqueKeysWithValues: existingTree.tree.compactMap { entry in
+                guard entry.type == "blob", let sha = entry.sha else { return nil }
+                return (entry.path, sha)
+            }
+        )
+
+        let dataHasChanges = try await backupDataHasChanges(
+            package: package,
+            existingFiles: existingFiles,
+            repository: repository,
+            revision: parentCommit.sha,
+            token: token
+        )
+        let photosToUpload = package.photos.filter {
+            existingFiles[$0.path] != $0.gitBlobSHA
+        }
+        let currentPhotoPaths = Set(package.photos.map(\.path))
+        let photosToRemove = existingFiles.keys.filter {
+            $0.hasPrefix(GitHubBackupPackage.photoDirectory + "/")
+                && !currentPhotoPaths.contains($0)
+        }.count
+        let hasChanges = dataHasChanges || !photosToUpload.isEmpty || photosToRemove > 0
+        let plan = GitHubBackupUploadPlan(
+            plantCount: plants.count,
+            wildFindCount: wildFinds.count,
+            photoCount: package.photos.count,
+            photosToUpload: photosToUpload.count,
+            photosToReuse: package.photos.count - photosToUpload.count,
+            photosToRemove: photosToRemove,
+            estimatedUploadSize: hasChanges
+                ? package.manifestData.count + photosToUpload.reduce(0) { $0 + $1.data.count }
+                : 0,
+            dataHasChanges: dataHasChanges
+        )
+
+        return GitHubBackupUploadPreparation(
+            package: package,
+            repository: repository,
+            token: token,
+            info: info,
+            parentCommit: parentCommit,
+            existingFiles: existingFiles,
+            plan: plan
+        )
+    }
+
+    private func backupDataHasChanges(
+        package: GitHubBackupPackage,
+        existingFiles: [String: String],
+        repository: GitHubBackupRepository,
+        revision: String,
+        token: String
+    ) async throws -> Bool {
+        guard existingFiles[Self.backupPath] != nil else { return true }
+
+        let data = try await downloadFile(
+            path: Self.backupPath,
+            repository: repository,
+            branch: revision,
+            token: token,
+            notFound: .backupNotFound
+        )
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        guard let version = try? decoder.decode(GitHubBackupVersion.self, from: data),
+              version.formatVersion == GitHubBackupManifest.currentFormatVersion,
+              let manifest = try? decoder.decode(GitHubBackupManifest.self, from: data) else {
+            return true
+        }
+        let remoteContents = try GitHubBackupPackage.encodedContents(
+            plants: manifest.plants,
+            wildFinds: manifest.wildFinds
+        )
+        return remoteContents != package.contentsData
     }
 
     func download(
@@ -547,6 +699,12 @@ struct GitHubBackupService {
                 throw notFound
             case 409:
                 throw GitHubBackupError.repositoryConflict
+            case 422:
+                let message = (try? JSONDecoder().decode(GitHubAPIError.self, from: data))?.message
+                if message?.localizedCaseInsensitiveContains("fast forward") == true {
+                    throw GitHubBackupError.repositoryConflict
+                }
+                throw GitHubBackupError.api(message)
             default:
                 let message = (try? JSONDecoder().decode(GitHubAPIError.self, from: data))?.message
                 throw GitHubBackupError.api(message)
@@ -647,9 +805,20 @@ enum GitHubBackupError: LocalizedError {
     }
 }
 
+private struct GitHubBackupUploadPreparation {
+    let package: GitHubBackupPackage
+    let repository: GitHubBackupRepository
+    let token: String
+    let info: GitHubBackupRepositoryInfo
+    let parentCommit: GitHubCommit
+    let existingFiles: [String: String]
+    let plan: GitHubBackupUploadPlan
+}
+
 private struct GitHubBackupPackage {
     static let photoDirectory = "plantstory/photos"
 
+    let contentsData: Data
     let manifestData: Data
     let photos: [GitHubBackupPhoto]
 
@@ -687,6 +856,10 @@ private struct GitHubBackupPackage {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        contentsData = try Self.encodedContents(
+            plants: plantRecords,
+            wildFinds: wildFindRecords
+        )
         manifestData = try encoder.encode(manifest)
         photos = photoDataByPath.map {
             GitHubBackupPhoto(path: $0.key, data: $0.value)
@@ -698,6 +871,18 @@ private struct GitHubBackupPackage {
             .map { String(format: "%02x", $0) }
             .joined()
         return "\(photoDirectory)/\(digest).\(fileExtension(for: data))"
+    }
+
+    static func encodedContents(
+        plants: [GitHubPlantRecord],
+        wildFinds: [GitHubWildFindRecord]
+    ) throws -> Data {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        return try encoder.encode(
+            GitHubBackupContents(plants: plants, wildFinds: wildFinds)
+        )
     }
 
     private static func fileExtension(for data: Data) -> String {
@@ -728,6 +913,11 @@ private struct GitHubBackupPhoto {
             .map { String(format: "%02x", $0) }
             .joined()
     }
+}
+
+private struct GitHubBackupContents: Codable {
+    let plants: [GitHubPlantRecord]
+    let wildFinds: [GitHubWildFindRecord]
 }
 
 private struct GitHubBackupManifest: Codable {

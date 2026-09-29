@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.9] - Unreleased
+
+### Bug fixes
+
+- Previewed GitHub backup contents and upload size before confirmation, and skipped uploads when the existing backup already matches this iPhone.
+
 ## [1.8] - 2026-09-28
 
 ### New features
