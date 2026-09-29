@@ -108,10 +108,12 @@ Metadata-only corrections do not require a new archive unless App Store Connect 
 
 Wait until the version is approved and distributed on the App Store before finalizing the release record:
 
+A direct request to **finalize release** authorizes the complete sequence below, including pushing `main` and the annotated release tag to `origin` after local verification. Do not require a separate push confirmation. A status statement such as “released” or “live” without an explicit finalization request does not authorize these mutations.
+
 1. Replace `Unreleased` in `CHANGELOG.md` with the actual release date in `YYYY-MM-DD` format.
 2. Commit that changelog update on `main`.
 3. Create an annotated tag by adding a `v` prefix to the App Store version, such as `v1.1`.
-4. Push `main` and the tag.
+4. Push `main` and the tag to `origin`.
 
 ```sh
 git tag -a v1.1 -m "PlantStory 1.1"
