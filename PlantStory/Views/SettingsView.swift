@@ -870,6 +870,7 @@ private enum GitHubBackupOperation {
 private enum GitHubBackupAlert: Identifiable {
     case upload(GitHubBackupUploadPlan)
     case nothingToBackUp
+    case nothingToRestore
     case uploaded(String)
     case error(String)
     case restore(PlantStoryBackupArchive)
@@ -879,6 +880,7 @@ private enum GitHubBackupAlert: Identifiable {
         switch self {
         case .upload: "upload"
         case .nothingToBackUp: "nothingToBackUp"
+        case .nothingToRestore: "nothingToRestore"
         case .uploaded: "uploaded"
         case .error: "error"
         case .restore: "restore"
@@ -1074,7 +1076,7 @@ private struct GitHubBackupView: View {
                 Text("The backup includes plants, Wild Finds, photos, notes, locations, timelines, and care history. GitHub stores this data under your GitHub account. A private repository limits access but is not end-to-end encrypted by PlantStory.")
                     .font(.subheadline)
 
-                Text("Restoring downloads the remote file, validates its PlantStory format, shows its date and collection size, and asks before replacing local data.")
+                Text("Restoring checks the remote backup first. Matching backups are skipped. When a backup differs, PlantStory downloads and validates it, shows its date and collection size, and asks before replacing local data.")
                     .font(.subheadline)
 
                 Link("Read GitHub’s Privacy Statement", destination: privacyURL)
@@ -1295,6 +1297,8 @@ private struct GitHubBackupView: View {
             Text("Upload PlantStory backup to GitHub?")
         case .nothingToBackUp:
             Text("Nothing to back up")
+        case .nothingToRestore:
+            Text("Nothing to restore")
         case .uploaded:
             Text("GitHub backup saved")
         case .error:
@@ -1314,7 +1318,7 @@ private struct GitHubBackupView: View {
             Button("Upload") {
                 Task { await uploadBackup() }
             }
-        case .nothingToBackUp, .uploaded, .error, .notice:
+        case .nothingToBackUp, .nothingToRestore, .uploaded, .error, .notice:
             Button("OK") {}
         case let .restore(backup):
             Button("Cancel", role: .cancel) {}
@@ -1329,6 +1333,12 @@ private struct GitHubBackupView: View {
         case let .upload(plan):
             Text(uploadSummary(for: plan))
         case .nothingToBackUp:
+            Text(
+                AppLocalization.string(
+                    "Your GitHub backup already matches the plants and Wild Finds on this iPhone."
+                )
+            )
+        case .nothingToRestore:
             Text(
                 AppLocalization.string(
                     "Your GitHub backup already matches the plants and Wild Finds on this iPhone."
@@ -1366,15 +1376,22 @@ private struct GitHubBackupView: View {
         defer { operation = nil }
 
         do {
-            let snapshot = try await service.download(
+            let result = try await service.download(
+                plants: plantStore.plants,
+                wildFinds: wildFindStore.finds,
                 from: repository,
                 token: try availableToken()
             )
-            githubBackupAlert = .restore(PlantStoryBackupArchive(
-                createdAt: snapshot.createdAt,
-                plants: snapshot.plants,
-                wildFinds: snapshot.wildFinds
-            ))
+            switch result {
+            case let .downloaded(snapshot):
+                githubBackupAlert = .restore(PlantStoryBackupArchive(
+                    createdAt: snapshot.createdAt,
+                    plants: snapshot.plants,
+                    wildFinds: snapshot.wildFinds
+                ))
+            case .unchanged:
+                githubBackupAlert = .nothingToRestore
+            }
         } catch {
             present(error)
         }

@@ -426,6 +426,16 @@
         }
       }
     },
+    "Nothing to restore" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有需要恢复的内容"
+          }
+        }
+      }
+    },
     "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, and matching backups are skipped. GitHub keeps commit history when a backup changes, so the repository can grow over time. Use Export Backup for larger collections." : {
       "localizations" : {
         "zh-Hans" : {
@@ -588,12 +598,12 @@
         }
       }
     },
-    "Restoring downloads the remote file, validates its PlantStory format, shows its date and collection size, and asks before replacing local data." : {
+    "Restoring checks the remote backup first. Matching backups are skipped. When a backup differs, PlantStory downloads and validates it, shows its date and collection size, and asks before replacing local data." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "恢复时会下载远程文件、验证 PlantStory 格式、显示备份日期和收藏数量，并在替换本地数据前再次询问。"
+            "value" : "恢复时会先检查远程备份。内容一致时会跳过；有差异时，PlantStory 会下载并验证备份，显示日期和收藏数量，并在替换本地数据前再次询问。"
           }
         }
       }

@@ -47,6 +47,11 @@ enum GitHubBackupUploadResult {
     case unchanged
 }
 
+enum GitHubBackupDownloadResult {
+    case downloaded(GitHubBackupSnapshot)
+    case unchanged
+}
+
 struct GitHubBackupService {
     static let backupPath = "plantstory/backup.json"
     static let maximumManifestSize = 5 * 1_024 * 1_024
@@ -333,9 +338,11 @@ struct GitHubBackupService {
     }
 
     func download(
+        plants: [Plant],
+        wildFinds: [WildFind],
         from repository: GitHubBackupRepository,
         token: String
-    ) async throws -> GitHubBackupSnapshot {
+    ) async throws -> GitHubBackupDownloadResult {
         let info = try await verify(repository: repository, token: token)
         let repository = try validated(repository)
         let token = try validated(token)
@@ -359,23 +366,48 @@ struct GitHubBackupService {
                 throw GitHubBackupError.backupTooLarge
             }
             let legacy = try decoder.decode(LegacyGitHubBackupArchive.self, from: manifestData)
-            return GitHubBackupSnapshot(
-                createdAt: legacy.createdAt,
+            let localContents = try GitHubBackupPackage(
+                plants: plants,
+                wildFinds: wildFinds
+            ).contentsData
+            let remoteContents = try GitHubBackupPackage(
                 plants: legacy.plants,
                 wildFinds: legacy.wildFinds
+            ).contentsData
+            guard localContents != remoteContents else {
+                return .unchanged
+            }
+            return .downloaded(
+                GitHubBackupSnapshot(
+                    createdAt: legacy.createdAt,
+                    plants: legacy.plants,
+                    wildFinds: legacy.wildFinds
+                )
             )
         case GitHubBackupManifest.currentFormatVersion:
             guard manifestData.count <= Self.maximumManifestSize else {
                 throw GitHubBackupError.manifestTooLarge
             }
             let manifest = try decoder.decode(GitHubBackupManifest.self, from: manifestData)
-            return try await restore(
+            let localContents = try GitHubBackupPackage(
+                plants: plants,
+                wildFinds: wildFinds
+            ).contentsData
+            let remoteContents = try GitHubBackupPackage.encodedContents(
+                plants: manifest.plants,
+                wildFinds: manifest.wildFinds
+            )
+            guard localContents != remoteContents else {
+                return .unchanged
+            }
+            let snapshot = try await restore(
                 manifest,
                 manifestSize: manifestData.count,
                 repository: repository,
                 branch: info.defaultBranch,
                 token: token
             )
+            return .downloaded(snapshot)
         default:
             throw GitHubBackupError.unsupportedBackupVersion(version.formatVersion)
         }
