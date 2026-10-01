@@ -691,12 +691,22 @@ struct GitHubBackupService {
         token: String,
         method: String = "GET"
     ) throws -> URLRequest {
-        var request = URLRequest(url: url, timeoutInterval: 120)
+        let cachePolicy: URLRequest.CachePolicy = method == "GET"
+            ? .reloadIgnoringLocalCacheData
+            : .useProtocolCachePolicy
+        var request = URLRequest(
+            url: url,
+            cachePolicy: cachePolicy,
+            timeoutInterval: 120
+        )
         request.httpMethod = method
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
         request.setValue("2026-03-10", forHTTPHeaderField: "X-GitHub-Api-Version")
         request.setValue("PlantStory", forHTTPHeaderField: "User-Agent")
+        if method == "GET" {
+            request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        }
         return request
     }
 

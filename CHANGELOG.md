@@ -8,6 +8,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Previewed GitHub backup contents and upload size before confirmation, and skipped uploads when the existing backup already matches this iPhone.
 - Skipped GitHub restores when the remote backup already matches this iPhone, avoiding unnecessary photo downloads and local rewrites.
+- Prevented a recently completed GitHub backup from appearing out of date because of cached repository responses.
 
 ## [1.8] - 2026-09-28
 
