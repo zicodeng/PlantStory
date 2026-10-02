@@ -318,7 +318,7 @@ private struct WildFindCard: View {
     let ink: Color
     let botanical: Color
     let paleSun: Color
-    @State private var cardPhoto: Data?
+    @State private var cardPhoto: PlantPhotoAsset?
 
     init(find: WildFind, ink: Color, botanical: Color, paleSun: Color) {
         self.find = find
@@ -333,7 +333,7 @@ private struct WildFindCard: View {
             Color.clear
                 .aspectRatio(1, contentMode: .fit)
                 .overlay {
-                    PlantPhoto(data: cardPhoto, cornerRadius: 0)
+                    PlantPhoto(photo: cardPhoto, cornerRadius: 0)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))

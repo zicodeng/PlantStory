@@ -7,7 +7,7 @@ struct WildFindDetailView: View {
 
     @State private var showingEdit = false
     @State private var showingDeleteConfirmation = false
-    @State private var heroPhoto: Data?
+    @State private var heroPhoto: PlantPhotoAsset?
     @State private var selectedPhoto: PhotoViewerItem?
 
     private let warmPaper = Color(red: 0.98, green: 0.83, blue: 0.59)
@@ -112,7 +112,7 @@ struct WildFindDetailView: View {
 
     private func hero(width: CGFloat) -> some View {
         ZStack(alignment: .bottomLeading) {
-            PlantPhoto(data: heroPhoto, cornerRadius: 24)
+            PlantPhoto(photo: heroPhoto, cornerRadius: 24)
                 .frame(width: width, height: 330)
                 .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
                 .overlay {
@@ -235,7 +235,7 @@ struct WildFindDetailView: View {
                         .foregroundStyle(ink.opacity(0.56))
                 }
 
-                if case let .photo(data, note, _) = event.kind {
+                if case let .photo(photo, note, _) = event.kind {
                     if !note.isEmpty {
                         Text(note)
                             .font(.subheadline)
@@ -244,9 +244,9 @@ struct WildFindDetailView: View {
                     }
 
                     Button {
-                        selectedPhoto = PhotoViewerItem(data: data)
+                        selectedPhoto = PhotoViewerItem(photo: photo)
                     } label: {
-                        PlantPhoto(data: data, cornerRadius: 16)
+                        PlantPhoto(photo: photo, cornerRadius: 16)
                             .frame(maxWidth: .infinity)
                             .frame(height: 176)
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -263,7 +263,7 @@ struct WildFindDetailView: View {
 
 private struct WildFindTimelineEvent: Identifiable {
     enum Kind {
-        case photo(Data, note: String, location: String)
+        case photo(PlantPhotoAsset, note: String, location: String)
         case discovered
     }
 

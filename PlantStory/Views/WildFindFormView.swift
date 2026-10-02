@@ -29,7 +29,7 @@ struct WildFindFormView: View {
     @State private var species: String
     @State private var notes: String
     @State private var discoveredDate: Date
-    @State private var photos: [Data]
+    @State private var photos: [PlantPhotoAsset]
     @State private var photoDates: [Date]
     @State private var photoNotes: [String]
     @State private var photoLocations: [String]
@@ -138,7 +138,7 @@ struct WildFindFormView: View {
                 ForEach(photos.indices, id: \.self) { index in
                     VStack(alignment: .leading, spacing: 12) {
                         HStack(alignment: .center, spacing: 12) {
-                            PlantPhoto(data: photos[index], cornerRadius: 12)
+                            PlantPhoto(photo: photos[index], cornerRadius: 12)
                                 .frame(width: 82, height: 82)
                                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
@@ -424,10 +424,13 @@ struct WildFindFormView: View {
 
         for item in items {
             guard let data = try? await item.loadTransferable(type: Data.self),
-                  let image = UIImage(data: data),
-                  let resized = image.resizedForWildFindStorage(maxDimension: 1800) else { continue }
+                  let resized = await PhotoFileStore.resizedJPEG(
+                    from: data,
+                    maxPixelSize: 1_800,
+                    compressionQuality: 0.82
+                  ) else { continue }
             let creationDate = PhotoMetadata.creationDate(from: data) ?? .now
-            photos.append(resized)
+            photos.append(PlantPhotoAsset(data: resized))
             photoDates.append(min(creationDate, .now))
             photoNotes.append("")
             photoLocations.append("")
@@ -538,19 +541,5 @@ private struct WildFindAISuggestionReviewView: View {
             }
             .padding(.vertical, 2)
         }
-    }
-}
-
-private extension UIImage {
-    func resizedForWildFindStorage(maxDimension: CGFloat) -> Data? {
-        let longest = max(size.width, size.height)
-        guard longest > 0 else { return nil }
-        let scale = min(1, maxDimension / longest)
-        let target = CGSize(width: size.width * scale, height: size.height * scale)
-        let renderer = UIGraphicsImageRenderer(size: target)
-        let resized = renderer.image { _ in
-            draw(in: CGRect(origin: .zero, size: target))
-        }
-        return resized.jpegData(compressionQuality: 0.82)
     }
 }

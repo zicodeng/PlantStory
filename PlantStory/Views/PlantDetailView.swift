@@ -29,7 +29,7 @@ struct PlantDetailView: View {
     @State private var careEntryToDelete: CareHistoryDeletion?
     @State private var showingAllWateringHistory = false
     @State private var showingAllFertilizingHistory = false
-    @State private var heroPhoto: Data?
+    @State private var heroPhoto: PlantPhotoAsset?
     @State private var reminderPlant: Plant?
     @State private var selectedPhoto: PhotoViewerItem?
 
@@ -159,7 +159,7 @@ struct PlantDetailView: View {
 
     private func hero(width: CGFloat) -> some View {
         ZStack(alignment: .bottomLeading) {
-            PlantPhoto(data: heroPhoto, cornerRadius: 24)
+            PlantPhoto(photo: heroPhoto, cornerRadius: 24)
                 .frame(width: width, height: 310)
                 .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
                 .overlay {
@@ -328,7 +328,7 @@ struct PlantDetailView: View {
                         .foregroundStyle(.white.opacity(0.58))
                 }
 
-                if case let .photo(data, note, _, _) = event.kind {
+                if case let .photo(photo, note, _, _) = event.kind {
                     if !note.isEmpty {
                         Text(note)
                             .font(.subheadline)
@@ -337,9 +337,9 @@ struct PlantDetailView: View {
                     }
 
                     Button {
-                        selectedPhoto = PhotoViewerItem(data: data)
+                        selectedPhoto = PhotoViewerItem(photo: photo)
                     } label: {
-                        PlantPhoto(data: data, cornerRadius: 16)
+                        PlantPhoto(photo: photo, cornerRadius: 16)
                             .frame(maxWidth: .infinity)
                             .frame(height: 176)
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -662,7 +662,7 @@ struct PlantDetailView: View {
 private struct PlantTimelineEvent: Identifiable {
     enum Kind {
         case photo(
-            Data,
+            PlantPhotoAsset,
             note: String,
             eventTag: PlantPhotoEventTag?,
             customEventTitle: String

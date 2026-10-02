@@ -48,6 +48,7 @@
 		A10000000000000000000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000038 /* Assets.xcassets */; };
 		A10000000000000000000028 /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000039 /* AppUpdateChecker.swift */; };
 		A10000000000000000000029 /* GitHubBackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000040 /* GitHubBackupService.swift */; };
+		A1000000000000000000002A /* PhotoStorageMigrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000041 /* PhotoStorageMigrationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		B10000000000000000000038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B10000000000000000000039 /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		B10000000000000000000040 /* GitHubBackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubBackupService.swift; sourceTree = "<group>"; };
+		B10000000000000000000041 /* PhotoStorageMigrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStorageMigrationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 			children = (
 				B10000000000000000000039 /* AppUpdateChecker.swift */,
 				B10000000000000000000040 /* GitHubBackupService.swift */,
+				B10000000000000000000041 /* PhotoStorageMigrationController.swift */,
 				B10000000000000000000010 /* PlantAIService.swift */,
 				B10000000000000000000016 /* WateringReminderService.swift */,
 				B10000000000000000000030 /* WidgetWateringSnapshotWriter.swift */,
@@ -409,6 +412,7 @@
 				A10000000000000000000022 /* WidgetWateringSnapshotWriter.swift in Sources */,
 				A10000000000000000000028 /* AppUpdateChecker.swift in Sources */,
 				A10000000000000000000029 /* GitHubBackupService.swift in Sources */,
+				A1000000000000000000002A /* PhotoStorageMigrationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

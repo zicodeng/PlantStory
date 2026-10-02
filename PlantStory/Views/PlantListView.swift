@@ -1161,7 +1161,7 @@ private struct GardenCarePlantRow: View {
     let waterBlue: Color
     let overdueRed: Color
 
-    @State private var cardPhoto: Data?
+    @State private var cardPhoto: PlantPhotoAsset?
 
     init(
         schedule: GardenCareSchedule,
@@ -1182,7 +1182,7 @@ private struct GardenCarePlantRow: View {
 
     var body: some View {
         HStack(spacing: 13) {
-            PlantPhoto(data: cardPhoto, cornerRadius: 14)
+            PlantPhoto(photo: cardPhoto, cornerRadius: 14)
                 .frame(width: 66, height: 66)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
 
@@ -1265,7 +1265,7 @@ private struct GardenPlantCard: View {
             Color.clear
                 .aspectRatio(1, contentMode: .fit)
                 .overlay {
-                    PlantPhoto(data: plant.gardenCardPhoto, cornerRadius: 0)
+                    PlantPhoto(photo: plant.gardenCardPhoto, cornerRadius: 0)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .saturation(plant.isDeceased ? 0 : 1)
                         .contrast(plant.isDeceased ? 0.88 : 1)
@@ -1389,7 +1389,7 @@ private struct CompactGardenPlantCard: View {
             Color.clear
                 .aspectRatio(1, contentMode: .fit)
                 .overlay {
-                    PlantPhoto(data: plant.gardenCardPhoto, cornerRadius: 0)
+                    PlantPhoto(photo: plant.gardenCardPhoto, cornerRadius: 0)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .saturation(plant.isDeceased ? 0 : 1)
                         .contrast(plant.isDeceased ? 0.88 : 1)

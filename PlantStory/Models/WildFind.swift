@@ -12,7 +12,7 @@ struct WildFind: Identifiable, Codable, Equatable {
     /// Optional so wild finds saved before AI suggestions were added still decode correctly.
     var hasGeneratedAISuggestion: Bool?
     var discoveredDate: Date
-    var photos: [Data]
+    var photos: [PlantPhotoAsset]
     var photoDates: [Date]?
     var photoNotes: [String]?
     /// Optional so wild finds saved before per-photo sighting locations were added still decode correctly.
@@ -28,7 +28,7 @@ struct WildFind: Identifiable, Codable, Equatable {
         location: String? = nil,
         hasGeneratedAISuggestion: Bool? = nil,
         discoveredDate: Date = .now,
-        photos: [Data] = [],
+        photos: [PlantPhotoAsset] = [],
         photoDates: [Date]? = nil,
         photoNotes: [String]? = nil,
         photoLocations: [String]? = nil,

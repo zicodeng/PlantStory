@@ -11,6 +11,7 @@ final class PlantStore: ObservableObject {
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder
     private let maxCareHistoryEntries = 10
+    private var needsSaveAfterLoad = false
 
     init() {
         let applicationSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
@@ -33,7 +34,6 @@ final class PlantStore: ObservableObject {
         decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         load()
-        WidgetWateringSnapshotWriter.update(plants: plants)
     }
 
     func add(_ plant: Plant) {
@@ -43,22 +43,32 @@ final class PlantStore: ObservableObject {
 
     func update(_ plant: Plant) {
         guard let index = plants.firstIndex(where: { $0.id == plant.id }) else { return }
+        let previousFilenames = filenames(in: plants[index].photos)
         plants[index] = normalized(plant)
-        save()
+        if save() {
+            PhotoFileStore.delete(previousFilenames.subtracting(filenames(in: plants[index].photos)))
+        }
     }
 
     func delete(at offsets: IndexSet) {
+        var removedFilenames = Set<String>()
         for index in offsets.sorted(by: >) {
             WateringReminderService.shared.cancel(plantID: plants[index].id)
+            removedFilenames.formUnion(filenames(in: plants[index].photos))
             plants.remove(at: index)
         }
-        save()
+        if save() {
+            PhotoFileStore.delete(removedFilenames)
+        }
     }
 
     func delete(_ plant: Plant) {
         WateringReminderService.shared.cancel(plantID: plant.id)
+        let removedFilenames = filenames(in: plant.photos)
         plants.removeAll { $0.id == plant.id }
-        save()
+        if save() {
+            PhotoFileStore.delete(removedFilenames)
+        }
     }
 
     func water(_ plant: Plant, on date: Date = .now) {
@@ -118,7 +128,7 @@ final class PlantStore: ObservableObject {
     }
 
     func replaceAll(with restoredPlants: [Plant]) throws {
-        let restoredPlants = restoredPlants.map(normalized)
+        let restoredPlants = restoredPlants.map { normalized($0) }
         let data = try encoder.encode(restoredPlants)
         try data.write(to: fileURL, options: .atomic)
         plants = restoredPlants
@@ -126,17 +136,23 @@ final class PlantStore: ObservableObject {
     }
 
     private func load() {
-        guard let data = try? Data(contentsOf: fileURL),
+        guard let data = try? Data(contentsOf: fileURL, options: [.mappedIfSafe]),
               let savedPlants = try? decoder.decode([Plant].self, from: data) else { return }
-        let normalizedPlants = savedPlants.map(normalized)
-        plants = normalizedPlants
-        if normalizedPlants != savedPlants {
-            save()
+        let normalizedPlants = savedPlants.map {
+            normalized($0, materializePhotos: false)
         }
+        plants = normalizedPlants
+        needsSaveAfterLoad = normalizedPlants != savedPlants
     }
 
-    private func normalized(_ plant: Plant) -> Plant {
+    private func normalized(
+        _ plant: Plant,
+        materializePhotos: Bool = true
+    ) -> Plant {
         var plant = plant
+        if materializePhotos {
+            plant.photos = PhotoFileStore.materialize(plant.photos)
+        }
         if plant.photos.isEmpty {
             plant.cardPhotoIndex = nil
         } else if let cardPhotoIndex = plant.cardPhotoIndex,
@@ -160,13 +176,107 @@ final class PlantStore: ObservableObject {
         return plant
     }
 
+    var photoMigrationJobs: [PhotoStorageMigrationJob] {
+        plants.flatMap { plant in
+            plant.photos.enumerated().compactMap { index, photo in
+                guard let data = photo.embeddedData else { return nil }
+                return PhotoStorageMigrationJob(
+                    key: "plant-\(plant.id.uuidString)-\(index)",
+                    owner: .plant(plant.id),
+                    photoIndex: index,
+                    original: photo,
+                    data: data
+                )
+            }
+        }
+    }
+
+    var referencedPhotoFilenames: Set<String> {
+        Set(plants.flatMap(\.photos).compactMap(\.filename))
+    }
+
+    func completePhotoMigration(
+        replacements: [PhotoStorageMigrationReplacement]
+    ) throws {
+        guard !replacements.isEmpty || needsSaveAfterLoad else { return }
+        let originalPlants = plants
+
+        for replacement in replacements {
+            guard case let .plant(id) = replacement.owner,
+                  let plantIndex = plants.firstIndex(where: { $0.id == id }),
+                  plants[plantIndex].photos.indices.contains(replacement.photoIndex),
+                  plants[plantIndex].photos[replacement.photoIndex] == replacement.original else {
+                continue
+            }
+            plants[plantIndex].photos[replacement.photoIndex] = replacement.migrated
+        }
+
+        do {
+            try persistVerified()
+            needsSaveAfterLoad = false
+            WidgetWateringSnapshotWriter.update(plants: plants)
+        } catch {
+            plants = originalPlants
+            throw error
+        }
+    }
+
+    #if DEBUG
+    func prepareLegacyPhotoMigrationTest() throws -> Int {
+        let originalPlants = plants
+        var convertedCount = 0
+
+        for plantIndex in plants.indices {
+            for photoIndex in plants[plantIndex].photos.indices {
+                let photo = plants[plantIndex].photos[photoIndex]
+                guard photo.filename != nil else { continue }
+                guard let data = photo.loadData() else {
+                    plants = originalPlants
+                    throw CocoaError(.fileReadCorruptFile)
+                }
+                plants[plantIndex].photos[photoIndex] = PlantPhotoAsset(data: data)
+                convertedCount += 1
+            }
+        }
+
+        guard convertedCount > 0 else { return 0 }
+        do {
+            try persistVerified()
+            needsSaveAfterLoad = false
+            WidgetWateringSnapshotWriter.update(plants: plants)
+            return convertedCount
+        } catch {
+            plants = originalPlants
+            throw error
+        }
+    }
+    #endif
+
     private func cappedHistory(_ history: [Date]) -> [Date] {
         Array(history.sorted(by: >).prefix(maxCareHistoryEntries))
     }
 
-    private func save() {
-        guard let data = try? encoder.encode(plants) else { return }
-        try? data.write(to: fileURL, options: .atomic)
-        WidgetWateringSnapshotWriter.update(plants: plants)
+    private func filenames(in photos: [PlantPhotoAsset]) -> Set<String> {
+        Set(photos.compactMap(\.filename))
+    }
+
+    @discardableResult
+    private func save() -> Bool {
+        do {
+            let data = try encoder.encode(plants)
+            try data.write(to: fileURL, options: .atomic)
+            WidgetWateringSnapshotWriter.update(plants: plants)
+            return true
+        } catch {
+            return false
+        }
+    }
+
+    private func persistVerified() throws {
+        let data = try encoder.encode(plants)
+        _ = try decoder.decode([Plant].self, from: data)
+        try data.write(to: fileURL, options: .atomic)
+        let persistedData = try Data(contentsOf: fileURL, options: [.mappedIfSafe])
+        _ = try decoder.decode([Plant].self, from: persistedData)
     }
 }

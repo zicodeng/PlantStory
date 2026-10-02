@@ -434,10 +434,34 @@ private struct PlantStoryBackupArchive: Codable {
     }
 
     func encoded() throws -> Data {
+        var portablePlants = plants
+        for index in portablePlants.indices {
+            portablePlants[index].photos = try portablePlants[index].photos.map { photo in
+                guard let data = photo.loadData() else {
+                    throw PlantStoryBackupError.unreadableFile
+                }
+                return PlantPhotoAsset(data: data)
+            }
+        }
+
+        var portableWildFinds = wildFinds
+        for index in portableWildFinds.indices {
+            portableWildFinds[index].photos = try portableWildFinds[index].photos.map { photo in
+                guard let data = photo.loadData() else {
+                    throw PlantStoryBackupError.unreadableFile
+                }
+                return PlantPhotoAsset(data: data)
+            }
+        }
+
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        return try encoder.encode(self)
+        return try encoder.encode(PlantStoryBackupArchive(
+            createdAt: createdAt,
+            plants: portablePlants,
+            wildFinds: portableWildFinds
+        ))
     }
 
     static func decode(from data: Data) throws -> Self {
@@ -498,6 +522,7 @@ private struct BackupNotice: Identifiable {
 private struct StorageInfoView: View {
     @EnvironmentObject private var plantStore: PlantStore
     @EnvironmentObject private var wildFindStore: WildFindStore
+    @EnvironmentObject private var photoStorageMigration: PhotoStorageMigrationController
     @Environment(\.aiFeaturesAvailable) private var aiFeaturesAvailable
 
     @State private var exportDocument = PlantStoryBackupDocument()
@@ -544,7 +569,7 @@ private struct StorageInfoView: View {
                 storageRow(
                     icon: "photo.on.rectangle.angled",
                     title: "Photos",
-                    detail: "Photo data, dates, and notes are included inside those two private files."
+                    detail: "Photos are stored as separate files inside PlantStory’s private app container. Dates and notes stay with your plant records."
                 )
 
                 if aiFeaturesAvailable {
@@ -559,6 +584,34 @@ private struct StorageInfoView: View {
             } footer: {
                 Text("These locations are inside PlantStory’s private app container and are not visible in the Files app.")
             }
+
+            if photoStorageMigration.shouldShowInSettings {
+                Section {
+                    photoStorageMigrationStatus
+                } header: {
+                    Text("Photo Storage")
+                } footer: {
+                    Text("Optimization stays on this iPhone. Your photos remain available throughout the process, and existing backups stay compatible.")
+                }
+            }
+
+            #if DEBUG
+            Section {
+                Button {
+                    prepareLegacyPhotoMigrationTest()
+                } label: {
+                    Label(
+                        "Recreate Legacy Photo Storage",
+                        systemImage: "hammer.fill"
+                    )
+                }
+                .disabled(!photoStorageMigration.canPrepareLegacyTest)
+            } header: {
+                Text("Migration Testing")
+            } footer: {
+                Text("Debug only. Rewrites local photo references into the pre-1.10 format without deleting photos. The migration stays paused so you can test it above.")
+            }
+            #endif
 
             Section("Cloud & network use") {
                 storageRow(
@@ -729,6 +782,152 @@ private struct StorageInfoView: View {
             Int64(plantStore.plants.count),
             Int64(wildFindStore.finds.count)
         )
+    }
+
+    #if DEBUG
+    private func prepareLegacyPhotoMigrationTest() {
+        do {
+            let count = try photoStorageMigration.prepareLegacyTest()
+            if count > 0 {
+                backupNotice = BackupNotice(
+                    title: AppLocalization.string("Migration test ready"),
+                    message: AppLocalization.string(
+                        "%lld photos now use legacy storage. Use Resume Optimization above to test the migration.",
+                        Int64(count)
+                    )
+                )
+            } else {
+                backupNotice = BackupNotice(
+                    title: AppLocalization.string("No photos to prepare"),
+                    message: AppLocalization.string(
+                        "Add at least one photo, then try preparing the migration test again."
+                    )
+                )
+            }
+        } catch {
+            backupNotice = BackupNotice(
+                title: AppLocalization.string("Migration test couldn’t be prepared"),
+                message: error.localizedDescription
+            )
+        }
+    }
+    #endif
+
+    @ViewBuilder
+    private var photoStorageMigrationStatus: some View {
+        switch photoStorageMigration.status {
+        case .checking, .notNeeded:
+            EmptyView()
+        case let .ready(completed, total):
+            photoStorageProgress(
+                title: "Optimize Photo Storage",
+                detail: AppLocalization.string(
+                    "PlantStory can reduce memory use by moving %lld photos into separate private files.",
+                    Int64(total)
+                ),
+                completed: completed,
+                total: total
+            )
+            Button("Optimize Now") {
+                photoStorageMigration.startOrResume()
+            }
+        case let .optimizing(completed, total):
+            photoStorageProgress(
+                title: "Optimizing photos…",
+                detail: AppLocalization.string(
+                    "%lld of %lld photos complete",
+                    Int64(completed),
+                    Int64(total)
+                ),
+                completed: completed,
+                total: total
+            )
+            Button("Pause") {
+                photoStorageMigration.pause()
+            }
+        case let .paused(completed, total):
+            photoStorageProgress(
+                title: "Photo optimization is paused.",
+                detail: AppLocalization.string(
+                    "%lld of %lld photos complete",
+                    Int64(completed),
+                    Int64(total)
+                ),
+                completed: completed,
+                total: total
+            )
+            Button("Resume Optimization") {
+                photoStorageMigration.startOrResume()
+            }
+        case let .lowStorage(required, _):
+            Label {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("Not enough free storage to optimize photos.")
+                        .font(.subheadline.weight(.semibold))
+                    Text(
+                        AppLocalization.string(
+                            "About %@ of additional free space is needed.",
+                            ByteCountFormatter.string(
+                                fromByteCount: required,
+                                countStyle: .file
+                            )
+                        )
+                    )
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                }
+            } icon: {
+                Image(systemName: "internaldrive.fill")
+                    .foregroundStyle(.orange)
+            }
+            Button("Try Again") {
+                photoStorageMigration.startOrResume()
+            }
+        case .failed:
+            Label(
+                "Photo optimization couldn’t be completed. Try again.",
+                systemImage: "exclamationmark.triangle.fill"
+            )
+                .foregroundStyle(.orange)
+            Button("Try Again") {
+                photoStorageMigration.startOrResume()
+            }
+        case let .complete(total):
+            Label {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("Photo storage is optimized.")
+                        .font(.subheadline.weight(.semibold))
+                    Text(
+                        AppLocalization.string(
+                            "%lld photos are stored as separate private files.",
+                            Int64(total)
+                        )
+                    )
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                }
+            } icon: {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundStyle(.green)
+            }
+        }
+    }
+
+    private func photoStorageProgress(
+        title: LocalizedStringKey,
+        detail: String,
+        completed: Int,
+        total: Int
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label(title, systemImage: "photo.stack.fill")
+                .font(.subheadline.weight(.semibold))
+            Text(detail)
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            ProgressView(value: Double(completed), total: Double(max(total, 1)))
+        }
+        .accessibilityElement(children: .combine)
     }
 
     private var backupFilename: String {

@@ -585,7 +585,7 @@ struct GitHubBackupService {
                     throw GitHubBackupError.backupTooLarge
                 }
                 totalSize += photo.count
-                plant.photos.append(photo)
+                plant.photos.append(PlantPhotoAsset(data: photo))
             }
             restoredPlants.append(plant)
         }
@@ -604,7 +604,7 @@ struct GitHubBackupService {
                     throw GitHubBackupError.backupTooLarge
                 }
                 totalSize += photo.count
-                wildFind.photos.append(photo)
+                wildFind.photos.append(PlantPhotoAsset(data: photo))
             }
             restoredWildFinds.append(wildFind)
         }
@@ -870,20 +870,26 @@ private struct GitHubBackupPackage {
 
     init(plants: [Plant], wildFinds: [WildFind]) throws {
         var photoDataByPath: [String: Data] = [:]
-        let plantRecords = plants.map { plant in
-            let paths = plant.photos.map { photo in
-                let path = Self.photoPath(for: photo)
-                photoDataByPath[path] = photo
+        let plantRecords = try plants.map { plant in
+            let paths = try plant.photos.map { photo in
+                guard let data = photo.loadData() else {
+                    throw GitHubBackupError.invalidBackupPhoto
+                }
+                let path = Self.photoPath(for: data)
+                photoDataByPath[path] = data
                 return path
             }
             var plantWithoutPhotos = plant
             plantWithoutPhotos.photos = []
             return GitHubPlantRecord(plant: plantWithoutPhotos, photoPaths: paths)
         }
-        let wildFindRecords = wildFinds.map { wildFind in
-            let paths = wildFind.photos.map { photo in
-                let path = Self.photoPath(for: photo)
-                photoDataByPath[path] = photo
+        let wildFindRecords = try wildFinds.map { wildFind in
+            let paths = try wildFind.photos.map { photo in
+                guard let data = photo.loadData() else {
+                    throw GitHubBackupError.invalidBackupPhoto
+                }
+                let path = Self.photoPath(for: data)
+                photoDataByPath[path] = data
                 return path
             }
             var wildFindWithoutPhotos = wildFind

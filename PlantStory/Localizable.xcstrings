@@ -4,6 +4,206 @@
     "" : {
 
     },
+    "%lld of %lld photos complete" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已完成 %lld / %lld 张照片"
+          }
+        }
+      }
+    },
+    "%lld photos are stored as separate private files." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 张照片已保存为独立的私有文件。"
+          }
+        }
+      }
+    },
+    "%lld photos now use legacy storage. Use Resume Optimization above to test the migration." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 张照片现在使用旧版存储。请点击上方的“继续优化”来测试迁移。"
+          }
+        }
+      }
+    },
+    "Add at least one photo, then try preparing the migration test again." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请至少添加一张照片，然后再次准备迁移测试。"
+          }
+        }
+      }
+    },
+    "About %@ of additional free space is needed." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大约还需要 %@ 可用空间。"
+          }
+        }
+      }
+    },
+    "Debug only. Rewrites local photo references into the pre-1.10 format without deleting photos. The migration stays paused so you can test it above." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅供调试。将本地照片引用改回 1.10 之前的格式，不会删除照片。迁移会保持暂停，方便你在上方进行测试。"
+          }
+        }
+      }
+    },
+    "Migration test couldn’t be prepared" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法准备迁移测试"
+          }
+        }
+      }
+    },
+    "Migration test ready" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "迁移测试已准备好"
+          }
+        }
+      }
+    },
+    "Migration Testing" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "迁移测试"
+          }
+        }
+      }
+    },
+    "No photos to prepare" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可准备的照片"
+          }
+        }
+      }
+    },
+    "Not enough free storage to optimize photos." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可用存储空间不足，无法优化照片。"
+          }
+        }
+      }
+    },
+    "Optimization stays on this iPhone. Your photos remain available throughout the process, and existing backups stay compatible." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "优化只在这台 iPhone 上进行。过程中照片仍可正常使用，现有备份也继续兼容。"
+          }
+        }
+      }
+    },
+    "Optimize Now" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "立即优化"
+          }
+        }
+      }
+    },
+    "Optimize Photo Storage" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "优化照片存储"
+          }
+        }
+      }
+    },
+    "Optimizing photos…" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在优化照片…"
+          }
+        }
+      }
+    },
+    "Pause" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂停"
+          }
+        }
+      }
+    },
+    "PlantStory can reduce memory use by moving %lld photos into separate private files." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PlantStory 可以将 %lld 张照片移到独立的私有文件中，以减少内存占用。"
+          }
+        }
+      }
+    },
+    "Resume Optimization" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续优化"
+          }
+        }
+      }
+    },
+    "Recreate Legacy Photo Storage" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重建旧版照片存储"
+          }
+        }
+      }
+    },
+    "Try Again" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试"
+          }
+        }
+      }
+    },
     "A photo in the GitHub backup is missing or damaged." : {
       "localizations" : {
         "zh-Hans" : {
@@ -10010,12 +10210,42 @@
         }
       }
     },
-    "Photo data, dates, and notes are included inside those two private files." : {
+    "Photo optimization couldn’t be completed. Try again." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "照片、日期和笔记都保存在这两个私有文件中。"
+            "value" : "无法完成照片优化，请重试。"
+          }
+        }
+      }
+    },
+    "Photo optimization is paused." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片优化已暂停。"
+          }
+        }
+      }
+    },
+    "Photo Storage" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片存储"
+          }
+        }
+      }
+    },
+    "Photo storage is optimized." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片存储已优化。"
           }
         }
       }
@@ -10046,6 +10276,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "照片"
+          }
+        }
+      }
+    },
+    "Photos are stored as separate files inside PlantStory’s private app container. Dates and notes stay with your plant records." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片以独立文件保存在 PlantStory 的私有 App 空间中，日期和笔记仍保存在植物记录里。"
           }
         }
       }

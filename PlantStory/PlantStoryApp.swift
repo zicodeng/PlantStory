@@ -9,6 +9,7 @@ struct PlantStoryApp: App {
     @AppStorage(WateringSeason.storageKey) private var activeWateringSeasonCode = WateringSeason.suggested().rawValue
     @StateObject private var store = PlantStore.shared
     @StateObject private var wildFindStore = WildFindStore()
+    @StateObject private var photoStorageMigration = PhotoStorageMigrationController()
     @StateObject private var openAIKeyStore = OpenAIKeyStore()
     @StateObject private var aiAvailabilityStore = AIAvailabilityStore()
 
@@ -47,12 +48,20 @@ struct PlantStoryApp: App {
             AppRootView()
                 .environmentObject(store)
                 .environmentObject(wildFindStore)
+                .environmentObject(photoStorageMigration)
                 .environmentObject(openAIKeyStore)
                 .environment(\.aiFeaturesAvailable, aiAvailabilityStore.isAvailable)
                 .environment(\.locale, selectedLanguage.locale)
                 .tint(Color("LeafGreen"))
                 .task {
                     await aiAvailabilityStore.monitorStorefront()
+                }
+                .task {
+                    photoStorageMigration.configure(
+                        plantStore: store,
+                        wildFindStore: wildFindStore
+                    )
+                    await photoStorageMigration.startAutomaticallyIfEligible()
                 }
                 .task(id: appLanguageCode) {
                     WidgetWateringSnapshotWriter.update(plants: store.plants)

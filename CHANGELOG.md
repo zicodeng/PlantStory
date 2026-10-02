@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.10] - Unreleased
+
+### Bug fixes
+
+- Reduced memory use and unexpected app exits for large, photo-heavy collections by storing photos as separate local files and loading resized images only when needed. Existing libraries optimize safely in the background with resumable progress and controls in Storage & Data.
+
 ## [1.9] - 2026-10-01
 
 ### Bug fixes
