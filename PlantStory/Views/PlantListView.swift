@@ -836,6 +836,28 @@ private struct GardenCareCalendar: View {
         allScheduledPlants.filter { careFilter.includes($0) }
     }
 
+    private var scheduledLocationSections: [GardenCareLocationSection] {
+        let grouped = Dictionary(grouping: scheduledPlants) { schedule in
+            normalizedLocationKey(for: schedule.plant.location)
+        }
+
+        return grouped.map { key, schedules in
+            GardenCareLocationSection(
+                id: key.map { "location:\($0)" } ?? "unassigned",
+                title: displayLocation(from: schedules.first?.plant.location)
+                    ?? AppLocalization.string("No location"),
+                schedules: schedules,
+                isUnassigned: key == nil
+            )
+        }
+        .sorted { left, right in
+            if left.isUnassigned != right.isUnassigned {
+                return !left.isUnassigned
+            }
+            return left.title.localizedStandardCompare(right.title) == .orderedAscending
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
             VStack(alignment: .leading, spacing: 5) {
@@ -921,23 +943,78 @@ private struct GardenCareCalendar: View {
                 .padding(.horizontal, 18)
                 .background(panel, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
             } else {
-                LazyVStack(spacing: 12) {
-                    ForEach(scheduledPlants) { schedule in
-                        NavigationLink(value: schedule.plant.id) {
-                            GardenCarePlantRow(
-                                schedule: schedule,
-                                panel: panel,
-                                lime: lime,
-                                pruneColor: pruneColor,
-                                waterBlue: waterBlue,
-                                overdueRed: overdueRed
-                            )
+                LazyVStack(alignment: .leading, spacing: 22) {
+                    ForEach(scheduledLocationSections) { section in
+                        VStack(alignment: .leading, spacing: 12) {
+                            careLocationHeader(section)
+
+                            ForEach(section.schedules) { schedule in
+                                NavigationLink(value: schedule.plant.id) {
+                                    GardenCarePlantRow(
+                                        schedule: schedule,
+                                        panel: panel,
+                                        lime: lime,
+                                        pruneColor: pruneColor,
+                                        waterBlue: waterBlue,
+                                        overdueRed: overdueRed
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                            }
                         }
-                        .buttonStyle(.plain)
                     }
                 }
             }
         }
+    }
+
+    private func careLocationHeader(_ section: GardenCareLocationSection) -> some View {
+        HStack(spacing: 8) {
+            Image(systemName: section.isUnassigned ? "mappin.slash" : "mappin.and.ellipse")
+                .foregroundStyle(lime)
+
+            Text(section.title)
+                .font(.system(.headline, design: .serif, weight: .semibold))
+                .foregroundStyle(.white)
+
+            Spacer()
+
+            Text("\(section.schedules.count)")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.white.opacity(0.7))
+                .padding(.horizontal, 9)
+                .padding(.vertical, 4)
+                .background(.white.opacity(0.08), in: Capsule())
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(locationSectionAccessibilityLabel(section))
+    }
+
+    private func locationSectionAccessibilityLabel(
+        _ section: GardenCareLocationSection
+    ) -> String {
+        if section.schedules.count == 1 {
+            return AppLocalization.string("%@, 1 plant", section.title)
+        }
+        return AppLocalization.string(
+            "%@, %lld plants",
+            section.title,
+            Int64(section.schedules.count)
+        )
+    }
+
+    private func normalizedLocationKey(for location: String?) -> String? {
+        guard let displayLocation = displayLocation(from: location) else { return nil }
+        return displayLocation.folding(
+            options: [.caseInsensitive, .diacriticInsensitive],
+            locale: AppLocalization.currentLocale
+        )
+    }
+
+    private func displayLocation(from location: String?) -> String? {
+        guard let location else { return nil }
+        let value = location.trimmingCharacters(in: .whitespacesAndNewlines)
+        return value.isEmpty ? nil : value
     }
 
     private func monthButton(_ month: Int) -> some View {
@@ -1141,6 +1218,13 @@ private struct GardenCareSchedule: Identifiable {
     let wateringStatus: GardenWateringStatus
 
     var id: UUID { plant.id }
+}
+
+private struct GardenCareLocationSection: Identifiable {
+    let id: String
+    let title: String
+    let schedules: [GardenCareSchedule]
+    let isUnassigned: Bool
 }
 
 private enum GardenWateringStatus: Equatable {

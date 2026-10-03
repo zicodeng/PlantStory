@@ -7,6 +7,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 ### New features
 
 - Increased the GitHub backup limit to 1 GB and added cancellable restore progress while photos download and validate one at a time.
+- Grouped plants needing care by location in the care calendar.
 
 ### Bug fixes
 
