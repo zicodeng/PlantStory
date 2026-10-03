@@ -183,9 +183,14 @@ struct WildFindsView: View {
     private var searchField: some View {
         HStack(spacing: 10) {
             Image(systemName: "magnifyingglass")
-                .foregroundStyle(botanical.opacity(0.72))
+                .foregroundStyle(ink.opacity(0.55))
 
-            TextField("Search wild finds", text: $searchText)
+            TextField(
+                "",
+                text: $searchText,
+                prompt: Text("Search wild finds")
+                    .foregroundStyle(ink.opacity(0.55))
+            )
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .foregroundStyle(ink)
@@ -194,7 +199,7 @@ struct WildFindsView: View {
             if !searchText.isEmpty {
                 Button { searchText = "" } label: {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(ink.opacity(0.38))
+                        .foregroundStyle(ink.opacity(0.45))
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("Clear search")
