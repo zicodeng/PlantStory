@@ -158,7 +158,7 @@ struct PlantAITaxonomy: Decodable {
 
 actor PlantAIService {
     private let endpoint = URL(string: "https://api.openai.com/v1/responses")!
-    private let model = "gpt-5.4-nano"
+    private let model = "gpt-6-luna"
 
     func suggestDetails(
         plantName: String,
@@ -290,6 +290,7 @@ actor PlantAIService {
         return [
             "model": model,
             "store": false,
+            "reasoning": ["effort": "none"],
             "max_output_tokens": 950,
             "input": [
                 [
@@ -414,6 +415,7 @@ actor PlantAIService {
         return [
             "model": model,
             "store": false,
+            "reasoning": ["effort": "none"],
             "max_output_tokens": 850,
             "input": [
                 [

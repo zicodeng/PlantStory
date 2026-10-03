@@ -170,7 +170,7 @@ AI suggestions are disabled by default.
 3. Enter the key, acknowledge that requests use your API credits, and save it.
 4. Open a plant or Wild Find editor and tap **Suggest with AI**.
 
-PlantStory currently uses `gpt-5.4-nano` through the OpenAI Responses API with response storage disabled. Model availability and API pricing can change; consult OpenAI's current documentation before relying on a particular cost.
+PlantStory currently uses `gpt-6-luna` through the OpenAI Responses API with response storage disabled. Model availability and API pricing can change; consult OpenAI's current documentation before relying on a particular cost.
 
 AI setup is not shown when the app is downloaded from the China mainland App Store.
 

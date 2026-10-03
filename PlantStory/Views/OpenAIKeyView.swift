@@ -10,7 +10,7 @@ struct OpenAIKeyView: View {
     @State private var errorMessage: String?
     @State private var showingDeleteConfirmation = false
 
-    private let modelDetailsURL = URL(string: "https://developers.openai.com/api/docs/models/gpt-5.4-nano")!
+    private let modelDetailsURL = URL(string: "https://developers.openai.com/api/docs/models/gpt-6-luna")!
 
     var body: some View {
         Group {
@@ -88,7 +88,7 @@ struct OpenAIKeyView: View {
                 aiUsageRow(
                     icon: "cpu.fill",
                     title: "Model",
-                    detail: "Suggestions use OpenAI’s GPT-5.4 nano model through the Responses API. Responses are requested with storage turned off."
+                    detail: "Suggestions use OpenAI’s GPT-6 Luna model through the Responses API. Responses are requested with storage turned off."
                 )
 
                 aiUsageRow(
@@ -97,7 +97,7 @@ struct OpenAIKeyView: View {
                     detail: "About $0.001 per suggestion, often less. Actual cost depends on token usage and OpenAI’s current pricing, and is billed to your API account."
                 )
 
-                Link("View GPT-5.4 nano pricing", destination: modelDetailsURL)
+                Link("View GPT-6 Luna pricing", destination: modelDetailsURL)
                     .font(.subheadline.weight(.medium))
             } header: {
                 Text("How AI suggestions work")
