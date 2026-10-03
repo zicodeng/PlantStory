@@ -19,6 +19,7 @@
 - Match the established PlantStory visual language and reuse existing components, colors, spacing, icons, and navigation patterns where possible.
 - Add every user-facing string to `PlantStory/Localizable.xcstrings` with both English and Simplified Chinese support.
 - For localization changes, ensure English and Simplified Chinese entries exist. The user handles visual language verification unless explicitly requested.
+- In Simplified Chinese localization, do not insert spaces between Chinese characters and adjacent English terms, placeholders, or numbers. Preserve spaces within English phrases such as `OpenAI API` and `App Store`.
 - Keep accessibility labels, hints, Dynamic Type behavior, contrast, and tap-target sizes in mind for new controls.
 
 ## Build and verification

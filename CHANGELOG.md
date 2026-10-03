@@ -13,6 +13,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Updated AI suggestions to use OpenAI's supported replacement model before the previous model retires.
 - Allowed GitHub restore to recover photos whose local files are missing or damaged.
+- Standardized Simplified Chinese typography around English terms and numbers throughout the app and widget.
 
 ## [1.10] - Unreleased
 

@@ -16,7 +16,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 个浇水提醒已到期"
+            "value" : "%lld个浇水提醒已到期"
           }
         }
       }
@@ -33,7 +33,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已过期 %lld 天"
+            "value" : "已过期%lld天"
           }
         }
       }
