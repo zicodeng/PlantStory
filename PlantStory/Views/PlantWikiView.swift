@@ -99,6 +99,19 @@ struct PlantWikiView: View {
                             .accessibilityHint("Opens the watering basics guide")
 
                             NavigationLink {
+                                HardinessZonesGuideView()
+                            } label: {
+                                guideRow(
+                                    title: "U.S. Hardiness Zones",
+                                    subtitle: "See how winter lows shape outdoor perennial planting across the United States.",
+                                    icon: "map.fill",
+                                    accent: Color(red: 0.43, green: 0.55, blue: 0.94)
+                                )
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityHint("Opens the U.S. hardiness zone guide")
+
+                            NavigationLink {
                                 LightMadeSimpleGuideView()
                             } label: {
                                 guideRow(

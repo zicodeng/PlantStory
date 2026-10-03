@@ -49,6 +49,7 @@
 		A10000000000000000000028 /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000039 /* AppUpdateChecker.swift */; };
 		A10000000000000000000029 /* GitHubBackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000040 /* GitHubBackupService.swift */; };
 		A1000000000000000000002A /* PhotoStorageMigrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000041 /* PhotoStorageMigrationController.swift */; };
+		A1000000000000000000002B /* HardinessZonesGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000042 /* HardinessZonesGuideView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		B10000000000000000000039 /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		B10000000000000000000040 /* GitHubBackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubBackupService.swift; sourceTree = "<group>"; };
 		B10000000000000000000041 /* PhotoStorageMigrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStorageMigrationController.swift; sourceTree = "<group>"; };
+		B10000000000000000000042 /* HardinessZonesGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardinessZonesGuideView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				B10000000000000000000026 /* PropagationBasicsGuideView.swift */,
 				B10000000000000000000027 /* PlantTaxonomyGuideView.swift */,
 				B10000000000000000000028 /* HouseplantFamilyFinderView.swift */,
+				B10000000000000000000042 /* HardinessZonesGuideView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				A10000000000000000000028 /* AppUpdateChecker.swift in Sources */,
 				A10000000000000000000029 /* GitHubBackupService.swift in Sources */,
 				A1000000000000000000002A /* PhotoStorageMigrationController.swift in Sources */,
+				A1000000000000000000002B /* HardinessZonesGuideView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

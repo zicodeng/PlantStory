@@ -15594,6 +15594,326 @@
         }
       }
     },
+    "%lld°F to %lld°F" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld°F至%2$lld°F"
+          }
+        }
+      }
+    },
+    "2023 USDA Plant Hardiness Zone Map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2023年USDA植物耐寒区地图"
+          }
+        }
+      }
+    },
+    "2023 USDA zone map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2023年USDA耐寒区地图"
+          }
+        }
+      }
+    },
+    "Average annual extreme minimum temperature" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "年平均极端最低温"
+          }
+        }
+      }
+    },
+    "Cities, slopes, valleys, elevation, and nearby water can create microclimates within the same area." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "城市、坡地、山谷、海拔和附近水体，都可能在同一地区形成不同的小气候。"
+          }
+        }
+      }
+    },
+    "Double tap to switch between fit and detailed views" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轻点两下来切换适应屏幕和详细视图"
+          }
+        }
+      }
+    },
+    "Each numbered zone spans 10°F. The a half is colder; the b half is warmer." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每个编号区域跨越10°F。a半区较冷，b半区较暖。"
+          }
+        }
+      }
+    },
+    "Expect local differences" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留意当地差异"
+          }
+        }
+      }
+    },
+    "Explore each zone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看每个耐寒区"
+          }
+        }
+      }
+    },
+    "Explore the U.S. map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看美国地图"
+          }
+        }
+      }
+    },
+    "Find your exact USDA zone" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查询准确的USDA耐寒区"
+          }
+        }
+      }
+    },
+    "Fit map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "地图适应屏幕"
+          }
+        }
+      }
+    },
+    "It summarizes winter cold and helps compare the likely cold hardiness of outdoor perennial plants." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它概括了冬季低温，可用来比较户外多年生植物可能承受寒冷的能力。"
+          }
+        }
+      }
+    },
+    "Know your winter cold." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解你所在地区的冬季低温。"
+          }
+        }
+      }
+    },
+    "Opens a larger scrollable map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开可滚动查看的大地图"
+          }
+        }
+      }
+    },
+    "Opens the U.S. hardiness zone guide" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开美国植物耐寒区指南"
+          }
+        }
+      }
+    },
+    "Opens the USDA website" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开USDA网站"
+          }
+        }
+      }
+    },
+    "OUTDOOR GROWING, MAPPED" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "户外种植地图"
+          }
+        }
+      }
+    },
+    "See how winter lows shape outdoor perennial planting across the United States." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看看冬季低温如何影响美国各地户外多年生植物的种植。"
+          }
+        }
+      }
+    },
+    "Source: USDA Plant Hardiness Zone Map, 2023. Mapping by the PRISM Climate Group, Oregon State University." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来源：2023年USDA植物耐寒区地图。由俄勒冈州立大学PRISM气候组绘制。"
+          }
+        }
+      }
+    },
+    "Sun, summer heat, humidity, wind, soil moisture, and the length of a cold spell still matter." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "阳光、夏季高温、湿度、风、土壤水分和寒冷持续时间同样重要。"
+          }
+        }
+      }
+    },
+    "Tap to explore the full map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轻点查看完整地图"
+          }
+        }
+      }
+    },
+    "The map includes the lower 48 states, Alaska, Hawaii, and Puerto Rico." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "地图包含美国本土48州、阿拉斯加、夏威夷和波多黎各。"
+          }
+        }
+      }
+    },
+    "The USDA map groups U.S. locations by their average annual extreme minimum winter temperature." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "USDA地图根据年平均极端最低冬季温度划分美国各地。"
+          }
+        }
+      }
+    },
+    "U.S. Hardiness Zones" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "美国植物耐寒区"
+          }
+        }
+      }
+    },
+    "Use the official ZIP-code lookup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用USDA官方邮政编码查询"
+          }
+        }
+      }
+    },
+    "Use zones as a starting point" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "把耐寒区当作起点"
+          }
+        }
+      }
+    },
+    "What it does not tell you" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "耐寒区没有告诉你的事"
+          }
+        }
+      }
+    },
+    "What the zone tells you" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "耐寒区能告诉你的事"
+          }
+        }
+      }
+    },
+    "Zone %lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第%lld区"
+          }
+        }
+      }
+    },
+    "Zone %lld, %lld°F to %lld°F" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第%1$lld区，%2$lld°F至%3$lld°F"
+          }
+        }
+      }
+    },
+    "Zoom map" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "放大地图"
+          }
+        }
+      }
+    },
     "ZZ plant" : {
       "extractionState" : "stale",
       "localizations" : {

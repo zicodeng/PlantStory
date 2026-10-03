@@ -8,6 +8,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 - Increased the GitHub backup limit to 1 GB and added cancellable restore progress while photos download and validate one at a time.
 - Grouped plants needing care by location in the care calendar.
+- Added a U.S. hardiness-zone guide with the official 2023 USDA map, temperature explorer, and ZIP-code lookup.
 
 ### Bug fixes
 
