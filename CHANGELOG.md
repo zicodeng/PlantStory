@@ -15,6 +15,8 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 - Allowed GitHub restore to recover photos whose local files are missing or damaged.
 - Standardized Simplified Chinese typography around English terms and numbers throughout the app and widget.
 - Matched the Wild Finds search field's icon, prompt, cursor, and clear-button styling with My Garden.
+- Dismissed the Wild Finds search keyboard when tapping outside the search field.
+- Dismissed the keyboard in the Wild Find editor when tapping outside its text fields.
 
 ## [1.10] - Unreleased
 
