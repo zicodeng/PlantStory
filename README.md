@@ -113,7 +113,7 @@ GitHub backup is intended for people comfortable managing their own private repo
 
 PlantStory stores the token only in that iPhone's Keychain. The repository receives `plantstory/backup.json` plus content-hashed photo files under `plantstory/photos/`. Later backups reuse unchanged photos, upload new or changed photos, remove obsolete photos from the latest snapshot, and create a new Git commit. Older data can remain in Git history, so the repository may grow over time.
 
-Each GitHub backup is limited to 50 MB. The repository is private, but its contents are stored and processed by GitHub and are not end-to-end encrypted by PlantStory. Disconnecting GitHub backup removes the local token and settings; it does not delete the repository or its history.
+Each GitHub backup is limited to 1 GB. During restore, PlantStory downloads and validates photos one at a time, shows progress, and keeps the current library unchanged if the restore is cancelled or fails. The repository is private, but its contents are stored and processed by GitHub and are not end-to-end encrypted by PlantStory. Disconnecting GitHub backup removes the local token and settings; it does not delete the repository or its history.
 
 ### Restore a backup
 

@@ -4,9 +4,14 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ## [1.11] - Unreleased
 
+### New features
+
+- Increased the GitHub backup limit to 1 GB and added cancellable restore progress while photos download and validate one at a time.
+
 ### Bug fixes
 
 - Updated AI suggestions to use OpenAI's supported replacement model before the previous model retires.
+- Allowed GitHub restore to recover photos whose local files are missing or damaged.
 
 ## [1.10] - Unreleased
 

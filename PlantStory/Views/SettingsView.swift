@@ -1046,6 +1046,35 @@ private struct StorageInfoView: View {
     }
 }
 
+private struct GitHubBackupActivityIndicator: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var isAnimating = false
+
+    var body: some View {
+        Circle()
+            .trim(from: 0.15, to: 0.85)
+            .stroke(
+                Color.secondary,
+                style: StrokeStyle(lineWidth: 2, lineCap: .round)
+            )
+            .rotationEffect(.degrees(isAnimating ? 360 : 0))
+            .animation(
+                reduceMotion
+                    ? nil
+                    : .linear(duration: 0.8).repeatForever(autoreverses: false),
+                value: isAnimating
+            )
+            .frame(width: 18, height: 18)
+            .accessibilityHidden(true)
+            .onAppear {
+                isAnimating = !reduceMotion
+            }
+            .onChange(of: reduceMotion) { _, newValue in
+                isAnimating = !newValue
+            }
+    }
+}
+
 private enum GitHubBackupOperation {
     case checking
     case verifying
@@ -1061,7 +1090,7 @@ private enum GitHubBackupOperation {
         case .uploading:
             "Uploading backup…"
         case .downloading:
-            "Downloading backup…"
+            "Checking backup…"
         }
     }
 }
@@ -1072,7 +1101,7 @@ private enum GitHubBackupAlert: Identifiable {
     case nothingToRestore
     case uploaded(String)
     case error(String)
-    case restore(PlantStoryBackupArchive)
+    case restore(GitHubBackupRestorePlan)
     case notice(title: String, message: String)
 
     var id: String {
@@ -1103,6 +1132,8 @@ private struct GitHubBackupView: View {
     @State private var githubBackupAlert: GitHubBackupAlert?
     @State private var estimatedBackupSize: Int?
     @State private var isEstimatingBackupSize = true
+    @State private var restoreProgress: GitHubBackupRestoreProgress?
+    @State private var restoreTask: Task<Void, Never>?
 
     private let service = GitHubBackupService()
     private let newRepositoryURL = URL(string: "https://github.com/new?visibility=private")!
@@ -1209,9 +1240,26 @@ private struct GitHubBackupView: View {
             }
 
             Section {
-                if let operation {
+                if let restoreProgress {
+                    VStack(alignment: .leading, spacing: 8) {
+                        ProgressView(
+                            value: Double(restoreProgress.completedBytes),
+                            total: Double(max(restoreProgress.totalBytes, 1))
+                        )
+                        .accessibilityLabel("Restoring GitHub backup")
+                        .accessibilityValue(restoreProgressText(restoreProgress))
+
+                        Text(restoreProgressText(restoreProgress))
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+
+                        Button("Cancel Restore", role: .cancel) {
+                            restoreTask?.cancel()
+                        }
+                    }
+                } else if let operation {
                     HStack(spacing: 10) {
-                        ProgressView()
+                        GitHubBackupActivityIndicator()
                         Text(operation.title)
                             .foregroundStyle(.secondary)
                     }
@@ -1268,14 +1316,14 @@ private struct GitHubBackupView: View {
             } header: {
                 Text("Manual GitHub backup")
             } footer: {
-                Text("Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, and matching backups are skipped. GitHub keeps commit history when a backup changes, so the repository can grow over time. Use Export Backup for larger collections.")
+                Text("Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 1 GB in total. Unchanged photos are reused, and matching backups are skipped. GitHub keeps commit history when a backup changes, so the repository can grow over time. Use Export Backup for larger collections.")
             }
 
             Section("Privacy & recovery") {
                 Text("The backup includes plants, Wild Finds, photos, notes, locations, timelines, and care history. GitHub stores this data under your GitHub account. A private repository limits access but is not end-to-end encrypted by PlantStory.")
                     .font(.subheadline)
 
-                Text("Restoring checks the remote backup first. Matching backups are skipped. When a backup differs, PlantStory downloads and validates it, shows its date and collection size, and asks before replacing local data.")
+                Text("Restoring checks the remote backup first. Matching backups are skipped. When a backup differs, PlantStory shows its date, collection size, and download size before asking. Photos download and validate one at a time, and you can cancel without replacing local data.")
                     .font(.subheadline)
 
                 Link("Read GitHub’s Privacy Statement", destination: privacyURL)
@@ -1285,6 +1333,9 @@ private struct GitHubBackupView: View {
         .navigationBarTitleDisplayMode(.inline)
         .task {
             await updateEstimatedBackupSize()
+        }
+        .onDisappear {
+            restoreTask?.cancel()
         }
         .background {
             Color.clear
@@ -1519,10 +1570,10 @@ private struct GitHubBackupView: View {
             }
         case .nothingToBackUp, .nothingToRestore, .uploaded, .error, .notice:
             Button("OK") {}
-        case let .restore(backup):
+        case let .restore(plan):
             Button("Cancel", role: .cancel) {}
             Button("Restore", role: .destructive) {
-                restore(backup)
+                startRestore(plan)
             }
         }
     }
@@ -1552,16 +1603,20 @@ private struct GitHubBackupView: View {
             )
         case let .error(message):
             Text(message)
-        case let .restore(backup):
+        case let .restore(plan):
             Text(
                 AppLocalization.string(
-                    "GitHub backup from %@ with %@. Your current plants and Wild Finds will be replaced.",
+                    "GitHub backup from %@ contains %@ and is %@. Your current plants and Wild Finds will be replaced.",
                     AppLocalization.dateString(
-                        backup.createdAt,
+                        plan.createdAt,
                         dateStyle: .medium,
                         timeStyle: .short
                     ),
-                    itemSummary(for: backup)
+                    itemSummary(
+                        plantCount: plan.plantCount,
+                        wildFindCount: plan.wildFindCount
+                    ),
+                    byteCountText(plan.totalSize)
                 )
             )
         case let .notice(_, message):
@@ -1571,23 +1626,20 @@ private struct GitHubBackupView: View {
 
     @MainActor
     private func downloadBackup() async {
+        guard operation == nil else { return }
         operation = .downloading
         defer { operation = nil }
 
         do {
-            let result = try await service.download(
+            let result = try await service.restorePlan(
                 plants: plantStore.plants,
                 wildFinds: wildFindStore.finds,
                 from: repository,
                 token: try availableToken()
             )
             switch result {
-            case let .downloaded(snapshot):
-                githubBackupAlert = .restore(PlantStoryBackupArchive(
-                    createdAt: snapshot.createdAt,
-                    plants: snapshot.plants,
-                    wildFinds: snapshot.wildFinds
-                ))
+            case let .available(plan):
+                githubBackupAlert = .restore(plan)
             case .unchanged:
                 githubBackupAlert = .nothingToRestore
             }
@@ -1607,42 +1659,99 @@ private struct GitHubBackupView: View {
         return savedToken
     }
 
-    private func restore(_ backup: PlantStoryBackupArchive) {
-        let previousPlants = plantStore.plants
+    @MainActor
+    private func startRestore(_ plan: GitHubBackupRestorePlan) {
+        guard restoreTask == nil else { return }
+        githubBackupAlert = nil
+        operation = .downloading
+        restoreProgress = GitHubBackupRestoreProgress(
+            completedBytes: 0,
+            totalBytes: plan.totalSize,
+            completedPhotos: 0,
+            totalPhotos: plan.photoCount
+        )
+        restoreTask = Task {
+            await restore(plan)
+        }
+    }
+
+    @MainActor
+    private func restore(_ plan: GitHubBackupRestorePlan) async {
+        var downloadedSnapshot: GitHubBackupSnapshot?
+        defer {
+            operation = nil
+            restoreProgress = nil
+            restoreTask = nil
+        }
 
         do {
-            try plantStore.replaceAll(with: backup.plants)
-            do {
-                try wildFindStore.replaceAll(with: backup.wildFinds)
-            } catch {
-                try? plantStore.replaceAll(with: previousPlants)
-                throw error
+            let snapshot = try await service.restore(
+                from: plan,
+                token: try availableToken()
+            ) { progress in
+                await MainActor.run {
+                    restoreProgress = progress
+                }
             }
+            downloadedSnapshot = snapshot
+            try Task.checkCancellation()
+            try apply(snapshot)
+            downloadedSnapshot = nil
 
             let restoredMessage = AppLocalization.string(
                 "Restored %@ from GitHub.",
-                itemSummary(for: backup)
-            )
-            Task { @MainActor in
-                try? await Task.sleep(for: .milliseconds(300))
-                githubBackupAlert = .notice(
-                    title: AppLocalization.string("Backup restored"),
-                    message: restoredMessage
+                itemSummary(
+                    plantCount: snapshot.plants.count,
+                    wildFindCount: snapshot.wildFinds.count
                 )
-            }
+            )
+            githubBackupAlert = .notice(
+                title: AppLocalization.string("Backup restored"),
+                message: restoredMessage
+            )
             Task { await updateEstimatedBackupSize() }
+        } catch is CancellationError {
+            if let downloadedSnapshot {
+                PhotoFileStore.delete(downloadedSnapshot.stagedPhotoFilenames)
+            }
         } catch {
+            if let downloadedSnapshot {
+                PhotoFileStore.delete(downloadedSnapshot.stagedPhotoFilenames)
+            }
             present(error)
         }
     }
 
-    private func itemSummary(for backup: PlantStoryBackupArchive) -> String {
-        let plantLabel = backup.plants.count == 1
+    private func apply(_ snapshot: GitHubBackupSnapshot) throws {
+        let previousPlants = plantStore.plants
+        let previousWildFinds = wildFindStore.finds
+
+        do {
+            try plantStore.replaceAll(with: snapshot.plants)
+            do {
+                try wildFindStore.replaceAll(with: snapshot.wildFinds)
+            } catch {
+                try? plantStore.replaceAll(with: previousPlants)
+                try? wildFindStore.replaceAll(with: previousWildFinds)
+                throw error
+            }
+            let retainedFilenames = Set(
+                plantStore.plants.flatMap(\.photos).compactMap(\.filename)
+                    + wildFindStore.finds.flatMap(\.photos).compactMap(\.filename)
+            )
+            PhotoFileStore.deleteUnreferencedFiles(keeping: retainedFilenames)
+        } catch {
+            throw error
+        }
+    }
+
+    private func itemSummary(plantCount: Int, wildFindCount: Int) -> String {
+        let plantLabel = plantCount == 1
             ? AppLocalization.string("1 plant")
-            : AppLocalization.string("%lld plants", Int64(backup.plants.count))
-        let findLabel = backup.wildFinds.count == 1
+            : AppLocalization.string("%lld plants", Int64(plantCount))
+        let findLabel = wildFindCount == 1
             ? AppLocalization.string("1 wild find")
-            : AppLocalization.string("%lld wild finds", Int64(backup.wildFinds.count))
+            : AppLocalization.string("%lld wild finds", Int64(wildFindCount))
         return AppLocalization.string("%@ and %@", plantLabel, findLabel)
     }
 
@@ -1656,14 +1765,26 @@ private struct GitHubBackupView: View {
     }
 
     private func backupSizeText(_ byteCount: Int) -> String {
+        let estimated = byteCountText(byteCount)
+        let limit = byteCountText(GitHubBackupService.maximumBackupSize)
+        return AppLocalization.string("%@ of %@", estimated, limit)
+    }
+
+    private func byteCountText(_ byteCount: Int) -> String {
         let formatter = ByteCountFormatter()
         formatter.countStyle = .memory
         formatter.allowedUnits = [.useKB, .useMB, .useGB]
-        let estimated = formatter.string(fromByteCount: Int64(byteCount))
-        let limit = formatter.string(
-            fromByteCount: Int64(GitHubBackupService.maximumRestoredBackupSize)
+        return formatter.string(fromByteCount: Int64(byteCount))
+    }
+
+    private func restoreProgressText(_ progress: GitHubBackupRestoreProgress) -> String {
+        AppLocalization.string(
+            "%@ of %@ · %lld of %lld photos",
+            byteCountText(progress.completedBytes),
+            byteCountText(progress.totalBytes),
+            Int64(progress.completedPhotos),
+            Int64(progress.totalPhotos)
         )
-        return AppLocalization.string("%@ of %@", estimated, limit)
     }
 
     private func disconnect() {

@@ -25,6 +25,44 @@ struct GitHubBackupSnapshot {
     let createdAt: Date
     let plants: [Plant]
     let wildFinds: [WildFind]
+    let stagedPhotoFilenames: Set<String>
+
+    init(
+        createdAt: Date,
+        plants: [Plant],
+        wildFinds: [WildFind],
+        stagedPhotoFilenames: Set<String> = []
+    ) {
+        self.createdAt = createdAt
+        self.plants = plants
+        self.wildFinds = wildFinds
+        self.stagedPhotoFilenames = stagedPhotoFilenames
+    }
+}
+
+struct GitHubBackupRestorePlan {
+    let createdAt: Date
+    let plantCount: Int
+    let wildFindCount: Int
+    let photoCount: Int
+    let totalSize: Int
+
+    fileprivate let manifestSize: Int
+    fileprivate let repository: GitHubBackupRepository
+    fileprivate let revision: String
+    fileprivate let payload: GitHubBackupRestorePayload
+}
+
+enum GitHubBackupRestorePlanResult {
+    case available(GitHubBackupRestorePlan)
+    case unchanged
+}
+
+struct GitHubBackupRestoreProgress {
+    let completedBytes: Int
+    let totalBytes: Int
+    let completedPhotos: Int
+    let totalPhotos: Int
 }
 
 struct GitHubBackupUploadPlan {
@@ -47,17 +85,13 @@ enum GitHubBackupUploadResult {
     case unchanged
 }
 
-enum GitHubBackupDownloadResult {
-    case downloaded(GitHubBackupSnapshot)
-    case unchanged
-}
-
 struct GitHubBackupService {
     static let backupPath = "plantstory/backup.json"
     static let maximumManifestSize = 5 * 1_024 * 1_024
     static let maximumGitBlobSize = 95 * 1_024 * 1_024
     static let maximumLegacyBackupSize = 50 * 1_024 * 1_024
-    static let maximumRestoredBackupSize = 500 * 1_024 * 1_024
+    static let maximumBackupSize = 1_024 * 1_024 * 1_024
+    static let restoreStorageReserve = 100 * 1_024 * 1_024
 
     private let session: URLSession
 
@@ -165,7 +199,7 @@ struct GitHubBackupService {
                 sha = existingSHA
             } else {
                 sha = try await createBlob(
-                    photo.data,
+                    try photo.loadData(),
                     repository: repository,
                     token: token
                 ).sha
@@ -232,10 +266,10 @@ struct GitHubBackupService {
         guard package.manifestData.count <= Self.maximumManifestSize else {
             throw GitHubBackupError.manifestTooLarge
         }
-        guard package.photos.allSatisfy({ $0.data.count <= Self.maximumGitBlobSize }) else {
+        guard package.photos.allSatisfy({ $0.byteCount <= Self.maximumGitBlobSize }) else {
             throw GitHubBackupError.photoTooLarge
         }
-        guard package.totalSize <= Self.maximumRestoredBackupSize else {
+        guard package.totalSize <= Self.maximumBackupSize else {
             throw GitHubBackupError.backupTooLarge
         }
 
@@ -291,7 +325,7 @@ struct GitHubBackupService {
             photosToReuse: package.photos.count - photosToUpload.count,
             photosToRemove: photosToRemove,
             estimatedUploadSize: hasChanges
-                ? package.manifestData.count + photosToUpload.reduce(0) { $0 + $1.data.count }
+                ? package.manifestData.count + photosToUpload.reduce(0) { $0 + $1.byteCount }
                 : 0,
             dataHasChanges: dataHasChanges
         )
@@ -337,19 +371,25 @@ struct GitHubBackupService {
         return remoteContents != package.contentsData
     }
 
-    func download(
+    func restorePlan(
         plants: [Plant],
         wildFinds: [WildFind],
         from repository: GitHubBackupRepository,
         token: String
-    ) async throws -> GitHubBackupDownloadResult {
+    ) async throws -> GitHubBackupRestorePlanResult {
         let info = try await verify(repository: repository, token: token)
         let repository = try validated(repository)
         let token = try validated(token)
+        let reference = try await branchReference(
+            repository: repository,
+            branch: info.defaultBranch,
+            token: token
+        )
+        let revision = reference.object.sha
         let manifestData = try await downloadFile(
             path: Self.backupPath,
             repository: repository,
-            branch: info.defaultBranch,
+            branch: revision,
             token: token,
             notFound: .backupNotFound
         )
@@ -366,22 +406,29 @@ struct GitHubBackupService {
                 throw GitHubBackupError.backupTooLarge
             }
             let legacy = try decoder.decode(LegacyGitHubBackupArchive.self, from: manifestData)
-            let localContents = try GitHubBackupPackage(
-                plants: plants,
-                wildFinds: wildFinds
-            ).contentsData
             let remoteContents = try GitHubBackupPackage(
                 plants: legacy.plants,
                 wildFinds: legacy.wildFinds
             ).contentsData
-            guard localContents != remoteContents else {
+            guard try !localBackupMatches(
+                plants: plants,
+                wildFinds: wildFinds,
+                remoteContents: remoteContents
+            ) else {
                 return .unchanged
             }
-            return .downloaded(
-                GitHubBackupSnapshot(
+            return .available(
+                GitHubBackupRestorePlan(
                     createdAt: legacy.createdAt,
-                    plants: legacy.plants,
-                    wildFinds: legacy.wildFinds
+                    plantCount: legacy.plants.count,
+                    wildFindCount: legacy.wildFinds.count,
+                    photoCount: legacy.plants.reduce(0) { $0 + $1.photos.count }
+                        + legacy.wildFinds.reduce(0) { $0 + $1.photos.count },
+                    totalSize: manifestData.count,
+                    manifestSize: manifestData.count,
+                    repository: repository,
+                    revision: revision,
+                    payload: .legacy(legacy)
                 )
             )
         case GitHubBackupManifest.currentFormatVersion:
@@ -389,27 +436,108 @@ struct GitHubBackupService {
                 throw GitHubBackupError.manifestTooLarge
             }
             let manifest = try decoder.decode(GitHubBackupManifest.self, from: manifestData)
-            let localContents = try GitHubBackupPackage(
-                plants: plants,
-                wildFinds: wildFinds
-            ).contentsData
             let remoteContents = try GitHubBackupPackage.encodedContents(
                 plants: manifest.plants,
                 wildFinds: manifest.wildFinds
             )
-            guard localContents != remoteContents else {
+            guard try !localBackupMatches(
+                plants: plants,
+                wildFinds: wildFinds,
+                remoteContents: remoteContents
+            ) else {
                 return .unchanged
             }
-            let snapshot = try await restore(
-                manifest,
-                manifestSize: manifestData.count,
+            let commit = try await commit(
                 repository: repository,
-                branch: info.defaultBranch,
+                sha: revision,
                 token: token
             )
-            return .downloaded(snapshot)
+            let tree = try await tree(
+                repository: repository,
+                sha: commit.tree.sha,
+                token: token
+            )
+            guard !tree.truncated else {
+                throw GitHubBackupError.invalidResponse
+            }
+            let entries = Dictionary(
+                uniqueKeysWithValues: tree.tree.map { ($0.path, $0) }
+            )
+            let photoPaths = uniquePhotoPaths(in: manifest)
+            var photoSizes: [String: Int] = [:]
+            var totalSize = manifestData.count
+            for path in photoPaths {
+                guard path.hasPrefix(GitHubBackupPackage.photoDirectory + "/"),
+                      let entry = entries[path],
+                      entry.type == "blob",
+                      let size = entry.size,
+                      size >= 0,
+                      size <= Self.maximumGitBlobSize else {
+                    throw GitHubBackupError.invalidBackupPhoto
+                }
+                let (nextTotal, overflow) = totalSize.addingReportingOverflow(size)
+                guard !overflow, nextTotal <= Self.maximumBackupSize else {
+                    throw GitHubBackupError.backupTooLarge
+                }
+                totalSize = nextTotal
+                photoSizes[path] = size
+            }
+            return .available(
+                GitHubBackupRestorePlan(
+                    createdAt: manifest.createdAt,
+                    plantCount: manifest.plants.count,
+                    wildFindCount: manifest.wildFinds.count,
+                    photoCount: photoPaths.count,
+                    totalSize: totalSize,
+                    manifestSize: manifestData.count,
+                    repository: repository,
+                    revision: revision,
+                    payload: .manifest(manifest, photoSizes: photoSizes)
+                )
+            )
         default:
             throw GitHubBackupError.unsupportedBackupVersion(version.formatVersion)
+        }
+    }
+
+    func restore(
+        from plan: GitHubBackupRestorePlan,
+        token: String,
+        progress: @escaping (GitHubBackupRestoreProgress) async -> Void
+    ) async throws -> GitHubBackupSnapshot {
+        let token = try validated(token)
+        switch plan.payload {
+        case let .legacy(legacy):
+            let requiredCapacity = Int64(plan.totalSize + Self.restoreStorageReserve)
+            if let availableCapacity = PhotoFileStore.availableCapacity(),
+               availableCapacity < requiredCapacity {
+                throw GitHubBackupError.insufficientStorage
+            }
+            try Task.checkCancellation()
+            await progress(
+                GitHubBackupRestoreProgress(
+                    completedBytes: plan.totalSize,
+                    totalBytes: plan.totalSize,
+                    completedPhotos: plan.photoCount,
+                    totalPhotos: plan.photoCount
+                )
+            )
+            return GitHubBackupSnapshot(
+                createdAt: legacy.createdAt,
+                plants: legacy.plants,
+                wildFinds: legacy.wildFinds
+            )
+        case let .manifest(manifest, photoSizes):
+            return try await restore(
+                manifest,
+                manifestSize: plan.manifestSize,
+                totalSize: plan.totalSize,
+                photoSizes: photoSizes,
+                repository: plan.repository,
+                revision: plan.revision,
+                token: token,
+                progress: progress
+            )
         }
     }
 
@@ -563,57 +691,119 @@ struct GitHubBackupService {
     private func restore(
         _ manifest: GitHubBackupManifest,
         manifestSize: Int,
+        totalSize: Int,
+        photoSizes: [String: Int],
         repository: GitHubBackupRepository,
-        branch: String,
-        token: String
+        revision: String,
+        token: String,
+        progress: @escaping (GitHubBackupRestoreProgress) async -> Void
     ) async throws -> GitHubBackupSnapshot {
-        var restoredPlants: [Plant] = []
-        var restoredWildFinds: [WildFind] = []
-        var totalSize = manifestSize
-
-        for record in manifest.plants {
-            var plant = record.plant
-            plant.photos = []
-            for path in record.photoPaths {
-                let photo = try await downloadPhoto(
-                    path: path,
-                    repository: repository,
-                    branch: branch,
-                    token: token
-                )
-                guard photo.count <= Self.maximumRestoredBackupSize - totalSize else {
-                    throw GitHubBackupError.backupTooLarge
-                }
-                totalSize += photo.count
-                plant.photos.append(PlantPhotoAsset(data: photo))
-            }
-            restoredPlants.append(plant)
+        let requiredCapacity = Int64(totalSize - manifestSize + Self.restoreStorageReserve)
+        if let availableCapacity = PhotoFileStore.availableCapacity(),
+           availableCapacity < requiredCapacity {
+            throw GitHubBackupError.insufficientStorage
         }
 
-        for record in manifest.wildFinds {
-            var wildFind = record.wildFind
-            wildFind.photos = []
-            for path in record.photoPaths {
-                let photo = try await downloadPhoto(
-                    path: path,
-                    repository: repository,
-                    branch: branch,
-                    token: token
-                )
-                guard photo.count <= Self.maximumRestoredBackupSize - totalSize else {
-                    throw GitHubBackupError.backupTooLarge
-                }
-                totalSize += photo.count
-                wildFind.photos.append(PlantPhotoAsset(data: photo))
-            }
-            restoredWildFinds.append(wildFind)
-        }
+        let photoPaths = uniquePhotoPaths(in: manifest)
+        var completedBytes = manifestSize
+        var completedPhotos = 0
+        var stagedPhotoFilenames: Set<String> = []
+        var photoAssetsByPath: [String: PlantPhotoAsset] = [:]
 
-        return GitHubBackupSnapshot(
-            createdAt: manifest.createdAt,
-            plants: restoredPlants,
-            wildFinds: restoredWildFinds
+        await progress(
+            GitHubBackupRestoreProgress(
+                completedBytes: completedBytes,
+                totalBytes: totalSize,
+                completedPhotos: completedPhotos,
+                totalPhotos: photoPaths.count
+            )
         )
+
+        do {
+            for path in photoPaths {
+                try Task.checkCancellation()
+                let photo = try await downloadPhoto(
+                    path: path,
+                    repository: repository,
+                    branch: revision,
+                    token: token
+                )
+                guard photo.count == photoSizes[path] else {
+                    throw GitHubBackupError.invalidBackupPhoto
+                }
+                let pathExtension = URL(fileURLWithPath: path).pathExtension
+                let filename = UUID().uuidString
+                    + (pathExtension.isEmpty ? ".jpg" : ".\(pathExtension)")
+                let asset = try PhotoFileStore.store(photo, as: filename)
+                stagedPhotoFilenames.insert(filename)
+                photoAssetsByPath[path] = asset
+                completedBytes += photo.count
+                completedPhotos += 1
+                await progress(
+                    GitHubBackupRestoreProgress(
+                        completedBytes: completedBytes,
+                        totalBytes: totalSize,
+                        completedPhotos: completedPhotos,
+                        totalPhotos: photoPaths.count
+                    )
+                )
+            }
+
+            try Task.checkCancellation()
+            let restoredPlants = try manifest.plants.map { record in
+                var plant = record.plant
+                plant.photos = try record.photoPaths.map { path in
+                    guard let asset = photoAssetsByPath[path] else {
+                        throw GitHubBackupError.invalidBackupPhoto
+                    }
+                    return asset
+                }
+                return plant
+            }
+            let restoredWildFinds = try manifest.wildFinds.map { record in
+                var wildFind = record.wildFind
+                wildFind.photos = try record.photoPaths.map { path in
+                    guard let asset = photoAssetsByPath[path] else {
+                        throw GitHubBackupError.invalidBackupPhoto
+                    }
+                    return asset
+                }
+                return wildFind
+            }
+
+            return GitHubBackupSnapshot(
+                createdAt: manifest.createdAt,
+                plants: restoredPlants,
+                wildFinds: restoredWildFinds,
+                stagedPhotoFilenames: stagedPhotoFilenames
+            )
+        } catch {
+            PhotoFileStore.delete(stagedPhotoFilenames)
+            throw error
+        }
+    }
+
+    private func uniquePhotoPaths(in manifest: GitHubBackupManifest) -> [String] {
+        let paths = manifest.plants.flatMap(\.photoPaths)
+            + manifest.wildFinds.flatMap(\.photoPaths)
+        var seen: Set<String> = []
+        return paths.filter { seen.insert($0).inserted }
+    }
+
+    private func localBackupMatches(
+        plants: [Plant],
+        wildFinds: [WildFind],
+        remoteContents: Data
+    ) throws -> Bool {
+        do {
+            let localContents = try GitHubBackupPackage(
+                plants: plants,
+                wildFinds: wildFinds
+            ).contentsData
+            return localContents == remoteContents
+        } catch GitHubBackupError.invalidBackupPhoto {
+            return false
+        }
     }
 
     private func downloadPhoto(
@@ -801,6 +991,7 @@ enum GitHubBackupError: LocalizedError {
     case backupTooLarge
     case manifestTooLarge
     case photoTooLarge
+    case insufficientStorage
     case invalidBackupPhoto
     case unsupportedBackupVersion(Int)
     case repositoryConflict
@@ -823,11 +1014,13 @@ enum GitHubBackupError: LocalizedError {
         case .backupNotFound:
             AppLocalization.string("No PlantStory backup was found in this repository.")
         case .backupTooLarge:
-            AppLocalization.string("This GitHub backup is too large for PlantStory to restore safely.")
+            AppLocalization.string("This GitHub backup is larger than PlantStory’s 1 GB limit.")
         case .manifestTooLarge:
             AppLocalization.string("This GitHub backup’s index is too large or damaged.")
         case .photoTooLarge:
             AppLocalization.string("A photo is too large for GitHub backup. Use Export Backup instead.")
+        case .insufficientStorage:
+            AppLocalization.string("This iPhone does not have enough free storage to restore the GitHub backup safely.")
         case .invalidBackupPhoto:
             AppLocalization.string("A photo in the GitHub backup is missing or damaged.")
         case let .unsupportedBackupVersion(version):
@@ -857,6 +1050,11 @@ private struct GitHubBackupUploadPreparation {
     let plan: GitHubBackupUploadPlan
 }
 
+fileprivate enum GitHubBackupRestorePayload {
+    case legacy(LegacyGitHubBackupArchive)
+    case manifest(GitHubBackupManifest, photoSizes: [String: Int])
+}
+
 private struct GitHubBackupPackage {
     static let photoDirectory = "plantstory/photos"
 
@@ -865,33 +1063,36 @@ private struct GitHubBackupPackage {
     let photos: [GitHubBackupPhoto]
 
     var totalSize: Int {
-        manifestData.count + photos.reduce(0) { $0 + $1.data.count }
+        manifestData.count + photos.reduce(0) { $0 + $1.byteCount }
     }
 
     init(plants: [Plant], wildFinds: [WildFind]) throws {
-        var photoDataByPath: [String: Data] = [:]
-        let plantRecords = try plants.map { plant in
-            let paths = try plant.photos.map { photo in
-                guard let data = photo.loadData() else {
-                    throw GitHubBackupError.invalidBackupPhoto
-                }
-                let path = Self.photoPath(for: data)
-                photoDataByPath[path] = data
-                return path
+        var photosByPath: [String: GitHubBackupPhoto] = [:]
+
+        func register(_ photo: PlantPhotoAsset) throws -> String {
+            guard let data = photo.loadData() else {
+                throw GitHubBackupError.invalidBackupPhoto
             }
+            let path = Self.photoPath(for: data)
+            if photosByPath[path] == nil {
+                photosByPath[path] = GitHubBackupPhoto(
+                    path: path,
+                    source: photo,
+                    byteCount: data.count,
+                    gitBlobSHA: Self.gitBlobSHA(for: data)
+                )
+            }
+            return path
+        }
+
+        let plantRecords = try plants.map { plant in
+            let paths = try plant.photos.map(register)
             var plantWithoutPhotos = plant
             plantWithoutPhotos.photos = []
             return GitHubPlantRecord(plant: plantWithoutPhotos, photoPaths: paths)
         }
         let wildFindRecords = try wildFinds.map { wildFind in
-            let paths = try wildFind.photos.map { photo in
-                guard let data = photo.loadData() else {
-                    throw GitHubBackupError.invalidBackupPhoto
-                }
-                let path = Self.photoPath(for: data)
-                photoDataByPath[path] = data
-                return path
-            }
+            let paths = try wildFind.photos.map(register)
             var wildFindWithoutPhotos = wildFind
             wildFindWithoutPhotos.photos = []
             return GitHubWildFindRecord(wildFind: wildFindWithoutPhotos, photoPaths: paths)
@@ -909,9 +1110,7 @@ private struct GitHubBackupPackage {
             wildFinds: wildFindRecords
         )
         manifestData = try encoder.encode(manifest)
-        photos = photoDataByPath.map {
-            GitHubBackupPhoto(path: $0.key, data: $0.value)
-        }
+        photos = Array(photosByPath.values)
     }
 
     static func photoPath(for data: Data) -> String {
@@ -933,6 +1132,14 @@ private struct GitHubBackupPackage {
         )
     }
 
+    private static func gitBlobSHA(for data: Data) -> String {
+        var object = Data("blob \(data.count)\0".utf8)
+        object.append(data)
+        return Insecure.SHA1.hash(data: object)
+            .map { String(format: "%02x", $0) }
+            .joined()
+    }
+
     private static func fileExtension(for data: Data) -> String {
         if data.starts(with: [0xFF, 0xD8, 0xFF]) { return "jpg" }
         if data.starts(with: [0x89, 0x50, 0x4E, 0x47]) { return "png" }
@@ -952,14 +1159,17 @@ private struct GitHubBackupPackage {
 
 private struct GitHubBackupPhoto {
     let path: String
-    let data: Data
+    let source: PlantPhotoAsset
+    let byteCount: Int
+    let gitBlobSHA: String
 
-    var gitBlobSHA: String {
-        var object = Data("blob \(data.count)\0".utf8)
-        object.append(data)
-        return Insecure.SHA1.hash(data: object)
-            .map { String(format: "%02x", $0) }
-            .joined()
+    func loadData() throws -> Data {
+        guard let data = source.loadData(),
+              data.count == byteCount,
+              GitHubBackupPackage.photoPath(for: data) == path else {
+            throw GitHubBackupError.invalidBackupPhoto
+        }
+        return data
     }
 }
 
@@ -1047,6 +1257,21 @@ private struct GitHubTreeEntry: Codable {
     let mode: String
     let type: String
     let sha: String?
+    let size: Int?
+
+    init(
+        path: String,
+        mode: String,
+        type: String,
+        sha: String?,
+        size: Int? = nil
+    ) {
+        self.path = path
+        self.mode = mode
+        self.type = type
+        self.sha = sha
+        self.size = size
+    }
 }
 
 private struct GitHubCommitRequest: Encodable {

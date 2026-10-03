@@ -4,6 +4,16 @@
     "" : {
 
     },
+    "%@ of %@ · %lld of %lld photos" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ / %2$@ · %3$lld / %4$lld张照片"
+          }
+        }
+      }
+    },
     "%lld of %lld photos complete" : {
       "localizations" : {
         "zh-Hans" : {
@@ -470,18 +480,18 @@
         }
       }
     },
-    "GitHub backup from %@ with %@. Your current plants and Wild Finds will be replaced." : {
+    "GitHub backup from %@ contains %@ and is %@. Your current plants and Wild Finds will be replaced." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "GitHub backup from %1$@ with %2$@. Your current plants and Wild Finds will be replaced."
+            "value" : "GitHub backup from %1$@ contains %2$@ and is %3$@. Your current plants and Wild Finds will be replaced."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "GitHub 备份创建于 %1$@，包含 %2$@。你当前的植物和野外发现将被替换。"
+            "value" : "GitHub备份创建于%1$@，包含%2$@，大小为%3$@。你当前的植物和野外发现将被替换。"
           }
         }
       }
@@ -636,12 +646,12 @@
         }
       }
     },
-    "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 500 MB in total. Unchanged photos are reused, and matching backups are skipped. GitHub keeps commit history when a backup changes, so the repository can grow over time. Use Export Backup for larger collections." : {
+    "Nothing uploads automatically. PlantStory stores a JSON manifest and individual photo files in the plantstory folder. PlantStory supports backups up to 1 GB in total. Unchanged photos are reused, and matching backups are skipped. GitHub keeps commit history when a backup changes, so the repository can grow over time. Use Export Backup for larger collections." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不会自动上传任何内容。PlantStory 会在 plantstory 文件夹中保存 JSON 清单和单独的照片文件。PlantStory 支持总大小不超过 500 MB 的备份。未更改的照片会重复使用，内容一致时会跳过备份。备份发生变化时，GitHub 会保留提交历史，因此仓库可能会随时间增长。对于更大的资料库，请使用“导出备份”。"
+            "value" : "不会自动上传任何内容。PlantStory会在plantstory文件夹中保存JSON清单和单独的照片文件。PlantStory支持总大小不超过1 GB的备份。未更改的照片会重复使用，内容一致时会跳过备份。备份发生变化时，GitHub会保留提交历史，因此仓库可能会随时间增长。对于更大的资料库，请使用“导出备份”。"
           }
         }
       }
@@ -798,12 +808,22 @@
         }
       }
     },
-    "Restoring checks the remote backup first. Matching backups are skipped. When a backup differs, PlantStory downloads and validates it, shows its date and collection size, and asks before replacing local data." : {
+    "Restoring GitHub backup" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "恢复时会先检查远程备份。内容一致时会跳过；有差异时，PlantStory 会下载并验证备份，显示日期和收藏数量，并在替换本地数据前再次询问。"
+            "value" : "正在恢复GitHub备份"
+          }
+        }
+      }
+    },
+    "Restoring checks the remote backup first. Matching backups are skipped. When a backup differs, PlantStory shows its date, collection size, and download size before asking. Photos download and validate one at a time, and you can cancel without replacing local data." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复时会先检查远程备份。内容一致时会跳过；有差异时，PlantStory会先显示备份日期、收藏数量和下载大小并请求确认。照片会逐张下载和验证，你也可以随时取消，不会替换本地数据。"
           }
         }
       }
@@ -848,12 +868,22 @@
         }
       }
     },
-    "This GitHub backup is too large for PlantStory to restore safely." : {
+    "This GitHub backup is larger than PlantStory’s 1 GB limit." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "此 GitHub 备份过大，PlantStory 无法安全恢复。"
+            "value" : "这个GitHub备份超过PlantStory的1 GB限制。"
+          }
+        }
+      }
+    },
+    "This iPhone does not have enough free storage to restore the GitHub backup safely." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这台iPhone没有足够的可用空间来安全恢复GitHub备份。"
           }
         }
       }
@@ -3148,6 +3178,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消"
+          }
+        }
+      }
+    },
+    "Cancel Restore" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消恢复"
           }
         }
       }
