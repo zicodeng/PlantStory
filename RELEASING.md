@@ -56,6 +56,7 @@ When the release is feature-complete:
 
 ### 3. Archive and submit
 
+- The cue **archive build** authorizes this archive-preparation step only. It does not authorize upload, submission, merging into `main`, or release finalization.
 - Archive `PlantStory.xcodeproj` with the `PlantStory` scheme and normal signing.
 - Store archives under `~/Library/Developer/Xcode/Archives/YYYY-MM-DD/` so they appear in Xcode Organizer.
 - Verify the archived app and widget contain the intended version and build.
@@ -78,6 +79,8 @@ PlantStory 1.7 adds an optional GitHub backup and makes plant editing smoother.
 ### 4. Merge after submission
 
 Once the exact build has been submitted to App Review, merge its branch into `main`. Do not wait for approval.
+
+The user’s statement **app submitted** is the cue and explicit authorization for this step. Verify that the release branch contains the exact submitted version and build, commit any outstanding release metadata required to represent that submitted build, then fast-forward merge it into `main` and push `main` to `origin`. Do not date the changelog or create the release tag at this stage.
 
 ```sh
 git switch main
