@@ -7,6 +7,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 ### Bug fixes
 
 - Dismissed the keyboard consistently when tapping outside any text field or search box.
+- Prevented garden and Wild Find cards from treating their surrounding grid cells as part of the cards.
 
 ## [1.11] - Unreleased
 

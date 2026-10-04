@@ -127,15 +127,27 @@ struct WildFindsView: View {
                     } else {
                         LazyVGrid(columns: columns, alignment: .leading, spacing: 18) {
                             ForEach(visibleFinds) { find in
-                                NavigationLink(value: find.id) {
-                                    WildFindCard(find: find, ink: ink, botanical: botanical, paleSun: paleSun)
-                                }
-                                .buttonStyle(.plain)
-                                .contextMenu {
-                                    Button("Delete", systemImage: "trash", role: .destructive) {
-                                        findToDelete = find
+                                WildFindCard(find: find, ink: ink, botanical: botanical, paleSun: paleSun)
+                                    .accessibilityHidden(true)
+                                    .overlay {
+                                        NavigationLink(value: find.id) {
+                                            Color.clear
+                                                .contentShape(Rectangle())
+                                        }
+                                        .buttonStyle(.plain)
+                                        .accessibilityLabel(
+                                            Text(find.name)
+                                                + Text(verbatim: ", ")
+                                                + Text(
+                                                    "Found \(AppLocalization.dateString(find.discoveredDate, dateStyle: .medium))"
+                                                )
+                                        )
                                     }
-                                }
+                                    .contextMenu {
+                                        Button("Delete", systemImage: "trash", role: .destructive) {
+                                            findToDelete = find
+                                        }
+                                    }
                             }
                         }
                     }

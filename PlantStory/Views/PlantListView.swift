@@ -10,6 +10,7 @@ struct PlantListView: View {
     @State private var sortOption: PlantSortOption = .acquiredDate
     @State private var sortDirection: PlantSortDirection = .descending
     @AppStorage(GardenGridLayout.storageKey) private var gardenGridLayoutCode = GardenGridLayout.twoColumns.rawValue
+    @AppStorage(WateringSeason.storageKey) private var activeSeasonCode = WateringSeason.suggested().rawValue
     @Namespace private var gardenViewSelection
 
     private let warmCard = Color(red: 0.98, green: 0.91, blue: 0.76)
@@ -20,6 +21,10 @@ struct PlantListView: View {
     private let lime = Color(red: 0.36, green: 0.82, blue: 0.12)
     private var gardenGridLayout: GardenGridLayout {
         GardenGridLayout(rawValue: gardenGridLayoutCode) ?? .twoColumns
+    }
+
+    private var activeSeason: WateringSeason {
+        WateringSeason(rawValue: activeSeasonCode) ?? .suggested()
     }
 
     private var columns: [GridItem] {
@@ -197,26 +202,27 @@ struct PlantListView: View {
                                                 spacing: gardenGridLayout.rowSpacing
                                             ) {
                                                 ForEach(section.plants) { plant in
-                                                    NavigationLink(value: plant.id) {
-                                                        if gardenGridLayout == .fourColumns {
-                                                            CompactGardenPlantCard(
-                                                                plant: plant,
-                                                                panel: panel
+                                                    gardenCard(for: plant)
+                                                        .accessibilityHidden(true)
+                                                        .overlay {
+                                                            NavigationLink(value: plant.id) {
+                                                                Color.clear
+                                                                    .contentShape(Rectangle())
+                                                            }
+                                                            .buttonStyle(.plain)
+                                                            .accessibilityLabel(
+                                                                gardenCardAccessibilityLabel(for: plant)
                                                             )
-                                                        } else {
-                                                            GardenPlantCard(
-                                                                plant: plant,
-                                                                panel: panel,
-                                                                lime: lime
+                                                            .accessibilityValue(
+                                                                plant.isDeceased ? "In memory" : "Growing"
                                                             )
+                                                            .accessibilityHint("Opens plant details")
                                                         }
-                                                    }
-                                                    .buttonStyle(.plain)
-                                                    .contextMenu {
-                                                        Button("Delete", systemImage: "trash", role: .destructive) {
-                                                            plantToDelete = plant
+                                                        .contextMenu {
+                                                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                                                plantToDelete = plant
+                                                            }
                                                         }
-                                                    }
                                                 }
                                             }
                                         }
@@ -277,6 +283,39 @@ struct PlantListView: View {
         return count == 1
             ? AppLocalization.string("You’re raising 1 plant")
             : AppLocalization.string("You’re raising %lld plants", Int64(count))
+    }
+
+    @ViewBuilder
+    private func gardenCard(for plant: Plant) -> some View {
+        if gardenGridLayout == .fourColumns {
+            CompactGardenPlantCard(
+                plant: plant,
+                panel: panel
+            )
+        } else {
+            GardenPlantCard(
+                plant: plant,
+                panel: panel,
+                lime: lime
+            )
+        }
+    }
+
+    private func gardenCardAccessibilityLabel(for plant: Plant) -> Text {
+        var label = Text(plant.name)
+
+        if plant.isDeceased {
+            label = label + Text(verbatim: ", ") + Text("In memory")
+        }
+
+        guard gardenGridLayout == .twoColumns else { return label }
+
+        label = label + Text(verbatim: ", ") + Text("Day \(plant.daysRaised)")
+        let reminderStatus = WateringReminderText.cardStatus(
+            for: plant,
+            season: activeSeason
+        ) ?? LocalizedStringKey("No reminder set")
+        return label + Text(verbatim: ", ") + Text(reminderStatus)
     }
 
     private func locationHeader(_ section: PlantLocationSection) -> some View {
