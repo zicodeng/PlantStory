@@ -19,7 +19,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 - Dismissed the Wild Finds search keyboard when tapping outside the search field.
 - Dismissed the keyboard in the Wild Find editor when tapping outside its text fields.
 
-## [1.10] - Unreleased
+## [1.10] - 2026-10-03
 
 ### Bug fixes
 
