@@ -423,6 +423,7 @@ struct PlantListView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 36)
+                    .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
                 .accessibilityAddTraits(isSelected ? .isSelected : [])
