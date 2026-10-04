@@ -46,6 +46,8 @@ struct PlantStoryApp: App {
     var body: some Scene {
         WindowGroup {
             AppRootView()
+                .scrollDismissesKeyboard(.interactively)
+                .background(AppKeyboardDismissInstaller())
                 .environmentObject(store)
                 .environmentObject(wildFindStore)
                 .environmentObject(photoStorageMigration)
@@ -82,6 +84,76 @@ struct PlantStoryApp: App {
 
     private var selectedLanguage: AppLanguage {
         AppLanguage(rawValue: appLanguageCode) ?? .english
+    }
+}
+
+private struct AppKeyboardDismissInstaller: UIViewRepresentable {
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: .zero)
+        view.isUserInteractionEnabled = false
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {
+        DispatchQueue.main.async {
+            context.coordinator.installIfNeeded(from: uiView)
+        }
+    }
+
+    static func dismantleUIView(_ uiView: UIView, coordinator: Coordinator) {
+        coordinator.uninstall()
+    }
+
+    final class Coordinator: NSObject, UIGestureRecognizerDelegate {
+        private let tapGesture = UITapGestureRecognizer()
+
+        override init() {
+            super.init()
+            tapGesture.addTarget(self, action: #selector(dismissKeyboard))
+            tapGesture.cancelsTouchesInView = false
+            tapGesture.delaysTouchesBegan = false
+            tapGesture.delaysTouchesEnded = false
+            tapGesture.delegate = self
+        }
+
+        func installIfNeeded(from view: UIView) {
+            guard let window = view.window, tapGesture.view !== window else { return }
+            uninstall()
+            window.addGestureRecognizer(tapGesture)
+        }
+
+        func uninstall() {
+            tapGesture.view?.removeGestureRecognizer(tapGesture)
+        }
+
+        @objc private func dismissKeyboard() {
+            tapGesture.view?.endEditing(true)
+        }
+
+        func gestureRecognizer(
+            _ gestureRecognizer: UIGestureRecognizer,
+            shouldReceive touch: UITouch
+        ) -> Bool {
+            var view = touch.view
+            while let currentView = view {
+                if currentView is UITextField || currentView is UITextView {
+                    return false
+                }
+                view = currentView.superview
+            }
+            return true
+        }
+
+        func gestureRecognizer(
+            _ gestureRecognizer: UIGestureRecognizer,
+            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+        ) -> Bool {
+            true
+        }
     }
 }
 

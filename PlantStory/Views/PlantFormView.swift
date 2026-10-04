@@ -1,6 +1,5 @@
 import PhotosUI
 import SwiftUI
-import UIKit
 
 private enum PlantFormAIAlert: Identifiable {
     case repeatRequest
@@ -14,16 +13,6 @@ private enum PlantFormAIAlert: Identifiable {
             return "error-\(message)"
         }
     }
-}
-
-private enum PlantFormInput: Hashable {
-    case name
-    case otherName
-    case species
-    case location
-    case photoCustomEventTitle(Int)
-    case photoNote(Int)
-    case notes
 }
 
 struct PlantFormView: View {
@@ -57,8 +46,6 @@ struct PlantFormView: View {
     @State private var aiAlert: PlantFormAIAlert?
     @State private var shouldRequestWateringReminderAuthorization = false
     @State private var isSaving = false
-    @FocusState private var focusedInput: PlantFormInput?
-
     private let aiService = PlantAIService()
     private let photoControlSize: CGFloat = 36
     private let photoControlVisualSize: CGFloat = 20
@@ -114,17 +101,13 @@ struct PlantFormView: View {
             Section("Plant") {
                 TextField("Name", text: $name)
                     .textInputAutocapitalization(.words)
-                    .plantFormInput(.name, focus: $focusedInput)
                 TextField("Other name (optional)", text: $otherName)
                     .textInputAutocapitalization(.words)
-                    .plantFormInput(.otherName, focus: $focusedInput)
                 TextField("Species (optional)", text: $species)
                     .textInputAutocapitalization(.words)
-                    .plantFormInput(.species, focus: $focusedInput)
                 HStack(spacing: 10) {
                     TextField("Location (optional)", text: $location)
                         .textInputAutocapitalization(.words)
-                        .plantFormInput(.location, focus: $focusedInput)
 
                     if !existingLocationOptions.isEmpty {
                         Menu {
@@ -317,10 +300,6 @@ struct PlantFormView: View {
                                 .secondary.opacity(0.08),
                                 in: RoundedRectangle(cornerRadius: 10)
                             )
-                            .plantFormInput(
-                                .photoCustomEventTitle(index),
-                                focus: $focusedInput
-                            )
                         }
 
                         TextField("Add a note about this photo…", text: $photoNotes[index], axis: .vertical)
@@ -328,10 +307,6 @@ struct PlantFormView: View {
                             .padding(.horizontal, 12)
                             .padding(.vertical, 10)
                             .background(.secondary.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
-                            .plantFormInput(
-                                .photoNote(index),
-                                focus: $focusedInput
-                            )
                     }
                     .padding(.vertical, 6)
                     .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 12))
@@ -361,11 +336,9 @@ struct PlantFormView: View {
             Section("Notes") {
                 TextField("Light, location, milestones…", text: $notes, axis: .vertical)
                     .lineLimit(4...9)
-                    .plantFormInput(.notes, focus: $focusedInput)
             }
         }
         .scrollDismissesKeyboard(.interactively)
-        .background(PlantFormKeyboardDismissInstaller(focus: $focusedInput))
         .navigationTitle(formTitle)
         .navigationBarTitleDisplayMode(.inline)
         .interactiveDismissDisabled()
@@ -780,90 +753,6 @@ struct PlantFormView: View {
             options: [.caseInsensitive, .diacriticInsensitive],
             locale: .current
         )
-    }
-}
-
-private extension View {
-    func plantFormInput(
-        _ input: PlantFormInput,
-        focus: FocusState<PlantFormInput?>.Binding
-    ) -> some View {
-        focused(focus, equals: input)
-    }
-}
-
-private struct PlantFormKeyboardDismissInstaller: UIViewRepresentable {
-    let focus: FocusState<PlantFormInput?>.Binding
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(focus: focus)
-    }
-
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: .zero)
-        view.isUserInteractionEnabled = false
-        return view
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {
-        context.coordinator.focus = focus
-        DispatchQueue.main.async {
-            context.coordinator.installIfNeeded(from: uiView)
-        }
-    }
-
-    static func dismantleUIView(_ uiView: UIView, coordinator: Coordinator) {
-        coordinator.uninstall()
-    }
-
-    final class Coordinator: NSObject, UIGestureRecognizerDelegate {
-        var focus: FocusState<PlantFormInput?>.Binding
-        private let tapGesture = UITapGestureRecognizer()
-
-        init(focus: FocusState<PlantFormInput?>.Binding) {
-            self.focus = focus
-            super.init()
-            tapGesture.addTarget(self, action: #selector(dismissKeyboard))
-            tapGesture.cancelsTouchesInView = false
-            tapGesture.delaysTouchesBegan = false
-            tapGesture.delaysTouchesEnded = false
-            tapGesture.delegate = self
-        }
-
-        func installIfNeeded(from view: UIView) {
-            guard let window = view.window, tapGesture.view !== window else { return }
-            uninstall()
-            window.addGestureRecognizer(tapGesture)
-        }
-
-        func uninstall() {
-            tapGesture.view?.removeGestureRecognizer(tapGesture)
-        }
-
-        @objc private func dismissKeyboard() {
-            focus.wrappedValue = nil
-        }
-
-        func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldReceive touch: UITouch
-        ) -> Bool {
-            var view = touch.view
-            while let currentView = view {
-                if currentView is UITextField || currentView is UITextView {
-                    return false
-                }
-                view = currentView.superview
-            }
-            return true
-        }
-
-        func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
-        ) -> Bool {
-            true
-        }
     }
 }
 

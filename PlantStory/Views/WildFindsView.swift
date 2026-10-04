@@ -5,14 +5,11 @@ struct WildFindsView: View {
     @State private var showingAddFind = false
     @State private var findToDelete: WildFind?
     @State private var searchText = ""
-    @State private var searchFieldFrame = CGRect.zero
-    @FocusState private var isSearchFieldFocused: Bool
 
     private let warmPaper = Color(red: 0.98, green: 0.83, blue: 0.59)
     private let paleSun = Color(red: 1.0, green: 0.91, blue: 0.73)
     private let ink = Color(red: 0.045, green: 0.16, blue: 0.19)
     private let botanical = Color(red: 0.08, green: 0.45, blue: 0.24)
-    private let collectionCoordinateSpace = "wildFindsContent"
     private let columns = [
         GridItem(.adaptive(minimum: 150, maximum: 220), spacing: 14, alignment: .top)
     ]
@@ -150,20 +147,6 @@ struct WildFindsView: View {
             .scrollIndicators(.hidden)
             .scrollDismissesKeyboard(.interactively)
         }
-        .coordinateSpace(name: collectionCoordinateSpace)
-        .onPreferenceChange(WildFindSearchFieldFramePreferenceKey.self) { frame in
-            searchFieldFrame = frame
-        }
-        .simultaneousGesture(
-            SpatialTapGesture(coordinateSpace: .named(collectionCoordinateSpace))
-                .onEnded { value in
-                    guard isSearchFieldFocused,
-                          !searchFieldFrame.contains(value.location) else {
-                        return
-                    }
-                    isSearchFieldFocused = false
-                }
-        )
     }
 
     private var collectionHeader: some View {
@@ -212,7 +195,6 @@ struct WildFindsView: View {
                 .autocorrectionDisabled()
                 .foregroundStyle(ink)
                 .tint(botanical)
-                .focused($isSearchFieldFocused)
 
             if !searchText.isEmpty {
                 Button { searchText = "" } label: {
@@ -229,16 +211,6 @@ struct WildFindsView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .stroke(.white.opacity(0.42), lineWidth: 1)
-        }
-        .background {
-            GeometryReader { proxy in
-                Color.clear
-                    .preference(
-                        key: WildFindSearchFieldFramePreferenceKey.self,
-                        value: proxy.frame(in: .named(collectionCoordinateSpace))
-                    )
-            }
-            .allowsHitTesting(false)
         }
     }
 
@@ -276,14 +248,6 @@ struct WildFindsView: View {
             paleSun: paleSun,
             botanical: botanical
         )
-    }
-}
-
-private struct WildFindSearchFieldFramePreferenceKey: PreferenceKey {
-    static var defaultValue = CGRect.zero
-
-    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
-        value = nextValue()
     }
 }
 

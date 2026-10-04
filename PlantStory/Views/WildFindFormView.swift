@@ -1,6 +1,5 @@
 import PhotosUI
 import SwiftUI
-import UIKit
 
 private enum WildFindFormAIAlert: Identifiable {
     case repeatRequest
@@ -14,15 +13,6 @@ private enum WildFindFormAIAlert: Identifiable {
             return "error-\(message)"
         }
     }
-}
-
-private enum WildFindFormInput: Hashable {
-    case name
-    case otherName
-    case species
-    case notes
-    case photoLocation(Int)
-    case photoNote(Int)
 }
 
 struct WildFindFormView: View {
@@ -48,8 +38,6 @@ struct WildFindFormView: View {
     @State private var hasGeneratedAISuggestion = false
     @State private var aiSuggestion: WildFindAISuggestion?
     @State private var aiAlert: WildFindFormAIAlert?
-    @FocusState private var focusedInput: WildFindFormInput?
-
     private let aiService = PlantAIService()
 
     init(find: WildFind? = nil) {
@@ -88,13 +76,10 @@ struct WildFindFormView: View {
             Section("Wild plant") {
                 TextField("Name", text: $name)
                     .textInputAutocapitalization(.words)
-                    .wildFindFormInput(.name, focus: $focusedInput)
                 TextField("Other name (optional)", text: $otherName)
                     .textInputAutocapitalization(.words)
-                    .wildFindFormInput(.otherName, focus: $focusedInput)
                 TextField("Species (optional)", text: $species)
                     .textInputAutocapitalization(.words)
-                    .wildFindFormInput(.species, focus: $focusedInput)
                 DatePicker(
                     "Discovered",
                     selection: $discoveredDate,
@@ -145,7 +130,6 @@ struct WildFindFormView: View {
             Section("Notes") {
                 TextField("Appearance, habitat, or observations…", text: $notes, axis: .vertical)
                     .lineLimit(4...9)
-                    .wildFindFormInput(.notes, focus: $focusedInput)
             }
 
             Section {
@@ -189,10 +173,6 @@ struct WildFindFormView: View {
 
                             TextField("Location for this sighting…", text: $photoLocations[index])
                                 .textInputAutocapitalization(.words)
-                                .wildFindFormInput(
-                                    .photoLocation(index),
-                                    focus: $focusedInput
-                                )
                         }
                         .padding(.horizontal, 12)
                         .padding(.vertical, 10)
@@ -203,10 +183,6 @@ struct WildFindFormView: View {
                             .padding(.horizontal, 12)
                             .padding(.vertical, 10)
                             .background(.secondary.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
-                            .wildFindFormInput(
-                                .photoNote(index),
-                                focus: $focusedInput
-                            )
                     }
                     .padding(.vertical, 6)
                     .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 12))
@@ -231,7 +207,6 @@ struct WildFindFormView: View {
             }
         }
         .scrollDismissesKeyboard(.interactively)
-        .background(WildFindFormKeyboardDismissInstaller(focus: $focusedInput))
         .navigationTitle(formTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -466,90 +441,6 @@ struct WildFindFormView: View {
         return value.isEmpty ? nil : value
     }
 
-}
-
-private extension View {
-    func wildFindFormInput(
-        _ input: WildFindFormInput,
-        focus: FocusState<WildFindFormInput?>.Binding
-    ) -> some View {
-        focused(focus, equals: input)
-    }
-}
-
-private struct WildFindFormKeyboardDismissInstaller: UIViewRepresentable {
-    let focus: FocusState<WildFindFormInput?>.Binding
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(focus: focus)
-    }
-
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: .zero)
-        view.isUserInteractionEnabled = false
-        return view
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {
-        context.coordinator.focus = focus
-        DispatchQueue.main.async {
-            context.coordinator.installIfNeeded(from: uiView)
-        }
-    }
-
-    static func dismantleUIView(_ uiView: UIView, coordinator: Coordinator) {
-        coordinator.uninstall()
-    }
-
-    final class Coordinator: NSObject, UIGestureRecognizerDelegate {
-        var focus: FocusState<WildFindFormInput?>.Binding
-        private let tapGesture = UITapGestureRecognizer()
-
-        init(focus: FocusState<WildFindFormInput?>.Binding) {
-            self.focus = focus
-            super.init()
-            tapGesture.addTarget(self, action: #selector(dismissKeyboard))
-            tapGesture.cancelsTouchesInView = false
-            tapGesture.delaysTouchesBegan = false
-            tapGesture.delaysTouchesEnded = false
-            tapGesture.delegate = self
-        }
-
-        func installIfNeeded(from view: UIView) {
-            guard let window = view.window, tapGesture.view !== window else { return }
-            uninstall()
-            window.addGestureRecognizer(tapGesture)
-        }
-
-        func uninstall() {
-            tapGesture.view?.removeGestureRecognizer(tapGesture)
-        }
-
-        @objc private func dismissKeyboard() {
-            focus.wrappedValue = nil
-        }
-
-        func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldReceive touch: UITouch
-        ) -> Bool {
-            var view = touch.view
-            while let currentView = view {
-                if currentView is UITextField || currentView is UITextView {
-                    return false
-                }
-                view = currentView.superview
-            }
-            return true
-        }
-
-        func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
-        ) -> Bool {
-            true
-        }
-    }
 }
 
 private struct WildFindAISuggestionReviewView: View {
