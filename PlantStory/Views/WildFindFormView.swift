@@ -33,6 +33,7 @@ struct WildFindFormView: View {
     @State private var photoNotes: [String]
     @State private var photoLocations: [String]
     @State private var selectedItems: [PhotosPickerItem] = []
+    @State private var isShowingCamera = false
     @State private var isLoadingPhotos = false
     @State private var isRequestingAISuggestion = false
     @State private var hasGeneratedAISuggestion = false
@@ -188,18 +189,40 @@ struct WildFindFormView: View {
                     .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 12))
                 }
 
-                PhotosPicker(
-                    selection: $selectedItems,
-                    maxSelectionCount: 8,
-                    matching: .images,
-                    preferredItemEncoding: .current
-                ) {
-                    Label(photoPickerTitle, systemImage: "photo.badge.plus")
+                HStack(spacing: 10) {
+                    PhotosPicker(
+                        selection: $selectedItems,
+                        maxSelectionCount: 8,
+                        matching: .images,
+                        preferredItemEncoding: .current
+                    ) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "photo.on.rectangle.angled")
+                            Text(photoPickerTitle)
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .disabled(isLoadingPhotos)
+                    .onChange(of: selectedItems) { _, items in
+                        Task { await importPhotos(from: items) }
+                    }
+
+                    Button {
+                        isShowingCamera = true
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "camera")
+                            Text("Take Photo")
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .disabled(isLoadingPhotos || !CameraPhotoPicker.isAvailable)
                 }
-                .disabled(isLoadingPhotos)
-                .onChange(of: selectedItems) { _, items in
-                    Task { await importPhotos(from: items) }
-                }
+                .controlSize(.small)
             } header: {
                 Text("Photos")
             } footer: {
@@ -209,6 +232,12 @@ struct WildFindFormView: View {
         .scrollDismissesKeyboard(.interactively)
         .navigationTitle(formTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .fullScreenCover(isPresented: $isShowingCamera) {
+            CameraPhotoPicker(isPresented: $isShowingCamera) { data in
+                Task { await importCameraPhoto(from: data) }
+            }
+            .ignoresSafeArea()
+        }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") { dismiss() }
@@ -258,7 +287,7 @@ struct WildFindFormView: View {
     }
 
     private var photoPickerTitle: LocalizedStringKey {
-        isLoadingPhotos ? "Adding photos…" : "Add photos"
+        isLoadingPhotos ? "Adding photos…" : "Photo Library"
     }
 
     private var normalizedOtherName: String? {
@@ -434,6 +463,22 @@ struct WildFindFormView: View {
             photoNotes.append("")
             photoLocations.append("")
         }
+    }
+
+    @MainActor
+    private func importCameraPhoto(from data: Data) async {
+        isLoadingPhotos = true
+        defer { isLoadingPhotos = false }
+
+        guard let resized = await PhotoFileStore.resizedJPEG(
+            from: data,
+            maxPixelSize: 1_800,
+            compressionQuality: 0.82
+        ) else { return }
+        photos.append(PlantPhotoAsset(data: resized))
+        photoDates.append(.now)
+        photoNotes.append("")
+        photoLocations.append("")
     }
 
     private var normalizedNotes: String? {

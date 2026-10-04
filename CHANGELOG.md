@@ -4,6 +4,10 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ## [1.12] - Unreleased
 
+### New features
+
+- Added direct controls to select multiple photos from the photo library or take a new photo with the camera when editing plants and Wild Finds.
+
 ### Bug fixes
 
 - Dismissed the keyboard consistently when tapping outside any text field or search box.

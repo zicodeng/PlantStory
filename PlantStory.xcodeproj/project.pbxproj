@@ -50,6 +50,7 @@
 		A10000000000000000000029 /* GitHubBackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000040 /* GitHubBackupService.swift */; };
 		A1000000000000000000002A /* PhotoStorageMigrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000041 /* PhotoStorageMigrationController.swift */; };
 		A1000000000000000000002B /* HardinessZonesGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000042 /* HardinessZonesGuideView.swift */; };
+		A1000000000000000000002C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000043 /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		B10000000000000000000040 /* GitHubBackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubBackupService.swift; sourceTree = "<group>"; };
 		B10000000000000000000041 /* PhotoStorageMigrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStorageMigrationController.swift; sourceTree = "<group>"; };
 		B10000000000000000000042 /* HardinessZonesGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardinessZonesGuideView.swift; sourceTree = "<group>"; };
+		B10000000000000000000043 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				D10000000000000000000005 /* Views */,
 				B10000000000000000000014 /* PlantStoryTips.storekit */,
 				B10000000000000000000015 /* Localizable.xcstrings */,
+				B10000000000000000000043 /* InfoPlist.xcstrings */,
 				B10000000000000000000008 /* Assets.xcassets */,
 				B10000000000000000000036 /* PlantStory.entitlements */,
 				B10000000000000000000037 /* Info.plist */,
@@ -362,6 +365,7 @@
 			files = (
 				A10000000000000000000008 /* Assets.xcassets in Resources */,
 				A10000000000000000000013 /* Localizable.xcstrings in Resources */,
+				A1000000000000000000002C /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

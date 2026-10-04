@@ -10250,6 +10250,16 @@
         }
       }
     },
+    "Photo Library" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片图库"
+          }
+        }
+      }
+    },
     "Photo optimization couldn’t be completed. Try again." : {
       "localizations" : {
         "zh-Hans" : {
@@ -12971,6 +12981,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "瑞士奶酪植物（Swiss cheese plant）"
+          }
+        }
+      }
+    },
+    "Take Photo" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拍照"
           }
         }
       }

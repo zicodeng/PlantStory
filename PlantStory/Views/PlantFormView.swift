@@ -39,6 +39,7 @@ struct PlantFormView: View {
     @State private var photoEventTags: [PlantPhotoEventTag?]
     @State private var photoCustomEventTitles: [String]
     @State private var selectedItems: [PhotosPickerItem] = []
+    @State private var isShowingCamera = false
     @State private var isLoadingPhotos = false
     @State private var isRequestingAISuggestion = false
     @State private var hasGeneratedAISuggestion = false
@@ -312,18 +313,40 @@ struct PlantFormView: View {
                     .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 12))
                 }
 
-                PhotosPicker(
-                    selection: $selectedItems,
-                    maxSelectionCount: 8,
-                    matching: .images,
-                    preferredItemEncoding: .current
-                ) {
-                    Label(photoPickerTitle, systemImage: "photo.badge.plus")
+                HStack(spacing: 10) {
+                    PhotosPicker(
+                        selection: $selectedItems,
+                        maxSelectionCount: 8,
+                        matching: .images,
+                        preferredItemEncoding: .current
+                    ) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "photo.on.rectangle.angled")
+                            Text(photoPickerTitle)
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .disabled(isLoadingPhotos)
+                    .onChange(of: selectedItems) { _, items in
+                        Task { await importPhotos(from: items) }
+                    }
+
+                    Button {
+                        isShowingCamera = true
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "camera")
+                            Text("Take Photo")
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .disabled(isLoadingPhotos || !CameraPhotoPicker.isAvailable)
                 }
-                .disabled(isLoadingPhotos)
-                .onChange(of: selectedItems) { _, items in
-                    Task { await importPhotos(from: items) }
-                }
+                .controlSize(.small)
             } header: {
                 Text("Photos")
             } footer: {
@@ -342,6 +365,12 @@ struct PlantFormView: View {
         .navigationTitle(formTitle)
         .navigationBarTitleDisplayMode(.inline)
         .interactiveDismissDisabled()
+        .fullScreenCover(isPresented: $isShowingCamera) {
+            CameraPhotoPicker(isPresented: $isShowingCamera) { data in
+                Task { await importCameraPhoto(from: data) }
+            }
+            .ignoresSafeArea()
+        }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") { dismiss() }
@@ -401,7 +430,7 @@ struct PlantFormView: View {
     }
 
     private var photoPickerTitle: LocalizedStringKey {
-        isLoadingPhotos ? "Adding photos…" : "Add photos"
+        isLoadingPhotos ? "Adding photos…" : "Photo Library"
     }
 
     private func openAISettings() {
@@ -687,6 +716,27 @@ struct PlantFormView: View {
             photoEventTags.append(nil)
             photoCustomEventTitles.append("")
         }
+    }
+
+    @MainActor
+    private func importCameraPhoto(from data: Data) async {
+        isLoadingPhotos = true
+        defer { isLoadingPhotos = false }
+
+        guard let resized = await PhotoFileStore.resizedJPEG(
+            from: data,
+            maxPixelSize: 1_800,
+            compressionQuality: 0.82
+        ) else { return }
+        let newPhotoIndex = photos.count
+        photos.append(PlantPhotoAsset(data: resized))
+        if cardPhotoIndex == nil {
+            cardPhotoIndex = newPhotoIndex
+        }
+        photoDates.append(.now)
+        photoNotes.append("")
+        photoEventTags.append(nil)
+        photoCustomEventTitles.append("")
     }
 
     private var normalizedPhotoNotes: [String] {
