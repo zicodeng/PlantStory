@@ -1249,28 +1249,9 @@ private struct GardenCarePlantRow: View {
     let waterBlue: Color
     let overdueRed: Color
 
-    @State private var cardPhoto: PlantPhotoAsset?
-
-    init(
-        schedule: GardenCareSchedule,
-        panel: Color,
-        lime: Color,
-        pruneColor: Color,
-        waterBlue: Color,
-        overdueRed: Color
-    ) {
-        self.schedule = schedule
-        self.panel = panel
-        self.lime = lime
-        self.pruneColor = pruneColor
-        self.waterBlue = waterBlue
-        self.overdueRed = overdueRed
-        _cardPhoto = State(initialValue: schedule.plant.photos.randomElement())
-    }
-
     var body: some View {
         HStack(spacing: 13) {
-            PlantPhoto(photo: cardPhoto, cornerRadius: 14)
+            PlantPhoto(photo: schedule.plant.gardenCardPhoto, cornerRadius: 14)
                 .frame(width: 66, height: 66)
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
 
@@ -1307,10 +1288,6 @@ private struct GardenCarePlantRow: View {
         .overlay {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .stroke(.white.opacity(0.07), lineWidth: 1)
-        }
-        .onChange(of: schedule.plant.photos) { _, photos in
-            if let cardPhoto, photos.contains(cardPhoto) { return }
-            cardPhoto = photos.randomElement()
         }
         .accessibilityElement(children: .combine)
         .accessibilityHint("Opens plant details")
