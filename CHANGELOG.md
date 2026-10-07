@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.13] - Unreleased
+
+### Bug fixes
+
+- Kept every app screen in its intended light appearance when the iPhone uses Dark Mode.
+
 ## [1.12] - 2026-10-06
 
 ### New features
