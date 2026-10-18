@@ -2,7 +2,7 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
-## [1.13] - Unreleased
+## [1.13] - 2026-10-18
 
 ### Bug fixes
 
