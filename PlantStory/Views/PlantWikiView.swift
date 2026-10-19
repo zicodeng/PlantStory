@@ -15,153 +15,159 @@ struct PlantWikiView: View {
                     VStack(alignment: .leading, spacing: 22) {
                         header
 
-                        Text("Explore guides")
-                            .font(.system(.title3, design: .serif, weight: .semibold))
-                            .foregroundStyle(.white)
+                        VStack(alignment: .leading, spacing: 30) {
+                            guideSection(title: "Everyday plant care") {
+                                NavigationLink {
+                                    LightMadeSimpleGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "Light Made Simple",
+                                        subtitle: "Understand indoor light, read plant signals, and find a better spot.",
+                                        icon: "sun.max.fill",
+                                        accent: Color(red: 1.00, green: 0.84, blue: 0.22)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the Light Made Simple guide")
 
-                        VStack(spacing: 14) {
-                            NavigationLink {
-                                PlantAnatomyLibraryView()
-                            } label: {
-                                guideRow(
-                                    title: "Plant anatomy",
-                                    subtitle: "Learn about roots, stems, leaves, and flowers.",
-                                    icon: "leaf.fill",
-                                    accent: lime
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the plant anatomy guides")
+                                NavigationLink {
+                                    WateringBasicsGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "Watering basics",
+                                        subtitle: "Learn when to water, how to check the pot, and what changes the schedule.",
+                                        icon: "drop.fill",
+                                        accent: Color(red: 0.32, green: 0.72, blue: 0.95)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the watering basics guide")
 
-                            NavigationLink {
-                                PlantProblemGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "Visual problem guide",
-                                    subtitle: "Understand symptoms and what to check first.",
-                                    icon: "magnifyingglass",
-                                    accent: coral
-                                )
+                                NavigationLink {
+                                    RootsRepottingGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "Roots & repotting",
+                                        subtitle: "Read root health, choose a pot, and repot with confidence.",
+                                        icon: "arrow.triangle.2.circlepath",
+                                        accent: Color(red: 0.78, green: 0.46, blue: 0.27)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the roots and repotting guide")
                             }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the visual plant problem guide")
 
-                            NavigationLink {
-                                LeafShapesPatternsView()
-                            } label: {
-                                guideRow(
-                                    title: "Leaf shapes & patterns",
-                                    subtitle: "Learn the clues that help describe and identify leaves.",
-                                    icon: "camera.macro",
-                                    accent: Color(red: 0.18, green: 0.76, blue: 0.78)
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the leaf shapes and patterns guide")
+                            guideSection(title: "Get to know your plants") {
+                                NavigationLink {
+                                    PlantAnatomyLibraryView()
+                                } label: {
+                                    guideRow(
+                                        title: "Plant anatomy",
+                                        subtitle: "Learn about roots, stems, leaves, and flowers.",
+                                        icon: "leaf.fill",
+                                        accent: lime
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the plant anatomy guides")
 
-                            NavigationLink {
-                                CommonPestsGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "Common pests",
-                                    subtitle: "Recognize common houseplant pests and learn what to check.",
-                                    icon: "ladybug.fill",
-                                    accent: Color(red: 0.96, green: 0.67, blue: 0.20)
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the common pests guide")
+                                NavigationLink {
+                                    LeafShapesPatternsView()
+                                } label: {
+                                    guideRow(
+                                        title: "Leaf shapes & patterns",
+                                        subtitle: "Learn the clues that help describe and identify leaves.",
+                                        icon: "camera.macro",
+                                        accent: Color(red: 0.18, green: 0.76, blue: 0.78)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the leaf shapes and patterns guide")
 
-                            NavigationLink {
-                                RootsRepottingGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "Roots & repotting",
-                                    subtitle: "Read root health, choose a pot, and repot with confidence.",
-                                    icon: "arrow.triangle.2.circlepath",
-                                    accent: Color(red: 0.78, green: 0.46, blue: 0.27)
-                                )
+                                NavigationLink {
+                                    PlantTaxonomyGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "Plant Families & Taxonomy",
+                                        subtitle: "Explore major plant groups and learn how scientific names fit together.",
+                                        icon: "tree.fill",
+                                        accent: Color(red: 0.69, green: 0.45, blue: 0.90)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the plant families and taxonomy guide")
                             }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the roots and repotting guide")
 
-                            NavigationLink {
-                                WateringBasicsGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "Watering basics",
-                                    subtitle: "Learn when to water, how to check the pot, and what changes the schedule.",
-                                    icon: "drop.fill",
-                                    accent: Color(red: 0.32, green: 0.72, blue: 0.95)
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the watering basics guide")
+                            guideSection(title: "Growth & new plants") {
+                                NavigationLink {
+                                    NewGrowthLifeStagesGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "New Growth & Life Stages",
+                                        subtitle: "Follow a leaf from growth point to maturity and learn which changes are normal.",
+                                        icon: "sparkles",
+                                        accent: Color(red: 0.93, green: 0.46, blue: 0.68)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the new growth and life stages guide")
 
-                            NavigationLink {
-                                HardinessZonesGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "U.S. Hardiness Zones",
-                                    subtitle: "See how winter lows shape outdoor perennial planting across the United States.",
-                                    icon: "map.fill",
-                                    accent: Color(red: 0.43, green: 0.55, blue: 0.94)
-                                )
+                                NavigationLink {
+                                    PropagationBasicsGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "Propagation Basics",
+                                        subtitle: "Choose the right method, start a healthy cutting, and care for new roots.",
+                                        icon: "point.3.connected.trianglepath.dotted",
+                                        accent: Color(red: 0.43, green: 0.55, blue: 0.94)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the propagation basics guide")
                             }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the U.S. hardiness zone guide")
 
-                            NavigationLink {
-                                LightMadeSimpleGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "Light Made Simple",
-                                    subtitle: "Understand indoor light, read plant signals, and find a better spot.",
-                                    icon: "sun.max.fill",
-                                    accent: Color(red: 1.00, green: 0.84, blue: 0.22)
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the Light Made Simple guide")
+                            guideSection(title: "When something looks wrong") {
+                                NavigationLink {
+                                    PlantProblemGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "Visual problem guide",
+                                        subtitle: "Understand symptoms and what to check first.",
+                                        icon: "magnifyingglass",
+                                        accent: coral
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the visual plant problem guide")
 
-                            NavigationLink {
-                                NewGrowthLifeStagesGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "New Growth & Life Stages",
-                                    subtitle: "Follow a leaf from growth point to maturity and learn which changes are normal.",
-                                    icon: "sparkles",
-                                    accent: Color(red: 0.93, green: 0.46, blue: 0.68)
-                                )
+                                NavigationLink {
+                                    CommonPestsGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "Common pests",
+                                        subtitle: "Recognize common houseplant pests and learn what to check.",
+                                        icon: "ladybug.fill",
+                                        accent: Color(red: 0.96, green: 0.67, blue: 0.20)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the common pests guide")
                             }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the new growth and life stages guide")
 
-                            NavigationLink {
-                                PropagationBasicsGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "Propagation Basics",
-                                    subtitle: "Choose the right method, start a healthy cutting, and care for new roots.",
-                                    icon: "point.3.connected.trianglepath.dotted",
-                                    accent: Color(red: 0.43, green: 0.55, blue: 0.94)
-                                )
+                            guideSection(title: "Growing outdoors") {
+                                NavigationLink {
+                                    HardinessZonesGuideView()
+                                } label: {
+                                    guideRow(
+                                        title: "U.S. Hardiness Zones",
+                                        subtitle: "See how winter lows shape outdoor perennial planting across the United States.",
+                                        icon: "map.fill",
+                                        accent: Color(red: 0.43, green: 0.55, blue: 0.94)
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityHint("Opens the U.S. hardiness zone guide")
                             }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the propagation basics guide")
-
-                            NavigationLink {
-                                PlantTaxonomyGuideView()
-                            } label: {
-                                guideRow(
-                                    title: "Plant Families & Taxonomy",
-                                    subtitle: "Explore major plant groups and learn how scientific names fit together.",
-                                    icon: "tree.fill",
-                                    accent: Color(red: 0.69, green: 0.45, blue: 0.90)
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("Opens the plant families and taxonomy guide")
                         }
                     }
                     .padding(.horizontal, 18)
@@ -189,6 +195,23 @@ struct PlantWikiView: View {
                 .font(.body)
                 .foregroundStyle(.white.opacity(0.72))
                 .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    private func guideSection<Content: View>(
+        title: LocalizedStringKey,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text(title)
+                .font(.system(.title3, design: .serif, weight: .semibold))
+                .foregroundStyle(.white)
+                .fixedSize(horizontal: false, vertical: true)
+                .accessibilityAddTraits(.isHeader)
+
+            VStack(spacing: 14) {
+                content()
+            }
         }
     }
 

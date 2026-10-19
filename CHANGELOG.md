@@ -6,6 +6,7 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ### New features
 
+- Grouped Plant Wiki guides into everyday care, getting to know plants, growth and propagation, troubleshooting, and outdoor growing, with everyday care first.
 - Replaced simplified pronunciation spellings with American English IPA in Plant Anatomy.
 - Added IPA pronunciation beneath every scientific family name on the Plant Families & Taxonomy family detail pages.
 
