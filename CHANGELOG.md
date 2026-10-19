@@ -4,6 +4,11 @@ All notable user-facing changes to PlantStory are recorded here under **New feat
 
 ## [1.14] - Unreleased
 
+### New features
+
+- Replaced simplified pronunciation spellings with American English IPA in Plant Anatomy.
+- Added IPA pronunciation beneath every scientific family name on the Plant Families & Taxonomy family detail pages.
+
 ### Bug fixes
 
 - Limited timeline photo taps to the visible image in My Garden and Wild Finds, so tapping nearby no longer opens the full-screen photo.

@@ -381,6 +381,7 @@ private enum AnatomyLesson: String, CaseIterable, Identifiable {
 private struct AnatomyPart: Identifiable {
     let id: String
     let titleKey: String
+    // Verified English IPA and source conventions: see PRONUNCIATION.md.
     let pronunciationKey: String?
     let functionKey: String
     let spottingKey: String
@@ -422,7 +423,7 @@ private extension AnatomyPart {
     static let internode = AnatomyPart(
         id: "internode",
         titleKey: "Internode",
-        pronunciationKey: "IN-ter-nohd",
+        pronunciationKey: "/ˈɪntɚˌnoʊd/",
         functionKey: "The internode is the stretch of stem between two neighboring nodes.",
         spottingKey: "Trace the bare section of stem between two leaf attachment points.",
         importanceKey: "Unusually long internodes can be a clue that a plant needs more light.",
@@ -442,7 +443,7 @@ private extension AnatomyPart {
     static let petiole = AnatomyPart(
         id: "petiole",
         titleKey: "Petiole",
-        pronunciationKey: "PET-ee-ohl",
+        pronunciationKey: "/ˈpɛtiˌoʊl/",
         functionKey: "The petiole is the small stalk that connects a leaf blade to the stem.",
         spottingKey: "Follow a leaf inward until its narrow stalk reaches the main stem.",
         importanceKey: "Knowing the petiole helps you prune a leaf without mistaking it for the main stem.",
@@ -492,7 +493,7 @@ private extension AnatomyPart {
     static let lateralRoot = AnatomyPart(
         id: "lateral-root",
         titleKey: "Lateral root",
-        pronunciationKey: "LAT-er-uhl root",
+        pronunciationKey: "/ˈlætɚəl ruːt/",
         functionKey: "Lateral roots branch from larger roots, expanding the area where the plant can find water and minerals.",
         spottingKey: "Look for medium-sized roots growing sideways from a thicker structural root.",
         importanceKey: "Healthy branching gives the plant more access to moisture while helping hold it securely in the pot.",
@@ -532,7 +533,7 @@ private extension AnatomyPart {
     static let axillaryBud = AnatomyPart(
         id: "axillary-bud",
         titleKey: "Axillary bud",
-        pronunciationKey: "AK-suh-lair-ee bud",
+        pronunciationKey: "/ˈæksəˌlɛri bʌd/",
         functionKey: "An axillary bud is a small growth point that can develop into a side shoot or, in some plants, a flower.",
         spottingKey: "Look just above the place where a petiole meets the stem at a node.",
         importanceKey: "After the main tip is pruned, a healthy axillary bud may begin growing and make the plant branch.",
@@ -542,7 +543,7 @@ private extension AnatomyPart {
     static let aerialRoot = AnatomyPart(
         id: "aerial-root",
         titleKey: "Aerial root",
-        pronunciationKey: "AIR-ee-uhl root",
+        pronunciationKey: "/ˈɛriəl ruːt/",
         functionKey: "An aerial root grows from an above-ground stem and may help a climbing plant attach to support.",
         spottingKey: "Look for a firm green or brown nub emerging from a node, often opposite a leaf.",
         importanceKey: "Guide longer aerial roots toward a support or potting mix when helpful. They are normal growth, not a pest.",
@@ -582,7 +583,7 @@ private extension AnatomyPart {
     static let midrib = AnatomyPart(
         id: "midrib",
         titleKey: "Midrib",
-        pronunciationKey: "MID-rib",
+        pronunciationKey: "/ˈmɪdˌrɪb/",
         functionKey: "The midrib is the main central vein that supports the blade and moves materials through it.",
         spottingKey: "Look for the thick line running from the petiole toward the leaf tip.",
         importanceKey: "A damaged midrib can interrupt support and transport to a large part of the leaf.",
@@ -602,7 +603,7 @@ private extension AnatomyPart {
     static let margin = AnatomyPart(
         id: "margin",
         titleKey: "Leaf margin",
-        pronunciationKey: "MAR-jin",
+        pronunciationKey: "/ˈmɑrdʒɪn/",
         functionKey: "The margin is the outer edge that defines the shape of the leaf blade.",
         spottingKey: "Trace the complete outside border of the leaf from its base to its tip.",
         importanceKey: "Smooth, toothed, or wavy margins are useful clues when identifying a plant.",
@@ -622,7 +623,7 @@ private extension AnatomyPart {
     static let petal = AnatomyPart(
         id: "petal",
         titleKey: "Petal",
-        pronunciationKey: "PET-uhl",
+        pronunciationKey: "/ˈpɛtəl/",
         functionKey: "Petals surround a flower's center and often help attract pollinators.",
         spottingKey: "Look for the broad, often colorful structures that open as the flower blooms.",
         importanceKey: "Petals are different from sepals, which protect the flower before it opens.",
@@ -632,7 +633,7 @@ private extension AnatomyPart {
     static let sepal = AnatomyPart(
         id: "sepal",
         titleKey: "Sepal",
-        pronunciationKey: "SEE-puhl",
+        pronunciationKey: "/ˈsiːpəl/",
         functionKey: "Sepals protect the developing flower bud before the petals open.",
         spottingKey: "Find the small green, leaflike structures directly behind or beneath the petals.",
         importanceKey: "Sepals can look like leaves, but their position beneath the flower identifies them.",
@@ -642,7 +643,7 @@ private extension AnatomyPart {
     static let stamen = AnatomyPart(
         id: "stamen",
         titleKey: "Stamen",
-        pronunciationKey: "STAY-men",
+        pronunciationKey: "/ˈsteɪmən/",
         functionKey: "The stamen is the pollen-producing structure made of a filament and an anther.",
         spottingKey: "Look for several slender stalks arranged around the central pistil.",
         importanceKey: "Recognizing stamens helps explain where pollen comes from during flowering.",
@@ -652,7 +653,7 @@ private extension AnatomyPart {
     static let anther = AnatomyPart(
         id: "anther",
         titleKey: "Anther",
-        pronunciationKey: "AN-thur",
+        pronunciationKey: "/ˈænθɚ/",
         functionKey: "The anther is the pollen-bearing tip of a stamen.",
         spottingKey: "Find the yellow or dusty-looking shape at the end of each slender filament.",
         importanceKey: "Loose pollen near anthers is usually a normal part of flowering, not a pest.",
@@ -662,7 +663,7 @@ private extension AnatomyPart {
     static let stigma = AnatomyPart(
         id: "stigma",
         titleKey: "Stigma",
-        pronunciationKey: "STIG-muh",
+        pronunciationKey: "/ˈstɪɡmə/",
         functionKey: "The stigma is the receptive tip of the pistil where pollen can land.",
         spottingKey: "Look at the top of the central structure, often above the surrounding anthers.",
         importanceKey: "A receptive stigma allows pollination to begin when compatible pollen reaches it.",
@@ -682,7 +683,7 @@ private extension AnatomyPart {
     static let ovary = AnatomyPart(
         id: "ovary",
         titleKey: "Ovary",
-        pronunciationKey: "OH-vuh-ree",
+        pronunciationKey: "/ˈoʊvəri/",
         functionKey: "The ovary is the swollen flower structure that holds one or more ovules.",
         spottingKey: "Find it at the base of the pistil, below the style and stigma.",
         importanceKey: "After successful pollination, the ovary of many plants develops into a fruit.",
@@ -692,7 +693,7 @@ private extension AnatomyPart {
     static let ovule = AnatomyPart(
         id: "ovule",
         titleKey: "Ovule",
-        pronunciationKey: "OV-yool",
+        pronunciationKey: "/ˈɑːvjuːl/",
         functionKey: "An ovule is a small structure inside the ovary that can develop into a seed.",
         spottingKey: "In a cutaway flower, ovules appear as small pale shapes inside the ovary.",
         importanceKey: "Each fertilized ovule may become a seed that can grow into a new plant.",
@@ -902,7 +903,7 @@ private struct AnatomyPartSheet: View {
                             .font(.system(.largeTitle, design: .serif, weight: .semibold))
 
                         if showsPronunciation, let pronunciationKey = part.pronunciationKey {
-                            Text(pronunciationKey)
+                            Text(LocalizedStringKey(pronunciationKey))
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }

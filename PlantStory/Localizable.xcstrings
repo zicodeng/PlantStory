@@ -1,6 +1,438 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "/əˈreɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Araceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/əˈreɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/əˈreɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/æsˌpærəˈɡeɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Asparagaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/æsˌpærəˈɡeɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/æsˌpærəˈɡeɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/məˈreɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Moraceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/məˈreɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/məˈreɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/ˌmærənˈteɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Marantaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌmærənˈteɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌmærənˈteɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/ˌpɪpəˈreɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Piperaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌpɪpəˈreɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌpɪpəˈreɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/ˌɝtəˈkeɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Urticaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌɝtəˈkeɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌɝtəˈkeɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/bɪˌɡoʊniˈeɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Begoniaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/bɪˌɡoʊniˈeɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/bɪˌɡoʊniˈeɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/ˌkræsjuˈleɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Crassulaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌkræsjuˈleɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌkræsjuˈleɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/kækˈteɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Cactaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/kækˈteɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/kækˈteɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/ˌærɪˈkeɪsiˌi/" : {
+      "comment" : "English IPA pronunciation of the scientific family name Arecaceae. Keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌærɪˈkeɪsiˌi/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˌærɪˈkeɪsiˌi/"
+          }
+        }
+      }
+    },
+    "/ˈlætɚəl ruːt/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈlætɚəl ruːt/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈlætɚəl ruːt/"
+          }
+        }
+      }
+    },
+    "/ˈmɑrdʒɪn/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈmɑrdʒɪn/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈmɑrdʒɪn/"
+          }
+        }
+      }
+    },
+    "/ˈmɪdˌrɪb/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈmɪdˌrɪb/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈmɪdˌrɪb/"
+          }
+        }
+      }
+    },
+    "/ˈoʊvəri/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈoʊvəri/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈoʊvəri/"
+          }
+        }
+      }
+    },
+    "/ˈpɛtiˌoʊl/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈpɛtiˌoʊl/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈpɛtiˌoʊl/"
+          }
+        }
+      }
+    },
+    "/ˈpɛtəl/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈpɛtəl/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈpɛtəl/"
+          }
+        }
+      }
+    },
+    "/ˈsiːpəl/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈsiːpəl/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈsiːpəl/"
+          }
+        }
+      }
+    },
+    "/ˈsteɪmən/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈsteɪmən/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈsteɪmən/"
+          }
+        }
+      }
+    },
+    "/ˈstɪɡmə/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈstɪɡmə/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈstɪɡmə/"
+          }
+        }
+      }
+    },
+    "/ˈæksəˌlɛri bʌd/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈæksəˌlɛri bʌd/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈæksəˌlɛri bʌd/"
+          }
+        }
+      }
+    },
+    "/ˈænθɚ/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈænθɚ/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈænθɚ/"
+          }
+        }
+      }
+    },
+    "/ˈɑːvjuːl/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈɑːvjuːl/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈɑːvjuːl/"
+          }
+        }
+      }
+    },
+    "/ˈɛriəl ruːt/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈɛriəl ruːt/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈɛriəl ruːt/"
+          }
+        }
+      }
+    },
+    "/ˈɪntɚˌnoʊd/" : {
+      "comment" : "American English IPA for a plant anatomy term. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈɪntɚˌnoʊd/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈɪntɚˌnoʊd/"
+          }
+        }
+      }
+    },
     "" : {
 
     },

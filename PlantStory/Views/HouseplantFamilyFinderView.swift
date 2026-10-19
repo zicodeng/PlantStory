@@ -389,6 +389,9 @@ private struct HouseplantFamilyDetailView: View {
                         Text(verbatim: family.latinName)
                             .font(.system(.largeTitle, design: .serif, weight: .semibold))
                             .foregroundStyle(ink)
+                        Text(LocalizedStringKey(family.pronunciationKey))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
                     }
 
                     FamilyTaxonomyBranch(family: family)
@@ -603,6 +606,23 @@ private enum HouseplantFamily: String, CaseIterable, Identifiable {
         case .crassulaceae: "Crassulaceae"
         case .cactaceae: "Cactaceae"
         case .arecaceae: "Arecaceae"
+        }
+    }
+
+    // Verified English botanical pronunciations transcribed to IPA.
+    // Sources, including the two Ray Angelo guide entries: PRONUNCIATION.md.
+    var pronunciationKey: String {
+        switch self {
+        case .araceae: "/əˈreɪsiˌi/"
+        case .asparagaceae: "/æsˌpærəˈɡeɪsiˌi/"
+        case .moraceae: "/məˈreɪsiˌi/"
+        case .marantaceae: "/ˌmærənˈteɪsiˌi/"
+        case .piperaceae: "/ˌpɪpəˈreɪsiˌi/"
+        case .urticaceae: "/ˌɝtəˈkeɪsiˌi/"
+        case .begoniaceae: "/bɪˌɡoʊniˈeɪsiˌi/"
+        case .crassulaceae: "/ˌkræsjuˈleɪsiˌi/"
+        case .cactaceae: "/kækˈteɪsiˌi/"
+        case .arecaceae: "/ˌærɪˈkeɪsiˌi/"
         }
     }
 
