@@ -343,6 +343,7 @@ struct PlantDetailView: View {
                             .frame(maxWidth: .infinity)
                             .frame(height: 176)
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel("View photo full screen")

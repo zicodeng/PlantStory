@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.14] - Unreleased
+
+### Bug fixes
+
+- Limited timeline photo taps to the visible image in My Garden and Wild Finds, so tapping nearby no longer opens the full-screen photo.
+
 ## [1.13] - 2026-10-18
 
 ### Bug fixes
