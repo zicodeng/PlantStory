@@ -8,6 +8,9 @@ enum WateringReminderText {
         _ reminder: WateringReminder,
         season: WateringSeason = .active
     ) -> String {
+        guard reminder.isEnabled(for: season) else {
+            return AppLocalization.string("%@ · Reminders off", season.localizedTitle)
+        }
         let time = timeString(hour: reminder.hour, minute: reminder.minute)
         let interval = reminder.effectiveIntervalDays(for: season)
         let timing: String
@@ -156,7 +159,7 @@ final class WateringReminderService {
         }
 
         let activePlants = plants.filter {
-            $0.wateringReminder != nil && !$0.isDeceased
+            $0.wateringReminder?.isEnabled(for: activeSeason) == true && !$0.isDeceased
         }
         let scheduledPlants = Array(
             activePlants

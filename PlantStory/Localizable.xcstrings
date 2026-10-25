@@ -1,6 +1,74 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Off (0 days)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off (0 days)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已关闭（0天）"
+          }
+        }
+      }
+    },
+    "%@ watering interval" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ watering interval"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@浇水间隔"
+          }
+        }
+      }
+    },
+    "%@ · Reminders off" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · Reminders off"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@·提醒已关闭"
+          }
+        }
+      }
+    },
+    "Set a season to 0 days to turn off watering reminders for that season. The active season is shared by every plant. Change it in Settings under Watering Reminders." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set a season to 0 days to turn off watering reminders for that season. The active season is shared by every plant. Change it in Settings under Watering Reminders."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将某个季节的间隔设为0天，即可关闭该季节的浇水提醒。所有植物共用当前季节，可在“设置”的“浇水提醒”中更改。"
+          }
+        }
+      }
+    },
     "Everyday plant care" : {
       "extractionState" : "manual",
       "localizations" : {

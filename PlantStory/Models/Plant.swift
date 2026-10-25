@@ -70,6 +70,9 @@ struct SeasonalWateringIntervals: Codable, Equatable {
     var summer: Int
     var fall: Int
     var winter: Int
+    func isEnabled(for season: WateringSeason) -> Bool {
+        self[season] > 0
+    }
 
     init(defaultInterval: Int) {
         spring = defaultInterval
@@ -130,6 +133,10 @@ struct WateringReminder: Codable, Equatable {
 
     var usesSeasonalSchedule: Bool {
         seasonalIntervals != nil
+    }
+
+    func isEnabled(for season: WateringSeason = .active) -> Bool {
+        seasonalIntervals?.isEnabled(for: season) ?? true
     }
 }
 
@@ -296,7 +303,8 @@ struct Plant: Identifiable, Codable, Equatable {
         calendar: Calendar = .current,
         season: WateringSeason = .active
     ) -> Date? {
-        guard let reminder = wateringReminder, !isDeceased else { return nil }
+        guard let reminder = wateringReminder, !isDeceased,
+              reminder.isEnabled(for: season) else { return nil }
 
         if let snoozedUntil = reminder.snoozedUntil, snoozedUntil > now {
             return snoozedUntil

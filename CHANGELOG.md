@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.15] - Unreleased
+
+### New features
+
+- Set a seasonal watering interval to 0 days to turn off reminders and due indicators for that season.
+
 ## [1.14] - 2026-10-19
 
 ### New features

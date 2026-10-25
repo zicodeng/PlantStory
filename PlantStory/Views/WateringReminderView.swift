@@ -64,7 +64,7 @@ struct WateringReminderEditorView: View {
                         }
 
                         ForEach(WateringSeason.allCases) { season in
-                            Stepper(value: intervalBinding(for: season), in: 1...90) {
+                            Stepper(value: intervalBinding(for: season), in: 0...90) {
                                 HStack {
                                     HStack(spacing: 6) {
                                         Image(systemName: season.icon)
@@ -84,11 +84,12 @@ struct WateringReminderEditorView: View {
                                         )
                                 }
                             }
+                            .accessibilityLabel(AppLocalization.string("%@ watering interval", season.localizedTitle))
                         }
                     } header: {
                         Text("Seasonal watering intervals")
                     } footer: {
-                        Text("The active season is shared by every plant. Change it in Settings under Watering Reminders.")
+                        Text("Set a season to 0 days to turn off watering reminders for that season. The active season is shared by every plant. Change it in Settings under Watering Reminders.")
                     }
                 } else {
                     Section("Check-in interval") {
@@ -167,7 +168,8 @@ struct WateringReminderEditorView: View {
     }
 
     private func intervalText(_ days: Int) -> String {
-        days == 1
+        if days == 0 { return AppLocalization.string("Off (0 days)") }
+        return days == 1
             ? AppLocalization.string("Every day")
             : AppLocalization.string("Every %lld days", Int64(days))
     }
