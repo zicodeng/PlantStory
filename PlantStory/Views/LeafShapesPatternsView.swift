@@ -309,16 +309,17 @@ private enum LeafGuideItem: String, Identifiable {
         }
     }
 
+    // Broad American English IPA; sources and conventions: PRONUNCIATION.md.
     var pronunciationKey: String? {
         switch self {
-        case .elliptic: "ih-LIP-tik"
-        case .cordate: "KOR-dayt"
-        case .lanceolate: "LAN-see-uh-layt"
-        case .lobed: "lohb'd"
-        case .variegated: "VAIR-ee-uh-gay-tid"
+        case .elliptic: "/ɪˈlɪptɪk/"
+        case .cordate: "/ˈkɔrˌdeɪt/"
+        case .lanceolate: "/ˈlænsiəˌleɪt/"
+        case .lobed: "/loʊbd/"
+        case .variegated: "/ˈvɛriəˌɡeɪtəd/"
         case .spotted: nil
-        case .fenestrated: "FEN-uh-stray-tid"
-        case .serrated: "SAIR-ay-tid"
+        case .fenestrated: "/ˈfɛnəˌstreɪtəd/"
+        case .serrated: "/ˈsɛrˌeɪtəd/"
         }
     }
 

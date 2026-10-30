@@ -2,6 +2,12 @@
 
 All notable user-facing changes to PlantStory are recorded here under **New features** and **Bug fixes**. These entries can also be used to prepare App Store “What’s New” notes.
 
+## [1.16] - Unreleased
+
+### Bug fixes
+
+- Standardized pronunciation labels in Leaf Shapes & Patterns to American English IPA, matching Plant Anatomy and Plant Families.
+
 ## [1.15] - 2026-10-27
 
 ### New features

@@ -1,6 +1,132 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "/ɪˈlɪptɪk/" : {
+      "comment" : "American English IPA for a leaf shape or feature. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ɪˈlɪptɪk/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ɪˈlɪptɪk/"
+          }
+        }
+      }
+    },
+    "/ˈkɔrˌdeɪt/" : {
+      "comment" : "American English IPA for a leaf shape or feature. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈkɔrˌdeɪt/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈkɔrˌdeɪt/"
+          }
+        }
+      }
+    },
+    "/ˈlænsiəˌleɪt/" : {
+      "comment" : "American English IPA for a leaf shape or feature. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈlænsiəˌleɪt/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈlænsiəˌleɪt/"
+          }
+        }
+      }
+    },
+    "/loʊbd/" : {
+      "comment" : "American English IPA for a leaf shape or feature. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/loʊbd/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/loʊbd/"
+          }
+        }
+      }
+    },
+    "/ˈvɛriəˌɡeɪtəd/" : {
+      "comment" : "American English IPA for a leaf shape or feature. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈvɛriəˌɡeɪtəd/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈvɛriəˌɡeɪtəd/"
+          }
+        }
+      }
+    },
+    "/ˈfɛnəˌstreɪtəd/" : {
+      "comment" : "American English IPA for a leaf shape or feature. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈfɛnəˌstreɪtəd/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈfɛnəˌstreɪtəd/"
+          }
+        }
+      }
+    },
+    "/ˈsɛrˌeɪtəd/" : {
+      "comment" : "American English IPA for a leaf shape or feature. Pronunciation is shown only in English; keep IPA unchanged in translations.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈsɛrˌeɪtəd/"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/ˈsɛrˌeɪtəd/"
+          }
+        }
+      }
+    },
     "Off (0 days)" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -1,6 +1,7 @@
 # Pronunciation sources
 
-Verified 2026-10-18. These are English pronunciations of botanical terms and
+Anatomy and family sources checked 2026-10-18; leaf shape and feature sources
+checked 2026-10-29. These are English pronunciations of botanical terms and
 scientific family names, using broad American English IPA. They are not claims
 about reconstructed Latin pronunciation or the only accepted way to say a name.
 
@@ -64,3 +65,29 @@ The guide gives Asparagaceae as `as-PAR-u-GÂ-sê-ê` and Crassulaceae as
 `kras-û-LÂ-sê-ê`; the table transcribes these English respellings to IPA.
 Secondary stress in family names is retained where Merriam-Webster marks it;
 for the two guide entries it is supplied as part of the broad IPA transcription.
+
+## Leaf shapes and features
+
+All seven former respellings now use the same broad American English IPA
+conventions as the anatomy and family guides. Merriam-Webster entries were
+opened and their own pronunciation notation manually transcribed to IPA; the
+source does not publish IPA. Optional /t/ in lanceolate is omitted. Variegated
+uses the four-syllable variant. Final unstressed `-təd` is rendered /təd/, with
+broad /t/ rather than the American flap. Lobed is monosyllabic, so no stress mark
+is needed. Serrated is formed from the dictionary's first adjective pronunciation
+of serrate plus /əd/; that URL redirects to serrate rather than providing a
+separate serrated pronunciation.
+
+| Label | App IPA | Source |
+| --- | --- | --- |
+| Elliptic | /ɪˈlɪptɪk/ | [Merriam-Webster](https://www.merriam-webster.com/dictionary/elliptic) |
+| Cordate | /ˈkɔrˌdeɪt/ | [Merriam-Webster](https://www.merriam-webster.com/dictionary/cordate) |
+| Lanceolate | /ˈlænsiəˌleɪt/ | [Merriam-Webster](https://www.merriam-webster.com/dictionary/lanceolate) |
+| Lobed | /loʊbd/ | [Merriam-Webster](https://www.merriam-webster.com/dictionary/lobed) |
+| Variegated | /ˈvɛriəˌɡeɪtəd/ | [Merriam-Webster](https://www.merriam-webster.com/dictionary/variegated) |
+| Fenestrated | /ˈfɛnəˌstreɪtəd/ | [Merriam-Webster](https://www.merriam-webster.com/dictionary/fenestrated) |
+| Serrated edge | /ˈsɛrˌeɪtəd/ | [Merriam-Webster serrate](https://www.merriam-webster.com/dictionary/serrate) |
+
+The pronunciation covers the botanical term in a label (for example, serrated
+in Serrated edge and margin in Leaf margin). Existing terms without a
+pronunciation label remain without one.
